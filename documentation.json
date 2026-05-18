@@ -101,11 +101,6 @@
                 "group": "AI Writer",
                 "pages": [
                   {
-                    "title": "Overview",
-                    "path": "ai-writer/overview",
-                    "icon": "file-text"
-                  },
-                  {
                     "title": "Understanding Interface",
                     "path": "ai-writer/understanding-interface",
                     "icon": "layout"
@@ -126,7 +121,8 @@
                     "icon": "bookmark"
                   }
                 ],
-                "icon": "edit3"
+                "icon": "file-edit",
+                "path": "ai-writer"
               },
               {
                 "group": "My References",
