@@ -101,14 +101,14 @@
                 "group": "AI Writer",
                 "pages": [
                   {
-                    "title": "Understanding Interface",
-                    "path": "ai-writer/understanding-interface",
-                    "icon": "layout"
-                  },
-                  {
                     "title": "Generate Document",
                     "path": "ai-writer/generate-document",
                     "icon": "file"
+                  },
+                  {
+                    "title": "Understanding Interface",
+                    "path": "ai-writer/understanding-interface",
+                    "icon": "layout"
                   },
                   {
                     "title": "Ask AI",
