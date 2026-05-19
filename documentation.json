@@ -103,22 +103,12 @@
                   {
                     "title": "Generate Document",
                     "path": "ai-writer/generate-document",
-                    "icon": "file"
+                    "icon": "atom"
                   },
                   {
-                    "title": "Understanding Interface",
-                    "path": "ai-writer/understanding-interface",
-                    "icon": "layout"
-                  },
-                  {
-                    "title": "Ask AI",
-                    "path": "ai-writer/ask-ai",
-                    "icon": "lightbulb"
-                  },
-                  {
-                    "title": "Citations & References",
-                    "path": "ai-writer/citations-references",
-                    "icon": "bookmark"
+                    "title": "AI Edit & Smart Continue",
+                    "path": "ai-writer/ai-writing-features",
+                    "icon": "edit3"
                   }
                 ],
                 "icon": "file-edit",
