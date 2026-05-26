@@ -68,9 +68,13 @@ Maximum number of requests your plan allows per minute.
 
 A `monthly_quota` value of `-1` means your plan does not have a monthly quota limit.
 
+For Enterprise, usage is billed based on how many API calls you make instead of a fixed monthly quota. Contact us for Enterprise access. Enterprise billing is `$0.01` per API call.
+
 ## How usage relates to rate limits and quotas
 
 Your plan sets two limits: a monthly quota and a per-minute request limit. If you go over either limit, the API returns `429 Too Many Requests`.
+
+For Enterprise, usage reflects pay-per-call billing instead of a fixed monthly quota. Enterprise also supports up to 50 papers per request.
 
 ## Error responses
 
