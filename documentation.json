@@ -408,6 +408,27 @@
           }
         ],
         "tab": "Changelog"
+      },
+      {
+        "pages": [
+          {
+            "title": "API Overview",
+            "path": "api",
+            "icon": "code"
+          },
+          {
+            "title": "Search Papers",
+            "path": "api-search",
+            "icon": "search"
+          },
+          {
+            "title": "Check Usage",
+            "path": "api-usage",
+            "icon": "bar-chart"
+          }
+        ],
+        "tab": "API",
+        "path": "api"
       }
     ]
   },

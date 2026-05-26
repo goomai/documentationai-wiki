@@ -1,0 +1,76 @@
+---
+title: API Overview
+description: Paperguide API overview for searching research papers and checking usage limits in your app or workflow.
+---
+## Overview
+
+Use the Paperguide API to search academic papers and check how many API calls your account has used.
+
+## Base URL
+
+Send all requests to:
+
+```bash
+https://api.paperguide.ai/v1
+```
+
+## Authentication
+
+Add your API key to the `x-api-key` header on every request. Create API keys in **Settings > API Keys** in the PaperGuide dashboard.
+
+<Callout kind="info" collapsed="false">
+
+Keep API keys on your server and out of client-side code.
+
+```bash
+x-api-key: pg_api_your_key_here
+```
+
+</Callout>
+
+## Available endpoints
+
+The API currently includes two endpoints:
+
+- **`GET /search`** — Search across academic papers using keyword and semantic matching.
+- **`GET /usage`** — Check your current usage for the billing period, including quota and per-minute rate.
+
+## Rate limits and quotas
+
+Your plan sets both your monthly API quota and your per-minute request limit. If you go over either limit, the API returns `429 Too Many Requests`.
+
+| Plan | Monthly calls | Rate limit |
+| ---- | ------------- | ---------- |
+| Free | 10            | 5 req/min  |
+| Plus | 100           | 15 req/min |
+| Pro  | 500           | 30 req/min |
+
+## Common errors
+
+The API returns JSON errors when a request fails.
+
+| Status | Meaning |
+| ------ | ------- |
+| `400`  | Invalid request parameters |
+| `401`  | Missing or invalid API key |
+| `429`  | Rate limit or monthly quota exceeded |
+| `500`  | Internal server error |
+
+## Next steps
+
+Open the endpoint pages for request details, parameters, and example responses.
+
+<Columns cols={2}>
+  <Card
+    title="Search API"
+    href="/api-search"
+    icon="search"
+    cta="Open page"
+  />
+  <Card
+    title="Usage API"
+    href="/api-usage"
+    icon="bar-chart"
+    cta="Open page"
+  />
+</Columns>

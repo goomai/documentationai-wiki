@@ -1,0 +1,241 @@
+---
+title: "Search Papers"
+description: "Paperguide Search API for finding research papers and filtering results for apps, workflows, and integrations."
+---
+
+## Endpoint overview
+
+Search academic papers with keyword and semantic matching by sending a `GET` request to the search endpoint. Use query parameters to narrow results by source, field of study, year, and output format.
+
+<Callout kind="info">
+
+Add your API key to the `x-api-key` header on every request.
+
+```bash
+x-api-key: pg_api_example_9xmk7q2r
+```
+
+Create API keys in **Settings > API Keys** in the Paperguide dashboard.
+
+</Callout>
+
+## Method and path
+
+Send requests to the Paperguide API base URL with the `/search` path.
+
+```bash
+GET https://api.paperguide.ai/v1/search
+```
+
+The endpoint returns JSON search results unless you request BibTeX output.
+
+## Query parameters
+
+Use these query parameters to control the search request.
+
+<ParamField query="query" param-type="string" required="true">
+
+Search text used for keyword and semantic matching.
+
+</ParamField>
+
+<ParamField query="source" param-type="string" required="false">
+
+Filters results to a supported content source.
+
+</ParamField>
+
+<ParamField query="field_of_study" param-type="string" required="false">
+
+Filters results to a supported field of study.
+
+</ParamField>
+
+<ParamField query="year" param-type="integer" required="false">
+
+Filters results to a publication year.
+
+</ParamField>
+
+<ParamField query="limit" param-type="integer" required="false">
+
+Limits the number of results returned.
+
+</ParamField>
+
+<ParamField query="format" param-type="string" required="false">
+
+Controls the response format. Use `bibtex` to return BibTeX output.
+
+</ParamField>
+
+## Allowed source values
+
+Use one of these values for the `source` parameter.
+
+| Value | Description |
+| ----- | ----------- |
+| `arxiv` | Search papers from arXiv |
+| `pubmed` | Search papers from PubMed |
+| `semantic_scholar` | Search papers indexed through Semantic Scholar |
+
+## Allowed field-of-study values
+
+Use one of these values for the `field_of_study` parameter.
+
+| Value | Description |
+| ----- | ----------- |
+| `computer_science` | Computer science papers |
+| `medicine` | Medicine and clinical research |
+| `biology` | Biology and life sciences |
+| `physics` | Physics papers |
+| `chemistry` | Chemistry papers |
+| `mathematics` | Mathematics papers |
+| `engineering` | Engineering papers |
+| `economics` | Economics papers |
+| `psychology` | Psychology papers |
+| `environmental_science` | Environmental science papers |
+
+## Request example
+
+This example searches for recent papers about retrieval-augmented generation in computer science.
+
+<Request>
+```bash
+curl --request GET \
+  --url "https://api.paperguide.ai/v1/search?query=retrieval%20augmented%20generation&field_of_study=computer_science&year=2024&limit=3" \
+  --header "x-api-key: pg_api_example_9xmk7q2r"
+```
+</Request>
+
+The API returns matching papers as JSON. Each item includes core metadata such as title, authors, source, and abstract when available.
+
+## Response example
+
+<Response>
+```json
+{
+  "results": [
+    {
+      "id": "649f2b7c1a2d4e8f9c0a1234",
+      "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+      "authors": [
+        "Patrick Lewis",
+        "Ethan Perez",
+        "Aleksandara Piktus"
+      ],
+      "year": 2024,
+      "source": "semantic_scholar",
+      "field_of_study": "computer_science",
+      "abstract": "This paper studies retrieval-augmented generation methods for knowledge-intensive natural language processing tasks.",
+      "url": "https://api.paperguide.ai/papers/649f2b7c1a2d4e8f9c0a1234"
+    },
+    {
+      "id": "649f2b7c1a2d4e8f9c0a5678",
+      "title": "Efficient Indexing Strategies for Retrieval-Augmented Systems",
+      "authors": [
+        "Jane Chen",
+        "Marcus Hill"
+      ],
+      "year": 2024,
+      "source": "arxiv",
+      "field_of_study": "computer_science",
+      "abstract": "The paper evaluates indexing strategies that improve retrieval quality and latency in large-scale retrieval-augmented systems.",
+      "url": "https://api.paperguide.ai/papers/649f2b7c1a2d4e8f9c0a5678"
+    },
+    {
+      "id": "649f2b7c1a2d4e8f9c0a9012",
+      "title": "Grounding Language Models with External Research Corpora",
+      "authors": [
+        "Sara Ahmed",
+        "David Park"
+      ],
+      "year": 2024,
+      "source": "pubmed",
+      "field_of_study": "computer_science",
+      "abstract": "This work explores retrieval pipelines that ground language model outputs in external research corpora.",
+      "url": "https://api.paperguide.ai/papers/649f2b7c1a2d4e8f9c0a9012"
+    }
+  ]
+}
+```
+</Response>
+
+## Response fields
+
+<ResponseField name="results" field-type="array" required="true">
+
+List of matching papers.
+
+</ResponseField>
+
+<ResponseField name="id" field-type="string" required="true">
+
+Unique identifier for the paper.
+
+</ResponseField>
+
+<ResponseField name="title" field-type="string" required="true">
+
+Paper title.
+
+</ResponseField>
+
+<ResponseField name="authors" field-type="array" required="true">
+
+List of author names.
+
+</ResponseField>
+
+<ResponseField name="year" field-type="integer" required="false">
+
+Publication year.
+
+</ResponseField>
+
+<ResponseField name="source" field-type="string" required="false">
+
+Source where Paperguide found the paper.
+
+</ResponseField>
+
+<ResponseField name="field_of_study" field-type="string" required="false">
+
+Field of study assigned to the paper.
+
+</ResponseField>
+
+<ResponseField name="abstract" field-type="string" required="false">
+
+Paper abstract when available.
+
+</ResponseField>
+
+<ResponseField name="url" field-type="string" required="false">
+
+Paper URL.
+
+</ResponseField>
+
+## BibTeX output notes
+
+Set `format=bibtex` to return BibTeX instead of JSON. Use this when you want to import citations directly into a reference manager or manuscript workflow.
+
+If you request BibTeX output, the response body is plain BibTeX text rather than a JSON object. Response fields described above do not apply to BibTeX responses.
+
+## Search quality explanation
+
+The search endpoint uses keyword and semantic matching together. Keyword matching helps when you know exact terms, while semantic matching helps when relevant papers use different wording.
+
+Results depend on the quality and specificity of your `query` value. Short or broad queries usually return more varied results, while focused queries with a field of study or year filter usually return more precise matches.
+
+## Documented error responses
+
+The API returns JSON errors when a request fails. These are the documented error responses for the search endpoint.
+
+| Status | Meaning |
+| ------ | ------- |
+| `400` | Invalid request parameters |
+| `401` | Missing or invalid API key |
+| `429` | Rate limit or monthly quota exceeded |
+| `500` | Internal server error |

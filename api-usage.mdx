@@ -1,0 +1,84 @@
+---
+title: "Check Usage"
+description: "Paperguide Usage API for checking current API usage, remaining quota, and plan limits in your integration."
+---
+
+## Endpoint overview
+
+Check your current API usage for the billing period, including your quota and per-minute rate.
+
+<Callout kind="info">
+
+Add your API key to the `x-api-key` header on every request. Create API keys in **Settings > API Keys** in the Paperguide dashboard.
+
+```bash
+x-api-key: pg_api_example_9xmk7q2r
+```
+
+</Callout>
+
+## Method and path
+
+```bash
+GET /v1/usage
+```
+
+Send requests to the Paperguide API base URL:
+
+```bash
+https://api.paperguide.ai/v1
+```
+
+## Request example
+
+<Request>
+```bash
+curl -X GET "https://api.paperguide.ai/v1/usage" \
+  -H "x-api-key: pg_api_example_9xmk7q2r"
+```
+</Request>
+
+## Response example
+
+<Response>
+```json
+{
+  "monthly_used": 4,
+  "monthly_quota": 10,
+  "rate_limit_per_minute": 5
+}
+```
+</Response>
+
+## Response fields
+
+<ResponseField name="monthly_used" field-type="integer" required="true">
+Number of API calls your account has used in the current billing period.
+</ResponseField>
+
+<ResponseField name="monthly_quota" field-type="integer" required="true">
+Monthly API call quota for your plan.
+</ResponseField>
+
+<ResponseField name="rate_limit_per_minute" field-type="integer" required="true">
+Maximum number of requests your plan allows per minute.
+</ResponseField>
+
+## What `monthly_quota = -1` means
+
+A `monthly_quota` value of `-1` means your plan does not have a monthly quota limit.
+
+## How usage relates to rate limits and quotas
+
+Your plan sets two limits: a monthly quota and a per-minute request limit. If you go over either limit, the API returns `429 Too Many Requests`.
+
+## Error responses
+
+The API returns JSON errors when a request fails.
+
+| Status | Meaning |
+| ------ | ------- |
+| `400`  | Invalid request parameters |
+| `401`  | Missing or invalid API key |
+| `429`  | Rate limit or monthly quota exceeded |
+| `500`  | Internal server error |
