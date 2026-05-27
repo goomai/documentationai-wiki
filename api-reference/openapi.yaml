@@ -1,0 +1,348 @@
+openapi: 3.0.3
+info:
+  title: Paperguide API
+  version: 1.0.0
+  description: |
+    The Paperguide API lets developers search academic papers and check current API usage.
+
+    Authentication:
+    - Send your API key in the `x-api-key` request header for all endpoints.
+
+    Getting started:
+    - Use `GET /search` to find academic papers with keyword and semantic matching.
+    - Use `GET /usage` to view your current billing-period usage, monthly quota, and per-minute rate limit.
+
+    Notes:
+    - Enterprise plans support up to 50 papers per request for search.
+    - Enterprise usage-based pricing requires contacting the Paperguide team.
+    - A `monthly_quota` value of `-1` means there is no monthly quota limit.
+  contact:
+    name: Paperguide Support
+    url: https://paperguide.ai
+    email: support@paperguide.ai
+  license:
+    name: Proprietary
+    url: https://paperguide.ai
+servers:
+  - url: https://api.paperguide.ai/v1
+    description: Production
+tags:
+  - name: API
+    description: Core Paperguide API operations for search and usage.
+paths:
+  /search:
+    get:
+      tags:
+        - API
+      summary: Search academic papers
+      description: |
+        Search academic papers using keyword and semantic matching.
+
+        Use this endpoint to find papers across supported sources and optionally filter by field of study, publication year, and output format.
+
+        Enterprise plans support up to 50 papers per request. For enterprise usage-based pricing, contact the Paperguide team.
+      operationId: searchPapers
+      security:
+        - ApiKeyAuth: []
+      parameters:
+        - name: query
+          in: query
+          required: true
+          description: Search query used to find relevant academic papers.
+          schema:
+            type: string
+            example: large language models for scientific literature review
+        - name: source
+          in: query
+          required: false
+          description: Filter results by source.
+          schema:
+            type: string
+            enum:
+              - arxiv
+              - pubmed
+              - semantic_scholar
+            example: arxiv
+        - name: field_of_study
+          in: query
+          required: false
+          description: Filter results by field of study.
+          schema:
+            type: string
+            enum:
+              - computer_science
+              - medicine
+              - biology
+              - physics
+              - chemistry
+              - mathematics
+              - engineering
+              - economics
+              - psychology
+              - environmental_science
+            example: computer_science
+        - name: year
+          in: query
+          required: false
+          description: Filter results by publication year.
+          schema:
+            type: integer
+            example: 2024
+        - name: limit
+          in: query
+          required: false
+          description: Maximum number of papers to return.
+          schema:
+            type: integer
+            example: 10
+        - name: format
+          in: query
+          required: false
+          description: Response format. Use `bibtex` to receive BibTeX text output.
+          schema:
+            type: string
+            example: bibtex
+      responses:
+        '200':
+          description: Search results returned successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchResponse'
+              example:
+                results:
+                  - id: arxiv:2401.12345
+                    title: Large Language Models for Scientific Literature Review
+                    authors:
+                      - Jane Doe
+                      - John Smith
+                    year: 2024
+                    source: arxiv
+                    field_of_study: computer_science
+                    abstract: This paper explores how large language models can assist with scientific literature review through semantic retrieval and synthesis workflows.
+                    url: https://arxiv.org/abs/2401.12345
+                  - id: s2:987654321
+                    title: Semantic Search Methods for Scholarly Discovery
+                    authors:
+                      - Alice Brown
+                      - David Lee
+                    year: 2023
+                    source: semantic_scholar
+                    field_of_study: computer_science
+                    abstract: We present semantic search techniques for discovering and ranking relevant scholarly papers across large academic corpora.
+                    url: https://www.semanticscholar.org/paper/987654321
+            text/plain:
+              schema:
+                type: string
+                example: |
+                  @article{doe2024llmreview,
+                    title={Large Language Models for Scientific Literature Review},
+                    author={Doe, Jane and Smith, John},
+                    year={2024},
+                    journal={arXiv},
+                    url={https://arxiv.org/abs/2401.12345}
+                  }
+              example: |
+                @article{doe2024llmreview,
+                  title={Large Language Models for Scientific Literature Review},
+                  author={Doe, Jane and Smith, John},
+                  year={2024},
+                  journal={arXiv},
+                  url={https://arxiv.org/abs/2401.12345}
+                }
+        '400':
+          $ref: '#/components/responses/BadRequestError'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '429':
+          $ref: '#/components/responses/TooManyRequestsError'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  /usage:
+    get:
+      tags:
+        - API
+      summary: Get current API usage
+      description: |
+        Return your current billing-period usage, monthly quota, and per-minute rate limit.
+
+        A `monthly_quota` value of `-1` means there is no monthly quota limit.
+
+        For enterprise usage-based pricing, contact the Paperguide team.
+      operationId: getUsage
+      security:
+        - ApiKeyAuth: []
+      responses:
+        '200':
+          description: Usage details returned successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UsageResponse'
+              example:
+                monthly_used: 124
+                monthly_quota: 1000
+                rate_limit_per_minute: 30
+        '400':
+          $ref: '#/components/responses/BadRequestError'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '429':
+          $ref: '#/components/responses/TooManyRequestsError'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
+  schemas:
+    Paper:
+      type: object
+      description: An academic paper returned by search.
+      required:
+        - id
+        - title
+        - authors
+        - year
+        - source
+        - field_of_study
+        - abstract
+        - url
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the paper in the source system.
+          example: arxiv:2401.12345
+        title:
+          type: string
+          description: Paper title.
+          example: Large Language Models for Scientific Literature Review
+        authors:
+          type: array
+          description: List of author names.
+          items:
+            type: string
+          example:
+            - Jane Doe
+            - John Smith
+        year:
+          type: integer
+          description: Publication year.
+          example: 2024
+        source:
+          type: string
+          description: Source where the paper was found.
+          enum:
+            - arxiv
+            - pubmed
+            - semantic_scholar
+          example: arxiv
+        field_of_study:
+          type: string
+          description: Field of study associated with the paper.
+          enum:
+            - computer_science
+            - medicine
+            - biology
+            - physics
+            - chemistry
+            - mathematics
+            - engineering
+            - economics
+            - psychology
+            - environmental_science
+          example: computer_science
+        abstract:
+          type: string
+          description: Paper abstract.
+          example: This paper explores how large language models can assist with scientific literature review through semantic retrieval and synthesis workflows.
+        url:
+          type: string
+          format: uri
+          description: Canonical URL for the paper.
+          example: https://arxiv.org/abs/2401.12345
+    SearchResponse:
+      type: object
+      description: Search results for academic papers.
+      required:
+        - results
+      properties:
+        results:
+          type: array
+          description: List of matching papers.
+          items:
+            $ref: '#/components/schemas/Paper'
+    UsageResponse:
+      type: object
+      description: Current API usage and limits for the billing period.
+      required:
+        - monthly_used
+        - monthly_quota
+        - rate_limit_per_minute
+      properties:
+        monthly_used:
+          type: integer
+          description: Number of requests or units used in the current billing period.
+          example: 124
+        monthly_quota:
+          type: integer
+          description: Monthly quota for the account. A value of `-1` means there is no monthly quota limit.
+          example: 1000
+        rate_limit_per_minute:
+          type: integer
+          description: Allowed request rate per minute.
+          example: 30
+    ErrorResponse:
+      type: object
+      description: Standard error response.
+      required:
+        - error
+        - message
+      properties:
+        error:
+          type: string
+          description: Short machine-readable error code.
+          example: invalid_request
+        message:
+          type: string
+          description: Human-readable error message.
+          example: The request could not be processed.
+  responses:
+    BadRequestError:
+      description: Bad Request. The request was invalid or missing required parameters.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          example:
+            error: invalid_request
+            message: The request was invalid or missing required parameters.
+    UnauthorizedError:
+      description: Unauthorized. The API key is missing or invalid.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          example:
+            error: unauthorized
+            message: Missing or invalid API key.
+    TooManyRequestsError:
+      description: Too Many Requests. The rate limit has been exceeded.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          example:
+            error: rate_limited
+            message: Rate limit exceeded. Please try again later.
+    InternalServerError:
+      description: Internal Server Error. An unexpected error occurred.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          example:
+            error: internal_error
+            message: An unexpected server error occurred.

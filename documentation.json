@@ -195,12 +195,16 @@
           {
             "title": "Search Papers",
             "path": "api-search",
-            "icon": "search"
+            "icon": "search",
+            "openapi": "api-reference/openapi.yaml GET /search",
+            "method": "GET"
           },
           {
             "title": "Check Usage",
             "path": "api-usage",
-            "icon": "bar-chart"
+            "icon": "bar-chart",
+            "openapi": "api-reference/openapi.yaml GET /usage",
+            "method": "GET"
           }
         ],
         "tab": "API",
