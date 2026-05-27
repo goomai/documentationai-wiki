@@ -63,29 +63,14 @@
             "group": "Features",
             "pages": [
               {
-                "title": "AI Search",
-                "path": "ai-search",
-                "icon": "lucide-search"
-              },
-              {
-                "title": "Chat with PDF",
-                "path": "chat-with-pdf",
-                "icon": "lucide-message-square"
-              },
-              {
-                "title": "Literature Review Agent",
-                "path": "literature-review-agent",
-                "icon": "lucide-text-search"
-              },
-              {
                 "title": "Research Agent",
                 "path": "research-agent",
                 "icon": "atom"
               },
               {
-                "title": "Deep Research Report",
-                "path": "deep-research-report",
-                "icon": "file-search"
+                "title": "Literature Review Agent",
+                "path": "literature-review-agent",
+                "icon": "lucide-text-search"
               },
               {
                 "group": "AI Writer",
@@ -105,65 +90,80 @@
                 "path": "ai-writer"
               },
               {
-                "group": "My References",
+                "group": "Reference Manager",
                 "pages": [
                   {
                     "title": "Overview",
-                    "path": "my-references/overview",
+                    "path": "reference-manager/overview",
                     "icon": "file-text"
                   },
                   {
                     "title": "Importing References",
-                    "path": "my-references/importing-references",
+                    "path": "reference-manager/importing-references",
                     "icon": "download"
                   },
                   {
                     "title": "Import from Zotero",
-                    "path": "my-references/import-from-zotero",
+                    "path": "reference-manager/import-from-zotero",
                     "icon": "folder-down"
                   },
                   {
                     "title": "Organising with Folders",
-                    "path": "my-references/organising-with-folders",
+                    "path": "reference-manager/organising-with-folders",
                     "icon": "folder"
                   },
                   {
                     "title": "AI Summary",
-                    "path": "my-references/ai-summary",
+                    "path": "reference-manager/ai-summary",
                     "icon": "sparkles-icon"
                   },
                   {
                     "title": "Reference Bib",
-                    "path": "my-references/reference-bib",
+                    "path": "reference-manager/reference-bib",
                     "icon": "info"
                   },
                   {
                     "title": "Manage Tags",
-                    "path": "my-references/manage-tags",
+                    "path": "reference-manager/manage-tags",
                     "icon": "tag"
                   },
                   {
                     "title": "Notes & Annotation",
-                    "path": "my-references/notes-annotation",
+                    "path": "reference-manager/notes-annotation",
                     "icon": "highlighter"
                   },
                   {
                     "title": "Share Folders",
-                    "path": "my-references/share-folders",
+                    "path": "reference-manager/share-folders",
                     "icon": "send"
                   },
                   {
                     "title": "Shared with me",
-                    "path": "my-references/shared-with-me-folders",
+                    "path": "reference-manager/shared-with-me-folders",
                     "icon": "lucide-users"
                   }
                 ],
                 "icon": "folder-open-icon"
               },
               {
+                "title": "AI Search",
+                "path": "ai-search",
+                "icon": "lucide-search"
+              },
+              {
+                "title": "Chat with PDF",
+                "path": "chat-with-pdf",
+                "icon": "lucide-message-square"
+              },
+              {
                 "title": "Extract Data",
                 "path": "extract-data",
                 "icon": "lucide-sheet"
+              },
+              {
+                "title": "Deep Research Report",
+                "path": "deep-research-report",
+                "icon": "file-search"
               }
             ]
           },
