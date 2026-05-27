@@ -33,19 +33,9 @@
                 "icon": "search"
               },
               {
-                "title": "Write First Document",
-                "path": "write-first-document",
-                "icon": "file-edit"
-              },
-              {
                 "title": "Adding References",
                 "path": "adding-references",
                 "icon": "folder"
-              },
-              {
-                "title": "Chating with PDFs",
-                "path": "chat-with-papers",
-                "icon": "lucide-message-square"
               },
               {
                 "title": "Create First Workbook",
@@ -73,13 +63,13 @@
             "group": "Features",
             "pages": [
               {
-                "title": "AI Search 2.0",
-                "path": "ai-search-new",
+                "title": "AI Search",
+                "path": "ai-search",
                 "icon": "lucide-search"
               },
               {
-                "title": "Chat with PDF 2.0",
-                "path": "chat-with-pdf-new",
+                "title": "Chat with PDF",
+                "path": "chat-with-pdf",
                 "icon": "lucide-message-square"
               },
               {
@@ -88,8 +78,8 @@
                 "icon": "lucide-text-search"
               },
               {
-                "title": "General Purpose Agent",
-                "path": "general-purpose-agent",
+                "title": "Research Agent",
+                "path": "research-agent",
                 "icon": "atom"
               },
               {
