@@ -28,41 +28,6 @@
                 "show-parent-label": false
               },
               {
-                "title": "Research Backed Answers",
-                "path": "research-backed-answers",
-                "icon": "search"
-              },
-              {
-                "title": "Adding References",
-                "path": "adding-references",
-                "icon": "folder"
-              },
-              {
-                "title": "Create First Workbook",
-                "path": "create-first-workbook",
-                "icon": "lucide-sheet"
-              },
-              {
-                "title": "Chrome Extension",
-                "path": "chrome-extension",
-                "icon": "box"
-              },
-              {
-                "title": "AI Credits",
-                "path": "ai-credits",
-                "icon": "lucide-coins"
-              },
-              {
-                "title": "Dashboard and Navigation",
-                "path": "dashboard-and-navigation",
-                "icon": "layout-grid"
-              }
-            ]
-          },
-          {
-            "group": "Features",
-            "pages": [
-              {
                 "title": "Research Agent",
                 "path": "research-agent",
                 "icon": "atom"
@@ -164,12 +129,27 @@
                 "title": "Deep Research Report",
                 "path": "deep-research-report",
                 "icon": "file-search"
+              },
+              {
+                "title": "Chrome Extension",
+                "path": "chrome-extension",
+                "icon": "box"
               }
             ]
           },
           {
             "group": "Others",
             "pages": [
+              {
+                "title": "Dashboard and Navigation",
+                "path": "dashboard-and-navigation",
+                "icon": "layout-grid"
+              },
+              {
+                "title": "AI Credits",
+                "path": "ai-credits",
+                "icon": "lucide-coins"
+              },
               {
                 "title": "AI Content Language",
                 "path": "ai-content-language",
