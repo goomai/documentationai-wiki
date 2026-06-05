@@ -2,6 +2,137 @@
 title: Changelog
 description: Release history and updates for Paperguide platform
 ---
+<Update label="29 May, 2026" tags={["feature"]}>
+  ## Paperguide now has a Search API
+
+  You can search 200M+ academic papers programmatically. Build research workflows, plug paper search into your own tools, or automate literature discovery with a single API call.
+
+  ### What's included
+
+  - Hybrid semantic + keyword search across 200M+ papers
+
+  - Rich metadata: authors, citations, DOI, abstracts, BibTeX, PDF links
+
+  - Filters for year, field of study, journal quality, open access
+
+  - API key management from your dashboard
+
+  Set up your key in **Settings > API Keys**, or [read the API docs](/api).
+</Update>
+
+<Update label="25 May, 2026" tags={["improvement"]}>
+  ## Search results got a major upgrade
+
+  We rebuilt the search pipeline behind Paperguide. The difference is noticeable.
+
+  **Before:** A small pool of candidate papers, ranked by relevance alone.
+
+  **Now:** Every search evaluates 10,000+ candidates through a multi-stage pipeline:
+
+  - **Wider retrieval:** Thousands of candidates pulled from both semantic and keyword-based search.
+
+  - **Quality scoring:** Each candidate scored on citation velocity, journal impact (SNIP), and recency, not just relevance.
+
+  - **Reranking:** Relevance scores blended with quality signals to surface papers that are both on-topic and published in credible journals.
+
+  Better results, stronger sources, across everything: AI Search, Literature Review, Research Agent, AI Writer.
+
+  You don't need to change anything. It's already live.
+</Update>
+
+<Update label="20 May, 2026" tags={["improvement"]}>
+  ## Research Agent improvements
+
+  We've been testing the Research Agent hard over the past few weeks. Running evaluations on response quality, tracking where it breaks, and reading every piece of feedback you sent in.
+
+  This week we shipped a retrained model on top of upgraded base AI models. Here's what changed:
+
+  - **Upgraded AI models:** The Research Agent now runs on stronger underlying models, which means better reasoning, more coherent outputs, and more reliable citations across every task.
+
+  - **Smarter task understanding:** The agent is better at interpreting what you're actually asking, whether it's a lit review, a comparison, a gap analysis, or a data extraction task.
+
+  - **More accurate responses:** We fixed a set of hallucination issues where the agent would generate claims not grounded in the source papers. Outputs are now more tightly tied to the literature.
+
+  - **Better research task handling:** Multi-step workflows like screening, extracting, and synthesizing run more reliably from start to finish.
+</Update>
+
+<Update label="7 May, 2026" tags={["feature"]}>
+  ## Document generation, rebuilt
+
+  Cleaner citations, stronger writing, and tighter instruction-following throughout. Generate full literature reviews, research papers, essays, and reports from a single research question.
+
+  - Draws from your reference manager and our 200M+ paper database
+
+  - Add custom writing instructions before generating
+
+  - Filter which papers get used as sources
+
+  - Pick from 1,000+ citation styles
+</Update>
+
+<Update label="2 May, 2026" tags={["feature"]}>
+  ## AI chat inside the writer
+
+  An agentic chat that works alongside you in the document. It can draft sections, refine your writing, find papers, sharpen arguments, and generate new content.
+
+  All without leaving the editor.
+
+  ## New features in this release
+
+  - **Smart Continue:** AI picks up from your cursor when you pause, follows the logical flow, and cites your selected sources as it writes.
+
+  - **Math blocks:** Type a KaTeX equation, and it renders in your document. Or describe the equation in plain English, and AI writes the formula for you.
+
+  - **Inline equations:** Same as math blocks, but placed inside a line of content instead of as a separate block.
+
+  - **Import from Word:** Bring in an existing Word document and continue writing with full access to AI Writer's features.
+</Update>
+
+<Update label="24 Apr, 2026" tags={["feature"]}>
+  ## Larger literature reviews in extended mode
+
+  The agent now fetches a significantly larger pool of papers, screens the most relevant 200 papers, and generates your literature review from the top 50 papers. You get broader coverage without the manual screening work.
+
+  You can run this process across any of these sources: the 200M+ research papers database, PubMed, arXiv, or your reference manager.
+</Update>
+
+<Update label="17 Apr, 2026" tags={["feature"]}>
+  ## ArXiv is now a source
+
+  ArXiv is now integrated across Paperguide. You can select it as a source for:
+
+  - Research Agent tasks
+
+  - AI Search
+
+  - Literature Review
+
+  Particularly useful if your work sits in physics, mathematics, CS, or quantitative biology — fields where arXiv is often ahead of indexed databases.
+</Update>
+
+<Update label="10 Apr, 2026" tags={["feature"]}>
+  ## PubMed is now available as a source
+
+  PubMed is now available as a source inside Paperguide.
+
+  If you work in biomedicine, clinical research, or life sciences, you can now pull directly from PubMed's 35M+ articles—without leaving the platform.
+
+  ### What this means in practice
+
+  When using AI Search, Literature Review, Deep Research Reports, or Extract Data—you can now select PubMed as your source and work with biomedical literature the same way you'd work with any other paper on Paperguide.
+
+  Concretely, you can:
+
+  - Search PubMed and get research-backed answers to clinical or biomedical questions
+
+  - Run literature reviews on PubMed papers with custom extraction columns
+
+  - Generate Deep Research Reports grounded in biomedical sources
+
+  - Extract and compare data across PubMed papers in a structured workbook
+
+  - Work with the research agent using PubMed as your source
+</Update>
 
 <Update label="18 Mar, 2026" tags={["new feature"]}>
   ## Research Agent
@@ -9,10 +140,15 @@ description: Release history and updates for Paperguide platform
   The **Research Agent** is a flexible, all-in-one assistant for open-ended questions that complements specialized agents like Literature Review, Deep Research, and Chat with PDF.
 
   - Generate **evidence-backed answers** with citations
+
   - **Find relevant papers** across topics and sources
+
   - **Compare studies** on methods, results, and conclusions
+
   - **Summarize** papers, sections, or mixed sources
+
   - Identify **gaps and limitations** in the evidence
+
   - **Refine drafts** with clearer arguments and stronger support
 
   [Learn more](/research-agent)
@@ -193,3 +329,4 @@ description: Release history and updates for Paperguide platform
 
   This can help you complete in minutes what might normally take weeks of manual work.
 </Update>
+
