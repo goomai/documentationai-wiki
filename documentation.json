@@ -141,14 +141,14 @@
             "group": "Others",
             "pages": [
               {
-                "title": "Dashboard and Navigation",
-                "path": "dashboard-and-navigation",
-                "icon": "layout-grid"
-              },
-              {
                 "title": "AI Credits",
                 "path": "ai-credits",
                 "icon": "lucide-coins"
+              },
+              {
+                "title": "Dashboard and Navigation",
+                "path": "dashboard-and-navigation",
+                "icon": "layout-grid"
               },
               {
                 "title": "AI Content Language",
