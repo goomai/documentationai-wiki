@@ -175,7 +175,8 @@
           {
             "title": "Changelog",
             "path": "changelog",
-            "icon": "history"
+            "icon": "history",
+            "show-sidebar": false
           },
           {
             "title": "Roadmap",
