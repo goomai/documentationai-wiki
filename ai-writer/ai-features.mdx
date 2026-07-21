@@ -1,0 +1,177 @@
+---
+title: AI Features
+description: Use AI Chat, AI Edit, Smart Continue, and autocomplete with citations in your documents.
+---
+
+## Write, revise, and explore sources without leaving the editor
+
+AI Writer includes several AI tools that work inside the editor so you can draft, revise, and explore sources without breaking your writing flow. Each tool pulls from your document's cited papers or Paperguide's 200M+ paper database to generate text with inline citations.
+
+<Callout kind="info">
+
+AI features search Paperguide's 200M+ paper database or your Reference Manager library to find relevant citations for generated text. Every AI-suggested passage includes inline citations you can verify before you keep it.
+
+</Callout>
+
+## AI Chat
+
+AI Chat gives you a sidebar workspace for discussing your draft, finding relevant papers, and generating citation-backed text. The chat uses your document context, including the draft, cited papers, and outline, and it can search for additional papers to support your argument.
+
+<Steps>
+  <Step title="Open AI Chat" icon="message-square">
+
+  Click the chat icon in the editor sidebar to open the AI Chat panel.
+
+  </Step>
+  <Step title="Ask a question" icon="help-circle">
+
+  Type your question or request. Ask about a claim in your draft, request evidence on a topic, or ask the AI to find papers that support or challenge your argument.
+
+  </Step>
+  <Step title="Insert into document" icon="plus">
+
+  When the chat generates useful text with citations, insert it directly into your document at the cursor position.
+
+  </Step>
+</Steps>
+
+If you want feedback on a specific passage, highlight the text first and then ask the chat about that selection. AI Chat can use the highlighted passage as context while keeping the rest of your document in view.
+
+<Callout kind="tip">
+
+Use AI Chat when you need to explore ideas, gather evidence, or pressure-test an argument before editing the draft itself. The chat can suggest text, but it does not directly rewrite your document unless you choose to insert the result.
+
+</Callout>
+
+## AI Edit
+
+AI Edit rewrites selected text based on your instruction while preserving existing citation markers. Use it when the structure is mostly right but the wording, tone, clarity, or language needs work.
+
+<Steps>
+  <Step title="Highlight text" icon="edit">
+
+  Select the passage you want to revise in the editor.
+
+  </Step>
+  <Step title="Choose an action" icon="settings">
+
+  Pick an action from the toolbar or enter a custom instruction.
+
+  - **Improve** — fix grammar, tighten prose, and strengthen word choice
+  - **Change Tone** — rewrite in academic, casual, persuasive, bold, or friendly tone
+  - **Simplify** — rewrite in plain language
+  - **Humanize** — remove formulaic constructions for a more natural voice
+  - **Translate** — translate to any language
+  - **Custom** — enter your own instruction, such as `add more evidence here` or `make this more concise`
+
+  </Step>
+  <Step title="Review the result" icon="check-circle">
+
+  AI returns rewritten text with citation markers preserved. Accept the change if it improves the passage, or dismiss it and keep your original text.
+
+  </Step>
+</Steps>
+
+AI Edit works best for focused revisions on a paragraph, claim, or transition. If you need the model to generate new material instead of rewriting existing text, use Smart Continue or AI Chat.
+
+## Smart Continue
+
+Smart Continue writes from your cursor position while staying aligned with your document's tone, structure, and argument. It reads the surrounding context so the continuation fits what you already wrote.
+
+<Steps>
+  <Step title="Place your cursor" icon="edit">
+
+  Click where you want the AI to continue writing.
+
+  </Step>
+  <Step title="Trigger Smart Continue" icon="play-circle">
+
+  Press <kbd>Cmd</kbd>+<kbd>J</kbd> on Mac or <kbd>Ctrl</kbd>+<kbd>J</kbd> on Windows, or click the Smart Continue button. Then choose an action:
+
+  - **Continue**
+  - **Introduction**
+  - **Conclusion**
+  - **Key Points**
+  - **Opposing Views**
+  - **Transition**
+  - **Outline**
+  - **Custom prompt**
+
+  </Step>
+  <Step title="Review and accept" icon="check-circle">
+
+  AI generates continuation text with inline citations. Read the result, edit it if needed, and accept it when it matches the direction of your draft.
+
+  </Step>
+</Steps>
+
+Smart Continue uses a two-pass citation system. If the first generation comes back without citations, the assistant retries and injects citations into the text without rewriting the substance of the draft.
+
+<Callout kind="info">
+
+When your document already includes papers, Smart Continue expects citation-backed output. If the assistant cannot produce citations after the retry, the generation fails instead of inserting unsupported text.
+
+</Callout>
+
+## Autocomplete with citations
+
+Autocomplete suggests short forward-only completions as you write. The suggestions never repeat the text before your cursor, and each suggested sentence includes at least one inline citation.
+
+<Steps>
+  <Step title="Start typing" icon="edit">
+
+  Write normally in the editor. When you pause mid-sentence, AI generates a short completion.
+
+  </Step>
+  <Step title="Review the suggestion" icon="info">
+
+  A citation-backed continuation appears, usually two to three sentences long. Read it for relevance and check whether the cited papers support the claim.
+
+  </Step>
+  <Step title="Accept or dismiss" icon="check-circle">
+
+  Press <kbd>Tab</kbd> to accept the suggestion or <kbd>Esc</kbd> to dismiss it.
+
+  </Step>
+</Steps>
+
+Autocomplete is best for maintaining momentum during drafting. Because it stays short and only writes ahead of the cursor, it works well for extending a thought without changing what you already wrote.
+
+## Describe to LaTeX
+
+Describe to LaTeX turns a plain-English math description into clean LaTeX you can render in your document. Use it when you know the equation you want but do not remember the exact syntax.
+
+<Steps>
+  <Step title="Open the Math Block" icon="code">
+
+  Insert a math block in the editor and switch to the Describe tab.
+
+  </Step>
+  <Step title="Describe the equation" icon="edit">
+
+  Type a plain-English description such as `the integral of e to the x from 0 to infinity`.
+
+  </Step>
+  <Step title="Insert the LaTeX" icon="check-circle">
+
+  AI generates clean LaTeX code that is ready to render in the document.
+
+  </Step>
+</Steps>
+
+The generated result is returned as bare LaTeX content, so you can use it directly in the math block without cleaning up extra delimiters.
+
+## Cmd+J shortcut
+
+Press <kbd>Cmd</kbd>+<kbd>J</kbd> on Mac or <kbd>Ctrl</kbd>+<kbd>J</kbd> on Windows anywhere in the editor to open the AI writing assistant. This is the fastest way to access Smart Continue and related writing actions without moving to the toolbar.
+
+## Next steps
+
+<Columns cols={2}>
+  <Card title="AI Writer Overview" href="/ai-writer/overview" icon="file-text" horizontal="false" target="_self">
+  Back to the main AI Writer page.
+  </Card>
+  <Card title="Generate Document" href="/ai-writer/generate-document" icon="sparkles" horizontal="false" target="_self">
+  Learn the full AI generation pipeline.
+  </Card>
+</Columns>

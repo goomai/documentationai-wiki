@@ -1,0 +1,144 @@
+---
+title: Systematic Review Overview
+description: Run rigorous systematic reviews with AI-assisted screening, extraction, and PRISMA reports.
+---
+
+## What is Systematic Review?
+
+Systematic Review is an AI-assisted platform for conducting rigorous systematic reviews following PRISMA guidelines. It guides you through a multi-stage pipeline from importing papers to generating a final report with a PRISMA flow diagram, with AI handling the heavy lifting at each stage and humans verifying decisions.
+
+The pipeline supports both AI-led mode, where AI screens and you verify, and dual-reviewer mode, where two independent reviewers work through decisions with conflict resolution for teams that need to meet methodological requirements.
+
+## The review pipeline
+
+A systematic review moves through four stages in order.
+
+<Steps>
+  <Step title="Papers" icon="book-open" title-type="p">
+
+  Import and manage your paper pool. Add papers through AI Search, PDF upload, URL or DOI, BibTeX or RIS, or directly from your Reference Manager. Automatic duplicate detection helps keep the pool clean.
+
+  </Step>
+  <Step title="Protocol" icon="settings" title-type="p">
+
+  Define your research question, screening criteria, and extraction fields. The AI generates an initial protocol from your research question, which you review and edit before screening starts.
+
+  </Step>
+  <Step title="Title & Abstract Screening" icon="check-circle" title-type="p">
+
+  The first screening stage evaluates each paper by title and abstract against your criteria. The AI produces a decision of Include, Exclude, or Maybe with criterion-level verdicts and cited evidence from the abstract. You then verify or override each decision.
+
+  </Step>
+  <Step title="Full Text Screening" icon="search" title-type="p">
+
+  Papers included from the previous stage move into full-text screening. The AI reads each PDF and evaluates every criterion with evidence cited directly from the document, so you can review the decision alongside the source text.
+
+  </Step>
+  <Step title="Data Extraction" icon="database" title-type="p">
+
+  Papers that pass full-text screening move into extraction. The AI fills the structured fields defined in your protocol, and results appear in a grid with papers as rows and fields as columns for review, editing, and export.
+
+  </Step>
+  <Step title="Report" icon="file-text" title-type="p">
+
+  The final stage generates a narrative report with inline citations and a PRISMA flow diagram showing paper counts across the review. Export the report when you are ready to share findings or prepare for publication.
+
+  </Step>
+</Steps>
+
+<Callout kind="info">
+
+Systematic Review runs screening in sequence: title and abstract screening first, then full-text screening, then extraction, and finally report generation.
+
+</Callout>
+
+## PRISMA diagram
+
+The PRISMA flow diagram is computed live from your review's current state, so it updates automatically as papers move through the pipeline. You do not need to regenerate it manually to see current counts.
+
+The diagram shows four parts of the review flow:
+
+- **Identification**: papers from database searches, imported papers, duplicates removed, and papers removed for other reasons
+- **Screening**: papers screened and excluded at the title and abstract stage, with exclusion reason counts
+- **Eligibility**: papers sought for full-text retrieval, papers not retrieved because PDFs are missing, and papers assessed and excluded at the full-text stage
+- **Included**: the final count of papers included in the review
+
+The PRISMA view is available to all review members at any point in the pipeline.
+
+## Team collaboration
+
+Systematic Review supports team-based collaboration with role-based access control. Each review member has one of three roles: **Edit**, **Review**, or **View**.
+
+| | **Edit** | **Review** | **View** |
+|---|---|---|---|
+| **View all stages** | Yes | Yes | Yes |
+| **Add papers** | Yes | Yes | No |
+| **Trigger AI screening runs** | Yes | No | No |
+| **Change screening decisions** | Yes | With assignment | No |
+| **Confirm AI decisions** | Yes | With assignment | No |
+| **Edit protocol** | Yes | No | No |
+| **Edit settings** | Yes | No | No |
+| **Manage team members** | Yes, for creator or workspace owner access | No | No |
+| **Export** | Yes | Yes | No |
+
+Review members with the **Review** role can be assigned to specific stage responsibilities. In AI-led mode, that usually means verifying AI decisions. In dual-reviewer mode, assigned reviewers submit independent decisions and a conflict resolver settles disagreements when reviewers do not agree.
+
+## Creating a review
+
+<Steps>
+  <Step title="Enter your research question" icon="help-circle" title-type="p">
+
+  Start with your research question. You can use the AI question enhancer to diagnose and improve the question before you create the review, and those question enhancement actions do not consume credits.
+
+  </Step>
+  <Step title="Choose screening mode" icon="users" title-type="p">
+
+  Select **AI-led** if you want AI to screen and humans to verify, or **Dual-reviewer** if your process requires two independent reviewers and conflict resolution. Systematic Review sets AI-led as the default.
+
+  </Step>
+  <Step title="Configure screening stages" icon="settings" title-type="p">
+
+  Title and abstract screening and full-text screening are both enabled by default. Turn either stage off during setup if your workflow does not require it.
+
+  </Step>
+  <Step title="Add optional context" icon="edit" title-type="p">
+
+  Add additional context if the research question alone is not enough to guide protocol generation. This field is optional and helps the AI produce more relevant screening criteria and extraction fields.
+
+  </Step>
+  <Step title="Create the review" icon="check" title-type="p">
+
+  Create the review when the setup looks right. The system generates the review title from your research question, creates default stage assignments, and takes you to the next part of the workflow.
+
+  </Step>
+</Steps>
+
+<Callout kind="info">
+
+The screening mode is permanent after creation. If your methodology requires independent reviewer agreement, choose dual-reviewer mode before you create the review.
+
+</Callout>
+
+## Review overview page
+
+After you create a review, the overview page shows progress across the pipeline. Each stage card reflects the current status, such as not started, in progress, or complete, along with metrics like screened papers or confirmed decisions.
+
+You can open a stage directly from its card. The workflow is sequential, so later stages depend on the output of earlier ones, especially when full-text screening and extraction rely on the set of papers included upstream.
+
+## Final report
+
+When the review reaches the final stage, the system generates a narrative report that synthesizes findings from the included papers. The report is designed to give you a working draft that you can review, refine, and export.
+
+It includes:
+
+- Structured sections with headings and inline citations
+- A PRISMA flow diagram with counts from each stage
+- Export options for sharing or publication
+
+## Next steps
+
+<Columns cols={3}>
+  <Card title="Protocol" href="/systematic-review/protocol" icon="settings" />
+  <Card title="Papers" href="/systematic-review/papers" icon="book-open" />
+  <Card title="Title & Abstract Screening" href="/systematic-review/title-abstract-screening" icon="check-circle" />
+</Columns>

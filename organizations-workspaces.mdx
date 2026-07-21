@@ -1,0 +1,203 @@
+---
+title: Organizations & Workspaces
+description: Manage organizations, workspaces, team members, and permissions.
+---
+
+## Manage research across your team
+
+Manage your team's research workspace with Paperguide's organization model. An organization contains multiple workspaces, each with its own Reference Manager, AI Writer, Systematic Review, Extract Data, and Notebooks. Invite team members, assign roles, and control access at both the organization and workspace level.
+
+## What are Organizations & Workspaces?
+
+Paperguide uses an organization and workspace hierarchy so you can separate personal research from collaborative work. The organization is the top-level team container, and each workspace holds the actual research assets and tools your team uses day to day.
+
+An **Organization** is your team's shared account space. It is created with a seat-based subscription and requires at least 2 active seats. The organization owner manages billing, seats, and team members.
+
+A **Workspace** is where research work happens. Each workspace has its own Reference Manager, AI Writer, Systematic Review, Extract Data, and Notebooks.
+
+- **Personal** — your sovereign library, created automatically when you sign up. It is not part of any organization.
+- **Private** — your personal space inside an organization. Only you can see it, and even organization admins cannot access it. Paperguide creates it automatically when you join an organization.
+- **Team** — a shared collaborative space inside an organization. Add multiple team members with different roles, and create as many team workspaces as your team needs.
+
+<Callout kind="info">
+
+Personal and Private workspaces serve different purposes. Your Personal workspace exists outside any organization, while your Private workspace exists inside an organization but remains visible only to you.
+
+</Callout>
+
+## The org sidebar
+
+When you switch to organization mode, the sidebar changes from the personal layout to the org sidebar. The navigation shifts from a single-user workspace to a multi-workspace team setup.
+
+- **Workspace switcher** at the top — switch between your Personal workspace, your Private workspace, and any Team workspaces you belong to
+- **Agents group** — Research Agent, Literature Review, Deep Research, AI Search, Chat with PDF, and History
+- **Workspace group** — Reference Manager, AI Writer, Systematic Review, Extract Data, and Notebooks for the currently selected workspace
+- **Footer items** — Notifications, Chrome Extension, and Account Menu
+
+The selected workspace controls the scope for workspace-based tools. If you switch from one team workspace to another, you also switch the library, documents, reviews, and extracted data tied to that workspace.
+
+## Personal vs org mode
+
+Paperguide uses two navigation modes so you can keep individual work separate from team collaboration.
+
+| Feature | Personal Mode | Organization Mode |
+| --- | --- | --- |
+| Sidebar type | DashboardSidebar | OrgAppSidebar |
+| Navigation items | Home, Reference Manager, AI Writer, History | Workspace switcher, Agents group, Workspace group |
+| Workspace scope | Single personal library | Multiple workspaces, including Private and Team |
+| Team collaboration | Not available | Available with roles and permissions |
+| Billing | Individual subscription | Seat-based organization subscription |
+
+## Creating an organization
+
+<Steps>
+  <Step title="Check eligibility" icon="check-circle">
+
+  You need at least 2 active subscription seats to create an organization. Free plans and single-seat subscriptions cannot create organizations.
+
+  </Step>
+  <Step title="Create the org" icon="plus">
+
+  Go to your account settings and create a new organization. Enter a name for the organization, then confirm the setup.
+
+  </Step>
+  <Step title="Auto-provisioning" icon="settings">
+
+  When you create an organization, Paperguide converts your current Personal workspace into your Private workspace inside the organization. Paperguide also creates a shared team workspace named `Teamspace` automatically.
+
+  Your existing content moves with the conversion, so your references, documents, and other workspace content stay intact.
+
+  </Step>
+  <Step title="Invite members" icon="users">
+
+  Invite team members by email and assign them to the right team workspaces with the right roles. After they accept, Paperguide creates their Private workspace and activates their workspace access.
+
+  </Step>
+</Steps>
+
+## Workspace management
+
+Team workspaces let you organize research by project, department, lab, client, or review topic. This structure works well when different groups need separate libraries and writing spaces but still belong to the same organization.
+
+### Creating team workspaces
+
+Organization owners and admins can create team workspaces inside the organization. Use separate workspaces when you want different member lists, different research libraries, or clearer boundaries between projects.
+
+### Renaming team workspaces
+
+Workspace owners can rename team workspaces at any time. Renaming does not affect the content inside the workspace or the memberships assigned to it.
+
+### Switching workspaces
+
+Use the workspace switcher at the top of the sidebar to move between your Private workspace and any Team workspaces you can access. The switch takes you into that workspace's own library and collaborative tools.
+
+### Deleting team workspaces
+
+Team workspaces can be deleted by the workspace owner or an organization admin. Paperguide does not allow you to delete Personal or Private workspaces independently.
+
+### Moving content between workspaces
+
+Folders and documents can move between workspaces, including across different team workspaces. This makes it easier to reorganize research when a project changes hands or when work that started privately needs to move into a shared team space.
+
+<Callout kind="tip">
+
+Use separate team workspaces when access rules differ across projects. That keeps permissions simpler than managing one large workspace with many exceptions.
+
+</Callout>
+
+## Organization roles
+
+Organization roles control who can administer the team account and who can manage workspaces at a broad level.
+
+| Capability | Owner | Admin | Member |
+| --- | --- | --- | --- |
+| Manage billing and seats | ✅ | ❌ | ❌ |
+| Create and delete workspaces | ✅ | ✅ | ❌ |
+| Invite and remove members | ✅ | ✅ | ❌ |
+| Access all team workspaces | ✅ | ✅ | ❌ |
+| Access assigned workspaces | ✅ | ✅ | ✅ |
+| Delete organization | ✅ | ❌ | ❌ |
+
+<Callout kind="info">
+
+Organization owners and admins automatically get owner-level access to all team workspaces in the organization. Regular members only see workspaces they have been explicitly added to.
+
+</Callout>
+
+## Workspace roles
+
+Workspace roles control what someone can do inside a specific team workspace. These roles are separate from organization roles.
+
+| Capability | Owner | Editor | Viewer |
+| --- | --- | --- | --- |
+| View content | ✅ | ✅ | ✅ |
+| Add and edit references | ✅ | ✅ | ❌ |
+| Share folders | ✅ | ✅ | ❌ |
+| Manage workspace members | ✅ | ❌ | ❌ |
+| Rename or delete workspace | ✅ | ❌ | ❌ |
+
+Viewers have read-only access. They can open content but cannot create, edit, or delete workspace data.
+
+## Team members
+
+Paperguide separates organization membership from workspace membership. That lets you add someone to the organization without giving them access to every shared workspace.
+
+### Inviting members
+
+Organization owners and admins invite members by email. During the invitation flow, you can pre-assign the invitee to specific team workspaces with either the **Editor** or **Viewer** role.
+
+The invitee receives an email invitation. If they already have an account, Paperguide can also notify them in the app.
+
+### What happens when they accept
+
+When the invitee accepts, Paperguide automatically creates their Private workspace inside the organization. Any workspace assignments you selected during the invite are then activated.
+
+This keeps onboarding predictable. New members join the organization with the right starting access instead of needing manual workspace setup after the fact.
+
+### Changing roles
+
+Workspace owners can change a member's workspace role at any time. Paperguide does not allow you to demote the last owner of a workspace, so every team workspace always keeps at least one owner.
+
+### Removing members
+
+Workspace owners can remove members from a specific workspace. Organization owners and admins can also remove members from the organization entirely, which removes their organization access across the board.
+
+## External sharing policy
+
+Organization owners can control how members share resources with people outside the organization. This policy applies at the organization level.
+
+- **Anyone** — share with any email address
+- **Domain only** — share only with email addresses that match the organization owner's domain
+- **None** — block all external sharing
+
+This setting helps teams balance collaboration with governance. Research groups that work with outside collaborators can stay flexible, while internal-only teams can lock sharing down completely.
+
+## Notifications
+
+The notification system keeps you informed about workspace and sharing activity. Check the notification bell in the sidebar footer for updates that need your attention.
+
+Notifications may include:
+
+- New share invitations
+- Accepted invitations
+- Member changes
+- Workspace activity
+
+You can review notifications from the sidebar, track unread counts, and mark items as read individually or all at once.
+
+## Next steps
+
+<Columns cols={2}>
+  <Card title="Reference Manager Overview" href="/reference-manager/overview" icon="book-open" horizontal="false" target="_self">
+  Manage references in your workspace library.
+  </Card>
+  <Card title="Share Library & Workspace" href="/reference-manager/share-library-workspace" icon="users" horizontal="false" target="_self">
+  Invite team members and share folders.
+  </Card>
+  <Card title="AI Writer Overview" href="/ai-writer/overview" icon="edit" horizontal="false" target="_self">
+  Write documents collaboratively in your workspace.
+  </Card>
+  <Card title="Systematic Review Overview" href="/systematic-review/overview" icon="folder" horizontal="false" target="_self">
+  Run systematic reviews with your team.
+  </Card>
+</Columns>

@@ -1,0 +1,123 @@
+---
+title: Get PDFs with the Chrome Extension
+description: Retrieve and index PDFs for your references using the Paperguide Chrome extension.
+---
+
+## What is the Chrome Extension for PDFs?
+
+The Paperguide Chrome extension helps you retrieve PDFs for the references in your library. When you have metadata-only references imported through DOI, BibTeX, or RIS without the actual PDF, the extension can find and attach the PDF from publisher websites, repositories, and databases.
+
+You can also use the extension while you browse. Open a paper page on a publisher site or preprint server, then use the extension to download and attach the PDF to your library in one click.
+
+## Installing the extension
+
+<Steps>
+  <Step title="Install from the Chrome Web Store" icon="download" title-type="p">
+
+  Search for the Paperguide extension in the Chrome Web Store, then click **Add to Chrome**.
+
+  </Step>
+  <Step title="Pin the extension" icon="plus" title-type="p">
+
+  Pin the extension to your toolbar so you can access it quickly while browsing research sites.
+
+  </Step>
+  <Step title="Log in" icon="users" title-type="p">
+
+  Click the extension icon and log in with your Paperguide account. The extension connects to your current workspace.
+
+  </Step>
+</Steps>
+
+<Callout kind="tip">
+
+Pinning the extension makes PDF retrieval faster when you move between publisher pages, repositories, and your library.
+
+</Callout>
+
+## Getting PDFs for existing references
+
+Use this flow when a reference is already in your library but does not have an attached PDF.
+
+<Steps>
+  <Step title="Open a reference" icon="book-open" title-type="p">
+
+  Open the reference in Reference Manager that needs a PDF.
+
+  </Step>
+  <Step title="Click Get PDF" icon="download" title-type="p">
+
+  Click the **Get PDF** button on the reference. The extension attempts to find an open-access version of the paper.
+
+  </Step>
+  <Step title="Confirm the PDF was attached" icon="check-circle" title-type="p">
+
+  If the extension finds a PDF, it attaches the file to the reference and queues it for indexing.
+
+  A successful result shows the PDF on the reference and updates the indexing status shortly after.
+
+  </Step>
+</Steps>
+
+## Getting PDFs from publisher pages
+
+Use the extension directly from a paper page when you find an article outside your library.
+
+<Steps>
+  <Step title="Navigate to a paper page" icon="monitor" title-type="p">
+
+  Open a paper page on a publisher website, preprint server such as arXiv or bioRxiv, or a repository such as PubMed Central or Semantic Scholar.
+
+  </Step>
+  <Step title="Click the smart action button" icon="zap" title-type="p">
+
+  The extension detects research papers automatically and shows a smart action button. Click it to download and attach the PDF to your library.
+
+  </Step>
+  <Step title="Check where the PDF was saved" icon="check-circle" title-type="p">
+
+  The PDF is attached to the matching reference in your library. If the paper is not already in your library, Paperguide creates a new reference for it.
+
+  </Step>
+</Steps>
+
+## PDF retrieval sources
+
+The extension looks for PDFs across several common sources:
+
+- **Publisher websites** — direct download from the publisher page
+- **Preprint servers** — arXiv, bioRxiv, and medRxiv
+- **Repositories** — PubMed Central and institutional repositories
+- **Open-access versions** — open-access discovery services and other OA finders
+
+<Callout kind="alert">
+
+PDF availability depends on access rights. Open-access papers work best. For paywalled papers, the extension can retrieve the PDF only when you have institutional access or an open-access version is available.
+
+</Callout>
+
+## Tracking indexing status
+
+After Paperguide adds a PDF, it queues the file for indexing. The status appears on the reference so you can tell whether the paper is ready for AI features.
+
+- **Pending** — the PDF was uploaded, but indexing has not started
+- **Indexing** — Paperguide is processing the file for text extraction and vectorization
+- **Indexed** — the PDF is fully processed and available for chat and search
+- **Failed** — indexing did not complete, often because the PDF is corrupted, scanned without OCR, or unsupported
+
+## What vectorization does
+
+Indexed PDFs become searchable because Paperguide converts the document text into embeddings. That processing makes features such as [Chat with PDF](/chat-with-pdf) and [Research Agent](/research-agent) work against the paper's actual content.
+
+## Retrieving PDFs in bulk
+
+Select multiple references in your library to attempt batch PDF retrieval. Paperguide processes each reference in sequence and tries to find and attach a PDF for each one.
+
+Bulk retrieval is useful after importing a large set of metadata-only references. You can fill in missing PDFs without opening each reference one by one.
+
+## Next steps
+
+<Columns cols={2}>
+  <Card title="Chrome Extension" href="/chrome-extension" icon="code" horizontal="false" />
+  <Card title="Reference Manager Overview" href="/reference-manager/overview" icon="book-open" horizontal="false" />
+</Columns>

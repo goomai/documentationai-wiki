@@ -1,0 +1,140 @@
+---
+title: Data Extraction
+description: Extract structured data from included papers with AI-prefilled fields, review statuses, approve results, and export for analysis.
+---
+
+## What is Data Extraction?
+
+Data Extraction is the stage where the AI pulls structured data from every paper that passed Full Text Screening. The fields it fills are the extraction fields you defined in your [Protocol](/systematic-review/protocol), such as study design, sample size, intervention details, and outcomes.
+
+Results appear in a grid view with papers as rows and extraction fields as columns. The AI pre-fills each cell, and you can review, edit, and approve the extracted values before exporting.
+
+## Grid view
+
+The extraction grid shows all included papers and their extracted data in one place. This layout makes it easier to review many papers and fields without opening each record one by one.
+
+- **Rows**: each paper included from Full Text Screening
+- **Columns**: each extraction field defined in your protocol
+- **Cells**: the AI-extracted value for that paper and field
+
+Use search, filtering, and sorting to work through large extraction tables more efficiently.
+
+## AI-prefilled values
+
+For each paper and field combination, the AI reads the paper's full text and extracts a value based on the field instructions and output type. The extraction result depends on how you defined the field in the protocol.
+
+- **Free text** fields return an open-ended answer.
+- **Yes / Maybe / No** fields return one of the three allowed options.
+- **Specified options** fields return one option from the list you defined.
+
+Every extracted value is editable. If the AI selects the wrong answer or misses important nuance, update the cell before approval.
+
+## Status indicators
+
+Each cell shows a status so you can see what still needs attention.
+
+- **Extracted**: the AI filled the cell and it is ready for review.
+- **Pending**: extraction has not run for that cell yet.
+- **Error**: the AI could not extract a value and the cell needs manual review or entry.
+
+<Callout kind="info">
+
+Extraction runs at the paper-and-field level. A single paper can contain a mix of extracted, pending, and error cells while the rest of the grid continues processing.
+
+</Callout>
+
+## Confirming before running
+
+Before extraction starts, confirm that your paper set and extraction fields are final. Data Extraction uses the current protocol snapshot, so changes to fields should happen before you launch the run.
+
+<Steps>
+  <Step title="Review extraction fields" icon="check-circle" title-type="p">
+
+  Confirm that the extraction fields from your protocol are correct. If you need to add, remove, or edit fields, return to the [Protocol](/systematic-review/protocol) stage first.
+
+  </Step>
+
+  <Step title="Confirm the extraction" icon="play-circle" title-type="p">
+
+  Start the extraction run after the fields and included papers look right. The AI begins processing each included paper against each extraction field.
+
+  </Step>
+
+  <Step title="Wait for extraction to finish" icon="terminal" title-type="p">
+
+  The system updates the grid as extraction progresses. You will see cells move from **Pending** to **Extracted** or **Error**.
+
+  A successful run leaves most or all cells populated, depending on PDF quality and how clearly the paper reports the requested information.
+
+  </Step>
+</Steps>
+
+## Editing extracted data
+
+Click a cell to review and correct the extracted result. This is the main quality-control step before approval and export.
+
+The detail view shows:
+
+- **Extracted value**: the current answer stored for that paper and field
+- **Source evidence**: the passage from the paper that supports the answer
+- **Edit field**: a place to enter a corrected value if the extraction is inaccurate
+
+<Callout kind="info">
+
+Papers without PDFs cannot be extracted. Low-quality PDFs, image-only scans, or files without usable OCR can also reduce extraction accuracy.
+
+</Callout>
+
+## Approving extractions
+
+Approval records that a reviewed extraction is ready to use. This creates an audit trail between AI-generated values and human-reviewed values.
+
+In the default workflow, AI performs the extraction and you approve the results after review. If your review is configured for dual mode, a consensus reviewer approves the extraction after the AI fills the values.
+
+## Export
+
+After review and approval, export the extraction grid for analysis, sharing, or downstream reporting. Exported data includes the extracted values alongside paper information and field structure.
+
+Common export formats include:
+
+- **CSV** for analysis tools and spreadsheets
+- **Excel** for formatted review and sharing
+
+If a value still shows **Pending** or **Error**, resolve it before export when you need a complete dataset.
+
+## What to check before you export
+
+Use this checklist to catch the most common issues before you leave the extraction stage.
+
+<ExpandableGroup>
+  <Expandable title="Make sure all required papers have PDFs">
+
+  Papers without PDFs cannot be processed by the extractor. If a paper is missing extraction values entirely, check whether the PDF is attached and readable.
+
+  </Expandable>
+
+  <Expandable title="Review cells marked Error">
+
+  Error states usually mean the AI could not confidently extract a value for that field. Open the cell, review the paper manually, and enter the value yourself when needed.
+
+  </Expandable>
+
+  <Expandable title="Confirm the protocol fields are final">
+
+  Extraction is based on the fields defined in the protocol snapshot used for the run. If you change extraction fields later, rerun extraction so the grid matches the updated field set.
+
+  </Expandable>
+
+  <Expandable title="Approve reviewed papers">
+
+  Approval gives you a clear record of which extraction results were checked. If your workflow depends on reviewer sign-off, complete approvals before exporting.
+
+  </Expandable>
+</ExpandableGroup>
+
+## Next steps
+
+<Columns cols={2}>
+  <Card title="Systematic Review Overview" href="/systematic-review/overview" icon="book-open" />
+  <Card title="Full Text Screening" href="/systematic-review/full-text-screening" icon="arrow-right" />
+</Columns>

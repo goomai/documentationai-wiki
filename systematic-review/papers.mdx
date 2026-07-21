@@ -1,0 +1,90 @@
+---
+title: Papers
+description: Import, manage, and deduplicate papers for your systematic review.
+---
+
+## What is the Papers page?
+
+The Papers page is where you build and manage the pool of papers for your systematic review. Every paper that enters screening, extraction, and your final report starts here. You can import papers from multiple sources, detect and merge duplicates, filter and search your pool, and remove papers that are not relevant.
+
+<Callout kind="info">
+
+Papers is the first stage in the systematic review workflow. Decisions you make here affect the papers available for later screening and reporting stages.
+
+</Callout>
+
+## Importing papers
+
+Papers offers five import methods, each accessible from the import tabs at the top of the page.
+
+<Steps>
+  <Step title="AI Search" icon="search" title-type="p">
+
+  Search the 200M+ paper database across PubMed, arXiv, OpenAlex, and Semantic Scholar. Enter your search terms, apply filters such as year, field, and open access, then add results to your review. A progress banner shows how many papers have been imported during the search.
+
+  </Step>
+  <Step title="Upload PDF" icon="upload" title-type="p">
+
+  Upload PDF files directly from your device. The AI extracts metadata such as title, authors, year, and DOI from each PDF to create the paper record. You can upload multiple files at once.
+
+  </Step>
+  <Step title="URL or DOI" icon="external-link" title-type="p">
+
+  Paste a direct URL or DOI to import a single paper. Paperguide fetches the metadata from publisher databases and adds the paper to your pool.
+
+  </Step>
+  <Step title="BibTeX or RIS" icon="download" title-type="p">
+
+  Import from bibliographic files. Upload a `.bib` or `.ris` file and Paperguide parses each entry into a paper record. This works well for exports from Zotero, Mendeley, or EndNote.
+
+  </Step>
+  <Step title="From Reference Manager" icon="folder" title-type="p">
+
+  Select papers from your Paperguide Reference Manager library and add them directly to the review. This is the fastest way to reuse papers you have already collected.
+
+  </Step>
+</Steps>
+
+## Duplicates detection
+
+Paperguide automatically checks new imports for duplicates so your paper pool stays clean. Duplicate detection uses DOI matching, title similarity, and metadata comparison to flag records that may represent the same paper.
+
+- **Automatic detection**: duplicates are identified during import using DOI and fuzzy title matching
+- **Merge**: combine duplicate records into a single paper, preserving the most complete metadata and any attached PDF
+- **Undo merge**: restore the original records if you merged papers by mistake
+
+<Callout kind="tip">
+
+Review duplicates before you begin screening when possible. A clean paper pool reduces extra screening work and keeps review counts more accurate.
+
+</Callout>
+
+## Paper list
+
+The paper list shows every paper currently in your review pool. It is designed for fast browsing and searching, even when your review includes a large number of papers.
+
+- **Inline search**: search by title, author, or DOI
+- **Filters**: narrow the list by whether a paper has a PDF, publication year, or citation count
+- **Advanced filters**: open the filter dialog for more granular filtering options
+- **Sorting**: sort by title, year, citations, or date added
+
+## Search progress banner
+
+When you import papers with AI Search, a progress banner appears at the top of the page. The banner shows how many papers have been found and added so far, which helps you track large imports while the search is still running.
+
+## Removing papers
+
+Remove papers from your pool when they are clearly irrelevant or were added by mistake. This is safest before screening begins, because later stages depend on the current paper pool.
+
+<Callout kind="alert">
+
+Removing papers after screening has started may require re-running screening for the affected stage. Screening results for removed papers are discarded, and review counts update to reflect the current pool.
+
+</Callout>
+
+## Next steps
+
+<Columns cols={2}>
+  <Card title="Protocol" href="/systematic-review/protocol" icon="book-open" horizontal="false" />
+  <Card title="Title and abstract screening" href="/systematic-review/title-abstract-screening" icon="filter" horizontal="false" />
+</Columns>

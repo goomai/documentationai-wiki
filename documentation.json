@@ -28,92 +28,69 @@
                 "show-parent-label": false
               },
               {
-                "title": "Research Agent",
-                "path": "research-agent",
-                "icon": "atom"
-              },
-              {
-                "title": "Literature Review Agent",
-                "path": "literature-review-agent",
-                "icon": "lucide-text-search"
-              },
-              {
-                "group": "AI Writer",
-                "pages": [
-                  {
-                    "title": "Generate Document",
-                    "path": "ai-writer/generate-document",
-                    "icon": "atom"
-                  },
-                  {
-                    "title": "AI Edit & Smart Continue",
-                    "path": "ai-writer/ai-writing-features",
-                    "icon": "edit3"
-                  }
-                ],
-                "icon": "file-edit",
-                "path": "ai-writer"
-              },
-              {
-                "group": "Reference Manager",
-                "pages": [
-                  {
-                    "title": "Overview",
-                    "path": "reference-manager/overview",
-                    "icon": "file-text"
-                  },
-                  {
-                    "title": "Importing References",
-                    "path": "reference-manager/importing-references",
-                    "icon": "download"
-                  },
-                  {
-                    "title": "Import from Zotero",
-                    "path": "reference-manager/import-from-zotero",
-                    "icon": "folder-down"
-                  },
-                  {
-                    "title": "Organising with Folders",
-                    "path": "reference-manager/organising-with-folders",
-                    "icon": "folder"
-                  },
-                  {
-                    "title": "AI Summary",
-                    "path": "reference-manager/ai-summary",
-                    "icon": "sparkles-icon"
-                  },
-                  {
-                    "title": "Reference Bib",
-                    "path": "reference-manager/reference-bib",
-                    "icon": "info"
-                  },
-                  {
-                    "title": "Manage Tags",
-                    "path": "reference-manager/manage-tags",
-                    "icon": "tag"
-                  },
-                  {
-                    "title": "Notes & Annotation",
-                    "path": "reference-manager/notes-annotation",
-                    "icon": "highlighter"
-                  },
-                  {
-                    "title": "Share Folders",
-                    "path": "reference-manager/share-folders",
-                    "icon": "send"
-                  },
-                  {
-                    "title": "Shared with me",
-                    "path": "reference-manager/shared-with-me-folders",
-                    "icon": "lucide-users"
-                  }
-                ],
-                "icon": "folder-open-icon"
-              },
+                "title": "Organization & Workspaces",
+                "path": "organizations-workspaces",
+                "icon": "lucide-building-2"
+              }
+            ]
+          },
+          {
+            "group": "Discover",
+            "pages": [
               {
                 "title": "AI Search",
                 "path": "ai-search",
                 "icon": "lucide-search"
+              },
+              {
+                "title": "Research Agent",
+                "path": "research-agent",
+                "icon": "atom"
+              }
+            ]
+          },
+          {
+            "group": "Systematic Review",
+            "pages": [
+              {
+                "title": "Overview",
+                "path": "systematic-review/overview",
+                "icon": "file-text"
+              },
+              {
+                "title": "Protocol",
+                "path": "systematic-review/protocol",
+                "icon": "lucide-list-checks"
+              },
+              {
+                "title": "Papers",
+                "path": "systematic-review/papers",
+                "icon": "lucide-files"
+              },
+              {
+                "title": "Title & Abstract Screening",
+                "path": "systematic-review/title-abstract-screening",
+                "icon": "lucide-filter"
+              },
+              {
+                "title": "Full Text Screening",
+                "path": "systematic-review/full-text-screening",
+                "icon": "lucide-file-search"
+              },
+              {
+                "title": "Data Extraction",
+                "path": "systematic-review/data-extraction",
+                "icon": "lucide-table"
+              }
+            ]
+          },
+          {
+            "group": "Synthesize",
+            "pages": [
+              {
+                "title": "Extract Data",
+                "path": "extract-data",
+                "icon": "lucide-sheet"
               },
               {
                 "title": "Chat with PDF",
@@ -121,25 +98,85 @@
                 "icon": "lucide-message-square"
               },
               {
-                "title": "Extract Data",
-                "path": "extract-data",
-                "icon": "lucide-sheet"
+                "title": "Literature Review Agent",
+                "path": "literature-review-agent",
+                "icon": "lucide-text-search"
               },
               {
                 "title": "Deep Research Report",
                 "path": "deep-research-report",
                 "icon": "file-search"
+              }
+            ]
+          },
+          {
+            "group": "Reference Manager",
+            "pages": [
+              {
+                "title": "Overview",
+                "path": "reference-manager/overview",
+                "icon": "file-text"
               },
               {
-                "title": "Chrome Extension",
-                "path": "chrome-extension",
-                "icon": "box"
+                "title": "Add References",
+                "path": "reference-manager/add-references",
+                "icon": "lucide-plus-circle"
+              },
+              {
+                "title": "Import Zotero & Mendeley",
+                "path": "reference-manager/import-zotero-mendeley",
+                "icon": "lucide-download"
+              },
+              {
+                "title": "Get PDFs with Extension",
+                "path": "reference-manager/get-pdfs-with-extension",
+                "icon": "lucide-chrome"
+              },
+              {
+                "title": "Organize Folders & Tags",
+                "path": "reference-manager/organize-folders-tags",
+                "icon": "lucide-folder-tree"
+              },
+              {
+                "title": "Notes & Annotation",
+                "path": "reference-manager/notes-annotation",
+                "icon": "highlighter"
+              },
+              {
+                "title": "Share Library & Workspace",
+                "path": "reference-manager/share-library-workspace",
+                "icon": "lucide-users"
+              }
+            ]
+          },
+          {
+            "group": "AI Writer",
+            "pages": [
+              {
+                "title": "Overview",
+                "path": "ai-writer/overview",
+                "icon": "file-text"
+              },
+              {
+                "title": "Generate Document",
+                "path": "ai-writer/generate-document",
+                "icon": "atom"
+              },
+              {
+                "title": "AI Features",
+                "path": "ai-writer/ai-features",
+                "icon": "lucide-sparkles"
               }
             ]
           },
           {
             "group": "Others",
             "pages": [
+              {
+                "title": "Chrome Extension",
+                "path": "chrome-extension",
+                "icon": "box"
+              },
               {
                 "title": "AI Credits",
                 "path": "ai-credits",

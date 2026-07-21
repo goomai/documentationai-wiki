@@ -1,0 +1,118 @@
+---
+title: Import from Zotero & Mendeley
+description: Import your Zotero and Mendeley libraries via BibTeX or RIS files.
+---
+
+## What is bulk import?
+
+If you already use Zotero or Mendeley, you can import your entire library into Paperguide using BibTeX or RIS export files. This brings across your paper metadata — titles, authors, years, journals, DOIs, abstracts, and tags — so you do not need to re-add each reference manually.
+
+The import process works the same way for both tools: export your library from Zotero or Mendeley as a BibTeX or RIS file, then upload that file to Paperguide.
+
+<Callout kind="info">
+
+Bulk import moves reference metadata, not attached files. If you rely on local PDFs in Zotero or Mendeley, plan to add those separately after the import.
+
+</Callout>
+
+## Exporting from Zotero
+
+Export the specific library or collection you want to bring over so you can keep the import focused and easier to review.
+
+<Steps>
+  <Step title="Open Zotero" icon="folder" title-type="p">
+
+Open Zotero and select the library or collection you want to export.
+
+  </Step>
+  <Step title="Export library" icon="download" title-type="p">
+
+Go to File → Export Library. Choose `BibTeX` or `RIS` as the export format.
+
+  </Step>
+  <Step title="Save the file" icon="download" title-type="p">
+
+Save the exported file to your device. Zotero creates a single file containing all references in the selected collection.
+
+  </Step>
+</Steps>
+
+## Exporting from Mendeley
+
+Export the references you want first, then upload the resulting file into Paperguide.
+
+<Steps>
+  <Step title="Open Mendeley" icon="folder" title-type="p">
+
+Open Mendeley and select the references you want to export.
+
+  </Step>
+  <Step title="Export" icon="download" title-type="p">
+
+Go to File → Export. Choose `BibTeX` or `RIS` as the export format.
+
+  </Step>
+  <Step title="Save the file" icon="download" title-type="p">
+
+Save the exported file to your device.
+
+  </Step>
+</Steps>
+
+## Importing to Paperguide
+
+Once you have the export file, upload it from Reference Manager.
+
+<Steps>
+  <Step title="Open Reference Manager" icon="book-open" title-type="p">
+
+Navigate to Reference Manager in your workspace.
+
+  </Step>
+  <Step title="Click Import" icon="upload" title-type="p">
+
+Click the Import button and choose `BibTeX` or `RIS`, depending on the file you exported.
+
+  </Step>
+  <Step title="Upload the file" icon="upload" title-type="p">
+
+Upload the `.bib` or `.ris` file from your device. Paperguide starts processing it in the background.
+
+A successful upload starts the import immediately and shows a progress indicator in the interface.
+
+  </Step>
+  <Step title="Wait for processing" icon="info" title-type="p">
+
+Large imports are processed in the background. You can continue working while the import runs.
+
+When processing finishes, your imported references appear in Reference Manager.
+
+  </Step>
+</Steps>
+
+## Background processing
+
+Large library imports may take a few minutes to complete. Paperguide processes the file in the background so you can continue using other features while the import runs. A progress indicator shows how many references have been imported so far.
+
+If you imported a large library, give the process a little time before checking for missing entries. The reference list updates as processing completes.
+
+## What gets imported
+
+The import brings across the following metadata from each reference:
+
+- **Title, authors, year, journal, DOI, abstract** — the core bibliographic data
+- **Tags** — tags from Zotero are preserved and applied to the imported references
+- **Notes** — notes included in the export file are imported where available
+
+<Callout kind="alert">
+
+PDFs are not imported from BibTeX or RIS files — these formats only carry metadata, not file attachments. To retrieve PDFs for your imported references, use the [Chrome Extension](/reference-manager/get-pdfs-with-extension) or upload PDFs manually.
+
+</Callout>
+
+## Next steps
+
+<Columns cols={2}>
+  <Card title="Add References" href="/reference-manager/add-references" icon="plus" horizontal="false" />
+  <Card title="Get PDFs with Extension" href="/reference-manager/get-pdfs-with-extension" icon="download" horizontal="false" />
+</Columns>
