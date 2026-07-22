@@ -2,6 +2,41 @@
 title: Changelog
 description: Release history and updates for Paperguide platform
 ---
+<Update label="17 July, 2026" tags={["feature"]}>
+  ## Team workspaces are live
+
+  A workspace is a shared library your whole team works in. Everything created inside it is available to everyone in it. No forwarding PDFs, no exporting reference lists, no asking who has the latest version.
+
+  In a workspace, your team can:
+
+  - Build and annotate a shared reference library
+  - Write and collaborate on documents
+  - Extract data from papers together
+  - Run systematic reviews as a team
+
+  You can create separate workspaces for different projects, labs, or groups, and control who has access to each one. An admin dashboard shows usage and access in one place.
+
+  ### How workspaces work
+
+  Paperguide uses an organization and workspace hierarchy. Your organization is the top-level team container, and each workspace holds its own Reference Manager, AI Writer, Systematic Review, Extract Data, and Notebooks.
+
+  There are three workspace types:
+
+  - **Personal** — your sovereign library, created automatically when you sign up. Not part of any organization.
+  - **Private** — your personal space inside an organization. Only you can see it, and even organization admins cannot access it.
+  - **Workspaces** — a shared collaborative space inside an organization. Add multiple team members with different roles, and create as many team workspaces as your team needs.
+
+  ### Roles & access control
+
+  Organization roles (Owner, Admin, Member) control who can manage billing, seats, and workspaces. Workspace control what someone can do inside a specific team workspace — so you can add someone to the organization without giving them access to every shared workspace.
+
+  ### Getting started
+
+  Upgrade your plan with 2 or more seats to create an organization account and collaborative workspaces. Then invite team members by email, pre-assign them to specific workspaces, and Paperguide handles the rest.
+
+  [Upgrade your plan](https://paperguide.ai/pricing/) / [Learn more](/organizations-workspaces)
+</Update>
+
 <Update label="29 May, 2026" tags={["feature"]}>
   ## Paperguide now has a Search API
 
@@ -10,11 +45,8 @@ description: Release history and updates for Paperguide platform
   ### What's included
 
   - Hybrid semantic + keyword search across 200M+ papers
-
   - Rich metadata: authors, citations, DOI, abstracts, BibTeX, PDF links
-
   - Filters for year, field of study, journal quality, open access
-
   - API key management from your dashboard
 
   Set up your key in **Settings > API Keys**, or [read the API docs](/api).
@@ -30,9 +62,7 @@ description: Release history and updates for Paperguide platform
   **Now:** Every search evaluates 10,000+ candidates through a multi-stage pipeline:
 
   - **Wider retrieval:** Thousands of candidates pulled from both semantic and keyword-based search.
-
   - **Quality scoring:** Each candidate scored on citation velocity, journal impact (SNIP), and recency, not just relevance.
-
   - **Reranking:** Relevance scores blended with quality signals to surface papers that are both on-topic and published in credible journals.
 
   Better results, stronger sources, across everything: AI Search, Literature Review, Research Agent, AI Writer.
@@ -48,11 +78,8 @@ description: Release history and updates for Paperguide platform
   This week we shipped a retrained model on top of upgraded base AI models. Here's what changed:
 
   - **Upgraded AI models:** The Research Agent now runs on stronger underlying models, which means better reasoning, more coherent outputs, and more reliable citations across every task.
-
   - **Smarter task understanding:** The agent is better at interpreting what you're actually asking, whether it's a lit review, a comparison, a gap analysis, or a data extraction task.
-
   - **More accurate responses:** We fixed a set of hallucination issues where the agent would generate claims not grounded in the source papers. Outputs are now more tightly tied to the literature.
-
   - **Better research task handling:** Multi-step workflows like screening, extracting, and synthesizing run more reliably from start to finish.
 </Update>
 
@@ -62,11 +89,8 @@ description: Release history and updates for Paperguide platform
   Cleaner citations, stronger writing, and tighter instruction-following throughout. Generate full literature reviews, research papers, essays, and reports from a single research question.
 
   - Draws from your reference manager and our 200M+ paper database
-
   - Add custom writing instructions before generating
-
   - Filter which papers get used as sources
-
   - Pick from 1,000+ citation styles
 </Update>
 
@@ -80,11 +104,8 @@ description: Release history and updates for Paperguide platform
   ## New features in this release
 
   - **Smart Continue:** AI picks up from your cursor when you pause, follows the logical flow, and cites your selected sources as it writes.
-
   - **Math blocks:** Type a KaTeX equation, and it renders in your document. Or describe the equation in plain English, and AI writes the formula for you.
-
   - **Inline equations:** Same as math blocks, but placed inside a line of content instead of as a separate block.
-
   - **Import from Word:** Bring in an existing Word document and continue writing with full access to AI Writer's features.
 </Update>
 
@@ -102,9 +123,7 @@ description: Release history and updates for Paperguide platform
   ArXiv is now integrated across Paperguide. You can select it as a source for:
 
   - Research Agent tasks
-
   - AI Search
-
   - Literature Review
 
   Particularly useful if your work sits in physics, mathematics, CS, or quantitative biology — fields where arXiv is often ahead of indexed databases.
@@ -124,13 +143,9 @@ description: Release history and updates for Paperguide platform
   Concretely, you can:
 
   - Search PubMed and get research-backed answers to clinical or biomedical questions
-
   - Run literature reviews on PubMed papers with custom extraction columns
-
   - Generate Deep Research Reports grounded in biomedical sources
-
   - Extract and compare data across PubMed papers in a structured workbook
-
   - Work with the research agent using PubMed as your source
 </Update>
 
@@ -140,15 +155,10 @@ description: Release history and updates for Paperguide platform
   The **Research Agent** is a flexible, all-in-one assistant for open-ended questions that complements specialized agents like Literature Review, Deep Research, and Chat with PDF.
 
   - Generate **evidence-backed answers** with citations
-
   - **Find relevant papers** across topics and sources
-
   - **Compare studies** on methods, results, and conclusions
-
   - **Summarize** papers, sections, or mixed sources
-
   - Identify **gaps and limitations** in the evidence
-
   - **Refine drafts** with clearer arguments and stronger support
 
   [Learn more](/research-agent)
@@ -181,18 +191,14 @@ description: Release history and updates for Paperguide platform
 
   **How it works**
 
-  - Start from **our full database (\~200M papers)** *or* use **your reference manager** as the input set.
-
+  - Start from **our full database (\~200M papers)** _or_ use **your reference manager** as the input set.
   - The agent creates a **step-by-step plan**, then helps you **find relevant papers**, **screen them**, and **extract key details** before drafting the review.
 
   **What you get**
 
   - A **structured literature review** with **citations** so you can verify claims quickly
-
   - The **candidate/selected papers list**
-
   - **Screening outcomes** (what was included/excluded and why)
-
   - **Extracted data** (so you can reuse it for tables, analysis, or writing)
 
   Use it for quick overviews or deeper dives—especially when you want the workflow and evidence in one place.
@@ -208,14 +214,12 @@ description: Release history and updates for Paperguide platform
   You can now run deeper research workflows on a single PDF, including:
 
   - **Structured summaries** of long sections or the full paper
-
   - **Extracting key claims with evidence** from the text
-
   - **Comparing arguments or results** across sections or related papers
 
   Follow-up questions also behave more predictably, especially for queries like "where does it say that?" or "expand on this section" — the assistant will quote and expand based on the exact passages it found.
 
-  <a href="https://paperguide.ai/chat-with-pdf-agent/" target="_blank" rel="noopener noreferrer">Try Chat with PDF</a>
+  [Try Chat with PDF](https://paperguide.ai/chat-with-pdf-agent/)
 </Update>
 
 <Update label="16 Jan, 2026" tags={["new feature","improvement"]}>
@@ -228,9 +232,7 @@ description: Release history and updates for Paperguide platform
   Instead of a long list of results, AI Search returns:
 
   - **Top 20 research papers** most relevant to your query
-
   - A **synthesized answer** built from those papers
-
   - A **reference list** so you can quickly inspect the underlying evidence
 
   It supports flexible queries as a topic, research question, paper title, or plain-language description. After you get your initial results, you can ask **follow-up questions in chat** to refine or go deeper without starting over.
@@ -262,10 +264,9 @@ description: Release history and updates for Paperguide platform
   Remember how Deep Research Report used to screen 50 papers and build your report from the top 10? That worked well for quick overviews, but many of you told us you needed to dig deeper for comprehensive reviews and grant proposals. So we've expanded the options:
 
   - **Standard Report** Screen up to 80 relevant papers → Generate report from top 30 papers \
-    *Great for thorough literature reviews and academic writing*
-
+    _Great for thorough literature reviews and academic writing_
   - **Comprehensive Report** Screen up to 100 relevant papers → Generate report from top 50 papers \
-    *Ideal for systematic reviews, meta-analyses*
+    _Ideal for systematic reviews, meta-analyses_
 </Update>
 
 <Update label="11 July, 2025">
@@ -276,9 +277,7 @@ description: Release history and updates for Paperguide platform
   #### **What's improved**
 
   - **Understands your questions better:** AI grasps the context behind your research questions, not just keywords.
-
   - **More relevant paper matching** Search results now include papers that are conceptually related to your query, not just keyword matches.
-
   - **Recognizes field-specific language** The system knows when different terms mean the same thing in your research area.
 
   For example, searching "machine learning in healthcare" now also finds papers about "artificial intelligence in medicine" or "automated diagnosis systems."
@@ -318,13 +317,9 @@ description: Release history and updates for Paperguide platform
   Deep Research is our new research assistant that automatically conducts comprehensive literature reviews for you. Here's what it does:
 
   - Create a structured research plan
-
   - Search through millions of papers for relevant information
-
   - Screen papers based on quality and relevance
-
   - Extract key data points and identify patterns
-
   - Deliver a fully cited research report
 
   This can help you complete in minutes what might normally take weeks of manual work.
