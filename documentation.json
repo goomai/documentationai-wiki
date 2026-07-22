@@ -213,7 +213,8 @@
             "title": "Changelog",
             "path": "changelog",
             "icon": "history",
-            "show-sidebar": false
+            "show-sidebar": false,
+            "show-parent-label": false
           },
           {
             "title": "Roadmap",
