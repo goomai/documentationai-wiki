@@ -11,39 +11,6 @@ The system produces one decision for each paper: **Include**, **Exclude**, or **
 
 This stage is intentionally sensitive. It removes clearly irrelevant papers while preserving borderline papers for closer review in the next stage. Papers marked **Included** or **Maybe** move forward to Full Text Screening.
 
-## Screening modes
-
-The screening mode is set when you create the review and cannot be changed later.
-
-<Tabs>
-  <Tab title="AI-led" icon="zap">
-
-  The AI screens each paper first, and you verify or change the result.
-
-  - **Who screens:** the AI
-  - **Human action:** confirm the AI decision or override it
-  - **How you record decisions:** confirm the recommendation or change the final outcome
-  - **Best for:** faster reviews with human verification
-
-  </Tab>
-  <Tab title="Dual-reviewer" icon="users">
-
-  Two independent reviewers screen each paper separately. If they disagree, a conflict resolver makes the final decision.
-
-  - **Who screens:** two independent reviewers, which may be human or AI depending on the review setup
-  - **Human action:** each reviewer submits a decision independently
-  - **How disagreements work:** conflicting decisions move to conflict resolution
-  - **Best for:** review methods that require independent agreement
-
-  </Tab>
-</Tabs>
-
-<Callout kind="info">
-
-In AI-led mode, the screening flow is AI decision first, then human verification. In dual-reviewer mode, reviewers submit independent decisions and the system tracks disagreement resolution separately.
-
-</Callout>
-
 ## Interface layout
 
 The screening workspace uses a master-detail layout so you can move quickly through large paper sets without losing context.
@@ -87,7 +54,7 @@ Read criterion verdicts before changing the overall decision. In most cases, a d
 
 ## Verify or override a decision
 
-In AI-led mode, the AI recommendation is not the same as a verified final decision. You review the paper, inspect the criterion verdicts and evidence, then either confirm the result or change it.
+The AI recommendation is not the same as a verified final decision. You review the paper, inspect the criterion verdicts and evidence, then either confirm the result or change it.
 
 <Steps>
   <Step title="Open a paper that needs review" icon="book-open">
@@ -128,21 +95,6 @@ You can verify papers one at a time or use bulk confirmation for batches you hav
 Verification creates an auditable trail of AI-made and human-verified decisions. That record helps you report your screening process transparently.
 
 </Callout>
-
-## Dual-reviewer conflicts
-
-In dual-reviewer mode, each reviewer submits an independent decision. The system then compares the two outcomes and tracks the result through a conflict status.
-
-The workflow follows four states:
-
-| Status | What it means |
-|---|---|
-| **pending** | One or both reviewers have not finished yet |
-| **decided** | The paper has a decision without conflict |
-| **conflict** | Reviewers submitted different decisions |
-| **resolved** | A conflict resolver settled the disagreement |
-
-When a paper enters **conflict**, a resolver reviews both decisions and records the final outcome. That keeps independent screening separate from adjudication.
 
 ## Screening progress
 
