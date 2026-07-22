@@ -76,15 +76,61 @@ Systematic Review supports team-based collaboration with role-based access contr
 
 Review members with the **Reviewer** role can be assigned to specific stage responsibilities. In AI-led mode, that usually means verifying AI decisions. In dual-reviewer mode, assigned reviewers submit independent decisions and a conflict resolver settles disagreements when reviewers do not agree.
 
+## Managing members and roles
+
+Only review managers can invite members, change roles, and manage access for a systematic review. Review managers include the review creator, workspace owners, and organization owners or admins. Regular workspace editors do not get manager privileges, even if they have full access to the review itself.
+
+### How members get access
+
+People can join a review in three ways:
+
+- **Workspace membership**: Members of the team workspace automatically get access based on their workspace role. Workspace editors default to the Reviewer role, workspace viewers default to View, and workspace owners get Full Access with manager privileges.
+- **Email invitation**: Invite anyone by email, including people outside your workspace, and assign them a specific review role: Full Access, Reviewer, or View. They receive an email invitation and must accept before they can access the review.
+- **Share link**: Generate a view-only link that anyone with the link can use to join the review. People who redeem the link appear as guests in the member list.
+
+### Inviting members by email
+
+<Steps>
+  <Step title="Open the review's member management panel" icon="settings" title-type="p">
+    Go to your systematic review and open the members or team settings.
+  </Step>
+
+  <Step title="Invite by email" icon="mail" title-type="p">
+    Click the invite option, enter the email address, and choose a role: Full Access, Reviewer, or View.
+  </Step>
+
+  <Step title="Recipient accepts" icon="check" title-type="p">
+    The invitee receives an email invitation. Once they accept, they appear in the member list with the role you assigned.
+  </Step>
+</Steps>
+
+### Changing a member's role
+
+Managers can override a workspace member's review role to give them more or fewer permissions than their workspace default. For example, you can promote a workspace viewer to Reviewer for a specific review, or restrict an editor to View.
+
+Clearing the override reverts the member to their workspace default role. When a member is changed to View, any stage assignments they had are automatically reset.
+
+### Assigning reviewers to stages
+
+In both screening modes, you can assign specific people to stage roles. In AI-led mode, assign reviewers as verifiers to confirm AI decisions. In dual-reviewer mode, assign two independent reviewers and a conflict resolver for each screening stage.
+
+Assignments are managed in the review's settings, and reviewers must have Reviewer or Full Access to be assigned. When a reviewer is assigned as a verifier, they receive an email notification.
+
+### Removing members
+
+To remove an invited guest, revoke their access from the member management panel. They lose access immediately. For workspace members, clearing a role override reverts them to their workspace default.
+
+To fully remove a workspace member from the review, remove them from the workspace itself.
+
+<Callout kind="info" collapsed="false">
+  Managers can also revoke a share link at any time. People who already joined through the link keep their access until you revoke them individually.
+</Callout>
+
 ## Creating a review
 
 <Steps>
   <Step title="Enter your research question" icon="help-circle" title-type="p">
     Start with your research question. You can use the AI question enhancer to diagnose and improve the question before you create the review, and those question enhancement actions do not consume credits.
-  </Step>
-
-  <Step title="Choose screening mode" icon="users" title-type="p">
-    Select **AI-led** if you want AI to screen and humans to verify, or **Dual-reviewer** if your process requires two independent reviewers and conflict resolution. Systematic Review sets AI-led as the default.
   </Step>
 
   <Step title="Configure screening stages" icon="settings" title-type="p">
