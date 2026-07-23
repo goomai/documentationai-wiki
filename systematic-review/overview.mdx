@@ -1,184 +1,179 @@
 ---
 title: Systematic Review Overview
 description: >-
-  Run rigorous systematic reviews with AI-assisted screening, extraction, and
-  PRISMA reports.
+  Run a complete systematic review inside Paperguide, from the research question
+  to a synthesized report with a PRISMA diagram. Paperguide AI does the work at
+  every stage. A person on your team verifies it before the review moves
+  forward.
 ---
-## What is Systematic Review?
+## What a systematic review is in Paperguide
 
-Systematic Review is an AI-assisted platform for conducting rigorous systematic reviews following PRISMA guidelines. It guides you through a multi-stage pipeline from importing papers to generating a final report with a PRISMA flow diagram, with AI handling the heavy lifting at each stage and humans verifying decisions.
+A systematic review answers a research question by following a protocol you define in advance: what makes a study eligible, what data you pull from it, and how you decide. The method has to be transparent enough that someone else could repeat it and reach the same result.
 
-The pipeline supports both AI-led mode, where AI screens and you verify, and dual-reviewer mode, where two independent reviewers work through decisions with conflict resolution for teams that need to meet methodological requirements.
+Paperguide runs that method as **AI-led with human verification**:
 
-## The review pipeline
+- **Paperguide AI does the work.** It evaluates your research question, drafts your eligibility criteria and extraction fields, searches for papers, screens abstracts and full texts against your criteria, extracts your defined data, and synthesizes the report.
+- **A person verifies every stage.** AI decisions are proposals, not conclusions. An assigned member reviews each one alongside the evidence AI cited, overrides anything they disagree with, and confirms the stage before the next one unlocks.
+- **Everything is recorded.** Every screening decision keeps both what AI decided and what a human changed, and every extracted value links to the statement in the source it came from.
 
-A systematic review moves through four stages in order.
+That last point is what makes the output defensible. A systematic review is only as good as its audit trail.
+
+## How the workflow runs
+
+A systematic review moves through six stages in order. Each one unlocks when the stage before it is confirmed.
 
 <Steps>
-  <Step title="Papers" icon="book-open" title-type="p">
-    Import and manage your paper pool. Add papers through AI Search, PDF upload, URL or DOI, BibTeX or RIS, or directly from your Reference Manager. Automatic duplicate detection helps keep the pool clean.
+  <Step title="Protocol" icon="clipboard-list" title-type="p">
+    Define your eligibility criteria for both screening stages and the fields you want extracted. Paperguide AI generates a starting set from your research question, which you edit or add to.
   </Step>
 
-  <Step title="Protocol" icon="settings" title-type="p">
-    Define your research question, screening criteria, and extraction fields. The AI generates an initial protocol from your research question, which you review and edit before screening starts.
+  <Step title="Papers" icon="files" title-type="p">
+    Collect the papers to review, using AI Search queries or your reference manager. Papers pool into a single set, duplicates are flagged, and you confirm the final collection.
   </Step>
 
-  <Step title="Title & Abstract Screening" icon="check-circle" title-type="p">
-    The first screening stage evaluates each paper by title and abstract against your criteria. The AI produces a decision of Include, Exclude, or Maybe with criterion-level verdicts and cited evidence from the abstract. You then verify or override each decision.
+  <Step title="Title & Abstract Screening" icon="filter" title-type="p">
+    AI screens every abstract against your criteria, gives a decision and an exclusion reason, and cites the evidence behind it. A verifier reviews and confirms.
   </Step>
 
-  <Step title="Full Text Screening" icon="search" title-type="p">
-    Papers included from the previous stage move into full-text screening. The AI reads each PDF and evaluates every criterion with evidence cited directly from the document, so you can review the decision alongside the source text.
+  <Step title="Full Text Screening" icon="file-text" title-type="p">
+    AI screens the full-text PDFs of everything that passed, with a per-criterion summary and evidence. A verifier reviews and confirms.
   </Step>
 
-  <Step title="Data Extraction" icon="database" title-type="p">
-    Papers that pass full-text screening move into extraction. The AI fills the structured fields defined in your protocol, and results appear in a grid with papers as rows and fields as columns for review, editing, and export.
+  <Step title="Data Extraction" icon="table" title-type="p">
+    AI extracts your defined fields from every included paper into a table, with citations back to the source statement. A verifier checks and confirms.
   </Step>
 
-  <Step title="Report" icon="file-text" title-type="p">
-    The final stage generates a narrative report with inline citations and a PRISMA flow diagram showing paper counts across the review. Export the report when you are ready to share findings or prepare for publication.
+  <Step title="Report" icon="file-check" title-type="p">
+    AI synthesizes the extracted data into a report documenting the full methodology, including the PRISMA diagram.
   </Step>
 </Steps>
 
-<Callout kind="info" collapsed="false">
-  Systematic Review runs screening in sequence: title and abstract screening first, then full-text screening, then extraction, and finally report generation.
+<Callout kind="info" collapsed="false" color="#3b82f6">
+  The stages are sequential. You cannot start screening before confirming your papers, and you cannot extract data before full-text screening is complete.
 </Callout>
 
-## PRISMA diagram
+## Creating a systematic review
 
-The PRISMA flow diagram is computed live from your review's current state, so it updates automatically as papers move through the pipeline. You do not need to regenerate it manually to see current counts.
+Creating a review takes two steps. Setting up your team comes straight after.
 
-The diagram shows four parts of the review flow:
+### Step 1: Enter your research question
 
-- **Identification**: papers from database searches, imported papers, duplicates removed, and papers removed for other reasons
-- **Screening**: papers screened and excluded at the title and abstract stage, with exclusion reason counts
-- **Eligibility**: papers sought for full-text retrieval, papers not retrieved because PDFs are missing, and papers assessed and excluded at the full-text stage
-- **Included**: the final count of papers included in the review
+Your research question is the single entry point. Everything downstream is built from it, including the criteria and extraction fields Paperguide AI later suggests for your protocol, so it is worth getting right before you move on.
 
-The PRISMA view is available to all review members at any point in the pipeline.
+Enter it as free text. For example:
 
-## Team collaboration
+> In adults with type 2 diabetes, do GLP-1 receptor agonists reduce major adverse cardiovascular events compared with standard care?
 
-Systematic Review supports team-based collaboration with role-based access control. Each review member has one of three roles: **Full Access**, **Reviewer**, or **View**.
+**Paperguide AI evaluates your question as you enter it.** There is no button to press. AI reads the question, identifies what is missing, and surfaces enhancement options based on the gaps it finds. A question with no defined population or no stated comparator will come back with suggestions for both.
 
-|                                | **Full Access** | **Reviewer**    | **View** |
-| ------------------------------ | --------------- | --------------- | -------- |
-| **View all stages**            | Yes             | Yes             | Yes      |
-| **Add papers**                 | Yes             | Yes             | No       |
-| **Initiate AI tasks/runs**     | Yes             | No              | No       |
-| **Change screening decisions** | Yes             | With assignment | No       |
-| **Confirm AI decisions**       | Yes             | With assignment | No       |
-| **Edit protocol**              | Yes             | No              | No       |
-| **Edit settings**              | Yes             | No              | No       |
-| **Manage team roles**          | Yes             | No              | No       |
-| **Manage members**             | Creator         | No              | No       |
-| **Export**                     | Yes             | Yes             | No       |
+Apply the ones that fit and ignore the ones that do not. You know your field better than the model does.
 
-Review members with the **Reviewer** role can be assigned to specific stage responsibilities. In AI-led mode, that usually means verifying AI decisions. In dual-reviewer mode, assigned reviewers submit independent decisions and a conflict resolver settles disagreements when reviewers do not agree.
+### Step 2: Choose which screening stages to run
 
-## Managing members and roles
+Two customization options decide the shape of your review. Each one turns a screening stage on or off.
 
-Only review managers can invite members, change roles, and manage access for a systematic review. Review managers include the review creator, workspace owners, and organization owners or admins. Regular workspace editors do not get manager privileges, even if they have full access to the review itself.
+| Option                         | What happens when you disable it                                                                                                                   |
+| ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Title & abstract screening** | The stage is skipped. Every paper you collect goes straight to full text screening, which is slower and needs a PDF for each one.                  |
+| **Full text screening**        | The stage is skipped. Papers that pass abstract screening go straight to data extraction, without their full texts being checked against criteria. |
 
-### How members get access
+Most reviews should keep both enabled. Two screening passes is the standard method, and skipping one weakens what you can claim about how papers were selected.
 
-People can join a review in three ways:
+Skipping is worth considering in narrow cases. If you are starting from a small, already-curated set of papers, abstract screening may add little. If your criteria can be settled from abstracts alone, full text screening may not earn its cost.
 
-- **Workspace membership**: Members of the team workspace automatically get access based on their workspace role. Workspace editors default to the Reviewer role, workspace viewers default to View, and workspace owners get Full Access with manager privileges.
-- **Email invitation**: Invite anyone by email, including people outside your workspace, and assign them a specific review role: Full Access, Reviewer, or View. They receive an email invitation and must accept before they can access the review.
-- **Share link**: Generate a view-only link that anyone with the link can use to join the review. People who redeem the link appear as guests in the member list.
+Once these are set, the systematic review is created and the stages become available.
 
-### Inviting members by email
+### Step 3: Set up your team
 
-<Steps>
-  <Step title="Open the review's member management panel" icon="settings" title-type="p">
-    Go to your systematic review and open the members or team settings.
-  </Step>
+Add the people working on the review and give each of them a role. You do this from the **Members** and **Settings** tabs of the systematic review. [Learn more](/systematic-review/members-roles)
 
-  <Step title="Invite by email" icon="mail" title-type="p">
-    Click the invite option, enter the email address, and choose a role: Full Access, Reviewer, or View.
-  </Step>
+- **Members tab.** Add people and set their access: Full Access, Review, or View.
+- **Settings tab.** Assign verifiers to the stages each person is responsible for.
 
-  <Step title="Recipient accepts" icon="check" title-type="p">
-    The invitee receives an email invitation. Once they accept, they appear in the member list with the role you assigned.
-  </Step>
-</Steps>
+You can do this at any point, including later in the review. Do it before screening starts if you can, so responsibilities are clear from the first stage.
 
-### Changing a member's role
+You can also run a systematic review alone. If you do, you verify each stage yourself.
 
-Managers can override a workspace member's review role to give them more or fewer permissions than their workspace default. For example, you can promote a workspace viewer to Reviewer for a specific review, or restrict an editor to View.
+### What happens next
 
-Clearing the override reverts the member to their workspace default role. When a member is changed to View, any stage assignments they had are automatically reset.
+The review now exists, and the first stage, **Protocol**, is open. From here the work happens inside the stages themselves, each on its own page:
 
-### Assigning reviewers to stages
+[Protocol](/systematic-review/protocol) → [Papers](/systematic-review/papers) → [Title & Abstract Screening](/systematic-review/title-abstract-screening) → [Full Text Screening](/systematic-review/full-text-screening) → [Data Extraction](/systematic-review/data-extraction) → Report
 
-In both screening modes, you can assign specific people to stage roles. In AI-led mode, assign reviewers as verifiers to confirm AI decisions. In dual-reviewer mode, assign two independent reviewers and a conflict resolver for each screening stage.
+## The report
 
-Assignments are managed in the review's settings, and reviewers must have Reviewer or Full Access to be assigned. When a reviewer is assigned as a verifier, they receive an email notification.
+Once data extraction is confirmed, Paperguide generates the systematic review report. This is the final output of the review and the document you take forward.
 
-### Removing members
+The report contains:
 
-To remove an invited guest, revoke their access from the member management panel. They lose access immediately. For workspace members, clearing a role override reverts them to their workspace default.
+- **The synthesized findings.** Paperguide AI analyses the data extracted across all included papers and writes up what it shows, rather than listing each study in turn.
+- **The methodology.** A record of how the review was conducted: your research question, eligibility criteria, extraction fields, and the counts at every stage.
+- **The PRISMA diagram.** Explained below.
 
-To fully remove a workspace member from the review, remove them from the workspace itself.
+Synthesis draws only on data that survived screening and was confirmed during extraction. Nothing enters the report that a person has not verified.
 
-<Callout kind="info" collapsed="false">
-  Managers can also revoke a share link at any time. People who already joined through the link keep their access until you revoke them individually.
-</Callout>
+Read the report as a draft to work from, not a finished manuscript. It documents what your review found and how it got there. Interpretation, discussion, and the argument you build on top of the evidence are still yours to write.
 
-## Creating a review
+## The PRISMA diagram
 
-<Steps>
-  <Step title="Enter your research question" icon="help-circle" title-type="p">
-    Start with your research question. You can use the AI question enhancer to diagnose and improve the question before you create the review, and those question enhancement actions do not consume credits.
-  </Step>
+PRISMA (Preferred Reporting Items for Systematic Reviews and Meta-Analyses) is the reporting standard for systematic reviews. Its flow diagram shows how many records you started with and how many survived each stage, so a reader can see exactly where papers were lost and why.
 
-  <Step title="Configure screening stages" icon="settings" title-type="p">
-    Title and abstract screening and full-text screening are both enabled by default. Turn either stage off during setup if your workflow does not require it.
-  </Step>
+Paperguide builds the diagram automatically from your review. Every number in it comes from work you already did:
 
-  <Step title="Add optional context" icon="edit" title-type="p">
-    Add additional context if the research question alone is not enough to guide protocol generation. This field is optional and helps the AI produce more relevant screening criteria and extraction fields.
-  </Step>
+| Stage in the diagram | Where the number comes from                                                                 |
+| -------------------- | ------------------------------------------------------------------------------------------- |
+| **Identification**   | Papers collected from AI Search queries and your reference manager, plus duplicates removed |
+| **Screening**        | Abstracts screened, and the number excluded with the criterion each one failed              |
+| **Eligibility**      | Full texts assessed, and the number excluded, including papers ineligible for lack of a PDF |
+| **Included**         | Papers that reached data extraction                                                         |
 
-  <Step title="Create the review" icon="check" title-type="p">
-    Create the review when the setup looks right. The system generates the review title from your research question, creates default stage assignments, and takes you to the next part of the workflow.
-  </Step>
-</Steps>
+Because the diagram is generated from your actual screening decisions, it stays accurate as those decisions change. If a verifier overrides an exclusion, the counts move with it.
 
-<Callout kind="info" collapsed="false">
-  The screening mode is permanent after creation. If your methodology requires independent reviewer agreement, choose dual-reviewer mode before you create the review.
-</Callout>
+## Audit trail and logs
 
-## Review overview page
+Every action in a systematic review is logged. This is what lets you show not just what your review concluded, but how it got there and who was responsible at each point.
 
-After you create a review, the overview page shows progress across the pipeline. Each stage card reflects the current status, such as not started, in progress, or complete, along with metrics like screened papers or confirmed decisions.
+**Per-paper history.** Every paper carries a record of everything that happened to it: when it was added and from which source, its abstract screening decision and the evidence behind it, its full text screening decision, and the data extracted from it. If a reviewer questions why a specific study was excluded, the answer is on the paper itself.
 
-You can open a stage directly from its card. The workflow is sequential, so later stages depend on the output of earlier ones, especially when full-text screening and extraction rely on the set of papers included upstream.
+**Review audit log.** The systematic review as a whole keeps a log of every action taken across it, covering all stages and all members.
 
-## Final report
+Together these are what makes the review reproducible. Anyone reviewing your work can trace a single paper from collection to final decision, or follow the review as a whole from start to finish.
 
-When the review reaches the final stage, the system generates a narrative report that synthesizes findings from the included papers. The report is designed to give you a working draft that you can review, refine, and export.
+## Exports
 
-It includes:
+You can export from every stage of the systematic review, not only at the end.
 
-- Structured sections with headings and inline citations
-- A PRISMA flow diagram with counts from each stage
-- Export options for sharing or publication
+| What you export                   | Formats          |
+| --------------------------------- | ---------------- |
+| Papers collected                  | BibTeX, RIS, CSV |
+| Title and abstract screening data | BibTeX, RIS, CSV |
+| Full-text screening data          | BibTeX, RIS, CSV |
+| Data extraction table             | BibTeX, RIS, CSV |
+| Systematic review report          | PDF, DOCX        |
 
-## Next steps
+Exporting at each stage is useful for two things: sharing progress with collaborators who are not in Paperguide, and keeping a copy of your screening record alongside your submission.
 
-<Columns cols="3">
-  <Card title="Protocol" href="/systematic-review/protocol" icon="settings" horizontal="false">
+---
 
-  </Card>
+## Before you start
 
-  <Card title="Papers" href="/systematic-review/papers" icon="book-open" horizontal="false">
+A few things worth knowing before you commit to a review.
 
-  </Card>
+**Set up your protocol first.** Criteria and extraction fields should be settled before screening begins. Editing the protocol mid-review overrides existing data and forces you to restart each stage in order. It is possible, but it is not something you want to discover halfway through.
 
-  <Card title="Title & Abstract Screening" href="/systematic-review/title-abstract-screening" icon="check-circle" horizontal="false">
+**Papers need PDFs for full text screening.** Any paper without an attached PDF is marked ineligible at that stage. You can add PDFs later, or use the Paperguide browser extension to fetch them, including through your institution's proxy.
 
-  </Card>
-</Columns>
+**Order your criteria deliberately.** When a paper fails screening, the **first** criterion it fails, in the order you listed them, becomes its exclusion reason. Put your broadest, most decisive criteria first.
+
+**Write instructions, not labels.** AI screens and extracts based on what your criteria and fields tell it to look for. "Study design" is a label. "Identify the study design and include only randomized controlled trials with a parallel-group design" is an instruction.
+
+**Assign your verifiers before each stage starts.** Verification is what advances the review. A stage with no assigned verifier will sit and wait once the AI run finishes.
+
+---
+
+## AI credits
+
+Every AI task in a systematic review draws on your AI credit allowance: question enhancement aside, that covers protocol generation, search, abstract screening, full text screening, data extraction, and report synthesis. There is no separate systematic review allowance.
+
+Research question enhancement is the one exception. It does not consume credits, so you can refine your question as many times as you need before creating the review.
 

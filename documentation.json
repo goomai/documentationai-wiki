@@ -58,6 +58,11 @@
                 "icon": "file-text"
               },
               {
+                "title": "Members & Roles",
+                "path": "systematic-review/members-roles",
+                "icon": "lucide-users-round"
+              },
+              {
                 "title": "Protocol",
                 "path": "systematic-review/protocol",
                 "icon": "lucide-list-checks"
@@ -81,11 +86,6 @@
                 "title": "Data Extraction",
                 "path": "systematic-review/data-extraction",
                 "icon": "lucide-table"
-              },
-              {
-                "title": "Members & Roles",
-                "path": "systematic-review/members-roles",
-                "icon": "lucide-users-round"
               }
             ]
           },
