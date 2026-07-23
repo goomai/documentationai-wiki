@@ -10,7 +10,7 @@ The protocol is the blueprint for your systematic review. It defines your resear
 
 You set up the protocol before screening begins. The AI then uses that protocol to apply the same rules across all papers, which keeps screening and extraction consistent and reproducible.
 
-The AI generates the protocol from your research question and any additional context you provided. You can confirm it as-is, edit any criterion or field, or build the protocol from scratch. Save only when the protocol reflects your actual review design.
+You can confirm the generated protocol as-is, edit any criterion or field, or build it from scratch. Save only when it reflects your actual review design.
 
 <Callout kind="info" collapsed="false">
   You stay in control of the protocol. AI suggestions are never saved automatically — you decide what to keep.
@@ -20,8 +20,6 @@ The AI generates the protocol from your research question and any additional con
 
 Set up the protocol before you start screening, ideally while you create the systematic review. Defining the protocol early gives you a clear set of rules before the AI begins screening papers or extracting data.
 
-Protocol setup is required for every stage. You cannot move into a stage until the matching part of the protocol is defined.
-
 <Callout kind="alert" collapsed="false">
   Protocol setup is mandatory for each stage.
 
@@ -29,6 +27,137 @@ Protocol setup is required for every stage. You cannot move into a stage until t
   - Define extraction fields before you start data extraction.
   - If the required protocol section is missing, you cannot start that stage.
 </Callout>
+
+## AI-generated protocol
+
+When you open the Protocol stage for the first time, the system generates the protocol from your research question and additional context. It creates separate outputs for each enabled stage, so you only see **Title & Abstract Screeing** or **Full-text Screening** criteria if those stages are part of your review.
+
+The generated protocol includes:
+
+- **Abstract screening criteria** for title & abstract screening, if enabled
+- **Full-text screening criteria** for full-text screening, if enabled
+- **Extraction fields** for data extraction
+
+The AI generates the protocol as a methodologist-oriented assistant using established systematic review frameworks. Depending on your question type, it structures suggestions around frameworks such as PICO, PEO, CoCoPop, or SPIDER.
+
+<Steps>
+  <Step title="Review the protocol" icon="check-circle" title-type="p">
+    Read each suggested criterion and extraction field against your actual review question.
+
+    Check that the titles are specific, the instructions are clear, and the pass or fail conditions reflect your intended eligibility rules.
+  </Step>
+
+  <Step title="Edit what the AI suggested" icon="edit" title-type="p">
+    Update any criterion or field that is too broad, too narrow, or ambiguous.
+
+    Add your own custom criteria and fields where the generated protocol misses important study characteristics, populations, interventions, outcomes, or context.
+  </Step>
+
+  <Step title="Save the protocol" icon="save" title-type="p">
+    Save criteria and extraction fields only after they reflect the rules you want the AI to apply.
+
+    Nothing is persisted until you save, so you can revise the protocol freely before committing it.
+  </Step>
+</Steps>
+
+## Screening criteria
+
+Screening criteria are the inclusion and exclusion rules the AI applies to each paper. Each criterion is evaluated independently, and all criteria carry equal weight.
+
+Each screening criterion includes the same four parts:
+
+- **Title:** A short label for the criterion. Suggested titles are typically 2 to 5 words so you can scan them quickly during review.
+- **Instructions:** Guidance that tells the AI how to interpret the criterion. Use this field to clarify edge cases, terminology, or how strictly the rule should be applied.
+- **Include When:&#x20;**&#x54;he concrete condition that means a paper passes the criterion. Write this as an observable rule, not as a general goal.
+- **Exclude When:** The concrete condition that means a paper fails the criterion. Clear exclusion rules reduce inconsistent decisions across papers.
+
+### Title and abstract screening criteria
+
+Title and Abstract screening is designed to be sensitive rather than final. If the abstract is silent or ambiguous for a criterion, the AI keeps the paper in play instead of excluding it.
+
+The AI follows this decision pattern:
+
+- If any criterion is clearly a **No**, the paper is excluded.
+- If every criterion is **Yes**, the paper is included.
+- If at least one criterion is **Maybe** and none are **No**, the paper moves forward for further review.
+
+This makes the stage conservative by design — ambiguity leads to review, not exclusion.
+
+### Full-text screening criteria
+
+Full Text screening is confirmatory — the AI uses information from the full paper to make the final eligibility decision.
+
+Full Text screening is stricter:
+
+- If every criterion is **Yes**, the paper is included.
+- If any criterion fails, the paper is excluded.
+
+### Exclusion reasons
+
+Every excluded paper gets a reason. The reason is the first failing criterion — the first criterion evaluated as a clear "**No**" among the saved criteria for that stage.
+
+Because the exclusion reason is the first failing criterion in order, the position of each criterion matters. If two criteria both fail for a paper, the one listed first becomes the stated reason for exclusion. This is why reordering criteria can change which criterion is cited as the exclusion reason, even though the paper is still excluded either way.
+
+## Extraction fields
+
+Extraction fields define what data the AI pulls from papers that pass full text screening. The generated protocol usually includes a mix of standard study descriptors and fields specific to your research question.
+
+Every extraction field contains the following parts:
+
+- **Title:** A short field name such as Study design, Sample size, or Setting.
+- **Instructions:** Guidance on what to extract, which details to capture, and how to present the answer.
+- **Output type:** Controls the response format the AI must return for the field.&#x20;
+  - Allowed values: **Answer,** **Yes/Maybe/No**, or **Specified options**
+
+### Output types
+
+Use the output type that best matches the data you need. More structure usually improves consistency, but only if the options map cleanly to the evidence in the paper.
+
+<Tabs>
+  <Tab title="answer" icon="edit">
+    Use `answer` for open-ended values such as sample size, country, or intervention description.
+
+    This type works best when the paper may phrase the answer in many valid ways or when you need a direct extracted value.
+  </Tab>
+
+  <Tab title="yes_maybe_no" icon="help-circle">
+    Use `yes_maybe_no` when the field represents a categorical judgment rather than a free-text fact.
+
+    This type is useful when the paper may support a clear yes, a clear no, or an uncertain answer.
+  </Tab>
+
+  <Tab title="specified" icon="check-circle">
+    Use `specified` when the answer should come from a fixed list you define.
+
+    Add option definitions if two labels could be confused. Better option definitions usually produce cleaner extraction results.
+  </Tab>
+</Tabs>
+
+### Building better extraction fields
+
+Write field titles and instructions so a reviewer could apply them without extra explanation. Instructions describe what to extract and how to present it. The output setting controls the response format, so there is no need to repeat it in the instructions.
+
+A clear instruction does three things:
+
+- **States what to extract**, in your review's terminology, anchored to your population or setting so off-topic content is ignored.
+- **Lists the details to capture**, including sub-components, units, and expected categories.
+- **Says how to present the answer**, so values are comparable across every paper.
+
+<Callout kind="tip" collapsed="false">
+  Example:&#x20;
+
+  Extract the change in HbA1c between intervention and control groups in adults with type 2 diabetes. Capture the value for each group, the unit (% or mmol/mol), the follow-up timepoint, and confidence intervals where provided. Present as a single value with unit and timepoint. Where a paper reports several timepoints, extract the one closest to 12 weeks.
+</Callout>
+
+Add these where they apply:
+
+- **Where to look**, if the value sits in a specific section, table, or figure.
+- **Which value to prefer**, if a paper reports more than one, such as multiple timepoints or analyses.
+- **What counts as missing**, so the AI knows when to leave a field as not found.
+
+If a field asks for a judgment, define what counts as evidence. If a field asks for a value, specify the format you want returned.
+
+For **specified** fields, keep the option list complete and mutually distinct. Overlapping options make extraction less reliable and harder to interpret later.
 
 ## Editing the protocol
 
@@ -44,31 +173,11 @@ Editing protocol data **after** a stage is completed requires that stage to be r
   **For example**, if you edit Title & Abstract screening criteria while you are in the Data Extraction stage, you must re-run AI screening for the Title & Abstract stage with the new criteria. After that completes, you repeat Full Text screening, and then re-run Data Extraction — the entire pipeline flows forward from the stage you changed.
 </Callout>
 
-## AI-generated protocol
 
-When you open the Protocol stage for the first time, the system generates the protocol from your research question and additional context. It creates separate outputs for each enabled stage, so you only see **Title & Abstract Screeing** or **Full-text Screening** criteria if those stages are part of your review.
-
-The generated protocol includes:
-
-- **Abstract screening criteria** for title & abstract screening, if enabled
-- **Full-text screening criteria** for full-text screening, if enabled
-- **Extraction fields** for data extraction
-
-The AI generates the protocol as a methodologist-oriented assistant using established systematic review frameworks. Depending on your question type, it structures suggestions around frameworks such as PICO, PEO, CoCoPop, or SPIDER.
-
-Stage-specific guidance matters. Title and Abstract criteria must be answerable from the title and abstract alone, while Full Text criteria can rely on details available only in the paper itself.
 
 <Steps>
-  <Step title="Review the protocol" icon="check-circle" title-type="p">
-    Read each suggested criterion and extraction field against your actual review question.
-
-    Check that the titles are specific, the instructions are clear, and the pass or fail conditions reflect your intended eligibility rules.
-  </Step>
-
   <Step title="Edit what the AI suggested" icon="edit" title-type="p">
-    Update any criterion or field that is too broad, too narrow, or ambiguous.
-
-    Add your own custom criteria and fields where the generated protocol misses important study characteristics, populations, interventions, outcomes, or context.
+    racteristics, populations, interventions, outcomes, or context.
   </Step>
 
   <Step title="Save the protocol" icon="save" title-type="p">
