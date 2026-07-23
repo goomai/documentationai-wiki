@@ -40,6 +40,8 @@ The generated protocol includes:
 
 The AI generates the protocol as a methodologist-oriented assistant using established systematic review frameworks. Depending on your question type, it structures suggestions around frameworks such as PICO, PEO, CoCoPop, or SPIDER.
 
+Stage-specific guidance matters. Title and Abstract criteria must be answerable from the title and abstract alone, while Full Text criteria can rely on details available only in the paper itself.
+
 <Steps>
   <Step title="Review the protocol" icon="check-circle" title-type="p">
     Read each suggested criterion and extraction field against your actual review question.
@@ -114,19 +116,19 @@ Every extraction field contains the following parts:
 Use the output type that best matches the data you need. More structure usually improves consistency, but only if the options map cleanly to the evidence in the paper.
 
 <Tabs>
-  <Tab title="answer" icon="edit">
+  <Tab title="Answer" icon="edit">
     Use `answer` for open-ended values such as sample size, country, or intervention description.
 
     This type works best when the paper may phrase the answer in many valid ways or when you need a direct extracted value.
   </Tab>
 
-  <Tab title="yes_maybe_no" icon="help-circle">
-    Use `yes_maybe_no` when the field represents a categorical judgment rather than a free-text fact.
+  <Tab title="Yes / Maybe / No" icon="help-circle">
+    Use `Yes/Maybe/No` when the field represents a categorical judgment rather than a free-text fact.
 
     This type is useful when the paper may support a clear yes, a clear no, or an uncertain answer.
   </Tab>
 
-  <Tab title="specified" icon="check-circle">
+  <Tab title="Specified" icon="check-circle">
     Use `specified` when the answer should come from a fixed list you define.
 
     Add option definitions if two labels could be confused. Better option definitions usually produce cleaner extraction results.
@@ -146,146 +148,7 @@ A clear instruction does three things:
 <Callout kind="tip" collapsed="false">
   Example:&#x20;
 
-  Extract the change in HbA1c between intervention and control groups in adults with type 2 diabetes. Capture the value for each group, the unit (% or mmol/mol), the follow-up timepoint, and confidence intervals where provided. Present as a single value with unit and timepoint. Where a paper reports several timepoints, extract the one closest to 12 weeks.
-</Callout>
-
-Add these where they apply:
-
-- **Where to look**, if the value sits in a specific section, table, or figure.
-- **Which value to prefer**, if a paper reports more than one, such as multiple timepoints or analyses.
-- **What counts as missing**, so the AI knows when to leave a field as not found.
-
-If a field asks for a judgment, define what counts as evidence. If a field asks for a value, specify the format you want returned.
-
-For **specified** fields, keep the option list complete and mutually distinct. Overlapping options make extraction less reliable and harder to interpret later.
-
-## Editing the protocol
-
-You can edit the protocol at any time, but the impact depends on whether the affected stage has already been completed.
-
-Editing protocol data **before** a stage starts has no effect on that stage — the stage simply uses the updated protocol when it runs.
-
-Editing protocol data **after** a stage is completed requires that stage to be re-run with the new criteria or fields. Any downstream stages that depend on the re-run stage are also affected and must be repeated.
-
-<Callout kind="alert" collapsed="false">
-  If you edit a completed stage's protocol, that stage and every stage after it must be re-run.
-
-  **For example**, if you edit Title & Abstract screening criteria while you are in the Data Extraction stage, you must re-run AI screening for the Title & Abstract stage with the new criteria. After that completes, you repeat Full Text screening, and then re-run Data Extraction — the entire pipeline flows forward from the stage you changed.
-</Callout>
-
-
-
-<Steps>
-  <Step title="Edit what the AI suggested" icon="edit" title-type="p">
-    racteristics, populations, interventions, outcomes, or context.
-  </Step>
-
-  <Step title="Save the protocol" icon="save" title-type="p">
-    Save criteria and extraction fields only after they reflect the rules you want the AI to apply.
-
-    Nothing is persisted until you save, so you can revise the protocol freely before committing it.
-  </Step>
-</Steps>
-
-## Screening criteria
-
-Screening criteria are the inclusion and exclusion rules the AI applies to each paper. Each criterion is evaluated independently, and all criteria carry equal weight.
-
-Each screening criterion includes the same four parts:
-
-- **Title:** A short label for the criterion. Suggested titles are typically 2 to 5 words so you can scan them quickly during review.
-- **Instructions:** Guidance that tells the AI how to interpret the criterion. Use this field to clarify edge cases, terminology, or how strictly the rule should be applied.
-- **Include When:&#x20;**&#x54;he concrete condition that means a paper passes the criterion. Write this as an observable rule, not as a general goal.
-- **Exclude When:** The concrete condition that means a paper fails the criterion. Clear exclusion rules reduce inconsistent decisions across papers.
-
-### Title and abstract screening criteria
-
-Title and Abstract screening is designed to be sensitive rather than final. If the abstract is silent or ambiguous for a criterion, the AI keeps the paper in play instead of excluding it.
-
-Use this stage to filter obvious mismatches without excluding papers that may still be relevant.
-
-The AI follows this decision pattern:
-
-- If any criterion is clearly a **No**, the paper is excluded.
-- If every criterion is **Yes**, the paper is included.
-- If at least one criterion is **Maybe** and none are **No**, the paper moves forward for further review.
-
-This makes the stage conservative by design. Ambiguity leads to review, not exclusion.
-
-### Full-text screening criteria
-
-Full Text screening is confirmatory. At that stage, the AI uses information from the full paper to make the final eligibility decision.
-
-Use this stage to confirm final eligibility from the full paper.
-
-Full Text screening is stricter:
-
-- If every criterion is **Yes**, the paper is included.
-- If any criterion fails, the paper is excluded.
-
-At this stage, the goal is final inclusion or exclusion rather than broad recall.
-
-### Exclusion reasons
-
-Every excluded paper gets a reason. The reason is the first failing criterion — the first criterion evaluated as a clear **No** among the saved criteria for that stage.
-
-Because the exclusion reason is the first failing criterion in order, the position of each criterion matters. If two criteria both fail for a paper, the one listed first becomes the stated reason for exclusion. This is why reordering criteria can change which criterion is cited as the exclusion reason, even though the paper is still excluded either way.
-
-### Reordering criteria
-
-Drag criteria to reorder them within a stage. Reordering does not change how each criterion is evaluated or trigger re-screening — a position change by itself is not treated as a substantive criteria edit.
-
-However, reordering does affect exclusion reasons. Because the exclusion reason is the first failing criterion in order, moving a criterion earlier or later can change which criterion is cited as the reason for a paper's exclusion. Keep this in mind when reorganizing, especially if certain criteria are more meaningful as primary exclusion reasons in your review.
-
-## Extraction fields
-
-Extraction fields define what data the AI pulls from papers that pass full text screening. The generated protocol usually includes a mix of standard study descriptors and fields specific to your research question.
-
-Every extraction field contains the following parts:
-
-- **Title:** A short field name such as Study design, Sample size, or Setting.
-- **Instructions:** Guidance on what to extract, which details to capture, and how to present the answer.
-- **Output type:** Controls the response format the AI must return for the field.&#x20;
-  - Allowed values: **Answer,** **Yes/Maybe/No**, or **Specified options**
-
-### Output types
-
-Use the output type that best matches the data you need. More structure usually improves consistency, but only if the options map cleanly to the evidence in the paper.
-
-<Tabs>
-  <Tab title="answer" icon="edit">
-    Use `answer` for open-ended values such as sample size, country, or intervention description.
-
-    This type works best when the paper may phrase the answer in many valid ways or when you need a direct extracted value.
-  </Tab>
-
-  <Tab title="yes_maybe_no" icon="help-circle">
-    Use `yes_maybe_no` when the field represents a categorical judgment rather than a free-text fact.
-
-    This type is useful when the paper may support a clear yes, a clear no, or an uncertain answer.
-  </Tab>
-
-  <Tab title="specified" icon="check-circle">
-    Use `specified` when the answer should come from a fixed list you define.
-
-    Add option definitions if two labels could be confused. Better option definitions usually produce cleaner extraction results.
-  </Tab>
-</Tabs>
-
-### Building better extraction fields
-
-Write field titles and instructions so a reviewer could apply them without extra explanation. Instructions describe what to extract and how to present it. The output setting controls the response format, so there is no need to repeat it in the instructions.
-
-A clear instruction does three things:
-
-- **States what to extract**, in your review's terminology, anchored to your population or setting so off-topic content is ignored.
-- **Lists the details to capture**, including sub-components, units, and expected categories.
-- **Says how to present the answer**, so values are comparable across every paper.
-
-<Callout kind="tip" collapsed="false">
-  Example:&#x20;
-
-  Extract the change in HbA1c between intervention and control groups in adults with type 2 diabetes. Capture the value for each group, the unit (% or mmol/mol), the follow-up timepoint, and confidence intervals where provided. Present as a single value with unit and timepoint. Where a paper reports several timepoints, extract the one closest to 12 weeks.
+  Extract the change in HbA1c between intervention and control groups in adults with type 2 diabetes. Capture the value for each group, the unit (% (mmol/mol), the follow-up timepoint, and confidence intervals where provided. Present as a single value with unit and timepoint. Where a paper reports several timepoints, extract the one closest to 12 weeks.
 </Callout>
 
 Add these where they apply:
