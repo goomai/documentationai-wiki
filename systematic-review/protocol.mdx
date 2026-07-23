@@ -1,57 +1,52 @@
 ---
 title: Protocol
-description: Define your systematic review protocol with AI-generated screening criteria and extraction fields.
+description: >-
+  Define your systematic review protocol with AI-generated screening criteria
+  and extraction fields.
 ---
-
 ## What is the Protocol?
 
 The protocol is the blueprint for your systematic review. It defines your research question, screening criteria for each stage, and extraction fields that determine what data the AI pulls from included papers.
 
 You set up the protocol before screening begins. The AI then uses that protocol to apply the same rules across all papers, which keeps screening and extraction consistent and reproducible.
 
-The first version of the protocol is AI-generated from your research question and any additional context you provided. You review the draft, edit any criterion or field, and save only when the protocol reflects your actual review design.
+The AI generates the protocol from your research question and any additional context you provided. You can confirm it as-is, edit any criterion or field, or build the protocol from scratch. Save only when the protocol reflects your actual review design.
 
-<Callout kind="info">
-
-You stay in control of the protocol. AI suggestions are drafts only and are never saved automatically.
-
+<Callout kind="info" collapsed="false">
+  You stay in control of the protocol. AI suggestions are never saved automatically — you decide what to keep.
 </Callout>
 
 ## AI-generated protocol
 
-When you open the Protocol stage for the first time, the system generates a draft protocol from your research question and additional context. It creates separate outputs for each enabled stage, so you only see Title and Abstract or Full Text criteria if those stages are part of your review.
+When you open the Protocol stage for the first time, the system generates the protocol from your research question and additional context. It creates separate outputs for each enabled stage, so you only see **Title & Abstract Screeing** or **Full-text Screening** criteria if those stages are part of your review.
 
-The generated draft includes:
+The generated protocol includes:
 
-- **Screening criteria** for Title and Abstract screening, if enabled
-- **Screening criteria** for Full Text screening, if enabled
+- **Abstract screening criteria** for title & abstract screening, if enabled
+- **Full-text screening criteria** for full-text screening, if enabled
 - **Extraction fields** for data extraction
 
-The AI generates these drafts as a methodologist-oriented assistant using established systematic review frameworks. Depending on your question type, it structures suggestions around frameworks such as PICO, PEO, CoCoPop, or SPIDER.
+The AI generates the protocol as a methodologist-oriented assistant using established systematic review frameworks. Depending on your question type, it structures suggestions around frameworks such as PICO, PEO, CoCoPop, or SPIDER.
 
 Stage-specific guidance matters. Title and Abstract criteria must be answerable from the title and abstract alone, while Full Text criteria can rely on details available only in the paper itself.
 
 <Steps>
-  <Step title="Review the generated draft" icon="check-circle">
+  <Step title="Review the protocol" icon="check-circle" title-type="p">
+    Read each suggested criterion and extraction field against your actual review question.
 
-  Read each suggested criterion and extraction field against your actual review question.
-
-  Check that the titles are specific, the instructions are clear, and the pass or fail conditions reflect your intended eligibility rules.
-
+    Check that the titles are specific, the instructions are clear, and the pass or fail conditions reflect your intended eligibility rules.
   </Step>
-  <Step title="Edit what the AI suggested" icon="edit">
 
-  Update any criterion or field that is too broad, too narrow, or ambiguous.
+  <Step title="Edit what the AI suggested" icon="edit" title-type="p">
+    Update any criterion or field that is too broad, too narrow, or ambiguous.
 
-  Add your own custom criteria and fields where the draft misses important study characteristics, populations, interventions, outcomes, or context.
-
+    Add your own custom criteria and fields where the generated protocol misses important study characteristics, populations, interventions, outcomes, or context.
   </Step>
-  <Step title="Save the protocol" icon="save">
 
-  Save criteria and extraction fields only after they reflect the rules you want the AI to apply.
+  <Step title="Save the protocol" icon="save" title-type="p">
+    Save criteria and extraction fields only after they reflect the rules you want the AI to apply.
 
-  Nothing is persisted until you save, so you can revise the draft freely before committing it.
-
+    Nothing is persisted until you save, so you can revise the protocol freely before committing it.
   </Step>
 </Steps>
 
@@ -61,20 +56,20 @@ Screening criteria are the inclusion and exclusion rules the AI applies to each 
 
 Each screening criterion includes the same four parts:
 
-<ParamField body="title" param-type="string" required="true" show-location="false">
-A short label for the criterion. Suggested titles are typically 2 to 5 words so you can scan them quickly during review.
+<ParamField body="title" param-type="string" required="true" deprecated="false" show-location="false">
+  A short label for the criterion. Suggested titles are typically 2 to 5 words so you can scan them quickly during review.
 </ParamField>
 
-<ParamField body="instructions" param-type="string" required="false" show-location="false">
-Guidance that tells the AI how to interpret the criterion. Use this field to clarify edge cases, terminology, or how strictly the rule should be applied.
+<ParamField body="instructions" param-type="string" required="false" deprecated="false" show-location="false">
+  Guidance that tells the AI how to interpret the criterion. Use this field to clarify edge cases, terminology, or how strictly the rule should be applied.
 </ParamField>
 
-<ParamField body="includeWhen" param-type="string" required="false" show-location="false">
-The concrete condition that means a paper passes the criterion. Write this as an observable rule, not as a general goal.
+<ParamField body="includeWhen" param-type="string" required="false" deprecated="false" show-location="false">
+  The concrete condition that means a paper passes the criterion. Write this as an observable rule, not as a general goal.
 </ParamField>
 
-<ParamField body="excludeWhen" param-type="string" required="false" show-location="false">
-The concrete condition that means a paper fails the criterion. Clear exclusion rules reduce inconsistent decisions across papers.
+<ParamField body="excludeWhen" param-type="string" required="false" deprecated="false" show-location="false">
+  The concrete condition that means a paper fails the criterion. Clear exclusion rules reduce inconsistent decisions across papers.
 </ParamField>
 
 ### How criteria differ by stage
@@ -83,39 +78,40 @@ Title and Abstract screening is designed to be sensitive rather than final. If t
 
 Full Text screening is confirmatory. At that stage, the AI uses information from the full paper to make the final eligibility decision.
 
-<Tabs>
-  <Tab title="Title and Abstract" icon="book-open">
+#### Title and Abstract
 
-  Use this stage to filter obvious mismatches without excluding papers that may still be relevant.
+Use this stage to filter obvious mismatches without excluding papers that may still be relevant.
 
-  The AI follows this decision pattern:
+The AI follows this decision pattern:
 
-  - If any criterion is clearly a **No**, the paper is excluded.
-  - If every criterion is **Yes**, the paper is included.
-  - If at least one criterion is **Maybe** and none are **No**, the paper moves forward for further review.
+- If any criterion is clearly a **No**, the paper is excluded.
+- If every criterion is **Yes**, the paper is included.
+- If at least one criterion is **Maybe** and none are **No**, the paper moves forward for further review.
 
-  This makes the stage conservative by design. Ambiguity leads to review, not exclusion.
+This makes the stage conservative by design. Ambiguity leads to review, not exclusion.
 
-  </Tab>
-  <Tab title="Full Text" icon="file-text">
+#### Full Text
 
-  Use this stage to confirm final eligibility from the full paper.
+Use this stage to confirm final eligibility from the full paper.
 
-  Full Text screening is stricter:
+Full Text screening is stricter:
 
-  - If every criterion is **Yes**, the paper is included.
-  - If any criterion fails, the paper is excluded.
+- If every criterion is **Yes**, the paper is included.
+- If any criterion fails, the paper is excluded.
 
-  At this stage, the goal is final inclusion or exclusion rather than broad recall.
+At this stage, the goal is final inclusion or exclusion rather than broad recall.
 
-  </Tab>
-</Tabs>
+### Exclusion reasons
+
+Every excluded paper gets a reason. The reason is the first failing criterion — the first criterion evaluated as a clear **No** among the saved criteria for that stage.
+
+Because the exclusion reason is the first failing criterion in order, the position of each criterion matters. If two criteria both fail for a paper, the one listed first becomes the stated reason for exclusion. This is why reordering criteria can change which criterion is cited as the exclusion reason, even though the paper is still excluded either way.
 
 ### Reordering criteria
 
-Drag criteria to reorder them within a stage. Reordering changes only the display order, not the underlying evaluation logic.
+Drag criteria to reorder them within a stage. Reordering does not change how each criterion is evaluated or trigger re-screening — a position change by itself is not treated as a substantive criteria edit.
 
-A position change by itself does not count as a substantive criteria change. The system treats content edits and order edits differently so you can reorganize the list without triggering unnecessary re-screening.
+However, reordering does affect exclusion reasons. Because the exclusion reason is the first failing criterion in order, moving a criterion earlier or later can change which criterion is cited as the reason for a paper's exclusion. Keep this in mind when reorganizing, especially if certain criteria are more meaningful as primary exclusion reasons in your review.
 
 ### Previewing changes
 
@@ -129,34 +125,32 @@ The preview shows:
 - **How many papers need re-screening**
 - **Cascade effects** into later stages
 
-<Callout kind="tip">
-
-A content change to Title and Abstract criteria can invalidate later Full Text and extraction results. A content change to Full Text criteria can invalidate extraction results.
-
+<Callout kind="tip" collapsed="false">
+  A content change to Title and Abstract criteria can invalidate later Full Text and extraction results. A content change to Full Text criteria can invalidate extraction results.
 </Callout>
 
 Pure reordering does not trigger re-screening. Changes to the criterion content do.
 
 ## Extraction fields
 
-Extraction fields define what data the AI pulls from papers that pass Full Text screening. The draft usually includes a mix of standard study descriptors and fields specific to your research question.
+Extraction fields define what data the AI pulls from papers that pass Full Text screening. The generated protocol usually includes a mix of standard study descriptors and fields specific to your research question.
 
 Every extraction field contains the following parts:
 
-<ParamField body="title" param-type="string" required="true" show-location="false">
-A short field name such as `Study design`, `Sample size`, or `Setting`.
+<ParamField body="title" param-type="string" required="true" deprecated="false" show-location="false">
+  A short field name such as `Study design`, `Sample size`, or `Setting`.
 </ParamField>
 
-<ParamField body="instructions" param-type="string" required="false" show-location="false">
-Guidance on where to find the value in the paper and how to format the answer.
+<ParamField body="instructions" param-type="string" required="false" deprecated="false" show-location="false">
+  Add instructions to guide on what to extract, which details to capture, and how to present the answer.
 </ParamField>
 
-<ParamField body="outputType" param-type="string" required="true" enum="answer,yes_maybe_no,specified" show-location="false">
-Controls the response format the AI must return for the field.
+<ParamField body="outputType" param-type="string" required="true" deprecated="false" show-location="false" enum="answer,yes_maybe_no,specified">
+  Controls the response format the AI must return for the field.
 </ParamField>
 
-<ParamField body="options" param-type="array" required="false" show-location="false">
-A list of allowed options used only when `outputType` is `specified`. Each option can include a label and an optional definition.
+<ParamField body="options" param-type="array" required="false" deprecated="false" show-location="false">
+  A list of allowed options used only when `outputType` is `specified`. Each option can include a label and an optional definition.
 </ParamField>
 
 ### Output types
@@ -165,25 +159,21 @@ Use the output type that best matches the data you need. More structure usually 
 
 <Tabs>
   <Tab title="answer" icon="edit">
+    Use `answer` for open-ended values such as sample size, country, or intervention description.
 
-  Use `answer` for open-ended values such as sample size, country, or intervention description.
-
-  This type works best when the paper may phrase the answer in many valid ways or when you need a direct extracted value.
-
+    This type works best when the paper may phrase the answer in many valid ways or when you need a direct extracted value.
   </Tab>
+
   <Tab title="yes_maybe_no" icon="help-circle">
+    Use `yes_maybe_no` when the field represents a categorical judgment rather than a free-text fact.
 
-  Use `yes_maybe_no` when the field represents a categorical judgment rather than a free-text fact.
-
-  This type is useful when the paper may support a clear yes, a clear no, or an uncertain answer.
-
+    This type is useful when the paper may support a clear yes, a clear no, or an uncertain answer.
   </Tab>
+
   <Tab title="specified" icon="check-circle">
+    Use `specified` when the answer should come from a fixed list you define.
 
-  Use `specified` when the answer should come from a fixed list you define.
-
-  Add option definitions if two labels could be confused. Better option definitions usually produce cleaner extraction results.
-
+    Add option definitions if two labels could be confused. Better option definitions usually produce cleaner extraction results.
   </Tab>
 </Tabs>
 
@@ -207,10 +197,8 @@ Each screening run freezes the current protocol into a snapshot before the run s
 
 Snapshots are append-only and versioned by stage. Every screening or extraction result can be traced back to the snapshot that produced it, which supports reproducibility and auditability.
 
-<Callout kind="alert">
-
-You cannot edit screening criteria while a screening run is active for that stage. Cancel the active run first, then make changes and start a new run.
-
+<Callout kind="alert" collapsed="false">
+  You cannot edit screening criteria while a screening run is active for that stage. Cancel the active run first, then make changes and start a new run.
 </Callout>
 
 ### Why snapshots matter
@@ -218,10 +206,3 @@ You cannot edit screening criteria while a screening run is active for that stag
 Without snapshots, changing a criterion after screening would make old results hard to interpret. A paper could appear to have been screened under rules that did not exist when the decision was made.
 
 Snapshots prevent that problem. They preserve the protocol as it existed at run time and make change impact visible when you revise criteria later.
-
-## Next steps
-
-<Columns cols={2}>
-  <Card title="Systematic Review Overview" href="/systematic-review/overview" icon="book-open" />
-  <Card title="Papers" href="/systematic-review/papers" icon="folder" />
-</Columns>
