@@ -189,26 +189,17 @@ If a field asks for a judgment, define what counts as evidence. If a field asks 
 
 For **specified** fields, keep the option list complete and mutually distinct. Overlapping options make extraction less reliable and harder to interpret later.
 
-## Narrative sections
+## Editing the protocol
 
-Your protocol does more than guide screening. It also shapes parts of the final report.
+You can edit the protocol at any time, but the impact depends on whether the affected stage has already been completed.
 
-The Methods section is built directly from protocol data and review activity. It uses your screening criteria, extraction fields, search information, and PRISMA flow counts to describe what you actually did.
+Editing protocol data **before** a stage starts has no effect on that stage — the stage simply uses the updated protocol when it runs.
 
-Other report sections are written later from the extracted evidence. Findings, synthesis, and conclusion sections are AI-written, while the Methods section is generated deterministically from the saved protocol and review outputs.
-
-## Protocol snapshots
-
-Each screening run freezes the current protocol into a snapshot before the run starts. That snapshot preserves the exact criteria used for that run, so later edits do not rewrite the basis of past decisions.
-
-Snapshots are append-only and versioned by stage. Every screening or extraction result can be traced back to the snapshot that produced it, which supports reproducibility and auditability.
+Editing protocol data **after** a stage is completed requires that stage to be re-run with the new criteria or fields. Any downstream stages that depend on the re-run stage are also affected and must be repeated.
 
 <Callout kind="alert" collapsed="false">
-  You cannot edit screening criteria while a screening run is active for that stage. Cancel the active run first, then make changes and start a new run.
+  If you edit a completed stage's protocol, that stage and every stage after it must be re-run.
+
+  **For example**, if you edit Title & Abstract screening criteria while you are in the Data Extraction stage, you must re-run AI screening for the Title & Abstract stage with the new criteria. After that completes, you repeat Full Text screening, and then re-run Data Extraction — the entire pipeline flows forward from the stage you changed.
 </Callout>
 
-### Why snapshots matter
-
-Without snapshots, changing a criterion after screening would make old results hard to interpret. A paper could appear to have been screened under rules that did not exist when the decision was made.
-
-Snapshots prevent that problem. They preserve the protocol as it existed at run time and make change impact visible when you revise criteria later.
