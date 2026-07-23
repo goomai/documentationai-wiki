@@ -3,12 +3,12 @@
   "initialRoute": "introduction",
   "colors": {
     "light": {
-      "brand": "#F26829",
+      "brand": "#1a1a1a",
       "heading": "#1a1a1a",
       "text": "#374151"
     },
     "dark": {
-      "brand": "#F26829",
+      "brand": "#f2f2f2",
       "heading": "#f2f2f2",
       "text": "#c1c1c1"
     }
@@ -81,6 +81,11 @@
                 "title": "Data Extraction",
                 "path": "systematic-review/data-extraction",
                 "icon": "lucide-table"
+              },
+              {
+                "title": "Members & Roles",
+                "path": "systematic-review/members-roles",
+                "icon": "lucide-users-round"
               }
             ]
           },
@@ -213,8 +218,7 @@
             "title": "Changelog",
             "path": "changelog",
             "icon": "history",
-            "show-sidebar": false,
-            "show-parent-label": false
+            "show-sidebar": false
           },
           {
             "title": "Roadmap",

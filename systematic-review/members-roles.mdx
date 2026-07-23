@@ -1,0 +1,163 @@
+---
+title: 'Members, Access & Roles'
+description: 'Three things control who does what in a systematic review:'
+---
+|             | What it decides                                    |
+| ----------- | -------------------------------------------------- |
+| **Members** | Who is on the systematic review                    |
+| **Access**  | What a member is allowed to do                     |
+| **Roles**   | Which stages a member is responsible for verifying |
+
+Set them in that order. Add the member, give them the right access, then assign them to the stages they will verify.
+
+---
+
+## Members
+
+Members are the people who can open your systematic review. You can add anyone, inside or outside your organization, and remove them at any time.
+
+Adding and removing members is limited to the **review creator**. Inside an organization workspace, **workspace admins** and **workspace owners** can do this as well.
+
+### Adding a member
+
+1. Open your systematic review and go to the **Members** tab.
+2. Add the email address and choose **Full Access, Review,&#x20;**&#x6F;&#x72;**&#x20;View.**
+3. Send the invitation
+4. The person receives an email and must accept it before they can open the systematic review.
+
+You can also generate a **view-only share link** for people who only need to watch progress. Anyone who redeems the link joins as a guest with View access and appears in the member list.
+
+### Removing a member
+
+| The member is                    | To remove them                                                                                              |
+| -------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| Invited by email                 | Revoke their access from member management. Access ends immediately.                                        |
+| Joined by share link             | Revoke them individually from the member list. Revoking the link itself only stops new people from joining. |
+| An organization workspace member | Remove them from the workspace to end access entirely.                                                      |
+
+<Callout kind="info" collapsed="false">
+  Removing a member also removes any stage assignments they held. Reassign those stages to someone else so verification is not left unowned.
+</Callout>
+
+### Organization workspace members
+
+If your systematic review sits inside an organization workspace, everyone in that workspace already has access to it. You do not need to invite them.
+
+Their access is set automatically from their workspace role:
+
+| Workspace role   | Access in the systematic review     |
+| ---------------- | ----------------------------------- |
+| Workspace admin  | Full Access, and can manage members |
+| Workspace owner  | Full Access, and can manage members |
+| Workspace editor | Review                              |
+| Workspace viewer | View                                |
+
+This is the fastest way to bring in internal team members, because access follows the workspace they already belong to.
+
+---
+
+## Access
+
+Access determines what a member can do across the systematic review. There are three levels: **Full Access**, **Review**, and **View**.
+
+|                            | Full Access | Review          | View |
+| -------------------------- | ----------- | --------------- | ---- |
+| View all stages            | Yes         | Yes             | Yes  |
+| Add papers                 | Yes         | Yes             | No   |
+| Initiate AI tasks and runs | Yes         | No              | No   |
+| Change screening decisions | Yes         | With assignment | No   |
+| Confirm AI decisions       | Yes         | With assignment | No   |
+| Edit protocol              | Yes         | No              | No   |
+| Edit settings              | Yes         | No              | No   |
+| Manage access              | Yes         | No              | No   |
+| Manage members             | No          | No              | No   |
+| Export                     | Yes         | Yes             | No   |
+
+### Full Access
+
+Full Access runs the systematic review end to end. These members add papers, start AI runs at every stage, edit the protocol and settings, change and confirm decisions at any stage, and export.
+
+Full Access members can confirm and override decisions **without being assigned to a stage**. Assignment is not a requirement for them.
+
+### Review
+
+Review access is for people who take part in the review work without administrative control. They can view every stage, add papers, and export. They cannot start AI runs, edit the protocol, or change settings.
+
+Members with Review access can change and confirm screening and extraction decisions **only on the stages they are assigned to**. That is what "with assignment" means in the table. Without an assignment, they can see the decisions but cannot act on them.
+
+### View
+
+View is read-only. These members see every stage and its current state but cannot add papers, make or confirm decisions, edit anything, or export. Use View for advisors, stakeholders, and collaborators who need visibility but should not change the review.
+
+### Managing members is separate from access
+
+No access level lets a member add people, remove people, or change anyone's access. That is why both **Manage access** and **Manage members** are No in every column, including Full Access.
+
+Those permissions depend on who the person is, not what access they hold:
+
+- The **review creator** can always manage members and access.
+- Inside an organization workspace, **workspace owners** and **workspace admins** can as well.
+
+This means you can give someone complete working control of the systematic review without handing over control of who else is on it.
+
+---
+
+## Roles
+
+A role is a stage responsibility. Paperguide AI produces a decision at each stage, and an assigned member verifies it before the systematic review moves forward. The assigned member is the **verifier** for that stage.
+
+Roles are what turn Review access into decision-making authority. Access says what a member is capable of; the role says which stages they are responsible for.
+
+### The stage verifier roles
+
+| Verifier role                           | Responsibility                                                                                                                           |
+| --------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| **Title & Abstract Screening verifier** | Reviews AI screening decisions on titles and abstracts against the eligibility criteria, overrides where needed, and confirms the stage. |
+| **Full-Text Screening verifier**        | Reviews AI screening decisions on full-text PDFs against the eligibility criteria, overrides where needed, and confirms the stage.       |
+| **Data Extraction verifier**            | Checks AI-extracted values against the extraction fields, edits where needed, and confirms the extraction.                               |
+
+Each stage is assigned separately. One person can verify every stage, or you can split them across the team.
+
+### Who can verify a stage
+
+Assigning a stage narrows who is responsible for it. Leaving it unassigned keeps it open.
+
+| The stage is               | Who verifies it                                             |
+| -------------------------- | ----------------------------------------------------------- |
+| **Assigned to a member**   | That member. Verification is their responsibility.          |
+| **Not assigned to anyone** | Any member with Full Access or Review access can verify it. |
+
+Assign a stage when you want one named person accountable for it, which is what most reviews need. Leave it unassigned when anyone on the team should be able to pick up the work, which is useful for smaller reviews or when you want to share the load.
+
+Either way, a View member can never verify a stage.
+
+### Assigning a verifier
+
+1. Set the member's access first. Only members with Review or Full Access can be assigned. A View member is not eligible.&#x20;
+2. Open the systematic **review settings.&#x20;**&#x53;tage assignments are managed in the review's settings, not in the Members tab.
+3. Choose the verifier for each stage. They receive an email notification letting them know.
+
+Assign the verifier for a stage before that stage starts. Verification is what advances the systematic review, so an unassigned stage will stall once the AI run completes.
+
+<Callout kind="info" collapsed="false">
+  The assigned verifier receives an email to verify once the AI screening or extraction is complete.
+</Callout>
+
+### What a verifier does
+
+When the AI run for a stage completes, the assigned verifier works through the results:
+
+1. Review each decision along with the evidence Paperguide AI cited for every criterion.
+2. Override any decision they disagree with. For an exclusion, they select which criterion the paper failed.
+3. Confirm the stage when the review is complete. This closes the stage and unlocks the next one.
+
+Their decision is saved over the AI decision, and both are kept so the systematic review has a complete record of what the AI decided and what a human changed.
+
+### Changing an assignment
+
+Reassign a stage at any time from the review's settings. Two things to watch:
+
+- Moving a member to **View** clears all their assignments automatically.
+- Removing a member from the systematic review clears their assignments too.
+
+In both cases, the stage is left without a verifier until you assign someone new.
