@@ -16,6 +16,34 @@ The AI generates the protocol from your research question and any additional con
   You stay in control of the protocol. AI suggestions are never saved automatically — you decide what to keep.
 </Callout>
 
+## When to set up the protocol
+
+Set up the protocol before you start screening, ideally while you create the systematic review. Defining the protocol early gives you a clear set of rules before the AI begins screening papers or extracting data.
+
+Protocol setup is required for every stage. You cannot move into a stage until the matching part of the protocol is defined.
+
+<Callout kind="alert" collapsed="false">
+  Protocol setup is mandatory for each stage.
+
+  - Define screening criteria before you start Title and Abstract screening or Full Text screening.
+  - Define extraction fields before you start data extraction.
+  - If the required protocol section is missing, you cannot start that stage.
+</Callout>
+
+## Editing the protocol
+
+You can edit the protocol at any time, but the impact depends on whether the affected stage has already been completed.
+
+Editing protocol data **before** a stage starts has no effect on that stage — the stage simply uses the updated protocol when it runs.
+
+Editing protocol data **after** a stage is completed requires that stage to be re-run with the new criteria or fields. Any downstream stages that depend on the re-run stage are also affected and must be repeated.
+
+<Callout kind="alert" collapsed="false">
+  If you edit a completed stage's protocol, that stage and every stage after it must be re-run.
+
+  **For example**, if you edit Title & Abstract screening criteria while you are in the Data Extraction stage, you must re-run AI screening for the Title & Abstract stage with the new criteria. After that completes, you repeat Full Text screening, and then re-run Data Extraction — the entire pipeline flows forward from the stage you changed.
+</Callout>
+
 ## AI-generated protocol
 
 When you open the Protocol stage for the first time, the system generates the protocol from your research question and additional context. It creates separate outputs for each enabled stage, so you only see **Title & Abstract Screeing** or **Full-text Screening** criteria if those stages are part of your review.
@@ -56,29 +84,14 @@ Screening criteria are the inclusion and exclusion rules the AI applies to each 
 
 Each screening criterion includes the same four parts:
 
-<ParamField body="title" param-type="string" required="true" deprecated="false" show-location="false">
-  A short label for the criterion. Suggested titles are typically 2 to 5 words so you can scan them quickly during review.
-</ParamField>
+- **Title:** A short label for the criterion. Suggested titles are typically 2 to 5 words so you can scan them quickly during review.
+- **Instructions:** Guidance that tells the AI how to interpret the criterion. Use this field to clarify edge cases, terminology, or how strictly the rule should be applied.
+- **Include When:&#x20;**&#x54;he concrete condition that means a paper passes the criterion. Write this as an observable rule, not as a general goal.
+- **Exclude When:** The concrete condition that means a paper fails the criterion. Clear exclusion rules reduce inconsistent decisions across papers.
 
-<ParamField body="instructions" param-type="string" required="false" deprecated="false" show-location="false">
-  Guidance that tells the AI how to interpret the criterion. Use this field to clarify edge cases, terminology, or how strictly the rule should be applied.
-</ParamField>
-
-<ParamField body="includeWhen" param-type="string" required="false" deprecated="false" show-location="false">
-  The concrete condition that means a paper passes the criterion. Write this as an observable rule, not as a general goal.
-</ParamField>
-
-<ParamField body="excludeWhen" param-type="string" required="false" deprecated="false" show-location="false">
-  The concrete condition that means a paper fails the criterion. Clear exclusion rules reduce inconsistent decisions across papers.
-</ParamField>
-
-### How criteria differ by stage
+### Title and abstract screening criteria
 
 Title and Abstract screening is designed to be sensitive rather than final. If the abstract is silent or ambiguous for a criterion, the AI keeps the paper in play instead of excluding it.
-
-Full Text screening is confirmatory. At that stage, the AI uses information from the full paper to make the final eligibility decision.
-
-#### Title and Abstract
 
 Use this stage to filter obvious mismatches without excluding papers that may still be relevant.
 
@@ -90,7 +103,9 @@ The AI follows this decision pattern:
 
 This makes the stage conservative by design. Ambiguity leads to review, not exclusion.
 
-#### Full Text
+### Full-text screening criteria
+
+Full Text screening is confirmatory. At that stage, the AI uses information from the full paper to make the final eligibility decision.
 
 Use this stage to confirm final eligibility from the full paper.
 
@@ -113,45 +128,16 @@ Drag criteria to reorder them within a stage. Reordering does not change how eac
 
 However, reordering does affect exclusion reasons. Because the exclusion reason is the first failing criterion in order, moving a criterion earlier or later can change which criterion is cited as the reason for a paper's exclusion. Keep this in mind when reorganizing, especially if certain criteria are more meaningful as primary exclusion reasons in your review.
 
-### Previewing changes
-
-If screening has already run, preview criteria changes before you save them. The preview compares your proposed criteria to the last frozen protocol snapshot for that stage, not only to the current on-screen list.
-
-The preview shows:
-
-- **Added criteria**
-- **Deleted criteria**
-- **Updated criteria**
-- **How many papers need re-screening**
-- **Cascade effects** into later stages
-
-<Callout kind="tip" collapsed="false">
-  A content change to Title and Abstract criteria can invalidate later Full Text and extraction results. A content change to Full Text criteria can invalidate extraction results.
-</Callout>
-
-Pure reordering does not trigger re-screening. Changes to the criterion content do.
-
 ## Extraction fields
 
-Extraction fields define what data the AI pulls from papers that pass Full Text screening. The generated protocol usually includes a mix of standard study descriptors and fields specific to your research question.
+Extraction fields define what data the AI pulls from papers that pass full text screening. The generated protocol usually includes a mix of standard study descriptors and fields specific to your research question.
 
 Every extraction field contains the following parts:
 
-<ParamField body="title" param-type="string" required="true" deprecated="false" show-location="false">
-  A short field name such as `Study design`, `Sample size`, or `Setting`.
-</ParamField>
-
-<ParamField body="instructions" param-type="string" required="false" deprecated="false" show-location="false">
-  Add instructions to guide on what to extract, which details to capture, and how to present the answer.
-</ParamField>
-
-<ParamField body="outputType" param-type="string" required="true" deprecated="false" show-location="false" enum="answer,yes_maybe_no,specified">
-  Controls the response format the AI must return for the field.
-</ParamField>
-
-<ParamField body="options" param-type="array" required="false" deprecated="false" show-location="false">
-  A list of allowed options used only when `outputType` is `specified`. Each option can include a label and an optional definition.
-</ParamField>
+- **Title:** A short field name such as Study design, Sample size, or Setting.
+- **Instructions:** Guidance on what to extract, which details to capture, and how to present the answer.
+- **Output type:** Controls the response format the AI must return for the field.&#x20;
+  - Allowed values: **Answer,** **Yes/Maybe/No**, or **Specified options**
 
 ### Output types
 
@@ -179,9 +165,29 @@ Use the output type that best matches the data you need. More structure usually 
 
 ### Building better extraction fields
 
-Write field titles and instructions so a reviewer could apply them without extra explanation. If a field asks for a judgment, define what counts as evidence. If a field asks for a value, specify the format you want returned.
+Write field titles and instructions so a reviewer could apply them without extra explanation. Instructions describe what to extract and how to present it. The output setting controls the response format, so there is no need to repeat it in the instructions.
 
-For `specified` fields, keep the option list complete and mutually distinct. Overlapping options make extraction less reliable and harder to interpret later.
+A clear instruction does three things:
+
+- **States what to extract**, in your review's terminology, anchored to your population or setting so off-topic content is ignored.
+- **Lists the details to capture**, including sub-components, units, and expected categories.
+- **Says how to present the answer**, so values are comparable across every paper.
+
+<Callout kind="tip" collapsed="false">
+  Example:&#x20;
+
+  Extract the change in HbA1c between intervention and control groups in adults with type 2 diabetes. Capture the value for each group, the unit (% or mmol/mol), the follow-up timepoint, and confidence intervals where provided. Present as a single value with unit and timepoint. Where a paper reports several timepoints, extract the one closest to 12 weeks.
+</Callout>
+
+Add these where they apply:
+
+- **Where to look**, if the value sits in a specific section, table, or figure.
+- **Which value to prefer**, if a paper reports more than one, such as multiple timepoints or analyses.
+- **What counts as missing**, so the AI knows when to leave a field as not found.
+
+If a field asks for a judgment, define what counts as evidence. If a field asks for a value, specify the format you want returned.
+
+For **specified** fields, keep the option list complete and mutually distinct. Overlapping options make extraction less reliable and harder to interpret later.
 
 ## Narrative sections
 
