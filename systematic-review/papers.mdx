@@ -1,90 +1,109 @@
 ---
 title: Papers
-description: Import, manage, and deduplicate papers for your systematic review.
+description: >-
+  Collect the papers for your systematic review, remove duplicates, and confirm
+  the final set to start screening.
 ---
-
 ## What is the Papers page?
 
-The Papers page is where you build and manage the pool of papers for your systematic review. Every paper that enters screening, extraction, and your final report starts here. You can import papers from multiple sources, detect and merge duplicates, filter and search your pool, and remove papers that are not relevant.
+Papers is where you build the set of studies your systematic review will run on. Everything that reaches screening, extraction, and your final report starts here. You collect papers from as many searches and sources as you need, review what you have gathered, remove duplicates and anything irrelevant, then confirm the final set.
 
-<Callout kind="info">
+Confirming is what starts screening. Until you confirm, nothing is locked and you can keep collecting.
 
-Papers is the first stage in the systematic review workflow. Decisions you make here affect the papers available for later screening and reporting stages.
-
+<Callout kind="info" collapsed="false">
+  Papers is the initial stage in the systematic review workflow. Decisions you make here affect the papers available for later screening and reporting stages.
 </Callout>
 
 ## Importing papers
 
-Papers offers five import methods, each accessible from the import tabs at the top of the page.
+There are two ways to add papers, available from the import tabs at the top of the page. Most reviews use both.
 
-<Steps>
-  <Step title="AI Search" icon="search" title-type="p">
+### AI Search
 
-  Search the 200M+ paper database across PubMed, arXiv, OpenAlex, and Semantic Scholar. Enter your search terms, apply filters such as year, field, and open access, then add results to your review. A progress banner shows how many papers have been imported during the search.
+Search a database of more than 200 million papers across PubMed, arXiv, OpenAlex, and Semantic Scholar.
 
-  </Step>
-  <Step title="Upload PDF" icon="upload" title-type="p">
-
-  Upload PDF files directly from your device. The AI extracts metadata such as title, authors, year, and DOI from each PDF to create the paper record. You can upload multiple files at once.
-
-  </Step>
-  <Step title="URL or DOI" icon="external-link" title-type="p">
-
-  Paste a direct URL or DOI to import a single paper. Paperguide fetches the metadata from publisher databases and adds the paper to your pool.
-
-  </Step>
-  <Step title="BibTeX or RIS" icon="download" title-type="p">
-
-  Import from bibliographic files. Upload a `.bib` or `.ris` file and Paperguide parses each entry into a paper record. This works well for exports from Zotero, Mendeley, or EndNote.
-
-  </Step>
-  <Step title="From Reference Manager" icon="folder" title-type="p">
-
-  Select papers from your Paperguide Reference Manager library and add them directly to the review. This is the fastest way to reuse papers you have already collected.
-
-  </Step>
-</Steps>
-
-## Duplicates detection
-
-Paperguide automatically checks new imports for duplicates so your paper pool stays clean. Duplicate detection uses DOI matching, title similarity, and metadata comparison to flag records that may represent the same paper.
-
-- **Automatic detection**: duplicates are identified during import using DOI and fuzzy title matching
-- **Merge**: combine duplicate records into a single paper, preserving the most complete metadata and any attached PDF
-- **Undo merge**: restore the original records if you merged papers by mistake
-
-<Callout kind="tip">
-
-Review duplicates before you begin screening when possible. A clean paper pool reduces extra screening work and keeps review counts more accurate.
-
+<Callout kind="info" collapsed="false">
+  **Paperguide AI suggests search queries for you:** When you open this stage, AI reads your research question and proposes a set of queries designed to cover the literature around it. Run them as they are, edit them, or write your own.
 </Callout>
+
+You can also write your own queries in natural language. AI Search combines semantic matching, which finds papers by meaning, with keyword matching, which catches exact terms. Together they surface studies either approach alone would miss.
+
+Apply filters to narrow what a query returns, including publication year, citation count, journal quality, and open access availability.
+
+**Papers from an AI Search query are added automatically:** Every paper a query returns is pooled into All Papers as soon as the search runs. There is nothing to select. Each query also becomes its own tab in the paper list, so you can always see which search contributed what.
+
+This makes your filters worth setting before you run a query rather than after. A broad, unfiltered query pools everything it finds, and cleaning that up afterwards means removing papers or deleting the whole tab.
+
+### Reference manager
+
+Add papers you have already collected. Your Paperguide reference manager imports from PubMed, Mendeley, PDF uploads, and BibTeX or RIS files, and you can select from that library directly into the review.
+
+This is the faster route when your project already has a reading set, and it means you are not searching for papers you have found before.
 
 ## Paper list
 
-The paper list shows every paper currently in your review pool. It is designed for fast browsing and searching, even when your review includes a large number of papers.
+The paper list shows every paper currently in your pool, organized into tabs by where it came from.
 
-- **Inline search**: search by title, author, or DOI
-- **Filters**: narrow the list by whether a paper has a PDF, publication year, or citation count
-- **Advanced filters**: open the filter dialog for more granular filtering options
-- **Sorting**: sort by title, year, citations, or date added
+| Tab                       | What it holds                                                                                                                                                                    |
+| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **All Papers**            | Every paper in your review. AI Search results arrive here automatically. Papers from your reference manager arrive when you select them. This is the set that goes to screening. |
+| **Per-search query tabs** | One tab per AI Search query, showing what that specific search returned.                                                                                                         |
+| **Reference manager tab** | The papers you selected from your library.                                                                                                                                       |
 
-## Search progress banner
+Within any tab you can:
 
-When you import papers with AI Search, a progress banner appears at the top of the page. The banner shows how many papers have been found and added so far, which helps you track large imports while the search is still running.
+- **Search inline** by title, author, or DOI
+- **Filter** by publication year, citation count, or whether a paper has a PDF attached
+- **Open advanced filters** for more granular options
+- **Sort** by title, year, citations, or date added
+
+## Duplicates detection
+
+The same study often appears in more than one database, so a pooled set almost always contains duplicates.
+
+Paperguide detects them automatically across the **entire pooled set**, not just within each import, using DOI matching, title similarity, and metadata comparison.
+
+- **Review and resolve.** Browse the flagged duplicates and decide which to merge.
+- **Mark as not duplicate.** If two records are genuinely different papers, keep them separate.
+
+Duplicates you remove are counted and reported in the deduplication block of your PRISMA diagram, so this is not just tidying. It is part of the methodology your review will be judged on.
+
+Work through duplicates before you confirm. Removing them afterwards means rescreening.
 
 ## Removing papers
 
-Remove papers from your pool when they are clearly irrelevant or were added by mistake. This is safest before screening begins, because later stages depend on the current paper pool.
+Remove papers that are clearly irrelevant or were added by mistake.
 
-<Callout kind="alert">
+**Individual papers.** Remove them from any tab.
 
-Removing papers after screening has started may require re-running screening for the affected stage. Screening results for removed papers are discarded, and review counts update to reflect the current pool.
+**A whole search tab.** Deleting an AI Search tab removes every paper that query contributed, including from All Papers. Useful when a query turned out to be off-target and you want its results gone in one action.
 
+Removing is safest before screening starts. If you remove papers after screening has begun, their screening results are discarded and your review counts update to reflect the current pool.
+
+## Confirming your papers
+
+When your collection is complete, select **Confirm and start screening**.
+
+This sets the pooled papers in All Papers as the papers for your systematic review and starts the first screening stage.
+
+Before you confirm, check that:
+
+- Your searches cover the literature you need. Missing studies are harder to add later than to include now.
+- Duplicates have been reviewed and resolved.
+- Obviously irrelevant papers have been removed.
+
+<Callout kind="info" collapsed="false" color="#3b82f6">
+  Confirming starts screening, which means your screening criteria need to be defined in the [Protocol](/systematic-review/protocol)
 </Callout>
 
-## Next steps
+## Adding papers after screening has started
 
-<Columns cols={2}>
-  <Card title="Protocol" href="/systematic-review/protocol" icon="book-open" horizontal="false" />
-  <Card title="Title and abstract screening" href="/systematic-review/title-abstract-screening" icon="filter" horizontal="false" />
-</Columns>
+You can return to Papers at any point in the review and add more. Papers already screened are not affected.
+
+Once new papers are added, **Start screening for new papers** becomes available. Only the new papers are screened. A verifier then reviews those results the same way as the original set, at each stage the new papers pass through.
+
+Adding papers late is normal in a systematic review. A peer reviewer suggests a study your search missed, or a new trial publishes while you are still screening. What it costs you is another verification pass at every stage those papers travel through, which is why it is worth getting your searches right before you confirm.
+
+## Exporting papers
+
+You can export your collected papers at any point in BibTeX, RIS, or CSV format. Useful for sharing your search results with collaborators outside Paperguide, or for keeping a record of what your searches returned alongside your submission.
