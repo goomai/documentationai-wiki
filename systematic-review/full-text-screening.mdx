@@ -1,133 +1,170 @@
 ---
 title: Full Text Screening
-description: Screen full-text PDFs with AI evidence, decision panels, and verification.
+description: >-
+  Screen the full texts of papers that passed abstract screening, verify each
+  decision against the PDF, and confirm the stage to move to data extraction.
 ---
-
 ## What is Full Text Screening?
 
-Full Text Screening is the second screening stage. Papers that were included or marked maybe during [Title & Abstract Screening](/systematic-review/title-abstract-screening) move here for a final eligibility check using the full text of the paper.
+The second and final screening pass. Paperguide AI reads the full PDF of every paper that survived abstract screening, evaluates it against your full text criteria, and links each decision to the exact statements it relied on. A person then verifies that work before the review moves on.
 
-Unlike Title & Abstract Screening, which is intentionally sensitive, Full Text Screening is confirmatory. The AI reads the full PDF and makes a binary decision: include or exclude. There is no maybe at this stage because the full text should provide enough information to make a final call.
-
-## How it differs from Title & Abstract Screening
-
-Full Text Screening uses the same overall workflow as [Title & Abstract Screening](/systematic-review/title-abstract-screening). You still work in the same master-detail layout, review AI decisions against criteria, verify evidence, apply manual overrides, use filters and sorting, and re-run screening when needed.
-
-The main change is the evidence source and the decision model. Full Text Screening evaluates the full PDF, requires an attached PDF to proceed, and returns a final binary decision.
-
-|  | **Title & Abstract Screening** | **Full Text Screening** |
-|---|---|---|
-| **What the AI reads** | Title and abstract only | Full PDF text |
-| **Decision type** | Include, exclude, or maybe | Include or exclude only |
-| **Evidence source** | Sentences from the abstract | Specific passages from the full PDF |
-| **PDF required** | No | Yes |
-
-<Callout kind="info">
-
-Full Text Screening keeps the same decision tabs used elsewhere in screening, but AI outcomes at this stage are binary. Papers that cannot be evaluated because no PDF is available stay out of the screening run until you add one.
-
+<Callout kind="info" collapsed="false">
+  **Before you start:** Your full text screening criteria must be defined in the [Protocol](/systematic-review/protocol), and [Title & Abstract Screening](/systematic-review/title-abstract-screening) must be confirmed. Assign your verifier before starting, not after.
 </Callout>
 
-## Use the PDF viewer to verify evidence
+## How this stage works
 
-A built-in PDF viewer opens beside the decision panel so you can read the paper while reviewing the AI's reasoning. That keeps the full text, criterion verdicts, and final decision in one place.
+1. **A Full Access member starts AI screening.** AI reads the full text of every paper with a PDF and evaluates it against your full text criteria.
+2. **Papers without a PDF are marked ineligible.** They are held out of the run until a PDF is attached.
+3. **A verifier reviews the decisions.** They check each one against the cited statements in the PDF and override anything that is wrong.
+4. **The verifier confirms the papers.** Only then does data extraction unlock.
 
-You can move through the PDF, inspect the cited passages, and read surrounding context before you confirm or override a decision. When the AI cites evidence from the paper, it points to the relevant passage with page or section context so you can verify the claim against the source.
+## How this differs from abstract screening
 
-- Navigate to any page in the PDF while you review decisions
-- Jump from cited evidence to the relevant passage in the paper
-- Read surrounding context before you accept or override the AI's decision
+The workflow is the same. What changes is what AI reads and how firm the decision has to be.
 
-## Add PDFs before screening
+|                   | Title & Abstract Screening  | Full Text Screening                                          |
+| ----------------- | --------------------------- | ------------------------------------------------------------ |
+| **What AI reads** | Title and abstract only     | The full PDF                                                 |
+| **Decision**      | Include, Exclude, or Maybe  | Include or Exclude                                           |
+| **Evidence**      | Sentences from the abstract | Statements from the full text, with page or section location |
+| **PDF required**  | No                          | Yes                                                          |
 
-Some papers in the Full Text Screening pool will not have a PDF attached yet. This usually happens when the record was imported as metadata only, the paper could not be retrieved, or the PDF was unavailable during import.
+Abstract screening is deliberately sensitive: it keeps anything it cannot rule out. Full text screening is confirmatory. The full paper should contain everything needed to reach a final answer, so there is no Maybe at this stage. Every paper ends up either included or excluded.
 
-Use one of these methods to attach a PDF:
+This is also where criteria that depend on detail get settled: methodology, participant characteristics, intervention specifics, and outcome measurement are often reported only in the body of a paper, never in its abstract.
 
-- **Upload a file** from your device
-- **Provide a URL** to a direct PDF link
+## What gets screened
 
-<Callout kind="alert">
+Every paper marked **Included** or **Maybe** in abstract screening carries forward. Excluded papers stop at the previous stage.
 
-Papers without a PDF cannot be screened at this stage. Add PDFs before you start or continue a Full Text Screening run.
+Each paper needs a full text PDF. Papers without one are marked **ineligible** and held out of screening until a PDF is attached. They are not excluded on their merits, only set aside because there was nothing to read.
 
+## Before you start
+
+### Set up your full text criteria
+
+Full text criteria are separate from your abstract criteria and usually stricter, because the full paper supports judgments an abstract cannot.
+
+Criterion order determines exclusion reasons. When a paper fails, the **first** criterion it fails, in the order you listed them, becomes its exclusion reason.
+
+[Set up your protocol](/systematic-review/protocol)
+
+### Add missing PDFs
+
+Papers usually lack a PDF for one reason: the full text sits behind a paywall or requires institutional authentication.
+
+Two ways to attach one:
+
+- **Use the Paperguide browser extension** to fetch the PDF while you browse, including paywalled papers through your organization's proxy
+- **Upload the file manually** from your device
+
+You do not have to resolve every missing PDF before starting. Papers can be screened later as their PDFs arrive. But every gap you leave is a second pass you will have to make.
+
+### Assign a verifier
+
+Assign the person responsible for verifying this stage before screening starts. Assignment determines who can act on the results and who gets notified when the run finishes.
+
+| If the stage is        | Who verifies it                                                                                       |
+| ---------------------- | ----------------------------------------------------------------------------------------------------- |
+| Assigned to a member   | That member. They receive the notification when screening finishes.                                   |
+| Not assigned to anyone | Any Full Access or Review member. All of them are notified and can work through the results together. |
+
+View members can never verify, assigned or not.
+
+[Members, access & roles](/systematic-review/members-roles)
+
+## Running AI screening
+
+**Only Full Access members can start AI screening.** Review members verify results but cannot trigger the run.
+
+When the run starts, Paperguide indexes the attached PDFs and screens each paper as its indexing completes. Full text screening therefore takes longer than abstract screening: a full paper carries far more text than an abstract, and it has to be processed before it can be read.
+
+Results appear in the screening workspace as the run progresses, so you can begin reviewing before it finishes. Paperguide also sends an email on completion: to the assigned verifier, or to every Full Access and Review member if the stage is unassigned.
+
+## How AI reaches a decision
+
+For each criterion, AI locates the relevant material in the full text and judges whether the criterion is satisfied. Each one returns:
+
+- **A verdict**, yes or no
+- **The cited evidence**, the specific statements in the paper supporting that verdict
+- **Location**, the page or section the evidence came from
+
+The overall decision follows directly from the criterion verdicts:
+
+| If                           | Decision                                                 |
+| ---------------------------- | -------------------------------------------------------- |
+| Every criterion is satisfied | **Include**                                              |
+| Any criterion fails          | **Exclude**, with that criterion as the exclusion reason |
+
+Read the criterion verdicts before changing an overall decision. When you disagree with a result, the cause is almost always one criterion judged differently than you would judge it.
+
+<Callout kind="info" collapsed="false">
+  Vague criteria produce vague evidence. AI can only find what your criterion instructions tell it to look for, so "appropriate methodology" will return weaker results than a criterion naming the study designs you accept.
 </Callout>
 
-## Understand per-paper full-text status
+## Working through the results
 
-Each paper shows a full-text status that tells you whether it can move through screening.
+The screening workspace puts the paper list on one side and the decision detail on the other. Select a paper to see every criterion verdict, its cited evidence, and where in the paper that evidence came from.
 
-- **Ready** — the PDF is available and the paper can be screened
-- **Needs action** — no PDF is available, so the paper cannot be screened yet
-- **Indexing** — the PDF is being processed and will become available for screening after indexing completes
+### The PDF viewer
 
-Papers marked **Needs action** are excluded from active screening runs until you add a PDF. In the PRISMA flow, these papers count as not retrieved during the eligibility stage.
+A built-in PDF viewer opens beside the decision panel, so the paper and the reasoning about it stay on the same screen.
 
-## Review evidence from the full text
+**Select a citation and the viewer highlights the supporting statements** in the full text: the exact sentences AI used to reach that verdict, in place, with the surrounding paragraph around them. You can also move to any page in the PDF yourself while reviewing.
 
-Full Text Screening cites evidence from the paper itself, not just the abstract. That makes this stage useful for criteria that depend on methodological detail, participant characteristics, intervention specifics, outcomes, or other information that often appears only in the body of the paper.
+This is what makes verification real. A verdict on its own asks you to trust a summary. A verdict with its supporting statements highlighted in the source asks you to check it, and checking takes seconds rather than a hunt through the paper.
 
-Each criterion verdict includes the evidence you need to verify the AI's conclusion:
+### Managing the queue
 
-- **Verdict** — yes or no
-- **Cited passage** — the specific text that supports the verdict
-- **Location** — page or section context so you can find the source quickly
+Papers are grouped into decision tabs, and you can filter by decision or verification status and sort your queue to work through a large set without losing your place.
 
-Because this stage is binary, the final paper decision follows the criterion outcomes directly. If all criteria are satisfied, the paper is included; if any criterion fails, the paper is excluded.
+## Verifying and overriding
 
-## Screen papers step by step
+The AI decision is a recommendation. A confirmed decision is one a person has reviewed and accepted.
 
-<Steps>
-  <Step title="Review papers that need PDFs" icon="alert-triangle" title-type="p">
+**To verify a paper**, work through the criteria, paying most attention to any marked no, since a single failed criterion determines the outcome. Select the citations to highlight the supporting statements and read them in context. If you agree, confirm. If you disagree, override to Include or Exclude, selecting the failed criterion when you exclude.
 
-  Check the paper list for items marked **Needs action**. Add PDFs for those papers before you start a new run or resume an existing one.
+**To confirm**, either confirm papers individually as you go, or select **Confirm All** once you have worked through the set. Confirming records the AI decision as approved, or your override as the final decision. Both are kept, so the review holds a record of what AI decided and what a person changed.
 
-  A paper is ready for screening once the PDF is attached and processed.
+Full Access members can review and override decisions after verification is complete, including decisions made by another member.
 
-  </Step>
+## Screening papers whose PDFs arrive later
 
-  <Step title="Start or resume the screening run" icon="play-circle" title-type="p">
+You can add a PDF to an ineligible paper at any point, including after AI screening has run and after verification is complete.
 
-  Run Full Text Screening on papers with a ready PDF. The AI evaluates each paper against your screening criteria using the full text of the document.
+Once a PDF is attached, **Start screening** becomes available for the newly ready papers. Selecting it screens only those papers, leaving completed work untouched. A verifier then reviews and confirms them the same way as the rest.
 
-  As the run progresses, results appear in the same screening workspace you use for earlier-stage review.
+This means a missing PDF never has to block your review permanently. If you can obtain the paper later, it can still be assessed.
 
-  </Step>
+&#x20;\<Callout kind="info" collapsed="false"> Work through your ineligible papers before treating the stage as finished. A paper you could have retrieved is a paper your review should have assessed, and reviewers will ask. \</Callout>&#x20;
 
-  <Step title="Review AI decisions and evidence" icon="search" title-type="p">
+## Confirming the stage
 
-  Open a paper and inspect the criterion verdicts in the detail panel. Use the PDF viewer to compare the cited evidence with the source text before you accept the decision.
+Once every screened paper has been verified, confirm the stage.
 
-  Look closely at page and section references when a criterion depends on nuanced study details.
+You then see the final counts: **Included**, **Excluded**, and **Ineligible** because no PDF was available.
 
-  </Step>
+Included papers move forward to data extraction. Excluded papers stop here and stay recorded in the review flow. Ineligible papers remain held until a PDF is added.
 
-  <Step title="Confirm or override the final decision" icon="check-circle" title-type="p">
+Confirming unlocks [Data Extraction](/systematic-review/data-extraction).
 
-  Confirm the AI decision if the evidence supports it, or override it if your review reaches a different conclusion. The final outcome at this stage is always **include** or **exclude**.
+### How this feeds PRISMA
 
-  Once you finish review, the paper remains recorded with its final eligibility outcome.
+This stage populates the eligibility section of your PRISMA diagram:
 
-  </Step>
-</Steps>
+- Papers with a PDF are counted as **assessed for eligibility**
+- Papers excluded here are recorded as **full text exclusions**, with the criterion each one failed
+- Ineligible papers are counted as **not retrieved**
 
-## How Full Text Screening affects PRISMA
+Missing PDFs are therefore not only a workflow problem but part of your review's reported accounting. Resolve them early if you want your totals to settle before you write up.
 
-Full Text Screening feeds directly into the eligibility part of your PRISMA diagram. Papers with attached PDFs are counted as assessed for eligibility, papers excluded at this stage are recorded as full-text exclusions, and papers without PDFs are counted as not retrieved.
+## If your protocol or papers change
 
-That means missing PDFs are not only a workflow blocker but also part of your review accounting. Resolve **Needs action** items early if you want your screening totals to stabilize before final reporting.
+**If you change your full text criteria** in the protocol, screening may need to run again so decisions stay consistent with the criteria you are now using. How much needs rescreening depends on what changed.
 
-## What moves to the next stage
+**If you add papers** to the collection, they pass through abstract screening first, then arrive here. Only the new papers are screened.
 
-After Full Text Screening, papers follow one of three paths:
+## Exporting screening data
 
-- **Included** papers move to [Data Extraction](/systematic-review/data-extraction)
-- **Excluded** papers stop here and remain recorded in the review flow
-- **Needs action** papers stay blocked until you attach a PDF
-
-## Next steps
-
-<Columns cols={2}>
-  <Card title="Title & Abstract Screening" href="/systematic-review/title-abstract-screening" icon="filter" />
-  <Card title="Data Extraction" href="/systematic-review/data-extraction" icon="database" />
-</Columns>
+You can export your full text screening results, including decisions, exclusion reasons, and the cited evidence behind them. Useful for sharing progress with collaborators outside Paperguide and for keeping a screening record alongside your submission.
