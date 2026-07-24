@@ -1,172 +1,130 @@
 ---
 title: Title & Abstract Screening
-description: Screen papers by title and abstract with AI decisions, criterion verdicts, and manual override.
+description: >-
+  Screen every collected paper against your abstract criteria, verify the AI
+  decisions, and confirm the stage to move your review forward.
 ---
-
 ## What is Title & Abstract Screening?
 
-Title & Abstract Screening is the first screening stage in your systematic review. Every paper in your pool is evaluated against the inclusion and exclusion criteria in your protocol using the paper's title and abstract.
+The first screening pass. Paperguide AI reads the title and abstract of every paper in your confirmed set, evaluates it against your criteria, and shows you the evidence behind every decision. A person then verifies that work before the review moves on.
 
-The system produces one decision for each paper: **Include**, **Exclude**, or **Maybe**. It also shows criterion-level verdicts and cited evidence from the abstract so you can see why the paper was classified that way.
-
-This stage is intentionally sensitive. It removes clearly irrelevant papers while preserving borderline papers for closer review in the next stage. Papers marked **Included** or **Maybe** move forward to Full Text Screening.
-
-## Interface layout
-
-The screening workspace uses a master-detail layout so you can move quickly through large paper sets without losing context.
-
-- **Paper list** on the left shows papers in the screening pool and their current status.
-- **Detail panel** on the right shows the selected paper's title, abstract, current decision, criterion verdicts, and supporting evidence.
-- **Tabs, filters, and sorting** help you focus on papers that still need attention.
-
-This layout is designed for high-volume review work. You can scan the queue, select a paper, review the reasoning, and confirm or override the decision without leaving the page.
-
-## Decision tabs
-
-Papers are organised into four tabs so you can review by outcome.
-
-- **All** shows every paper in the Title & Abstract screening pool.
-- **Included** shows papers selected to move forward.
-- **Excluded** shows papers filtered out at this stage.
-- **Maybe** shows papers where the evidence is unclear or incomplete.
-
-The **Maybe** tab is especially useful when you want to concentrate on edge cases. It collects the papers most likely to need closer human judgment.
-
-## How AI decisions are made
-
-For each paper, the system evaluates every screening criterion and then derives one overall decision from the criterion-level results.
-
-- **Overall decision**: Include, Exclude, or Maybe
-- **Criterion verdicts**: Yes, No, or Maybe for each criterion
-- **Cited evidence**: supporting text pulled from the abstract for each verdict
-
-The decision logic is conservative by design:
-
-- If **any** criterion is **No**, the paper is **Excluded**
-- If **all** criteria are **Yes**, the paper is **Included**
-- If none are **No** and at least one criterion is **Maybe**, the paper is **Maybe**
-
-<Callout kind="tip">
-
-Read criterion verdicts before changing the overall decision. In most cases, a disagreement with the final recommendation comes from one criterion that needs a different judgment.
-
+<Callout kind="info" collapsed="false">
+  **Before you start:** Your abstract screening criteria must be defined in the [Protocol](/systematic-review/protocol), and your papers must be confirmed in [Papers](/systematic-review/papers). Assign your verifier before starting, not after.&#x20;
 </Callout>
 
-## Verify or override a decision
+## How this stage works
 
-The AI recommendation is not the same as a verified final decision. You review the paper, inspect the criterion verdicts and evidence, then either confirm the result or change it.
+1. **A Full Access member starts AI screening.** AI evaluates every paper against your research question and abstract criteria.
+2. **Results appear as they are produced.** You can begin reviewing before the full run finishes.
+3. **A verifier reviews the decisions.** They check each one against the abstract and the evidence AI cited, and override anything that is wrong.
+4. **The verifier confirms the papers.** Only then does the next stage unlock.
 
-<Steps>
-  <Step title="Open a paper that needs review" icon="book-open">
+Nothing advances on AI output alone. Verification is what moves the review forward.
 
-  Select a paper from **All**, **Included**, **Excluded**, or **Maybe**. Start with unconfirmed papers if you want to clear the queue efficiently.
+## Before you start
 
-  Success looks like this: the detail panel updates with the paper's title, abstract, current decision, and criterion-level reasoning.
+### Set up your criteria
 
-  </Step>
-  <Step title="Review the criterion verdicts and evidence" icon="search">
+AI screens against the abstract screening criteria in your protocol. If they are not defined, this stage cannot run.
 
-  Check each inclusion and exclusion criterion against the abstract evidence shown in the detail panel. Focus on any criterion marked **No** or **Maybe**, because those drive most disputed outcomes.
+Criterion order matters. When a paper fails, the **first** criterion it fails, in the order you listed them, becomes its exclusion reason. Order your criteria so the exclusion reasons your review reports are the ones that actually matter.
 
-  If the abstract does not support a clean decision, keep the paper as **Maybe** so it can receive closer review later.
+[Set up your protocol](/systematic-review/protocol)
 
-  </Step>
-  <Step title="Confirm or change the decision" icon="check-circle">
+### Assign a verifier
 
-  If you agree with the recommendation, confirm it. If you disagree, override the decision to **Include**, **Exclude**, or **Maybe**.
+Decide who is responsible for verifying this stage and assign them before screening starts. Assignment determines who can act on the results and who gets notified when the run completes.
 
-  Success looks like this: the paper status updates in the list, and the decision is recorded as reviewed rather than only AI-generated.
+| If the stage is        | Who verifies it                                                                                       |
+| ---------------------- | ----------------------------------------------------------------------------------------------------- |
+| Assigned to a member   | That member. They receive the notification when screening finishes.                                   |
+| Not assigned to anyone | Any Full Access or Review member. All of them are notified and can work through the results together. |
 
-  </Step>
-</Steps>
+View members can never verify, assigned or not.
 
-## Verification system
+[Members, access & roles](/systematic-review/members-roles)
 
-Verification creates a clear distinction between what the AI recommended and what you accepted as the final decision.
+## Running AI screening
 
-- **AI decision** is the system's recommended outcome.
-- **Confirmed decision** is the outcome you reviewed and accepted.
-- **Override** means you changed the AI recommendation to a different final decision.
+Onl&#x79;**&#x20;Full Access&#x20;**&#x6D;embers ca&#x6E;**&#x20;start AI screening.** Review members verify results but cannot trigger the run.
 
-You can verify papers one at a time or use bulk confirmation for batches you have already reviewed. Confirmed decisions stay fixed until you explicitly reverse that confirmation.
+Screening a large set takes time, but you do not have to wait for it. Results appear as papers are processed, and a progress banner tracks the run, so the verifier can start working through decisions while the rest are still being evaluated. Paperguide also sends an email when the run completes, to the assigned verifier or, if the stage is unassigned, to every Full Access and Review member.
 
-<Callout kind="info">
+## How AI reaches a decision
 
-Verification creates an auditable trail of AI-made and human-verified decisions. That record helps you report your screening process transparently.
+AI evaluates each paper one criterion at a time, then derives a single overall decision from those results.
 
+**For every criterion**, it returns a verdict and the evidence behind it:
+
+| Verdict     | What it means                                          |
+| ----------- | ------------------------------------------------------ |
+| **Meets**   | The abstract satisfies this criterion                  |
+| **Fails**   | The abstract does not satisfy this criterion           |
+| **Unclear** | The abstract does not give enough information to judge |
+
+Each verdict comes with cited evidence: the specific text from the abstract that AI based it on. This is what makes a decision checkable rather than something you either trust or do not.
+
+**The overall decision** follows from those verdicts:
+
+| If                                                  | Overall decision                                         |
+| --------------------------------------------------- | -------------------------------------------------------- |
+| Any criterion **fails**                             | **Exclude**, with that criterion as the exclusion reason |
+| No criterion fails, but at least one is **unclear** | **Maybe**                                                |
+| Every criterion **meets**                           | **Include**                                              |
+
+Read the criterion verdicts before changing an overall decision. When you disagree with a result, the cause is almost always one criterion that was judged differently than you would have judged it, and that is the level to fix it at.
+
+This logic keeps borderline papers in the review rather than dropping them early. A paper you cannot judge from its abstract becomes a **Maybe** and moves forward to be settled on its full text. In a systematic review, losing a relevant study is a more serious error than carrying an irrelevant one into the next stage.
+
+## Working through the results
+
+Screening opens in a table view: papers on the left, abstract details on the right. Select a paper to open its detailed view, with the full abstract, the current decision, every criterion verdict, and the cited evidence.
+
+Papers are grouped into four tabs so you can review by outcome: **All**, **Included**, **Excluded**, and **Maybe**. The Maybe tab is the one worth your attention first, since it holds the papers where AI could not reach a clean judgment and human reading matters most.
+
+To manage a large queue:
+
+- **Filter by decision** to work through one outcome at a time
+- **Filter by verification status** to find papers that still need confirming
+- **Sort** by title, year, citations, or decision date
+
+Sorting by decision date and filtering to unconfirmed papers gives you a clean queue during an active run, with newly screened papers arriving at the end.
+
+## Verifying and overriding
+
+The AI decision is a recommendation. A confirmed decision is one a person has reviewed and accepted.
+
+**To verify a paper**, open it and check the criterion verdicts against the abstract, paying most attention to anything marked fails or unclear, since those drive the outcome. If you agree, confirm it. If you disagree, override the decision to Include, Maybe, or Exclude. When you override to Exclude, select which criterion the paper failed.
+
+If the abstract genuinely does not support a clean decision, leave the paper as **Maybe**. That is the correct answer, not an avoided one.
+
+**To confirm**, either confirm papers individually as you review them, or select **Confirm All** once you have worked through the set. Confirming records the AI decision as approved, or your override as the final decision. Both are kept, so the review holds a record of what AI decided and what a person changed.
+
+Full Access members can review and override decisions after verification is complete, including decisions made by another member. This gives a review lead a way to correct the record without reopening the stage for everyone.
+
+## Confirming the stage
+
+Once every paper is confirmed, you see the final counts: **Included**, **Maybe**, and **Excluded**. These feed the screening block of your PRISMA diagram.
+
+Included and Maybe papers both move forward. Excluded papers stop here.
+
+Confirming unlocks the next stage. Depending on how you set up the review, that is either [Full Text Screening](/systematic-review/full-text-screening) or, if you disabled full text screening, [Data Extraction](/systematic-review/data-extraction).
+
+<Callout kind="info" collapsed="false">
+  The next stage stays locked until this one is confirmed. If screening has finished but nothing is moving, check whether the papers still need confirming.
 </Callout>
 
-## Screening progress
+## If your protocol or papers change
 
-Screening runs in the background and update in real time while papers are processed. You do not need to wait for the full run to finish before you start reviewing results.
+Screening can run again when the review changes underneath it.
 
-The run follows a staged workflow:
+**If you change your abstract criteria** in the protocol, screening may need to run again so decisions stay consistent with the criteria you are now using. How much needs rescreening depends on what changed. This is why the protocol is worth settling before you start.
 
-```mermaid
-graph TD
-  A[Initialize run] --> B[Process papers in batches]
-  B --> C[Stream results to the interface]
-  C --> D[Finalize run]
-```
+**If you add papers** to the collection, only the new papers need screening. Work already confirmed is not affected, and a verifier reviews the new results the same way.
 
-Papers are processed in batches of five. Results stream into the interface through Server-Sent Events, so the paper list updates as decisions become available.
+[Adding papers after screening has started](/systematic-review/papers#adding-papers-after-screening-has-started)
 
-Success looks like this: the progress banner advances while papers begin appearing in the decision tabs before the run completes.
+## Exporting screening data
 
-## Filters and sorting
+You can export your abstract screening results, including decisions, exclusion reasons, and the evidence behind them. Useful for sharing progress with collaborators outside Paperguide and for keeping a screening record alongside your submission.
 
-Use filters and sorting to focus on the papers that need action first.
-
-- **Filter by decision** to review only Included, Excluded, or Maybe papers.
-- **Filter by verification status** to find papers that still need confirmation.
-- **Sort the list** to work by title, year, citations, or decision date.
-
-A common workflow is to sort by decision date and then filter to unconfirmed papers. That gives you a clean review queue during active screening runs.
-
-## When screening runs again
-
-The system can trigger screening more than once when the review changes after the initial run.
-
-<ExpandableGroup>
-  <Expandable title="Initial screening run" default-open="true">
-
-  The first run starts when Title & Abstract Screening begins for the current paper pool.
-
-  This run evaluates all eligible papers against the current protocol criteria.
-
-  </Expandable>
-  <Expandable title="Protocol changes">
-
-  If you update the screening criteria in the protocol, the system can trigger a new run. The trigger type for this case is `PROTOCOL_UPDATE`.
-
-  Depending on what changed, the system may require a broader re-screen to keep decisions consistent with the updated criteria.
-
-  </Expandable>
-  <Expandable title="Paper updates or new papers">
-
-  If papers are added or changed after a run, the system can trigger screening again with the `PAPER_UPDATE` trigger.
-
-  This is typically used to screen newly added records without restarting unrelated completed work.
-
-  </Expandable>
-</ExpandableGroup>
-
-The system also distinguishes the initial run itself with the `INITIAL` trigger type. When criteria changes affect downstream work, later stages such as Full Text Screening or Data Extraction may also need attention.
-
-## What moves to the next stage
-
-Title & Abstract Screening decides which papers stay in scope for deeper review.
-
-- **Included** papers move forward to Full Text Screening.
-- **Maybe** papers also move forward so you can make a better decision with the full paper.
-- **Excluded** papers stop at this stage unless you later rescreen them.
-
-This design favors recall over premature exclusion. If the abstract leaves real uncertainty, keep the paper in the review.
-
-## Next steps
-
-<Columns cols={3}>
-  <Card title="Systematic Review Overview" href="/systematic-review/overview" icon="book-open" />
-  <Card title="Full Text Screening" href="/systematic-review/full-text-screening" icon="arrow-right" />
-  <Card title="Papers" href="/systematic-review/papers" icon="folder" />
-</Columns>
