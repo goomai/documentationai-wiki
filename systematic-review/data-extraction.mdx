@@ -1,140 +1,150 @@
 ---
 title: Data Extraction
-description: Extract structured data from included papers with AI-prefilled fields, review statuses, approve results, and export for analysis.
+description: >-
+  Pull your defined fields from every included paper into a table, verify each
+  value against its citation, and confirm the stage to generate your report.
 ---
-
 ## What is Data Extraction?
 
-Data Extraction is the stage where the AI pulls structured data from every paper that passed Full Text Screening. The fields it fills are the extraction fields you defined in your [Protocol](/systematic-review/protocol), such as study design, sample size, intervention details, and outcomes.
+The final working stage. Paperguide AI reads every included paper and pulls out the fields you defined in your protocol, assembling them into a table with a citation behind every value. A person verifies that table before it becomes the basis of your report.
 
-Results appear in a grid view with papers as rows and extraction fields as columns. The AI pre-fills each cell, and you can review, edit, and approve the extracted values before exporting.
-
-## Grid view
-
-The extraction grid shows all included papers and their extracted data in one place. This layout makes it easier to review many papers and fields without opening each record one by one.
-
-- **Rows**: each paper included from Full Text Screening
-- **Columns**: each extraction field defined in your protocol
-- **Cells**: the AI-extracted value for that paper and field
-
-Use search, filtering, and sorting to work through large extraction tables more efficiently.
-
-## AI-prefilled values
-
-For each paper and field combination, the AI reads the paper's full text and extracts a value based on the field instructions and output type. The extraction result depends on how you defined the field in the protocol.
-
-- **Free text** fields return an open-ended answer.
-- **Yes / Maybe / No** fields return one of the three allowed options.
-- **Specified options** fields return one option from the list you defined.
-
-Every extracted value is editable. If the AI selects the wrong answer or misses important nuance, update the cell before approval.
-
-## Status indicators
-
-Each cell shows a status so you can see what still needs attention.
-
-- **Extracted**: the AI filled the cell and it is ready for review.
-- **Pending**: extraction has not run for that cell yet.
-- **Error**: the AI could not extract a value and the cell needs manual review or entry.
-
-<Callout kind="info">
-
-Extraction runs at the paper-and-field level. A single paper can contain a mix of extracted, pending, and error cells while the rest of the grid continues processing.
-
+<Callout kind="info" collapsed="false">
+  **_Before you start:_** Your extraction fields must be defined in the [Protocol](/systematic-review/protocol), and [Full Text Screening](/systematic-review/full-text-screening) must be confirmed. Assign your verifier before starting, not after.
 </Callout>
 
-## Confirming before running
+## How this stage works
 
-Before extraction starts, confirm that your paper set and extraction fields are final. Data Extraction uses the current protocol snapshot, so changes to fields should happen before you launch the run.
+1. **A Full Access member starts extraction.** AI reads each included paper and fills every extraction field.
+2. **Results build into a table.** One row per paper, one column per field, with a citation behind each value.
+3. **A verifier checks the values.** They open each citation, compare the value against the supporting statement, and correct anything that is wrong.
+4. **The verifier confirms the papers.** Only then can your report be generated.
 
-<Steps>
-  <Step title="Review extraction fields" icon="check-circle" title-type="p">
+This is the stage where your review stops being a set of decisions and becomes data you can analyse.
 
-  Confirm that the extraction fields from your protocol are correct. If you need to add, remove, or edit fields, return to the [Protocol](/systematic-review/protocol) stage first.
+## What gets extracted
 
-  </Step>
+Every paper marked **Included** in full text screening moves here. Excluded and ineligible papers do not.
 
-  <Step title="Confirm the extraction" icon="play-circle" title-type="p">
-
-  Start the extraction run after the fields and included papers look right. The AI begins processing each included paper against each extraction field.
-
-  </Step>
-
-  <Step title="Wait for extraction to finish" icon="terminal" title-type="p">
-
-  The system updates the grid as extraction progresses. You will see cells move from **Pending** to **Extracted** or **Error**.
-
-  A successful run leaves most or all cells populated, depending on PDF quality and how clearly the paper reports the requested information.
-
-  </Step>
-</Steps>
-
-## Editing extracted data
-
-Click a cell to review and correct the extracted result. This is the main quality-control step before approval and export.
-
-The detail view shows:
-
-- **Extracted value**: the current answer stored for that paper and field
-- **Source evidence**: the passage from the paper that supports the answer
-- **Edit field**: a place to enter a corrected value if the extraction is inaccurate
-
-<Callout kind="info">
-
-Papers without PDFs cannot be extracted. Low-quality PDFs, image-only scans, or files without usable OCR can also reduce extraction accuracy.
-
+<Callout kind="info" collapsed="false">
+  If you disabled full text screening when you created the review, papers arrive here straight from abstract screening. Any without a PDF are ineligible for extraction, since there is no full text to read.
 </Callout>
 
-## Approving extractions
+## Before you start
 
-Approval records that a reviewed extraction is ready to use. This creates an audit trail between AI-generated values and human-reviewed values.
+### Define your extraction fields
 
-AI performs the extraction and you approve the results after review.
+Extraction fields tell AI what to pull from each paper and how to present it. Each field has a **title**, **instructions**, and an **output** format. The output setting controls the format, so your instructions do not need to repeat it.
 
-## Export
+| Output                | Returns                                                                  |
+| --------------------- | ------------------------------------------------------------------------ |
+| **Answer**            | Free text, written as your instructions specify                          |
+| **Yes / Maybe / No**  | One of three fixed options, for judgments you want recorded consistently |
+| **Specified answers** | One option from a list you define                                        |
 
-After review and approval, export the extraction grid for analysis, sharing, or downstream reporting. Exported data includes the extracted values alongside paper information and field structure.
+Free text is flexible but harder to compare across papers. Fixed options are comparable, but only if the list is complete and the options do not overlap.
 
-Common export formats include:
+### Writing instructions AI can act on
 
-- **CSV** for analysis tools and spreadsheets
-- **Excel** for formatted review and sharing
+Extraction quality follows directly from how specific your instructions are. Write them so a new reviewer could apply the field without asking you what you meant.
 
-If a value still shows **Pending** or **Error**, resolve it before export when you need a complete dataset.
+A clear instruction does three things:
 
-## What to check before you export
+1. **States what to extract**, in your review's terminology, anchored to your population or setting so off-topic content is ignored.
+2. **Lists the details to capture**, including sub-components, units, and expected categories.
+3. **Says how to present the answer**, so values are comparable across every paper.
 
-Use this checklist to catch the most common issues before you leave the extraction stage.
+For example:
 
-<ExpandableGroup>
-  <Expandable title="Make sure all required papers have PDFs">
+> Extract the change in HbA1c between intervention and control groups in adults with type 2 diabetes. Capture the value for each group, the unit (% or mmol/mol), the follow-up timepoint, and confidence intervals where provided. Present as a single value with unit and timepoint. Where a paper reports several timepoints, extract the one closest to 12 weeks.
 
-  Papers without PDFs cannot be processed by the extractor. If a paper is missing extraction values entirely, check whether the PDF is attached and readable.
+Add these where they apply:
 
-  </Expandable>
+- **Where to look**, if the value sits in a specific section, table, or figure.
+- **Which value to prefer**, if a paper reports more than one, such as multiple timepoints or analyses.
+- **What counts as missing**, so AI knows when to leave a field as not found.
 
-  <Expandable title="Review cells marked Error">
+If a field asks for a judgment, define what counts as evidence. If it asks for a value, specify the format you want returned.
 
-  Error states usually mean the AI could not confidently extract a value for that field. Open the cell, review the paper manually, and enter the value yourself when needed.
+[Set up your protocol](/systematic-review/protocol)
 
-  </Expandable>
+### Assign a verifier
 
-  <Expandable title="Confirm the protocol fields are final">
+Assign the person responsible for verifying this stage before extraction starts. Assignment determines who can act on the results and who gets notified when the run finishes.
 
-  Extraction is based on the fields defined in the protocol snapshot used for the run. If you change extraction fields later, rerun extraction so the grid matches the updated field set.
+| If the stage is        | Who verifies it                                                                                       |
+| ---------------------- | ----------------------------------------------------------------------------------------------------- |
+| Assigned to a member   | That member. They receive the notification when extraction finishes.                                  |
+| Not assigned to anyone | Any Full Access or Review member. All of them are notified and can work through the results together. |
 
-  </Expandable>
+View members can never verify, assigned or not.
 
-  <Expandable title="Approve reviewed papers">
+[Members, access & roles](/systematic-review/members-roles)
 
-  Approval gives you a clear record of which extraction results were checked. If your workflow depends on reviewer sign-off, complete approvals before exporting.
+## Running extraction
 
-  </Expandable>
-</ExpandableGroup>
+**Only Full Access members can start extraction.** Review members verify results but cannot trigger the run.
 
-## Next steps
+Before you begin, check that the extraction fields defined in your protocol are the ones you want. Changing fields after a run means extracting again.
 
-<Columns cols={2}>
-  <Card title="Systematic Review Overview" href="/systematic-review/overview" icon="book-open" />
-  <Card title="Full Text Screening" href="/systematic-review/full-text-screening" icon="arrow-right" />
-</Columns>
+Select **Start extraction**. For each paper, AI works through your fields one at a time, following each field's instructions to locate the relevant material, interpret it, and produce the output in the structure you specified. Results build into the table as papers are processed.
+
+Paperguide sends an email when the run completes: to the assigned verifier, or to every Full Access and Review member if the stage is unassigned.
+
+<Callout kind="info" collapsed="false">
+  &#x20;PDF quality affects extraction accuracy. Image-only scans and PDFs without usable text layers give AI less to work with than a clean digital PDF.
+</Callout>
+
+## Working with your extracted data
+
+There are two ways to look at the results.
+
+### Grid view
+
+The default. A table showing every included paper at once: columns for the paper's details and for each of your extraction fields, one row per paper.
+
+Grid view is for comparing across papers. It is where you notice that a field is thin across the whole set, or that two studies report an outcome differently. Use search, filtering, and sorting to work through a large table.
+
+### Detailed view
+
+Open a paper to see it in full: the PDF and its metadata on one side, your extraction fields on the other.
+
+Detailed view is for verifying a single paper properly. You have the source and the extracted values side by side, so checking a value means reading the paper rather than trusting the table.
+
+## Verifying and editing
+
+Extracted values are proposals. A confirmed value is one a person has checked.
+
+**Every value carries a citation link.** Select it and Paperguide takes you into the full text PDF and shows the supporting statements the value was drawn from. This is what makes the table verifiable: any value in it traces back to a specific sentence in a specific paper in a few seconds, by you now or by a reviewer later.
+
+**To verify a paper**, work through its fields one at a time. For each value, open the citation and read the supporting statement in context. Ask whether the value answers what your field instructions asked for, not just whether it appears in the paper.
+
+**To correct a value**, edit it directly. Your edit is saved over the AI value, and both are kept, so the review holds a record of what AI extracted and what a person changed.
+
+**To confirm**, select **Confirm** once you have verified a paper's fields. Work through papers one at a time, or select **Confirm All** to confirm the full table at once when you have reviewed it.
+
+Full Access members can review and override extracted values after verification is complete, including values confirmed by another member.
+
+&#x20;Watch for a field that comes back thin across many papers. That usually means the field instructions were unclear rather than the literature being silent, and it is worth fixing the field rather than filling values by hand.
+
+## Confirming the stage
+
+When every paper has been verified, the extraction stage completes.
+
+Confirming makes the report available. Paperguide synthesizes your extracted data into the systematic review report, including the PRISMA diagram.
+
+<Callout kind="info" collapsed="false">
+  The report draws only on confirmed extraction data. Anything you have not verified does not reach it.
+</Callout>
+
+## Exporting your data
+
+Export your extraction data to CSV or Excel.
+
+This is the output most likely to leave Paperguide. Extracted data is what feeds a meta-analysis, a statistical package, or an evidence table in your manuscript, and the export carries the same values you verified.
+
+## If your protocol or papers change
+
+**If you change your extraction fields** in the protocol, extraction may need to run again so your table matches the fields you are now using. How much needs re-extracting depends on what changed. This is the strongest reason to settle your fields before starting: an extraction table you have verified by hand is expensive to rebuild.
+
+**If you add papers** to the collection, they move through screening first. Any that are included arrive here, and only those papers are extracted.
+
