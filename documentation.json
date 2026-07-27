@@ -175,7 +175,22 @@
             ]
           },
           {
-            "group": "Others",
+            "group": "MCP Server",
+            "pages": [
+              {
+                "title": "Overview",
+                "path": "mcp/overview",
+                "icon": "plug-zap"
+              },
+              {
+                "title": "Connect & Manage",
+                "path": "mcp/connect-and-manage",
+                "icon": "link"
+              }
+            ]
+          },
+          {
+            "group": "Others", 
             "pages": [
               {
                 "title": "Chrome Extension",
