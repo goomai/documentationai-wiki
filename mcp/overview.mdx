@@ -1,38 +1,45 @@
 ---
 title: MCP Server Overview
-description: >-
-  Search and read papers directly inside your AI assistant using Paperguide's
-  MCP server.
+description: Search and read papers directly inside your AI assistant using Paperguide's MCP server.
 ---
+
 ## Search Paperguide inside your AI assistant
 
-You can now search Paperguide's database of 200M+ academic papers right inside Claude, ChatGPT, Cursor, or any other AI assistant that supports MCP. No switching tabs, no copy-pasting — just ask your assistant a research question and get cited results from Paperguide. To get started, connect your assistant to `https://mcp.paperguide.ai/mcp`.
+Search Paperguide's database of 200M+ academic papers right inside Claude, ChatGPT, Cursor, or any other AI assistant that supports MCP. Ask a research question in your assistant, review the results, and open full paper details without switching tabs. To connect, use `https://mcp.paperguide.ai/mcp`.
 
 ## What you need
 
-<Callout kind="info" collapsed="false">
-  - A Paperguide account (any plan, including Free)
-  - An AI assistant that supports MCP connections
-  - AI credits on your Paperguide account
+- A Paperguide account on any plan, including Free
+- An AI assistant that supports MCP connections
+- AI credits in your Paperguide account
 
-  Claude and ChatGPT require a paid plan on their side for custom connectors. No installation, no API keys, no config files. You'll sign in to Paperguide through your browser when you connect.
+<Callout kind="info">
+
+Claude and ChatGPT require a paid plan on their side for custom connectors. You do not need to install anything or manage API keys or config files.
+
 </Callout>
 
 ## How it works
 
-<Columns cols="2">
-  <Card title="Search papers" icon="search" horizontal="false" target="_self">
-    Ask your assistant a question like "What are the latest RCTs on sleep and depression since 2020?" and it searches Paperguide for you. You can narrow results by year, citation count, open access, journal quality, and more — just describe what you want in plain language. You get up to 20 results per search with titles, authors, summaries, and links back to Paperguide. Costs 10 credits per search.
-  </Card>
+### Search papers
 
-  <Card title="Get full details" icon="book-open" horizontal="false" target="_self">
-    When you find a paper that looks relevant, your assistant can pull up the complete details — full abstract, author list, journal info, DOI, and a ready-to-use BibTeX citation. This is perfect for when you've found a few promising papers from a search and want the full picture. Costs 2 credits per fetch.
-  </Card>
-</Columns>
+Ask your assistant a question such as "What are the latest RCTs on sleep and depression since 2020?" and it searches Paperguide for matching papers. Your assistant can return relevant results with key details so you can quickly decide what to open next. Each search costs 10 credits.
+
+### Get full details
+
+When a paper looks relevant, your assistant can fetch the full paper details from Paperguide. That includes the abstract, authors, journal information, DOI, and citation details so you can review the paper without leaving the conversation. Each fetch costs 2 credits.
 
 ## Ready to get started?
 
-<Card title="Connect your assistant" href="/mcp/connect-and-manage" icon="arrow-right" horizontal="true" target="_self">
-  Step-by-step setup guides for Claude, ChatGPT, Cursor, VS Code, Windsurf, and more.
-</Card>
+<Columns cols={2}>
+<Card
+title="Connect your assistant"
+icon="arrow-right"
+href="/mcp/connect-and-manage"
+horizontal="false"
+>
 
+Step-by-step setup guides for Claude, ChatGPT, Cursor, VS Code, Windsurf, and more.
+
+</Card>
+</Columns>
