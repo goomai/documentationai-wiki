@@ -1,11 +1,20 @@
 ---
 title: MCP Server Overview
-description: Search and read papers directly inside your AI assistant using Paperguide's MCP server.
+description: >-
+  Find and read papers from Paperguide's 200M+ database without leaving your AI
+  assistant.
 ---
-
 ## Search Paperguide inside your AI assistant
 
-Search Paperguide's database of 200M+ academic papers right inside Claude, ChatGPT, Cursor, or any other AI assistant that supports MCP. Ask a research question in your assistant, review the results, and open full paper details without switching tabs. To connect, use `https://mcp.paperguide.ai/mcp`.
+Ask research questions in the AI assistant you already use, and Paperguide helps it find and retrieve relevant papers for you. You can review results, open paper details, and keep working in the same conversation without switching tabs or learning a new tool.
+
+To connect your assistant, use the URL below:
+
+```text
+https://mcp.paperguide.ai/mcp
+```
+
+See the [Connect & Manage guide](/mcp/connect-and-manage) for step-by-step setup instructions for Claude, ChatGPT, Cursor, and more.
 
 ## What you need
 
@@ -13,33 +22,47 @@ Search Paperguide's database of 200M+ academic papers right inside Claude, ChatG
 - An AI assistant that supports MCP connections
 - AI credits in your Paperguide account
 
-<Callout kind="info">
-
-Claude and ChatGPT require a paid plan on their side for custom connectors. You do not need to install anything or manage API keys or config files.
-
+<Callout kind="info" collapsed="false">
+  You don't need to install anything or manage API keys. Just connect your assistant and sign in to Paperguide. Claude and ChatGPT require a paid plan on their side for custom connectors.
 </Callout>
 
-## How it works
+## What "search" and "fetch" mean
 
-### Search papers
+When you ask your AI assistant a research question, it does two things behind the scenes:
 
-Ask your assistant a question such as "What are the latest RCTs on sleep and depression since 2020?" and it searches Paperguide for matching papers. Your assistant can return relevant results with key details so you can quickly decide what to open next. Each search costs 10 credits.
+<Steps>
+  <Step title="Search — finding papers for you" icon="search" title-type="p">
+    Your assistant looks through Paperguide's database of 200M+ papers to find ones that match your question. Think of it like asking a librarian to find papers on a topic.
+  </Step>
 
-### Get full details
+  <Step title="Fetch — getting the full details" icon="file-text" title-type="p">
+    When a paper looks relevant, your assistant pulls its full details — abstract, authors, journal, DOI, and citation info — so you can review it without leaving the conversation.
+  </Step>
+</Steps>
 
-When a paper looks relevant, your assistant can fetch the full paper details from Paperguide. That includes the abstract, authors, journal information, DOI, and citation details so you can review the paper without leaving the conversation. Each fetch costs 2 credits.
+## How credits work
+
+Each question you ask typically costs around 15 credits, depending on how many papers your assistant opens for details.
+
+| Action | What it does                         | Credits |
+| ------ | ------------------------------------ | ------- |
+| Search | Finds papers matching your question  | 10      |
+| Fetch  | Retrieves full details for one paper | 2       |
+
+A typical exchange — one search plus two or three fetches — adds up to roughly 15 credits per question.
+
+<Callout kind="tip" collapsed="false">
+  Failed calls are not charged. If a search returns no results or a paper can't be found, you don't lose any credits.
+</Callout>
 
 ## Ready to get started?
 
-<Columns cols={2}>
-<Card
-title="Connect your assistant"
-icon="arrow-right"
-href="/mcp/connect-and-manage"
-horizontal="false"
->
+<Columns cols="2">
+  <Card title="Connect your assistant" href="/mcp/connect-and-manage" icon="arrow-right" horizontal="false">
+    Step-by-step setup guides for Claude, ChatGPT, Cursor, VS Code, Windsurf, and more.
+  </Card>
 
-Step-by-step setup guides for Claude, ChatGPT, Cursor, VS Code, Windsurf, and more.
-
-</Card>
+  <Card title="Understand your credits" href="/ai-credits" icon="lucide-coins" horizontal="false">
+    Learn how AI credits work across all Paperguide features.
+  </Card>
 </Columns>
