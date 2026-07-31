@@ -180,12 +180,12 @@
               {
                 "title": "Overview",
                 "path": "mcp/overview",
-                "icon": "plug-zap"
+                "icon": "grid2-x2-plus"
               },
               {
-                "title": "Connect & Manage",
+                "title": "Connecting MCP",
                 "path": "mcp/connect-and-manage",
-                "icon": "link"
+                "icon": "circle-plus"
               }
             ]
           },
@@ -232,7 +232,8 @@
           {
             "title": "Changelog",
             "path": "changelog",
-            "icon": "history"
+            "icon": "history",
+            "show-sidebar": false
           },
           {
             "title": "Roadmap",
