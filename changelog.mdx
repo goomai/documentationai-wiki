@@ -2,6 +2,42 @@
 title: Changelog
 description: Release history and updates for Paperguide platform
 ---
+<Update label="14 August, 2026" tags={["new feature"]}>
+  ## Sharing and collaboration in the AI Writer
+
+  Until now, a document in the AI Writer was yours alone. If a co-author or a supervisor needed to see a draft, you exported it, sent it somewhere else, and collected the feedback outside Paperguide, away from the sources and citations the draft was built on.
+
+  You can now write, cite, and review a draft with the people you're writing it with. A co-author can draft a section, a supervisor can comment on your argument, and the whole thing stays connected to the papers in your library, so the sources behind a claim are one click away for everyone reading it.
+
+  - **Access levels:** You can bring other people into a writer document and set what each of them can do. Can edit, for co-authors writing alongside you. Can comment, for a supervisor or reviewer who should mark up the draft without changing it. Can view, for anyone who just needs to read it.
+  - **Comments:** Anyone with comment or edit access can select a passage and leave a comment on it. The comment stays anchored to the text it's about, so a note on a claim sits with the claim rather than in a separate document of feedback someone has to reconcile later.
+  - **Working on a shared draft:** Everyone works from the same document rather than passing versions back and forth, so there's nothing to reconcile at the end.
+  - **How to share:** Use the Share button at the top of the document, enter an email, choose the access, and send. You don't need a team plan for this. Anyone on Paperguide can share and collaborate.
+</Update>
+
+<Update label="7 August, 2026" tags={["improvement","new feature","bug fix"]}>
+  ## Citations now group together
+
+  When several citations sit next to each other, they combine into a single parenthesis, (Brown, 2009; Porter, 2004; Smith, 2015), rather than three in a row. The grouping follows the rules of whichever style you've selected. If you'd rather keep them separate, you can switch it back in settings.
+
+  ## The research agent runs inside the reference manager
+
+  There's an AI Chat button at the top that opens an agent chat on the papers already in your library, so you can ask questions, compare studies, and run tasks without moving out of it.
+
+  ## Larger PDF uploads
+
+  The upload limit is now 100MB for each PDF, up from 50MB, on paid plans.
+
+  ## Fixes
+
+  - **Author names in citations:** The writer was printing the author's first name in in-text citations. It now prints the last name, with initials formatted per the selected style.
+  - **Editing after the report:** In systematic review, editing the protocol once the report existed caused problems. You can now edit the protocol or go back to an earlier step after generating and regenerate the report cleanly.
+  - **PDF indexing speed:** Uploaded PDFs took a while to index before the agent could chat with them. That's faster now, though large files still take a moment.
+  - **First page load:** The opening page of a PDF was slow to render in the viewer, both for reference manager papers and full texts. Fixed.
+  - **RIS and BIB imports:** Both were failing in the reference manager. Fixed.
+  - **Citations in agent chat:** Fixed style and numbering issue in research agent chats.
+</Update>
+
 <Update label="31 July, 2026" tags={["improvement","new feature","bug fix"]}>
   ## Research agents got smarter
 
