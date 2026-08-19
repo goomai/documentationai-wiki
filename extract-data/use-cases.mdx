@@ -1,0 +1,211 @@
+---
+title: What you can do with Extract Data
+description: >-
+  Screen large corpora, build standard evidence tables, prepare meta-analysis
+  inputs, run gap analyses, and assemble regulatory evidence packs — all from
+  papers in your Paperguide library.
+---
+Extract Data reads every paper in your set and fills one table: a row per paper, a column per question, every value clickable back to the sentence it came from. This page covers the twelve field families that work in any discipline, fifteen use cases with worked examples, and four starter packs you can lift wholesale.&#x20;
+
+<Callout kind="info" collapsed="false">
+  For ready-to-copy field sets organised by research discipline, see [Extract Data examples by discipline](extract-data-examples).&#x20;
+
+  For how to word a field, see [Tips for creating better extraction fields](tips-for-better-extraction-fields).
+</Callout>
+
+## The twelve field families
+
+Nearly every extraction table is built from the same twelve families. Only the vocabulary changes between disciplines.
+
+| Family                | Clinical                    | CS / ML                        | Qualitative                | Materials / engineering | Social science / economics    |
+| --------------------- | --------------------------- | ------------------------------ | -------------------------- | ----------------------- | ----------------------------- |
+| Identity              | Trial name, registration ID | Model or method name           | Study setting              | Material or system      | Dataset or survey             |
+| Design                | RCT, cohort, case-control   | Experimental setup, ablation   | Ethnography, interviews    | Test protocol           | Panel, cross-section, RCT     |
+| Sample                | Participants analysed       | Dataset size, train/test split | Participants to saturation | Specimens tested        | Respondents, observations     |
+| Population / context  | Age, sex, comorbidity       | Domain, data source            | Community, role            | Composition, condition  | Region, demographic           |
+| Intervention / method | Drug, dose, procedure       | Architecture, training regime  | —                          | Process condition       | Policy or programme           |
+| Comparator            | Placebo, standard care      | Baselines, ablations           | —                          | Control condition       | Control group, counterfactual |
+| Outcome / metric      | Endpoint, event rate        | Accuracy, F1, AUC              | Themes                     | Measured property       | Coefficient, elasticity       |
+| Result                | Effect size, CI, p          | Benchmark score                | Representative findings    | Value with tolerance    | Estimate with SE              |
+| Duration / timing     | Follow-up months            | Epochs, runtime                | Fieldwork period           | Ageing, cycling         | Wave, period                  |
+| Quality / bias        | Risk-of-bias domains        | Reproducibility, seeds         | Trustworthiness criteria   | Standard compliance     | Attrition, weighting          |
+| Provenance            | Funding, registration       | Code and data availability     | Ethics approval            | Standard referenced     | Data source, funding          |
+| Limitations           | Author-stated limitations   | Stated limitations             | Reflexivity notes          | Test limitations        | Stated limitations            |
+
+Pick six to eight families that answer your question. A narrow question deserves few sharp columns, not padding.
+
+## What you can do with Extract Data
+
+Fifteen jobs researchers hire extraction for. Each one is a table you can build today.
+
+### A. Before you read anything
+
+#### 1. Screen a large set without reading in full
+
+You have 300 hits and no idea which 40 matter. Add one or two Yes/Maybe/No columns, run them across everything, sort, and keep what survives.
+
+Example: Randomised? · Adults only? · Reports the outcome I care about? Three columns, 300 rows, then filter. You end up with: a defensible shortlist and a record of why each paper was kept or dropped — every verdict backed by a sentence you can click.
+
+Yes/Maybe/No is the type built for this. One rule decides whether a screening column works: define all three verdicts in the instructions, including what the information's absence means. The extractor follows your definitions; when they're silent about absence, a paper that says nothing comes back maybe — never no.
+
+Which way should absence go? Ask: would a paper meeting this criterion necessarily say so? An RCT always announces its randomisation, so "no mention of random allocation anywhere in the Methods" is a legitimate no — write it into the instructions. But ethics approval can be obtained and never stated, so there absence stays maybe — a no would assert misconduct from a formatting omission.
+
+A worked example — separating human studies from everything else:
+
+| Field               | Type         | Instructions                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| ------------------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Human participants? | Yes/Maybe/No | Does this study collect or analyse data from living human participants — patients, volunteers, survey respondents, or their clinical samples? yes if the Methods describe recruiting, enrolling, consenting, or analysing data or samples from humans, including secondary analysis of an existing human dataset. no if the Methods describe only a non-human study population — animal model, cell line, in vitro, in silico, simulation — or if the paper reports no empirical study at all (review, editorial, protocol). maybe if both human and non-human work is reported, or if the population is not described clearly enough to tell. |
+
+Note the shape: every verdict has its own condition, and between the no clauses and the maybe clauses there is nowhere undefined left for a paper to fall. A one-line instruction like "no if it does not use human participants" leaves everything else — including silence — to the default, and the default is maybe.
+
+The strongest case for defining absence as no is a criterion like adverse-event reporting: a paper with no safety data anywhere contains no sentence that could ever "rule it out", so without an absence clause every failing paper returns maybe and the column separates nothing. "no if no adverse-event data appears anywhere in the paper, including tables and supplementary material" is what makes that screen work.
+
+Want to see the corpus rather than just filter it? Use Specified instead: Human participants, Human tissue/cells only, Animal, In vitro/cell line, In silico/simulation, No empirical study. Same single pass, but you learn the composition of your set instead of a keep/drop flag — and you can still filter on it.
+
+#### 2. Triage a mixed corpus by type
+
+A Specified column (RCT, Cohort, Review, Protocol, Case report) separates primary studies from everything else in one pass, before you invest in a full evidence table.
+
+### B. Building the table your review needs
+
+#### 3. The standard evidence table
+
+The table every literature review, SLR, thesis chapter, and grant background section needs: design, population, intervention, comparator, outcome, findings, limitations.
+
+Example topic: interventions for post-operative delirium in older adults. You end up with: a Word- or Excel-ready characteristics-of-included-studies table, exported in one click.
+
+#### 4. Compare methods, not just findings
+
+Understanding how studies did the thing is what explains why they disagree. Extract design, sampling, measurement instrument, and analysis approach side by side.
+
+Example topic: how physical activity was measured across cohort studies — self-report vs accelerometer. You end up with: the heterogeneity paragraph of your discussion, already sourced.
+
+#### 5. Map who was studied
+
+Age range, sex distribution, country, setting, comorbidities, inclusion boundaries — one row per study — shows instantly where the evidence is thin.
+
+Example topic: which populations appear in trials of digital mental health apps. You end up with: a generalisability or equity section, and a clear statement of who the evidence does not cover.
+
+#### 6. Pull intervention and protocol detail
+
+Dose, frequency, duration, delivery mode, provider, adherence, co-interventions — everything you need to replicate or compare what was actually delivered.
+
+Example topic: dose and duration of mindfulness programmes across RCTs. You end up with: a protocol design brief grounded in what has already been tried.
+
+#### 7. Inventory measurement instruments
+
+Before you pool anything, know which scale, assay, or metric each study used.
+
+Example topic: which depression scales appear in adolescent intervention trials. You end up with: a defensible decision about what can be combined and what can't.
+
+### C. Getting to numbers
+
+#### 8. Prepare meta-analysis inputs
+
+Sample size per arm, event counts, means and SDs, effect estimates with CIs, follow-up duration — the numeric sheet your statistical software wants.
+
+Example topic: effect of SGLT2 inhibitors on heart failure hospitalisation. You end up with: a CSV that goes straight into RevMan, R, or Stata — with every number traceable to its sentence when a reviewer questions it.
+
+#### 9. Benchmark models, methods, or materials
+
+The comparison table at the heart of every technical survey: dataset, baseline, metric, result, conditions.
+
+Example topic: accuracy and F1 across transformer variants on a named benchmark. You end up with: the survey table, plus an honest view of which papers report compute and which don't.
+
+#### 10. Extract economic parameters
+
+Cost items, currency and price year, perspective, time horizon, utilities, ICER, discount rate.
+
+Example topic: cost-effectiveness inputs across published models in a therapy area. You end up with: a parameter table for your own model, or a payer dossier appendix.
+
+#### 11. Track change over time
+
+Add publication year alongside the variable you care about, sort, and read the trend.
+
+Example topic: how reported model accuracy on a benchmark moved year over year. You end up with: the trend figure in your survey's introduction.
+
+### D. Judging what you can trust
+
+#### 12. Appraise quality and risk of bias
+
+Randomisation, allocation concealment, blinding, attrition, selective reporting, funding — one Specified column per domain (Low, Some concerns, High) gives you a grid you can colour.
+
+Example topic: risk of bias across trials informing a clinical guideline. You end up with: a risk-of-bias summary where every judgement links to the sentence that justifies it.
+
+#### 13. Check reporting, transparency, and provenance
+
+Registration ID, protocol availability, funding source, conflicts of interest, data and code availability, preprint status.
+
+Example topic: how many trials in a field are prospectively registered. You end up with: a meta-research result, or a fast answer to the reviewer who asks who funded what.
+
+### E. Finding what isn't there
+
+#### 14. Gap analysis — read the empty cells
+
+This is the use case people don't think of, and the one a spreadsheet can't do. Extract what each paper covers, then look at the column that came back mostly "Not reported".
+
+Example topic: which outcomes are never reported in studies of a given intervention. You end up with: the "gap in the literature" paragraph for a grant proposal or a thesis contribution statement — with a table proving it, not an assertion.
+
+Because absent data is marked honestly (Not reported, Not applicable, Unclear) rather than guessed, the empty cells are trustworthy evidence.
+
+### F. Deliverables for industry and regulators
+
+#### 15. Assemble regulatory and market-access evidence
+
+Device or product studied, indication, sample, endpoints, adverse events, favourable and unfavourable outcomes, funding — the appraisal a CER, PER, HTA submission, or value dossier requires, with traceability built in.
+
+Example topic: clinical performance of a diagnostic assay across the published literature. You end up with: an appraisal table where every claim has a sentence-level source, which is exactly what an auditor or notified body asks for.
+
+## Four starter packs
+
+Lift one wholesale, then tune.
+
+### Screening (3 columns, any discipline)
+
+| Field                  | Type         | Instructions                                                                                                                                                                                                                                 |
+| ---------------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Primary study?         | Yes/Maybe/No | Does this paper report original data collected or generated by the authors? yes if Methods describe the authors' own data collection or generation. no for reviews, editorials, commentaries, and protocols. maybe if the design is unclear. |
+| Population match       | Yes/Maybe/No | Does the study population match \[your population]? yes only if the paper explicitly describes that population. no if a different population is described. maybe if the population is not described clearly enough to tell.                  |
+| Reports target outcome | Yes/Maybe/No | Does the paper report \[your outcome] as a measured result? yes only if a result is reported, not merely discussed. no if the outcome appears nowhere in the results, including tables. maybe if it is discussed without a measured result.  |
+
+Note that each instruction defines all three verdicts, including what absence means — a paper reporting your outcome would necessarily say so, which is why "appears nowhere" is a legitimate no there. See the worked example in Part 2 §A before adapting them.
+
+### Evidence table (8 columns)
+
+Design · Sample · Population · Intervention · Comparator · Primary outcome · Primary result · Author limitations. Field wording as in the clinical medicine set on the [examples by discipline](extract-data-examples) page.
+
+### Meta-analysis inputs (8 columns)
+
+| Field                  | Type                                                                          | Instructions                                                                                                                                                                        |
+| ---------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Spread statistic       | Specified — Mean (SD), Mean (SE), Mean (95% CI), Median (IQR), Median (range) | Classify which summary statistic the paper reports for the primary continuous outcome. Read this column first: it tells you how many studies need converting before you pool.       |
+| N intervention         | Answer                                                                        | Number analysed in the intervention arm. Number only. Format: "148".                                                                                                                |
+| N control              | Answer                                                                        | Number analysed in the control arm. Number only. Format: "146".                                                                                                                     |
+| Events intervention    | Answer                                                                        | Number of primary-outcome events in the intervention arm with denominator. Format: "28/148".                                                                                        |
+| Events control         | Answer                                                                        | Number of primary-outcome events in the control arm with denominator. Format: "42/146".                                                                                             |
+| Mean (SD) intervention | Answer                                                                        | Post-treatment mean and SD for the primary continuous outcome in the intervention arm, exactly as printed. If only median (IQR) is given, answer "Not reported: median (IQR) only". |
+| Mean (SD) control      | Answer                                                                        | Same for the control arm.                                                                                                                                                           |
+| Timepoint              | Answer                                                                        | Timepoint at which the extracted values were measured. Format: "12 weeks".                                                                                                          |
+
+Extract Data copies what the paper prints and never computes — so median-to-mean conversions (Wan et al. 2014, Luo et al. 2018) belong in your analysis script, not in a cell. Extract the medians, quartiles, and per-arm n, export, and convert there, where the formula is visible to a reviewer.
+
+### Transparency audit (6 columns)
+
+| Field                    | Type                                                                            | Instructions                                                                                                                                                                                                                            |
+| ------------------------ | ------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Registration ID          | Answer                                                                          | Trial or review registration identifier exactly as printed, with the registry name. If absent, answer "Not reported".                                                                                                                   |
+| Prospectively registered | Yes/Maybe/No                                                                    | Was registration before enrolment or before analysis began? yes only if dates make this explicit. no if the dates show registration after enrolment began or the paper says it was retrospective. maybe if timing cannot be determined. |
+| Protocol available       | Yes/Maybe/No                                                                    | Does the paper state that a full protocol is publicly available? yes if a protocol link, citation, or availability statement is given. no if none appears anywhere. maybe if a protocol is mentioned with no access route.              |
+| Funding                  | Specified — Industry, Public/government, Charity/foundation, Mixed, None stated | Classify the funding source from the funding statement.                                                                                                                                                                                 |
+| Conflicts declared       | Answer                                                                          | Conflicts of interest as declared, summarised in one line. If the paper states none, answer "None declared".                                                                                                                            |
+| Data or code available   | Yes/Maybe/No                                                                    | Does the paper state that underlying data or code is available? yes only if a statement or link is given. no if no availability statement appears anywhere. maybe if available on request.                                              |
+
+## Where the papers come from
+
+Any set of references in your Paperguide library works: papers you uploaded as PDFs, papers imported from a search, or public papers added to your Reference Manager. Up to 100 papers and 20 columns per table — filter by source, sort, select the rows you want, and export the whole table or just the selection to CSV or Excel. Share a read-only link when someone needs to check your work.
+
+## Related
+
+- [Tips for creating better extraction fields](tips-for-better-extraction-fields)
+- [Extract Data examples by discipline](extract-data-examples)
+

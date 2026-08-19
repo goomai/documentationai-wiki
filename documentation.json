@@ -109,7 +109,12 @@
                 "icon": "lucide-lightbulb"
               },
               {
-                "title": "Examples & Use Cases",
+                "title": "Use Cases",
+                "path": "extract-data/use-cases",
+                "icon": "lucide-list-checks"
+              },
+              {
+                "title": "Examples by Discipline",
                 "path": "extract-data/extract-data-examples",
                 "icon": "lucide-library"
               }
