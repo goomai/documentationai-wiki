@@ -3,7 +3,7 @@ title: How to use Extract Data
 ---
 Extract Data reads a set of papers and fills a table: one row per paper, one column per question. Every value is linked back to the sentence in the paper it came from, so nothing in the table is a claim you can't check.
 
-<Video uid="2d0ad6cc-dbf3-4fbd-bd66-422f1e9b6969" src="https://www.youtube.com/embed/29eZn6cqVyc" render-type="iframe" width="560" height="315" controls="true" allow-full-screen="true" />
+<Video uid="2d0ad6cc-dbf3-4fbd-bd66-422f1e9b6969" src="https://www.youtube.com/embed/29eZn6cqVyc" render-type="iframe" width="672" height="378" controls="true" allow-full-screen="true" style="width: 672px; height: auto; cursor: pointer;" />
 
 This page walks through the whole flow. For what to put in your columns, see [Tips for creating better extraction fields](tips-for-better-extraction-fields) and [Example fields and use cases](extract-data-examples).
 
@@ -15,24 +15,29 @@ A table with your papers down the side and your questions across the top.
 - Each value carries quote links back to the exact sentences behind it.
 - Answers that genuinely aren't in a paper come back marked **Not reported**, **Not applicable**, or **Unclear** — never invented.
 - The whole table exports to CSV or Excel.
-- Up to 100 papers and 20 columns per table.
 
 ## Creating a table
 
-Start from **Extract Data** and pick your papers. The reference picker shows your **Reference Manager** library — folders, uploaded PDFs, and papers you've saved from search. Select up to 100 and apply.
+<Steps>
+  <Step title="Pick your papers:" title-type="p">
+    Start from **Extract Data** and pick your papers. The reference picker shows your **Reference Manager** library — folders, uploaded PDFs, and papers you've saved from search. Select up to 100 and apply.
+  </Step>
 
-If anything needs indexing, you'll see it. Extraction reads full text, so each PDF has to be processed first. If some references aren't ready, Paperguide starts indexing them and shows a progress list with a status per reference, from **Processing** to **Completed**. Papers already indexed skip this entirely. You only wait once per paper — the next table using it starts immediately.
+  <Step title="The table opens" title-type="p">
+    The table opens right away with a **Summary** column already extracting, so you can see it working while you decide what else you want.
+  </Step>
 
-The table opens right away with a **Summary** column already extracting, so you can see it working while you decide what else you want.
+  <Step title="Customize your extraction" title-type="p">
+    A dialog opens over the table with two things:
 
-Then customize your extraction. A dialog opens over the table with two things:
+    - **Research question** (optional) — describe what you're trying to get out of these papers, for example, "What is the effect of intermittent fasting on weight loss in adults?" Paperguide reads it together with your paper titles and proposes a set of columns, typically 5–8, using the terminology your papers actually use.
+    - **Explanations** — see section 5.
 
-- **Research question** (optional) — describe what you're trying to get out of these papers, for example, "What is the effect of intermittent fasting on weight loss in adults?" Paperguide reads it together with your paper titles and proposes a set of columns, typically 5–8, using the terminology your papers actually use.
-- **Explanations** — see section 5.
+    **Continue** applies both. **Skip** keeps the defaults and leaves you with just the Summary column — you can add everything by hand instead. Skipping means no suggested columns are generated.
+  </Step>
+</Steps>
 
-**Continue** applies both. **Skip** keeps the defaults and leaves you with just the Summary column — you can add everything by hand instead. Skipping means no suggested columns are generated.
-
-Your tables live in **My Notebooks**, and you can reopen any of them later.
+###
 
 ## Adding columns
 
