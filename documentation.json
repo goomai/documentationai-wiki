@@ -76,36 +76,6 @@
             "path": "systematic-review"
           },
           {
-            "group": "AI Agents",
-            "pages": [
-              {
-                "title": "Research Agent",
-                "path": "research-agent",
-                "icon": "atom"
-              },
-              {
-                "title": "AI Search",
-                "path": "ai-search",
-                "icon": "lucide-search"
-              },
-              {
-                "title": "Literature Review Agent",
-                "path": "literature-review-agent",
-                "icon": "lucide-text-search"
-              },
-              {
-                "title": "Chat with PDF",
-                "path": "chat-with-pdf",
-                "icon": "lucide-message-square"
-              },
-              {
-                "title": "Deep Research Report",
-                "path": "deep-research-report",
-                "icon": "file-search"
-              }
-            ]
-          },
-          {
             "group": "AI Writer",
             "pages": [
               {
@@ -135,12 +105,12 @@
               },
               {
                 "title": "Tips for Better Extraction Fields",
-                "path": "tips-for-better-extraction-fields",
+                "path": "extract-data/tips-for-better-extraction-fields",
                 "icon": "lucide-lightbulb"
               },
               {
                 "title": "Examples & Use Cases",
-                "path": "extract-data-examples",
+                "path": "extract-data/extract-data-examples",
                 "icon": "lucide-library"
               }
             ],
@@ -183,6 +153,36 @@
                 "title": "Share Library & Workspace",
                 "path": "reference-manager/share-library-workspace",
                 "icon": "lucide-users"
+              }
+            ]
+          },
+          {
+            "group": "AI Agents",
+            "pages": [
+              {
+                "title": "Research Agent",
+                "path": "research-agent",
+                "icon": "atom"
+              },
+              {
+                "title": "AI Search",
+                "path": "ai-search",
+                "icon": "lucide-search"
+              },
+              {
+                "title": "Literature Review Agent",
+                "path": "literature-review-agent",
+                "icon": "lucide-text-search"
+              },
+              {
+                "title": "Chat with PDF",
+                "path": "chat-with-pdf",
+                "icon": "lucide-message-square"
+              },
+              {
+                "title": "Deep Research Report",
+                "path": "deep-research-report",
+                "icon": "file-search"
               }
             ]
           },
