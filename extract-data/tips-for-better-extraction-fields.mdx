@@ -25,29 +25,6 @@ A field has three parts:
 
 The Instructions box does the heavy lifting. The name is just a label — the AI reads the instructions.
 
-## What happens when you add a field
-
-Knowing what runs behind each cell tells you what your instructions can rely on.
-
-For every paper, Extract Data:
-
-- Loads the reference metadata, including authors, journal, year, DOI, and the abstract.
-- Writes its own search queries and searches the paper's full text — Methods, Results, Discussion, tables, appendix text — not just the abstract.
-- Picks the exact sentences that answer your instruction.
-- Writes a short, comparable cell value, and attaches a citation marker to each claim so you can click through to the sentence it came from, with its page number.
-- If the answer genuinely is not in the paper, it says so with a marker — Not reported, Not applicable, or Unclear — instead of guessing.
-
-And things it deliberately will not do, which your instructions should respect:
-
-- It never converts units, derives a value, or rounds beyond the source. If you ask for mean SD and the paper reports median IQR, you get Not reported: only median IQR given — not a silent conversion.
-- It never answers from outside knowledge. If it is not in the paper, it is not in the cell.
-- It never treats reference-list entries as evidence. A cited paper's title mentioning your topic is not evidence that this paper covers it.
-- It never copies a whole sentence into the cell. Cells are condensed values; the full quoted sentence lives behind the citation.
-
-<Callout kind="info" collapsed="false">
-  Every value is tied back to evidence in the paper. That is why clear instructions matter so much: the system is extracting and condensing, not inferring beyond the source.
-</Callout>
-
 ## Start from your research question, not from a blank column
 
 When you create a table, the setup dialog asks for your research question. Fill it in. Extract Data reads it together with your paper titles and proposes a full set of typed columns — usually 5–8, tuned to the vocabulary your specific papers actually use.
@@ -343,3 +320,4 @@ Use this with a Specified list such as Low, Some concerns, High.
 - Do my Specified labels cover this corpus without overlapping?
 - Have I said what to do when the field does not apply?
 - Am I using the words my papers use?
+
