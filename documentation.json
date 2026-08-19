@@ -35,21 +35,6 @@
             ]
           },
           {
-            "group": "Discover",
-            "pages": [
-              {
-                "title": "AI Search",
-                "path": "ai-search",
-                "icon": "lucide-search"
-              },
-              {
-                "title": "Research Agent",
-                "path": "research-agent",
-                "icon": "atom"
-              }
-            ]
-          },
-          {
             "group": "Systematic Review",
             "pages": [
               {
@@ -87,20 +72,21 @@
                 "path": "systematic-review/data-extraction",
                 "icon": "lucide-table"
               }
-            ]
+            ],
+            "path": "systematic-review"
           },
           {
-            "group": "Synthesize",
+            "group": "AI Agents",
             "pages": [
               {
-                "title": "Extract Data",
-                "path": "extract-data",
-                "icon": "lucide-sheet"
+                "title": "Research Agent",
+                "path": "research-agent",
+                "icon": "atom"
               },
               {
-                "title": "Chat with PDF",
-                "path": "chat-with-pdf",
-                "icon": "lucide-message-square"
+                "title": "AI Search",
+                "path": "ai-search",
+                "icon": "lucide-search"
               },
               {
                 "title": "Literature Review Agent",
@@ -108,9 +94,54 @@
                 "icon": "lucide-text-search"
               },
               {
+                "title": "Chat with PDF",
+                "path": "chat-with-pdf",
+                "icon": "lucide-message-square"
+              },
+              {
                 "title": "Deep Research Report",
                 "path": "deep-research-report",
                 "icon": "file-search"
+              }
+            ]
+          },
+          {
+            "group": "AI Writer",
+            "pages": [
+              {
+                "title": "Overview",
+                "path": "ai-writer/overview",
+                "icon": "file-text"
+              },
+              {
+                "title": "Generate Document",
+                "path": "ai-writer/generate-document",
+                "icon": "atom"
+              },
+              {
+                "title": "AI Features",
+                "path": "ai-writer/ai-features",
+                "icon": "lucide-sparkles"
+              }
+            ]
+          },
+          {
+            "group": "Extract Data",
+            "pages": [
+              {
+                "title": "Extract Data Overview",
+                "path": "extract-data",
+                "icon": "lucide-sheet"
+              },
+              {
+                "title": "Tips for Better Extraction Fields",
+                "path": "tips-for-better-extraction-fields",
+                "icon": "lucide-lightbulb"
+              },
+              {
+                "title": "Examples & Use Cases",
+                "path": "extract-data-examples",
+                "icon": "lucide-library"
               }
             ]
           },
@@ -151,26 +182,6 @@
                 "title": "Share Library & Workspace",
                 "path": "reference-manager/share-library-workspace",
                 "icon": "lucide-users"
-              }
-            ]
-          },
-          {
-            "group": "AI Writer",
-            "pages": [
-              {
-                "title": "Overview",
-                "path": "ai-writer/overview",
-                "icon": "file-text"
-              },
-              {
-                "title": "Generate Document",
-                "path": "ai-writer/generate-document",
-                "icon": "atom"
-              },
-              {
-                "title": "AI Features",
-                "path": "ai-writer/ai-features",
-                "icon": "lucide-sparkles"
               }
             ]
           },

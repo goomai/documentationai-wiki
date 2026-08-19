@@ -1,0 +1,400 @@
+---
+title: 'Example extraction fields, and what you can do with Extract Data'
+description: >-
+  Ready-to-copy extraction field sets for twelve research disciplines, fifteen
+  use cases with worked examples, and four starter packs you can lift wholesale.
+---
+Extract Data reads every paper in your set and fills one table: a row per paper, a column per question, every value clickable back to the sentence it came from.
+
+This page is the library. Part 1 is the field spine that works in any discipline. Part 2 is ready-to-copy field sets for twelve research areas. Part 3 is what researchers actually use extraction for, with a worked example each. Part 4 is four starter packs you can lift wholesale.
+
+For how to word a field, see [Tips for creating better extraction fields](tips-for-better-extraction-fields).
+
+## Part 1 — The twelve field families
+
+Nearly every extraction table is built from the same twelve families. Only the vocabulary changes between disciplines.
+
+| Family                | Clinical                    | CS / ML                        | Qualitative                | Materials / engineering | Social science / economics    |
+| --------------------- | --------------------------- | ------------------------------ | -------------------------- | ----------------------- | ----------------------------- |
+| Identity              | Trial name, registration ID | Model or method name           | Study setting              | Material or system      | Dataset or survey             |
+| Design                | RCT, cohort, case-control   | Experimental setup, ablation   | Ethnography, interviews    | Test protocol           | Panel, cross-section, RCT     |
+| Sample                | Participants analysed       | Dataset size, train/test split | Participants to saturation | Specimens tested        | Respondents, observations     |
+| Population / context  | Age, sex, comorbidity       | Domain, data source            | Community, role            | Composition, condition  | Region, demographic           |
+| Intervention / method | Drug, dose, procedure       | Architecture, training regime  | —                          | Process condition       | Policy or programme           |
+| Comparator            | Placebo, standard care      | Baselines, ablations           | —                          | Control condition       | Control group, counterfactual |
+| Outcome / metric      | Endpoint, event rate        | Accuracy, F1, AUC              | Themes                     | Measured property       | Coefficient, elasticity       |
+| Result                | Effect size, CI, p          | Benchmark score                | Representative findings    | Value with tolerance    | Estimate with SE              |
+| Duration / timing     | Follow-up months            | Epochs, runtime                | Fieldwork period           | Ageing, cycling         | Wave, period                  |
+| Quality / bias        | Risk-of-bias domains        | Reproducibility, seeds         | Trustworthiness criteria   | Standard compliance     | Attrition, weighting          |
+| Provenance            | Funding, registration       | Code and data availability     | Ethics approval            | Standard referenced     | Data source, funding          |
+| Limitations           | Author-stated limitations   | Stated limitations             | Reflexivity notes          | Test limitations        | Stated limitations            |
+
+Pick six to eight families that answer your question. A narrow question deserves few sharp columns, not padding.
+
+## Part 2 — Ready-to-use field sets by discipline
+
+Copy a set, then edit the wording to match your corpus. Type is the output structure: Answer, Yes/Maybe/No, or Specified with the choice list shown.
+
+### 2.1 Clinical medicine — intervention trials
+
+Example topic: Effect of early mobilisation on ICU length of stay.
+
+| Field              | Type                                                                                                                     | Instructions                                                                                                                                                                           |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Study design       | Specified — RCT, Cluster RCT, Non-randomised trial, Prospective cohort, Retrospective cohort, Case-control, Before-after | Classify the design as the authors label it. Pick the single best fit.                                                                                                                 |
+| Analysed sample    | Answer                                                                                                                   | Number of participants in the primary analysis, not screened or randomised. Total first, per-arm in parentheses if reported. Format: "294 (148/146)".                                  |
+| Population         | Answer                                                                                                                   | Who was studied: condition, mean or median age with its spread, and % female, exactly as printed. Format: "Mechanically ventilated ICU adults; mean age 62.4 (SD 14.1); 41% female".   |
+| Intervention       | Answer                                                                                                                   | What the intervention group received: what was done, how often, for how long, and by whom. Format: "Progressive mobilisation, twice daily, from ICU day 1, physiotherapist-delivered". |
+| Comparator         | Answer                                                                                                                   | What the control group received, in the authors' words. If usual care, say what usual care included if described.                                                                      |
+| Primary outcome    | Answer                                                                                                                   | The outcome the authors designate as primary, and how it was measured. Do not list secondary outcomes here.                                                                            |
+| Primary result     | Answer                                                                                                                   | The effect on the primary outcome with its 95% CI and p-value exactly as printed, naming the metric. Format: "MD −1.9 days (95% CI −3.1 to −0.7), p=0.002".                            |
+| Follow-up          | Answer                                                                                                                   | Longest timepoint at which outcomes were measured, in the paper's unit. Format: "90 days".                                                                                             |
+| Adverse events     | Answer                                                                                                                   | Serious adverse events with denominators, per arm, exactly as printed. Do not convert counts to percentages. If none reported, answer "Not reported".                                  |
+| Author limitations | Answer                                                                                                                   | Limitations the authors state themselves, one short bullet each. Do not add your own.                                                                                                  |
+
+### 2.2 Public health & epidemiology
+
+Example topic: Air pollution exposure and childhood asthma incidence.
+
+| Field                  | Type                                                                                                         | Instructions                                                                                                                                                                                    |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Study design           | Specified — Prospective cohort, Retrospective cohort, Case-control, Cross-sectional, Ecological, Time-series | Classify the design as the authors describe it.                                                                                                                                                 |
+| Exposure measure       | Answer                                                                                                       | The pollutant and how exposure was assigned: monitoring station, land-use regression, satellite, personal monitor. Include averaging period. Format: "PM2.5, land-use regression, annual mean". |
+| Outcome definition     | Answer                                                                                                       | How the health outcome was defined and ascertained: diagnosis code, registry, parent report, spirometry.                                                                                        |
+| Population and setting | Answer                                                                                                       | Age range, country or city, and cohort name if any. Format: "Children 0–12 y; Barcelona, Spain; INMA cohort".                                                                                   |
+| Sample size            | Answer                                                                                                       | Number of individuals in the analysis, and person-years if reported. Format: "3,412 children; 28,700 person-years".                                                                             |
+| Confounders adjusted   | Answer                                                                                                       | Variables in the fully adjusted model, listed as printed. Format: comma-separated list.                                                                                                         |
+| Effect estimate        | Answer                                                                                                       | Effect for the main exposure–outcome pair, with metric, per-unit increment, and 95% CI exactly as printed. Format: "HR 1.13 (95% CI 1.04–1.22) per 5 µg/m³ PM2.5".                              |
+| Study period           | Answer                                                                                                       | Calendar years of data collection. Format: "2008–2016".                                                                                                                                         |
+
+### 2.3 Pharmacology & drug safety
+
+Example topic: Adverse events reported for GLP-1 receptor agonists.
+
+| Field                   | Type                                                                                                                   | Instructions                                                                                                                                                                                                       |
+| ----------------------- | ---------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Drug and dose           | Answer                                                                                                                 | Drug studied with dose and schedule exactly as reported. Format: "Semaglutide 2.4 mg once weekly, subcutaneous".                                                                                                   |
+| Indication              | Answer                                                                                                                 | The condition treated as stated by the authors.                                                                                                                                                                    |
+| Data source             | Specified — RCT, Observational cohort, Spontaneous reports / pharmacovigilance, Claims database, Registry, Case report | Classify where the safety data came from.                                                                                                                                                                          |
+| Exposure period         | Answer                                                                                                                 | Treatment duration and total exposure if reported. Format: "68 weeks; 1,961 patient-years".                                                                                                                        |
+| Adverse events reported | Answer                                                                                                                 | All adverse events the paper reports with incidence, one bullet each, with denominators as printed.                                                                                                                |
+| Serious adverse events  | Answer                                                                                                                 | Serious adverse events with denominators per arm, exactly as printed. If none, answer "Not reported".                                                                                                              |
+| Discontinuations        | Answer                                                                                                                 | Number discontinuing due to adverse events, with denominator, per arm. Format: "70/1306 (5.4%) vs 15/652 (2.3%)".                                                                                                  |
+| Signal noted            | Yes/Maybe/No                                                                                                           | Do the authors identify a new or unexpected safety signal? yes only if they explicitly say so. no if no new or unexpected signal is described anywhere. maybe if a potential signal is discussed only tentatively. |
+| Funding source          | Specified — Industry, Public/government, Charity/foundation, Mixed, None stated                                        | Classify the funding as stated in the funding or COI section.                                                                                                                                                      |
+
+### 2.4 HEOR & health economics
+
+Example topic: Cost-effectiveness of biologics in rheumatoid arthritis.
+
+| Field                  | Type                                                                                                                  | Instructions                                                                                                                       |
+| ---------------------- | --------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| Model type             | Specified — Markov, Decision tree, Discrete event simulation, Partitioned survival, Trial-based analysis, Other model | Classify the economic model structure as described.                                                                                |
+| Perspective            | Specified — Healthcare payer, Societal, Provider, Patient, Multiple                                                   | Classify the stated analytic perspective.                                                                                          |
+| Comparators            | Answer                                                                                                                | Interventions compared, one short bullet each, in the authors' wording.                                                            |
+| Time horizon           | Answer                                                                                                                | The base-case time horizon exactly as stated. Format: "Lifetime (50 years)".                                                       |
+| Discount rate          | Answer                                                                                                                | Discount rates for costs and outcomes as stated. Format: "3.5% costs, 3.5% outcomes".                                              |
+| Cost year and currency | Answer                                                                                                                | Price year and currency of reported costs. Do not convert. Format: "2022 GBP".                                                     |
+| Utility source         | Answer                                                                                                                | Where utility values came from: instrument, population, and citation as described. Format: "EQ-5D-3L, UK tariff, from trial data". |
+| ICER                   | Answer                                                                                                                | Base-case incremental cost-effectiveness ratio with currency, price year, and unit. Format: "£24,300 per QALY (2022 GBP)".         |
+| Sensitivity analysis   | Answer                                                                                                                | Which parameters drove the result in one-way or probabilistic sensitivity analysis, as the authors report.                         |
+| Conclusion             | Specified — Cost-effective at stated threshold, Not cost-effective, Dominant, Dominated, Mixed by subgroup            | Classify the authors' base-case conclusion.                                                                                        |
+
+### 2.5 Medical devices, diagnostics & regulatory evidence
+
+Example topic: Clinical performance of point-of-care troponin assays.
+
+| Field                   | Type                                                                    | Instructions                                                                                                                                      |
+| ----------------------- | ----------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Device or assay         | Answer                                                                  | Name and manufacturer of the device or assay evaluated, exactly as printed.                                                                       |
+| Indication and use      | Answer                                                                  | Clinical question and setting in which the device was used. Format: "Rule-out of MI in ED chest pain presentations".                              |
+| Reference standard      | Answer                                                                  | The comparator standard against which performance was judged, as described.                                                                       |
+| Sample size             | Answer                                                                  | Number of patients or specimens in the performance analysis, with the number of positives if reported. Format: "1,282 patients; 145 MI-positive". |
+| Sensitivity             | Answer                                                                  | Sensitivity with 95% CI exactly as printed, at the stated threshold. Format: "98.6% (95% CI 95.1–99.8) at 5 ng/L".                                |
+| Specificity             | Answer                                                                  | Specificity with 95% CI exactly as printed, at the same threshold.                                                                                |
+| Adverse events / safety | Answer                                                                  | Device-related adverse events or safety findings reported. If the study reports none, answer "Not reported".                                      |
+| Favourable outcomes     | Answer                                                                  | Findings the authors present as supporting device performance, one bullet each.                                                                   |
+| Unfavourable outcomes   | Answer                                                                  | Findings the authors present as limitations of device performance, one bullet each.                                                               |
+| Funding / sponsor       | Specified — Manufacturer-funded, Independent/public, Mixed, None stated | Classify funding as stated.                                                                                                                       |
+
+### 2.6 Psychology & behavioural science
+
+Example topic: Efficacy of CBT for adolescent anxiety.
+
+| Field              | Type                                                                                                      | Instructions                                                                                                                                                                                                                     |
+| ------------------ | --------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Design             | Specified — RCT, Quasi-experimental, Single-group pre-post, Cross-sectional, Longitudinal observational   | Classify the design as the authors describe it.                                                                                                                                                                                  |
+| Age range          | Answer                                                                                                    | Age range and mean age of participants exactly as printed. Format: "12–17 y; mean 14.3 (SD 1.6)".                                                                                                                                |
+| Outcome instrument | Answer                                                                                                    | The named scale used for the primary outcome, with version and scoring range if stated. Format: "SCARED, child version, 0–82".                                                                                                   |
+| Delivery format    | Specified — Individual in-person, Group in-person, Therapist-guided digital, Self-guided digital, Blended | Classify how the intervention was delivered.                                                                                                                                                                                     |
+| Dose               | Answer                                                                                                    | Number of sessions and session length as reported. Format: "12 sessions × 50 min over 14 weeks".                                                                                                                                 |
+| Control condition  | Answer                                                                                                    | What the comparison group received: waitlist, treatment as usual, active control, placebo.                                                                                                                                       |
+| Effect size        | Answer                                                                                                    | Between-group effect size for the primary outcome with 95% CI, naming the metric. Format: "Hedges' g −0.61 (95% CI −0.92 to −0.30)".                                                                                             |
+| Attrition          | Answer                                                                                                    | Number and percentage lost to follow-up, per arm if reported. Format: "18/94 (19%) vs 11/91 (12%)".                                                                                                                              |
+| Preregistered      | Yes/Maybe/No                                                                                              | Does the paper state that the study or analysis plan was preregistered? yes only if a registry or ID is given. no if no registration statement or ID appears anywhere. maybe if registration is mentioned without an identifier. |
+
+### 2.7 Computer science & machine learning
+
+Example topic: Retrieval-augmented generation methods on open-domain QA.
+
+| Field              | Type                                                                            | Instructions                                                                                                                                                                                                                                                                                           |
+| ------------------ | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Method name        | Answer                                                                          | The name the authors give their proposed method or model. Format: name only.                                                                                                                                                                                                                           |
+| Architecture       | Answer                                                                          | Model architecture and size, and the base model it builds on. Format: "Decoder-only, 7B, Llama-2 base".                                                                                                                                                                                                |
+| Task and dataset   | Answer                                                                          | Task addressed and the datasets evaluated on, as named by the authors. Format: comma-separated dataset names.                                                                                                                                                                                          |
+| Training data      | Answer                                                                          | Data used for training or fine-tuning, with size, exactly as reported. If the model is used zero-shot, answer "Not applicable".                                                                                                                                                                        |
+| Primary metric     | Specified — Accuracy, F1, Exact match, BLEU/ROUGE, AUC, Human evaluation, Other | Classify the headline metric the authors emphasise.                                                                                                                                                                                                                                                    |
+| Best result        | Answer                                                                          | Highest score the authors report for their method on the primary benchmark, with the metric and dataset. Copy decimals exactly. Format: "54.2 EM (NQ)".                                                                                                                                                |
+| Baselines compared | Answer                                                                          | Baselines the method is compared against, one short bullet each, with their reported scores if given.                                                                                                                                                                                                  |
+| Ablations run      | Answer                                                                          | Ablation studies reported and what each removed, one bullet each. If none, answer "Not reported".                                                                                                                                                                                                      |
+| Compute reported   | Answer                                                                          | Hardware and training or inference cost as reported. Format: "8× A100 80GB, 36 GPU-hours". If not stated, answer "Not reported".                                                                                                                                                                       |
+| Code available     | Yes/Maybe/No                                                                    | Does the paper state that code is publicly available? yes only if a repository link or explicit availability statement is given. no if no code-availability statement or link appears anywhere, including footnotes and appendix. maybe if code is available on request or promised for later release. |
+
+### 2.8 Engineering & materials science
+
+Example topic: Mechanical properties of recycled PET composites.
+
+| Field                         | Type         | Instructions                                                                                                                                                                                                                                                  |
+| ----------------------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Material system               | Answer       | Matrix and reinforcement with weight or volume fractions exactly as printed. Format: "rPET + 20 wt% short glass fibre".                                                                                                                                       |
+| Processing method             | Answer       | How specimens were produced, with key parameters. Format: "Twin-screw extrusion, 265 °C, then injection moulding".                                                                                                                                            |
+| Test standard                 | Answer       | The standard followed for the primary test, exactly as cited. Format: "ASTM D638 Type I".                                                                                                                                                                     |
+| Specimens tested              | Answer       | Number of specimens per condition, as reported. Format: "n=5 per condition".                                                                                                                                                                                  |
+| Tensile strength              | Answer       | Tensile strength for the primary composition, with unit and standard deviation as printed. Do not convert units. Format: "48.2 ± 2.1 MPa".                                                                                                                    |
+| Modulus                       | Answer       | Young's modulus for the same composition, with unit and spread as printed.                                                                                                                                                                                    |
+| Test conditions               | Answer       | Temperature, humidity, strain rate, and conditioning as reported.                                                                                                                                                                                             |
+| Comparison to virgin material | Yes/Maybe/No | Does the paper compare the recycled material against a virgin-material control? yes if a virgin-material control is tested or reported alongside. no if no such comparison appears anywhere in the results. maybe if compared only against literature values. |
+
+### 2.9 Environmental science & ecology
+
+Example topic: Effectiveness of marine protected areas on fish biomass.
+
+| Field                  | Type                                                                                    | Instructions                                                                                                                                       |
+| ---------------------- | --------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Location               | Answer                                                                                  | Study location with country and named site or region. Format: "Medes Islands, Spain (NW Mediterranean)".                                           |
+| Protection level       | Specified — No-take reserve, Partially protected, Multi-use, Unprotected control, Mixed | Classify the protection status studied.                                                                                                            |
+| Time since designation | Answer                                                                                  | Years between protection designation and data collection, as reported. Format: "18 years".                                                         |
+| Sampling method        | Answer                                                                                  | How the outcome was measured, with effort. Format: "Underwater visual census, 50 × 5 m transects, n=120".                                          |
+| Outcome measured       | Answer                                                                                  | The ecological outcome and its unit exactly as reported. Format: "Total fish biomass, g/m²".                                                       |
+| Effect reported        | Answer                                                                                  | Difference between protected and control, with metric and uncertainty exactly as printed. Format: "+3.1× biomass inside reserve (95% CI 2.2–4.4)". |
+| Confounders addressed  | Answer                                                                                  | Habitat, depth, or fishing-pressure differences the authors control for, as described. If not addressed, answer "Not reported".                    |
+
+### 2.10 Education
+
+Example topic: Impact of flipped classrooms on student outcomes.
+
+| Field                 | Type                                                                                                         | Instructions                                                                                                                                                                                                                     |
+| --------------------- | ------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Education level       | Specified — Primary, Secondary, Undergraduate, Postgraduate, Professional/CPD, Mixed                         | Classify the level of the learners studied.                                                                                                                                                                                      |
+| Subject area          | Answer                                                                                                       | The subject or course in which the intervention was delivered, as named.                                                                                                                                                         |
+| Design                | Specified — RCT, Quasi-experimental with control, Pre-post single group, Cross-sectional survey, Qualitative | Classify the study design.                                                                                                                                                                                                       |
+| Sample                | Answer                                                                                                       | Number of students analysed, and number of classes or institutions if reported. Format: "412 students, 6 sections, 1 university".                                                                                                |
+| Implementation length | Answer                                                                                                       | How long the intervention ran, in the paper's unit. Format: "One 15-week semester".                                                                                                                                              |
+| Outcome measure       | Answer                                                                                                       | How learning was measured: exam score, standardised test, grade, self-report scale. Name the instrument.                                                                                                                         |
+| Effect on outcome     | Answer                                                                                                       | Difference between conditions with effect size and CI or p-value exactly as printed.                                                                                                                                             |
+| Control condition     | Answer                                                                                                       | What the comparison group experienced, in the authors' words.                                                                                                                                                                    |
+| Fidelity reported     | Yes/Maybe/No                                                                                                 | Does the paper report whether the intervention was implemented as designed? yes if fidelity or adherence data is reported. no if implementation fidelity is not mentioned anywhere. maybe if fidelity is discussed without data. |
+
+### 2.11 Qualitative research & implementation science
+
+Example topic: Barriers to telehealth uptake among older adults.
+
+| Field                 | Type                                                                                                                | Instructions                                                                                                                                                                                        |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Method                | Specified — Semi-structured interviews, Focus groups, Ethnography/observation, Document analysis, Mixed qualitative | Classify the primary data-collection method.                                                                                                                                                        |
+| Theoretical framework | Answer                                                                                                              | The named theory, model, or framework guiding the study. If none is named, answer "Not reported".                                                                                                   |
+| Participants          | Answer                                                                                                              | Who took part, how many, and how they were recruited. Format: "24 adults aged 68–91, purposive sampling from 3 primary care practices".                                                             |
+| Setting               | Answer                                                                                                              | Where the study took place: country, service, and context.                                                                                                                                          |
+| Analysis approach     | Answer                                                                                                              | The analytic method as named, with any coding procedure described. Format: "Reflexive thematic analysis, two coders, NVivo".                                                                        |
+| Themes identified     | Answer                                                                                                              | The themes the authors report, one short bullet each, in the authors' own labels.                                                                                                                   |
+| Barriers reported     | Answer                                                                                                              | Barriers the authors identify, one short bullet each. Include only barriers this study found.                                                                                                       |
+| Facilitators reported | Answer                                                                                                              | Facilitators the authors identify, one short bullet each. If none, answer "Not reported".                                                                                                           |
+| Saturation reported   | Yes/Maybe/No                                                                                                        | Do the authors state that data saturation was reached? yes only if explicitly stated. no if saturation is not mentioned anywhere. maybe if implied (e.g. "no new themes emerged") without the term. |
+| Ethics approval       | Answer                                                                                                              | The ethics committee and approval reference exactly as printed. If absent, answer "Not reported".                                                                                                   |
+
+### 2.12 Economics, business & policy
+
+Example topic: Minimum wage effects on employment.
+
+| Field                   | Type                                                                                                                                     | Instructions                                                                                                                                                                                 |
+| ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Jurisdiction and period | Answer                                                                                                                                   | Geography and years covered by the analysis. Format: "United States, 1990–2019, state-level".                                                                                                |
+| Data source             | Answer                                                                                                                                   | The dataset used, named exactly, with its unit of observation. Format: "QCEW, county-quarter".                                                                                               |
+| Identification strategy | Specified — Difference-in-differences, Synthetic control, Instrumental variables, Regression discontinuity, Event study, OLS/descriptive | Classify the main identification approach.                                                                                                                                                   |
+| Treatment definition    | Answer                                                                                                                                   | How the policy or treatment is defined and measured in the analysis.                                                                                                                         |
+| Outcome variable        | Answer                                                                                                                                   | The dependent variable and its unit exactly as defined. Format: "Log teen employment rate".                                                                                                  |
+| Main estimate           | Answer                                                                                                                                   | The headline coefficient with its standard error or CI exactly as printed, naming the specification. Format: "−0.021 (SE 0.014), preferred DiD specification".                               |
+| Robustness checks       | Answer                                                                                                                                   | Robustness or placebo tests reported, one short bullet each.                                                                                                                                 |
+| Data/code available     | Yes/Maybe/No                                                                                                                             | Does the paper state that replication data or code is available? yes if an availability statement or link is given. no if no such statement appears anywhere. maybe if available on request. |
+
+## Part 3 — What you can do with Extract Data
+
+Fifteen jobs researchers hire extraction for. Each one is a table you can build today.
+
+### A. Before you read anything
+
+#### 1. Screen a large set without reading in full
+
+You have 300 hits and no idea which 40 matter. Add one or two Yes/Maybe/No columns, run them across everything, sort, and keep what survives.
+
+Example: Randomised? · Adults only? · Reports the outcome I care about? Three columns, 300 rows, then filter. You end up with: a defensible shortlist and a record of why each paper was kept or dropped — every verdict backed by a sentence you can click.
+
+Yes/Maybe/No is the type built for this. One rule decides whether a screening column works: define all three verdicts in the instructions, including what the information's absence means. The extractor follows your definitions; when they're silent about absence, a paper that says nothing comes back maybe — never no.
+
+Which way should absence go? Ask: would a paper meeting this criterion necessarily say so? An RCT always announces its randomisation, so "no mention of random allocation anywhere in the Methods" is a legitimate no — write it into the instructions. But ethics approval can be obtained and never stated, so there absence stays maybe — a no would assert misconduct from a formatting omission.
+
+A worked example — separating human studies from everything else:
+
+| Field               | Type         | Instructions                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| ------------------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Human participants? | Yes/Maybe/No | Does this study collect or analyse data from living human participants — patients, volunteers, survey respondents, or their clinical samples? yes if the Methods describe recruiting, enrolling, consenting, or analysing data or samples from humans, including secondary analysis of an existing human dataset. no if the Methods describe only a non-human study population — animal model, cell line, in vitro, in silico, simulation — or if the paper reports no empirical study at all (review, editorial, protocol). maybe if both human and non-human work is reported, or if the population is not described clearly enough to tell. |
+
+Note the shape: every verdict has its own condition, and between the no clauses and the maybe clauses there is nowhere undefined left for a paper to fall. A one-line instruction like "no if it does not use human participants" leaves everything else — including silence — to the default, and the default is maybe.
+
+The strongest case for defining absence as no is a criterion like adverse-event reporting: a paper with no safety data anywhere contains no sentence that could ever "rule it out", so without an absence clause every failing paper returns maybe and the column separates nothing. "no if no adverse-event data appears anywhere in the paper, including tables and supplementary material" is what makes that screen work.
+
+Want to see the corpus rather than just filter it? Use Specified instead: Human participants, Human tissue/cells only, Animal, In vitro/cell line, In silico/simulation, No empirical study. Same single pass, but you learn the composition of your set instead of a keep/drop flag — and you can still filter on it.
+
+#### 2. Triage a mixed corpus by type
+
+A Specified column (RCT, Cohort, Review, Protocol, Case report) separates primary studies from everything else in one pass, before you invest in a full evidence table.
+
+### B. Building the table your review needs
+
+#### 3. The standard evidence table
+
+The table every literature review, SLR, thesis chapter, and grant background section needs: design, population, intervention, comparator, outcome, findings, limitations.
+
+Example topic: interventions for post-operative delirium in older adults. You end up with: a Word- or Excel-ready characteristics-of-included-studies table, exported in one click.
+
+#### 4. Compare methods, not just findings
+
+Understanding how studies did the thing is what explains why they disagree. Extract design, sampling, measurement instrument, and analysis approach side by side.
+
+Example topic: how physical activity was measured across cohort studies — self-report vs accelerometer. You end up with: the heterogeneity paragraph of your discussion, already sourced.
+
+#### 5. Map who was studied
+
+Age range, sex distribution, country, setting, comorbidities, inclusion boundaries — one row per study — shows instantly where the evidence is thin.
+
+Example topic: which populations appear in trials of digital mental health apps. You end up with: a generalisability or equity section, and a clear statement of who the evidence does not cover.
+
+#### 6. Pull intervention and protocol detail
+
+Dose, frequency, duration, delivery mode, provider, adherence, co-interventions — everything you need to replicate or compare what was actually delivered.
+
+Example topic: dose and duration of mindfulness programmes across RCTs. You end up with: a protocol design brief grounded in what has already been tried.
+
+#### 7. Inventory measurement instruments
+
+Before you pool anything, know which scale, assay, or metric each study used.
+
+Example topic: which depression scales appear in adolescent intervention trials. You end up with: a defensible decision about what can be combined and what can't.
+
+### C. Getting to numbers
+
+#### 8. Prepare meta-analysis inputs
+
+Sample size per arm, event counts, means and SDs, effect estimates with CIs, follow-up duration — the numeric sheet your statistical software wants.
+
+Example topic: effect of SGLT2 inhibitors on heart failure hospitalisation. You end up with: a CSV that goes straight into RevMan, R, or Stata — with every number traceable to its sentence when a reviewer questions it.
+
+#### 9. Benchmark models, methods, or materials
+
+The comparison table at the heart of every technical survey: dataset, baseline, metric, result, conditions.
+
+Example topic: accuracy and F1 across transformer variants on a named benchmark. You end up with: the survey table, plus an honest view of which papers report compute and which don't.
+
+#### 10. Extract economic parameters
+
+Cost items, currency and price year, perspective, time horizon, utilities, ICER, discount rate.
+
+Example topic: cost-effectiveness inputs across published models in a therapy area. You end up with: a parameter table for your own model, or a payer dossier appendix.
+
+#### 11. Track change over time
+
+Add publication year alongside the variable you care about, sort, and read the trend.
+
+Example topic: how reported model accuracy on a benchmark moved year over year. You end up with: the trend figure in your survey's introduction.
+
+### D. Judging what you can trust
+
+#### 12. Appraise quality and risk of bias
+
+Randomisation, allocation concealment, blinding, attrition, selective reporting, funding — one Specified column per domain (Low, Some concerns, High) gives you a grid you can colour.
+
+Example topic: risk of bias across trials informing a clinical guideline. You end up with: a risk-of-bias summary where every judgement links to the sentence that justifies it.
+
+#### 13. Check reporting, transparency, and provenance
+
+Registration ID, protocol availability, funding source, conflicts of interest, data and code availability, preprint status.
+
+Example topic: how many trials in a field are prospectively registered. You end up with: a meta-research result, or a fast answer to the reviewer who asks who funded what.
+
+### E. Finding what isn't there
+
+#### 14. Gap analysis — read the empty cells
+
+This is the use case people don't think of, and the one a spreadsheet can't do. Extract what each paper covers, then look at the column that came back mostly "Not reported".
+
+Example topic: which outcomes are never reported in studies of a given intervention. You end up with: the "gap in the literature" paragraph for a grant proposal or a thesis contribution statement — with a table proving it, not an assertion.
+
+Because absent data is marked honestly (Not reported, Not applicable, Unclear) rather than guessed, the empty cells are trustworthy evidence.
+
+### F. Deliverables for industry and regulators
+
+#### 15. Assemble regulatory and market-access evidence
+
+Device or product studied, indication, sample, endpoints, adverse events, favourable and unfavourable outcomes, funding — the appraisal a CER, PER, HTA submission, or value dossier requires, with traceability built in.
+
+Example topic: clinical performance of a diagnostic assay across the published literature. You end up with: an appraisal table where every claim has a sentence-level source, which is exactly what an auditor or notified body asks for.
+
+## Part 4 — Four starter packs
+
+Lift one wholesale, then tune.
+
+### Pack 1 — Screening (3 columns, any discipline)
+
+| Field                  | Type         | Instructions                                                                                                                                                                                                                                 |
+| ---------------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Primary study?         | Yes/Maybe/No | Does this paper report original data collected or generated by the authors? yes if Methods describe the authors' own data collection or generation. no for reviews, editorials, commentaries, and protocols. maybe if the design is unclear. |
+| Population match       | Yes/Maybe/No | Does the study population match \[your population]? yes only if the paper explicitly describes that population. no if a different population is described. maybe if the population is not described clearly enough to tell.                  |
+| Reports target outcome | Yes/Maybe/No | Does the paper report \[your outcome] as a measured result? yes only if a result is reported, not merely discussed. no if the outcome appears nowhere in the results, including tables. maybe if it is discussed without a measured result.  |
+
+Note that each instruction defines all three verdicts, including what absence means — a paper reporting your outcome would necessarily say so, which is why "appears nowhere" is a legitimate no there. See the worked example in Part 3 §A before adapting them.
+
+### Pack 2 — Evidence table (8 columns)
+
+Design · Sample · Population · Intervention · Comparator · Primary outcome · Primary result · Author limitations. Field wording as in §2.1.
+
+### Pack 3 — Meta-analysis inputs (8 columns)
+
+| Field                  | Type                                                                          | Instructions                                                                                                                                                                        |
+| ---------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Spread statistic       | Specified — Mean (SD), Mean (SE), Mean (95% CI), Median (IQR), Median (range) | Classify which summary statistic the paper reports for the primary continuous outcome. Read this column first: it tells you how many studies need converting before you pool.       |
+| N intervention         | Answer                                                                        | Number analysed in the intervention arm. Number only. Format: "148".                                                                                                                |
+| N control              | Answer                                                                        | Number analysed in the control arm. Number only. Format: "146".                                                                                                                     |
+| Events intervention    | Answer                                                                        | Number of primary-outcome events in the intervention arm with denominator. Format: "28/148".                                                                                        |
+| Events control         | Answer                                                                        | Number of primary-outcome events in the control arm with denominator. Format: "42/146".                                                                                             |
+| Mean (SD) intervention | Answer                                                                        | Post-treatment mean and SD for the primary continuous outcome in the intervention arm, exactly as printed. If only median (IQR) is given, answer "Not reported: median (IQR) only". |
+| Mean (SD) control      | Answer                                                                        | Same for the control arm.                                                                                                                                                           |
+| Timepoint              | Answer                                                                        | Timepoint at which the extracted values were measured. Format: "12 weeks".                                                                                                          |
+
+Extract Data copies what the paper prints and never computes — so median-to-mean conversions (Wan et al. 2014, Luo et al. 2018) belong in your analysis script, not in a cell. Extract the medians, quartiles, and per-arm n, export, and convert there, where the formula is visible to a reviewer.
+
+### Pack 4 — Transparency audit (6 columns)
+
+| Field                    | Type                                                                            | Instructions                                                                                                                                                                                                                            |
+| ------------------------ | ------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Registration ID          | Answer                                                                          | Trial or review registration identifier exactly as printed, with the registry name. If absent, answer "Not reported".                                                                                                                   |
+| Prospectively registered | Yes/Maybe/No                                                                    | Was registration before enrolment or before analysis began? yes only if dates make this explicit. no if the dates show registration after enrolment began or the paper says it was retrospective. maybe if timing cannot be determined. |
+| Protocol available       | Yes/Maybe/No                                                                    | Does the paper state that a full protocol is publicly available? yes if a protocol link, citation, or availability statement is given. no if none appears anywhere. maybe if a protocol is mentioned with no access route.              |
+| Funding                  | Specified — Industry, Public/government, Charity/foundation, Mixed, None stated | Classify the funding source from the funding statement.                                                                                                                                                                                 |
+| Conflicts declared       | Answer                                                                          | Conflicts of interest as declared, summarised in one line. If the paper states none, answer "None declared".                                                                                                                            |
+| Data or code available   | Yes/Maybe/No                                                                    | Does the paper state that underlying data or code is available? yes only if a statement or link is given. no if no availability statement appears anywhere. maybe if available on request.                                              |
+
+## Where the papers come from
+
+Any set of references in your Paperguide library works: papers you uploaded as PDFs, papers imported from a search, or public papers added to your Reference Manager. Up to 100 papers and 20 columns per table — filter by source, sort, select the rows you want, and export the whole table or just the selection to CSV or Excel. Share a read-only link when someone needs to check your work.
+
+Related: [Tips for creating better extraction fields](tips-for-better-extraction-fields)
