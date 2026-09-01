@@ -125,11 +125,6 @@
             "group": "Reference Manager",
             "pages": [
               {
-                "title": "Overview",
-                "path": "reference-manager/overview",
-                "icon": "file-text"
-              },
-              {
                 "title": "Add References",
                 "path": "reference-manager/add-references",
                 "icon": "lucide-plus-circle"
@@ -159,7 +154,8 @@
                 "path": "reference-manager/share-library-workspace",
                 "icon": "lucide-users"
               }
-            ]
+            ],
+            "path": "reference-manager"
           },
           {
             "group": "AI Agents",
