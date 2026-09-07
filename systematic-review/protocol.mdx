@@ -77,6 +77,8 @@ Each screening criterion includes the same four parts:
 
 Title and Abstract screening is designed to be sensitive rather than final. If the abstract is silent or ambiguous for a criterion, the AI keeps the paper in play instead of excluding it.
 
+Use this stage to filter obvious mismatches without excluding papers that may still be relevant.
+
 The AI follows this decision pattern:
 
 - If any criterion is clearly a **No**, the paper is excluded.
@@ -89,10 +91,14 @@ This makes the stage conservative by design — ambiguity leads to review, not e
 
 Full Text screening is confirmatory — the AI uses information from the full paper to make the final eligibility decision.
 
+Use this stage to confirm final eligibility from the full paper.
+
 Full Text screening is stricter:
 
 - If every criterion is **Yes**, the paper is included.
 - If any criterion fails, the paper is excluded.
+
+At this stage, the goal is final inclusion or exclusion rather than broad recall.
 
 ### Exclusion reasons
 

@@ -10,7 +10,7 @@ description: >-
 
 A standard Paperguide systematic review is **AI Review**: Paperguide AI screens every paper and one assigned verifier confirms or overrides each decision. That is fast, and for many reviews it is enough.
 
-Reviews that must survive peer review, a Cochrane editorial process, or a regulatory audit usually need something stricter: **two people screening every paper independently, with a documented process for settling disagreements**. Dual review is that method, built into Paperguide.
+Reviews that must survive peer review, a Cochrane editorial process, or a regulatory audit usually need something stricter. The standard is **two people screening every paper independently, with a documented process for settling disagreements**. Dual review is that method, built into Paperguide.
 
 In a dual review:
 
@@ -69,7 +69,7 @@ Blind review keeps one reviewer from being influenced by the other. It hides exa
 
 Blinding is lifted paper by paper. As soon as both reviewers have decided a paper, each can see how the other voted on it. Papers only one reviewer has decided stay hidden until the second decision lands.
 
-On the review overview, each reviewer sees the other's progress (how many papers decided, how many left) at any time. The breakdown of the other reviewer's decisions into Include, Maybe, and Exclude stays hidden until it can no longer reveal anything about papers you have not yet decided yourself.
+On the review overview, each reviewer can always see the other's progress: how many papers they have decided and how many are left. The other reviewer's split between Include, Maybe, and Exclude stays hidden until you have decided every paper they have, so it cannot hint at a decision you have not yet made.
 
 The conflict resolver is never blinded. If the resolver is also a reviewer, they are blinded while acting as a reviewer and see everything once a paper reaches them as a conflict.
 
@@ -77,7 +77,7 @@ The conflict resolver is never blinded. If the resolver is also a reviewer, they
 
 **On by default, set per screening stage.**
 
-With AI evidence on, Paperguide AI evaluates each paper against your criteria and shows the reviewers the reasoning and the cited text for every criterion, in the same panel they use to decide. The point is speed: a reviewer can go straight to the sentence that matters instead of reading the whole abstract or paper to find it.
+With AI evidence on, Paperguide AI evaluates each paper against your criteria. For every criterion it shows the reviewers its reasoning and the text it relied on, in the same panel they use to decide. The point is speed. A reviewer can go straight to the sentence that matters instead of reading the whole abstract or paper to find it.
 
 <Callout kind="info" collapsed="false">
   AI evidence is reasoning only. In a dual review, Paperguide AI never makes an include or exclude decision. The decisions are the reviewers'.
@@ -89,18 +89,36 @@ To generate evidence, a Full Access member selects **Start AI Evidence Run** on 
 
 ## How reviewers decide
 
-Open the stage from the review overview. The screening workspace shows the paper list on one side and the selected paper on the other: title and abstract, or the full text and PDF at the full text stage, with the criteria and any AI evidence beside it.
+Each reviewer's decision on a paper is called a **vote**. Both reviewers follow the same steps.
 
-Under **Make Your Decision**, choose:
+<Steps>
+  <Step title="Open the stage" icon="folder-open" title-type="p">
+    Open the stage from the review overview. The screening workspace shows the paper list on one side and the selected paper on the other. At title & abstract you see the abstract. At full text you see the full text and the PDF. The criteria and any AI evidence sit beside the paper.
+  </Step>
 
-| Stage                | Decision options           |
-| -------------------- | -------------------------- |
-| **Title & Abstract** | Include, Maybe, or Exclude |
-| **Full Text**        | Include or Exclude         |
+  <Step title="Work from the To Review tab" icon="list-checks" title-type="p">
+    The **To Review** tab is your queue: every paper in the stage that does not yet have your vote. When it is empty, you have screened everything currently in the stage.
+  </Step>
 
-**Excluding a paper requires choosing one criterion as the reason.** You may feel a paper fails several criteria, but only the one you select is recorded and reported. This is the reason that appears in your PRISMA exclusion breakdown, so choose the one that matters most for your review. Include and Maybe need no reason.
+  <Step title="Read the paper against the criteria" icon="search" title-type="p">
+    Check each criterion. If AI evidence is on, select a criterion to see the reasoning and the passage it relied on, and read that passage in context.
+  </Step>
 
-After you decide, the workspace moves you to the next paper that needs your vote. Your queue is the **To Review** tab. When it is empty, you have screened everything currently in the stage.
+  <Step title="Make your decision" icon="check-circle" title-type="p">
+    Under **Make Your Decision**, choose:
+
+    | Stage                | Decision options           |
+    | -------------------- | -------------------------- |
+    | **Title & Abstract** | Include, Maybe, or Exclude |
+    | **Full Text**        | Include or Exclude         |
+
+    **Excluding a paper requires choosing one criterion as the reason.** You may feel a paper fails several criteria, but only the one you select is recorded and reported. This is the reason that appears in your PRISMA exclusion breakdown, so choose the one that matters most for your review. Include and Maybe need no reason.
+  </Step>
+
+  <Step title="Move to the next paper" icon="arrow-right" title-type="p">
+    After you vote, the workspace moves you to the next paper that needs your decision. You can come back and change a vote at any time. See [Changing a decision later](#changing-a-decision-later) for what happens when you do.
+  </Step>
+</Steps>
 
 ### Comments
 
@@ -128,7 +146,7 @@ Conflicts appear in the **Conflicts** tab of the screening workspace and are cou
 
 Once both reviewers have decided some papers, the stage card shows **Cohen's Kappa**, the standard measure of agreement between two raters, with the number of papers it is calculated over. It is labelled from Poor to Almost Perfect Agreement.
 
-Use it as a health check on your screening. A low score early in a stage usually means the criteria are being read differently by the two reviewers, and it is cheaper to talk that through after twenty papers than after two hundred. Many journals ask for the kappa value in the methods section, and this is the number to report.
+Use it as a health check on your screening. A low score early in a stage usually means the two reviewers are reading the criteria differently. That is cheaper to talk through after twenty papers than after two hundred. Many journals ask for the kappa value in the methods section, and this is the number to report.
 
 ## Resolving conflicts
 
@@ -162,7 +180,7 @@ A screening stage is complete when both of these hold:
 1. Every paper in the stage has a decision from Reviewer 1 and from Reviewer 2.
 2. Every conflict has been resolved.
 
-Stage status is always worked out from the current decisions, so it can move backwards. Adding papers, a reviewer changing a vote, or a reopened conflict takes a completed stage back to In progress. Resolving the last open item completes it again.
+Stage status always reflects the current decisions, so it can move backwards. Adding papers, a changed vote, or a reopened conflict takes a completed stage back to In progress. Settling the last open item completes it again.
 
 ### Papers without a PDF
 
@@ -238,7 +256,7 @@ Continue is the right choice in almost every case: the record stays complete, an
 
 ## The paper's history
 
-Every paper in a dual review carries a full record: each reviewer's decision and when it was made, any changes of vote, the resolver's decision and reason, and any resets and why they happened. Open **Logs** on a paper to read it.
+Every paper in a dual review carries a full record. It holds each reviewer's vote and when it was cast, any change of vote, the resolver's decision and reason, and any reset with the reason for it. Open **Logs** on a paper to read it.
 
 While blind review is on, a decision the other reviewer has made on a paper you have not yet decided shows in the log as "voted" without the direction. The direction appears once you have decided too.
 
