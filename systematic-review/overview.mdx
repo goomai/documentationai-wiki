@@ -2,9 +2,9 @@
 title: Systematic Review Overview
 description: >-
   Run a complete systematic review inside Paperguide, from the research question
-  to a synthesized report with a PRISMA diagram. Paperguide AI does the work at
-  every stage. A person on your team verifies it before the review moves
-  forward.
+  to a synthesized report with a PRISMA diagram. Choose AI Review, where
+  Paperguide AI does the work and a person verifies it, or Dual Review, where
+  two reviewers screen independently and a resolver settles disagreements.
 ---
 <Video uid="534560af-43d7-4240-b03f-2df899718dc0" src="https://www.youtube.com/embed/6bJ-Gs6WSm0" render-type="iframe" width="560" height="315" controls="true" allow-full-screen="true" />
 
@@ -12,13 +12,21 @@ description: >-
 
 A systematic review answers a research question by following a protocol you define in advance: what makes a study eligible, what data you pull from it, and how you decide. The method has to be transparent enough that someone else could repeat it and reach the same result.
 
-Paperguide runs that method as **AI-led with human verification**:
+Paperguide offers two ways to run that method. You choose one when you create the review.
+
+**AI Review** is AI-led with human verification:
 
 - **Paperguide AI does the work.** It evaluates your research question, drafts your eligibility criteria and extraction fields, searches for papers, screens abstracts and full texts against your criteria, extracts your defined data, and synthesizes the report.
 - **A person verifies every stage.** AI decisions are proposals, not conclusions. An assigned member reviews each one alongside the evidence AI cited, overrides anything they disagree with, and confirms the stage before the next one unlocks.
-- **Everything is recorded.** Every screening decision keeps both what AI decided and what a human changed, and every extracted value links to the statement in the source it came from.
 
-That last point is what makes the output defensible. A systematic review is only as good as its audit trail.
+**Dual Review** puts two people on every screening decision:
+
+- **Two reviewers screen every paper independently**, and a conflict resolver settles the papers they disagree on. This is the method Cochrane and PRISMA-grade protocols expect.
+- **Paperguide AI supports the reviewers** with reasoning and cited evidence for each criterion, but never makes the decision. Data extraction and the report work the same as in an AI Review.
+
+In both methods, **everything is recorded.** Every screening decision keeps who decided it and what changed, and every extracted value links to the statement in the source it came from. That is what makes the output defensible. A systematic review is only as good as its audit trail.
+
+[Dual Review](/systematic-review/dual-review) covers the second method in full. The rest of this page, and the stage pages, describe an AI Review unless they say otherwise.
 
 ## How the workflow runs
 
@@ -51,12 +59,12 @@ A systematic review moves through six stages in order. Each one unlocks when the
 </Steps>
 
 <Callout kind="info" collapsed="false" color="#3b82f6">
-  The stages are sequential. You cannot start screening before confirming your papers, and you cannot extract data before full-text screening is complete.
+  In an AI Review the stages are sequential. You cannot start screening before confirming your papers, and you cannot extract data before full-text screening is complete. In a Dual Review, each paper moves to the next stage as soon as its own decision is final, so later stages can start while earlier ones are still in progress.
 </Callout>
 
 ## Creating a systematic review
 
-Creating a review takes two steps. Setting up your team comes straight after.
+Creating a review takes three steps. Setting up your team comes straight after.
 
 ### Step 1: Enter your research question
 
@@ -70,9 +78,24 @@ Enter it as free text. For example:
 
 Apply the ones that fit and ignore the ones that do not. You know your field better than the model does.
 
-### Step 2: Choose which screening stages to run
+### Step 2: Choose your review method
 
-Two customization options decide the shape of your review. Each one turns a screening stage on or off.
+| Method          | How screening works                                                   | Best for                         |
+| --------------- | --------------------------------------------------------------------- | -------------------------------- |
+| **AI Review**   | Paperguide AI screens, extracts and drafts. You verify each stage.    | Solo researchers and fast triage |
+| **Dual Review** | Two reviewers screen independently. A resolver settles disagreements. | Teams and formal protocols       |
+
+Choose Dual Review when your protocol calls for two independent screeners, or when the review will be judged by a journal, a Cochrane group, or a regulator that expects them. Choose AI Review when speed matters more and one verifier is acceptable.
+
+<Callout kind="alert" collapsed="false">
+  The review method cannot be changed once the review exists. Decide it now.
+</Callout>
+
+[How dual review works](/systematic-review/dual-review)
+
+### Step 3: Choose which screening stages to run
+
+Two customization options decide the shape of your review. Each one turns a screening stage on or off. They apply to both review methods.
 
 | Option                         | What happens when you disable it                                                                                                                   |
 | ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -85,16 +108,16 @@ Skipping is worth considering in narrow cases. If you are starting from a small,
 
 Once these are set, the systematic review is created and the stages become available.
 
-### Step 3: Set up your team
+### Step 4: Set up your team
 
 Add the people working on the review and give each of them a role. You do this from the **Members** and **Settings** tabs of the systematic review. [Learn more](/systematic-review/members-roles)
 
 - **Members tab.** Add people and set their access: Full Access, Review, or View.
-- **Settings tab.** Assign verifiers to the stages each person is responsible for.
+- **Settings tab.** In an AI Review, assign a verifier to each stage. In a Dual Review, assign Reviewer 1, Reviewer 2, and a Conflict Resolver for each screening stage, plus a verifier for data extraction.
 
-You can do this at any point, including later in the review. Do it before screening starts if you can, so responsibilities are clear from the first stage.
+You can do this at any point, including later in the review. Do it before screening starts if you can, so responsibilities are clear from the first stage. A dual review cannot start screening until both reviewers for that stage are assigned.
 
-You can also run a systematic review alone. If you do, you verify each stage yourself.
+You can also run an AI Review alone. If you do, you verify each stage yourself. A Dual Review needs at least two people.
 
 ### What happens next
 
@@ -135,9 +158,9 @@ Because the diagram is generated from your actual screening decisions, it stays 
 
 Every action in a systematic review is logged. This is what lets you show not just what your review concluded, but how it got there and who was responsible at each point.
 
-**Per-paper history.** Every paper carries a record of everything that happened to it: when it was added and from which source, its abstract screening decision and the evidence behind it, its full text screening decision, and the data extracted from it. If a reviewer questions why a specific study was excluded, the answer is on the paper itself.
+**Per-paper history.** Every paper carries a record of everything that happened to it: when it was added and from which source, its abstract screening decision and the evidence behind it, its full text screening decision, and the data extracted from it. In a dual review it also holds each reviewer's vote, any change of vote, and the resolver's decision. If a reviewer questions why a specific study was excluded, the answer is on the paper itself.
 
-**Review audit log.** The systematic review as a whole keeps a log of every action taken across it, covering all stages and all members.
+**Activity log.** Select **Activity** at the top of the review to see everything that happened across it: protocol changes, papers added or removed, screening and extraction runs, decisions confirmed, report versions, and changes to members and roles. Each entry names who did it and when. Filter by area to follow one part of the review, or scroll back through the whole history.
 
 Together these are what makes the review reproducible. Anyone reviewing your work can trace a single paper from collection to final decision, or follow the review as a whole from start to finish.
 
@@ -169,7 +192,7 @@ A few things worth knowing before you commit to a review.
 
 **Write instructions, not labels.** AI screens and extracts based on what your criteria and fields tell it to look for. "Study design" is a label. "Identify the study design and include only randomized controlled trials with a parallel-group design" is an instruction.
 
-**Assign your verifiers before each stage starts.** Verification is what advances the review. A stage with no assigned verifier will sit and wait once the AI run finishes.
+**Assign your verifiers before each stage starts.** Verification is what advances the review. A stage with no assigned verifier will sit and wait once the AI run finishes. In a dual review, assign both reviewers and the conflict resolver for each screening stage before you begin.
 
 ---
 

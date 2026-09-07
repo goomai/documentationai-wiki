@@ -1,8 +1,12 @@
 ---
 title: 'Members, Access & Roles'
-description: 'Three things control who does what in a systematic review:'
+description: >-
+  Add people to a systematic review, set what each of them can do, and assign
+  the stages they are responsible for, in an AI Review or a Dual Review.
 ---
 <Video uid="0d27ebc7-0dca-458e-8daa-4a6a546a97f6" src="https://www.youtube.com/embed/6bJ-Gs6WSm0" render-type="iframe" width="560" height="315" controls="true" allow-full-screen="true" />
+
+Three things control who does what in a systematic review:
 
 |             | What it decides                                    |
 | ----------- | -------------------------------------------------- |
@@ -69,6 +73,7 @@ Access determines what a member can do across the systematic review. There are t
 | Initiate AI tasks and runs | Yes         | No              | No   |
 | Change screening decisions | Yes         | With assignment | No   |
 | Confirm AI decisions       | Yes         | With assignment | No   |
+| Vote or resolve conflicts in a Dual Review | With assignment | With assignment | No |
 | Edit protocol              | Yes         | No              | No   |
 | Edit settings              | Yes         | No              | No   |
 | Manage access              | Yes         | No              | No   |
@@ -79,7 +84,9 @@ Access determines what a member can do across the systematic review. There are t
 
 Full Access runs the systematic review end to end. These members add papers, start AI runs at every stage, edit the protocol and settings, change and confirm decisions at any stage, and export.
 
-Full Access members can confirm and override decisions **without being assigned to a stage**. Assignment is not a requirement for them.
+In an AI Review, Full Access members can confirm and override decisions **without being assigned to a stage**. Assignment is not a requirement for them.
+
+In a Dual Review, screening decisions belong to the assigned reviewers and resolver only. A Full Access member who holds no role on a stage can read the papers and comment, but cannot vote or resolve conflicts there. This keeps the two-reviewer record clean: every decision was made by one of the named people.
 
 ### Review
 
@@ -106,11 +113,13 @@ This means you can give someone complete working control of the systematic revie
 
 ## Roles
 
-A role is a stage responsibility. Paperguide AI produces a decision at each stage, and an assigned member verifies it before the systematic review moves forward. The assigned member is the **verifier** for that stage.
+A role is a stage responsibility. Roles are what turn Review access into decision-making authority. Access says what a member is capable of; the role says which stages they are responsible for.
 
-Roles are what turn Review access into decision-making authority. Access says what a member is capable of; the role says which stages they are responsible for.
+Which roles exist depends on the review method you chose when you created the review.
 
-### The stage verifier roles
+### Roles in an AI Review
+
+Paperguide AI produces a decision at each stage, and an assigned member verifies it before the systematic review moves forward. The assigned member is the **verifier** for that stage.
 
 | Verifier role                           | Responsibility                                                                                                                           |
 | --------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
@@ -120,7 +129,28 @@ Roles are what turn Review access into decision-making authority. Access says wh
 
 Each stage is assigned separately. One person can verify every stage, or you can split them across the team.
 
-### Who can verify a stage
+### Roles in a Dual Review
+
+Each screening stage has three roles instead of one verifier. Data extraction keeps its single verifier.
+
+| Role                  | Responsibility                                                                                   |
+| --------------------- | ------------------------------------------------------------------------------------------------ |
+| **Reviewer 1**        | Screens every paper in the stage independently                                                   |
+| **Reviewer 2**        | Screens every paper in the stage independently                                                   |
+| **Conflict Resolver** | Decides the papers the two reviewers disagreed on. Their decision is final.                      |
+| **Data Extraction verifier** | Checks AI-extracted values against the extraction fields, edits where needed, and confirms. |
+
+Rules for the screening roles:
+
+- Every role goes to a named member. A dual review has no "anyone on the team" option.
+- Reviewer 1 and Reviewer 2 must be different people.
+- The conflict resolver may also be one of the reviewers.
+- Both reviewers must be assigned before screening on that stage can start. The resolver can be added later.
+- The people can differ between title & abstract screening and full text screening.
+
+[How dual review works](/systematic-review/dual-review)
+
+### Who can verify a stage in an AI Review
 
 Assigning a stage narrows who is responsible for it. Leaving it unassigned keeps it open.
 
@@ -163,3 +193,14 @@ Reassign a stage at any time from the review's settings. Two things to watch:
 - Removing a member from the systematic review clears their assignments too.
 
 In both cases, the stage is left without a verifier until you assign someone new.
+
+### Replacing a reviewer in a Dual Review
+
+Giving a reviewer role to a new person after the previous holder has already screened papers asks one question: **How should the new reviewer start?**
+
+| Choice                              | What happens                                                                                                                                                                                                                         |
+| ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Continue from previous progress** | The previous reviewer's decisions stay, labelled with their name. The new reviewer can confirm each one as their own or change it. Nothing else changes.                                                                             |
+| **Reset & start fresh**             | The previous reviewer's decisions are removed. The other reviewer's decisions stay. Affected papers lose their final decision and anything done for them downstream, and any generated report is deleted. The dialog shows the counts before you confirm. |
+
+Changing the conflict resolver, or filling an empty role, asks nothing. Continue is the safer choice: the record stays complete and no work is lost.

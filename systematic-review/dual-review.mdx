@@ -1,0 +1,257 @@
+---
+title: Dual Review
+description: >-
+  Run screening with two independent human reviewers and a conflict resolver,
+  the way Cochrane and PRISMA expect. Blind review, AI evidence, agreement
+  rules, and what happens when reviewers disagree.
+---
+
+## What dual review is
+
+A standard Paperguide systematic review is **AI Review**: Paperguide AI screens every paper and one assigned verifier confirms or overrides each decision. That is fast, and for many reviews it is enough.
+
+Reviews that must survive peer review, a Cochrane editorial process, or a regulatory audit usually need something stricter: **two people screening every paper independently, with a documented process for settling disagreements**. Dual review is that method, built into Paperguide.
+
+In a dual review:
+
+- **Two reviewers screen every paper independently.** Each has their own full queue. Papers are not split between them.
+- **The final decision comes from agreement.** When both reviewers reach the same decision, it is final. When they differ, the paper goes to a conflict resolver.
+- **A conflict resolver settles disagreements.** Their decision is final.
+- **Paperguide AI supports the reviewers without deciding for them.** With AI evidence on, it shows the reasoning and cited text for each criterion, so reviewers find the relevant passage quickly. It never records an include or exclude decision.
+- **Everything is recorded.** Every vote, every change of vote, and every resolver decision is kept on the paper's history.
+
+Dual review applies to the two screening stages, title & abstract and full text. **Data extraction and the report work the same way in both methods:** AI extracts, one verifier checks, and the report is generated from confirmed data.
+
+## Choosing the review method
+
+You choose the method once, when you create the review, under **Review method**.
+
+| Method          | How screening works                                                              | Best for                                    |
+| --------------- | -------------------------------------------------------------------------------- | ------------------------------------------- |
+| **AI Review**   | Paperguide AI screens, extracts and drafts. You verify each stage.               | Solo researchers and fast triage            |
+| **Dual Review** | Two reviewers screen independently. A resolver settles disagreements.            | Teams and formal protocols                  |
+
+<Callout kind="alert" collapsed="false">
+  The review method cannot be changed after the review is created. If you need to switch, create a new review. Decide before you start whether your review needs two independent screeners.
+</Callout>
+
+The method applies to the whole review. A dual review is dual at title & abstract screening and at full text screening. The screening stage toggles work as usual, so you can still run a dual review with only one of the two screening stages.
+
+## Roles in a dual review
+
+Each screening stage has three roles, assigned separately in the review's **Settings** tab. The people can differ between stages.
+
+| Role                  | What they do                                                        |
+| --------------------- | ------------------------------------------------------------------- |
+| **Reviewer 1**        | Screens every paper in the stage, independently                     |
+| **Reviewer 2**        | Screens every paper in the stage, independently                     |
+| **Conflict Resolver** | Decides the papers the two reviewers disagreed on. Their decision is final. |
+
+A few rules apply:
+
+- Every role is assigned to a named person. There is no "anyone on the team" option in a dual review.
+- Reviewer 1 and Reviewer 2 must be different people.
+- The conflict resolver can also be one of the reviewers. On a small team this is common: two people screen, and one of them settles conflicts.
+- Both reviewers must be assigned before screening on that stage can start. The resolver can be assigned later. Leaving the resolver empty only holds up conflicts, not screening.
+- Data extraction keeps its single **Data Extraction verifier**, as in an AI Review.
+
+Only members with **Full Access** or **Review** access can hold a role. See [Members, Access & Roles](/systematic-review/members-roles) for how access works.
+
+## Review settings
+
+Two settings shape how a dual review runs. Both are in the review's **Settings** tab. Only Full Access members can change them.
+
+### Blind review
+
+**On by default, for the whole review.**
+
+Blind review keeps one reviewer from being influenced by the other. It hides exactly one thing: **the other reviewer's decision on a paper**. The paper, the criteria, the AI evidence, and any comments stay visible to both.
+
+Blinding is lifted paper by paper. As soon as both reviewers have decided a paper, each can see how the other voted on it. Papers only one reviewer has decided stay hidden until the second decision lands.
+
+On the review overview, each reviewer sees the other's progress (how many papers decided, how many left) at any time. The breakdown of the other reviewer's decisions into Include, Maybe, and Exclude stays hidden until it can no longer reveal anything about papers you have not yet decided yourself.
+
+The conflict resolver is never blinded. If the resolver is also a reviewer, they are blinded while acting as a reviewer and see everything once a paper reaches them as a conflict.
+
+### AI evidence
+
+**On by default, set per screening stage.**
+
+With AI evidence on, Paperguide AI evaluates each paper against your criteria and shows the reviewers the reasoning and the cited text for every criterion, in the same panel they use to decide. The point is speed: a reviewer can go straight to the sentence that matters instead of reading the whole abstract or paper to find it.
+
+<Callout kind="info" collapsed="false">
+  AI evidence is reasoning only. In a dual review, Paperguide AI never makes an include or exclude decision. The decisions are the reviewers'.
+</Callout>
+
+With AI evidence off, no AI runs for that stage and no [AI credits](/ai-credits) are spent on it. Reviewers see the paper and the criteria, nothing more.
+
+To generate evidence, a Full Access member selects **Start AI Evidence Run** on the stage card. Reviewers can start voting while the run is still in progress. If you add papers later, **Continue AI Evidence Run** covers the new ones.
+
+## How reviewers decide
+
+Open the stage from the review overview. The screening workspace shows the paper list on one side and the selected paper on the other: title and abstract, or the full text and PDF at the full text stage, with the criteria and any AI evidence beside it.
+
+Under **Make Your Decision**, choose:
+
+| Stage                | Decision options           |
+| -------------------- | -------------------------- |
+| **Title & Abstract** | Include, Maybe, or Exclude |
+| **Full Text**        | Include or Exclude         |
+
+**Excluding a paper requires choosing one criterion as the reason.** You may feel a paper fails several criteria, but only the one you select is recorded and reported. This is the reason that appears in your PRISMA exclusion breakdown, so choose the one that matters most for your review. Include and Maybe need no reason.
+
+After you decide, the workspace moves you to the next paper that needs your vote. Your queue is the **To Review** tab. When it is empty, you have screened everything currently in the stage.
+
+### Comments
+
+Any member with Review or Full Access can leave a comment on a paper. Comments are visible to everyone on the review, including under blind review, so use them for questions about the paper rather than for your decision. Your decision stays hidden from the other reviewer until they have decided too.
+
+## Agreement and conflicts
+
+A paper's final decision comes from comparing the two reviewers' decisions.
+
+| Reviewer 1            | Reviewer 2            | Outcome                                                  |
+| --------------------- | --------------------- | -------------------------------------------------------- |
+| Include               | Include               | **Final: Include**. The resolver is not involved.        |
+| Maybe                 | Maybe                 | **Final: Maybe**. The paper carries forward to full text. |
+| Exclude, criterion A  | Exclude, criterion A  | **Final: Exclude**, reason A                             |
+| Exclude, criterion A  | Exclude, criterion B  | **Conflict**: same decision, different reason            |
+| Include               | Maybe                 | **Conflict**                                             |
+| Maybe                 | Exclude               | **Conflict**                                             |
+| Include               | Exclude               | **Conflict**                                             |
+
+Two exclusions with different reasons count as a conflict on purpose. The exclusion reason is part of what your review reports, so a disagreement about the reason has to be settled by a person, not merged silently.
+
+Conflicts appear in the **Conflicts** tab of the screening workspace and are counted on the stage card in the overview.
+
+### Cohen's Kappa
+
+Once both reviewers have decided some papers, the stage card shows **Cohen's Kappa**, the standard measure of agreement between two raters, with the number of papers it is calculated over. It is labelled from Poor to Almost Perfect Agreement.
+
+Use it as a health check on your screening. A low score early in a stage usually means the criteria are being read differently by the two reviewers, and it is cheaper to talk that through after twenty papers than after two hundred. Many journals ask for the kappa value in the methods section, and this is the number to report.
+
+## Resolving conflicts
+
+The conflict resolver works only on the papers in the **Conflicts** tab. For each one they see everything: both reviewers' decisions, their exclusion reasons, the AI evidence, and the comments. Nothing is hidden from the resolver.
+
+The resolver can:
+
+- side with Reviewer 1,
+- side with Reviewer 2, or
+- make a different decision of their own.
+
+At title & abstract, **Maybe is a valid resolution**. The paper moves on to full text screening, where it gets a firm decision. At full text, the resolver chooses Include or Exclude. A resolving Exclude needs a criterion as its reason, like any other exclusion.
+
+Whatever the resolver chooses becomes the paper's **final decision**. The paper's history records who resolved it and how.
+
+## How papers move between stages
+
+This is the biggest practical difference from an AI Review.
+
+In an AI Review, a stage has to be fully confirmed before the next one opens. In a dual review, **papers move individually, the moment their decision is final**:
+
+- A paper with a final Include or Maybe at title & abstract is available for full text screening straight away. Full text reviewers can work while title & abstract screening is still in progress.
+- A paper with a final Include at full text is available for data extraction straight away.
+
+Nothing waits for a whole stage to finish. On a large review, this means the full text reviewers are not idle for weeks while abstract screening completes.
+
+### When a stage is complete
+
+A screening stage is complete when both of these hold:
+
+1. Every paper in the stage has a decision from Reviewer 1 and from Reviewer 2.
+2. Every conflict has been resolved.
+
+Stage status is always worked out from the current decisions, so it can move backwards. Adding papers, a reviewer changing a vote, or a reopened conflict takes a completed stage back to In progress. Resolving the last open item completes it again.
+
+### Papers without a PDF
+
+At full text, a paper without a PDF cannot be voted on. It is held as **not retrieved** and does not block the stage from completing. Add the PDF, by uploading it or fetching it with the Paperguide browser extension, and the paper enters both reviewers' full text queues.
+
+### Adding papers later
+
+You can add papers at any point. New papers enter both reviewers' queues at title & abstract, and the stage returns to In progress until they are decided. If AI evidence is on, run **Continue AI Evidence Run** to generate evidence for them.
+
+## Changing a decision later
+
+Reviewers and resolvers can change their decisions at any time, including after a paper has moved on to later stages. The rules are designed so that one person acting alone can never undo a final decision or destroy work downstream.
+
+<ExpandableGroup>
+  <Expandable title="A reviewer changes their own vote">
+    Allowed at any time. Paperguide compares the two decisions again.
+
+    If the two reviewers now disagree, the paper goes back into the Conflicts tab. **The existing final decision stays in force** until the resolver looks at it again. Nothing downstream is touched by the reopened conflict on its own.
+
+    If the two reviewers now agree on something different, and both decisions were made after the current final decision, the final decision changes to match them.
+  </Expandable>
+
+  <Expandable title="One reviewer changes their vote after the resolver decided">
+    Suppose Reviewer 1 said Include, Reviewer 2 said Exclude, and the resolver settled it as Include. Later, Reviewer 1 changes their vote to Exclude.
+
+    On paper both reviewers now say Exclude, but Reviewer 2's vote is the same one the resolver already considered and overruled. One reviewer's change should not be able to overturn the resolver by pairing with an old vote.
+
+    So the final decision does not change. The paper returns to the resolver's queue, marked as one where the reviewers now agree on something different from the final decision. The resolver looks again and either keeps the current decision, which settles the matter, or changes it.
+  </Expandable>
+
+  <Expandable title="A final decision changes from Include to Exclude">
+    If the paper has already been screened at full text or had data extracted, that work belongs to a paper that is now excluded. Before the change is saved, Paperguide shows a confirmation listing what will be deleted for that one paper: its full text decisions and its extracted data.
+
+    Confirm, and the paper is excluded, its downstream data is removed, the PRISMA counts update, and the affected stages return to In progress. Cancel, and nothing changes.
+  </Expandable>
+
+  <Expandable title="A final decision changes from Exclude to Include">
+    Nothing is deleted, because nothing was done downstream for an excluded paper. The paper becomes eligible again and appears in the next stage's queues.
+  </Expandable>
+</ExpandableGroup>
+
+## Editing the protocol during screening
+
+Decisions were made against the criteria as they stood at the time. If you change the screening criteria while a dual stage is underway, some of those decisions no longer stand.
+
+When you save a criteria change, Paperguide asks how to handle the existing decisions:
+
+- **Apply changes and reset the screening decisions.** Every decision in the stage is cleared and both reviewers screen everything again.
+- **Apply changes and reset only affected decisions.** Only the decisions the change actually touches are cleared.
+
+Which decisions count as affected:
+
+| Change to the criteria | Decisions reset                                                                 | Decisions kept                                      |
+| ---------------------- | ------------------------------------------------------------------------------- | --------------------------------------------------- |
+| Criterion **added**    | All Include and Maybe decisions, since they never checked the new rule          | Every Exclude, since its reason still holds         |
+| Criterion **deleted**  | Excludes that used the deleted criterion as their reason                        | Includes, Maybes, and Excludes on other criteria    |
+| Criterion **edited**   | All Include and Maybe decisions, plus Excludes that used the edited criterion   | Excludes on other criteria                          |
+
+A reset decision goes back into both reviewers' queues, blind again as normal. If a reset decision fed a conflict resolution, that resolution and the final decision are cleared too, and anything done downstream for that paper is removed. A generated report is deleted as well, since it was built on decisions that no longer stand.
+
+This is why the protocol is worth settling before screening starts. See [Protocol](/systematic-review/protocol).
+
+## Replacing a reviewer mid-review
+
+You can give a reviewer or resolver role to someone else at any time from the review's Settings tab.
+
+Changing the resolver asks nothing. Changing a reviewer who has already made decisions asks **how the new reviewer should start**:
+
+- **Continue from previous progress.** The previous reviewer's decisions stay. The new reviewer sees them labelled as the previous reviewer's, can confirm each one as their own, or change it. Confirming a decision unchanged does not reopen anything.
+- **Reset & start fresh.** The previous reviewer's decisions are removed. The other reviewer's decisions are untouched. Papers the departed reviewer had decided lose their final decision and return to the queues, along with anything done downstream for them, and any generated report is deleted. Before you confirm, the dialog shows how many decisions and papers are affected.
+
+Continue is the right choice in almost every case: the record stays complete, and the new reviewer can work through the inherited decisions at their own pace.
+
+## The paper's history
+
+Every paper in a dual review carries a full record: each reviewer's decision and when it was made, any changes of vote, the resolver's decision and reason, and any resets and why they happened. Open **Logs** on a paper to read it.
+
+While blind review is on, a decision the other reviewer has made on a paper you have not yet decided shows in the log as "voted" without the direction. The direction appears once you have decided too.
+
+This record, together with the review-level [Activity log](/systematic-review/overview#audit-trail-and-logs), is what lets you document your screening process in a methods section or answer a reviewer's question about a specific study.
+
+## What dual review does not cover yet
+
+- **Dual data extraction.** Extraction is done by Paperguide AI and checked by one verifier in both review methods.
+- **AI as one of the two reviewers.** Both reviewer roles are held by people.
+
+## Related pages
+
+- [Members, Access & Roles](/systematic-review/members-roles)
+- [Title & Abstract Screening](/systematic-review/title-abstract-screening)
+- [Full Text Screening](/systematic-review/full-text-screening)
+- [Protocol](/systematic-review/protocol)

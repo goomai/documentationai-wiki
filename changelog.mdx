@@ -2,6 +2,25 @@
 title: Changelog
 description: Release history and updates for Paperguide platform
 ---
+<Update label="7 September, 2026" tags={["new feature"]}>
+  ## Dual Review for systematic reviews
+
+  Systematic reviews now offer a second review method. Until now every review was AI-led: Paperguide AI screened each paper and one verifier confirmed the decisions. Reviews that must meet Cochrane or PRISMA expectations need two independent human screeners, and that is what **Dual Review** adds.
+
+  - **Two reviewers, one resolver.** Each screening stage has a Reviewer 1, a Reviewer 2, and a Conflict Resolver. Both reviewers screen every paper independently. When they agree, the decision is final. When they disagree, the resolver decides.
+  - **Blind review.** Reviewers cannot see each other's decision on a paper until both have made one. On by default, and a Full Access member can turn it off.
+  - **AI evidence without AI decisions.** Paperguide AI can show its reasoning and cited text for every criterion to help reviewers find the relevant passage, but it never records an include or exclude. Turn it off per stage if you want a purely human screen.
+  - **Papers move as soon as they are decided.** Full text screening and data extraction can start on a paper the moment its decision is final, rather than waiting for the whole stage.
+  - **Cohen's Kappa.** The stage card shows the agreement score between your two reviewers, ready to report in your methods section.
+  - **Comments and a full record.** Members can discuss a paper in its comments, and every vote, change of vote, and resolver decision is kept in the paper's history.
+
+  Choose the review method when you create a review. It cannot be changed afterwards. [Read the guide](/systematic-review/dual-review).
+
+  ## Activity log for systematic reviews
+
+  Every systematic review now has an **Activity** panel showing everything that happened across it: protocol changes, papers added or removed, screening and extraction runs, confirmations, report versions, and changes to members and roles, each with who did it and when. Filter by area to follow one part of the review.
+</Update>
+
 <Update label="1 September, 2026" tags={["new feature"]}>
   ## Research Agent: Gap Analysis & PRISMA Diagrams
 

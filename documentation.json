@@ -48,6 +48,11 @@
                 "icon": "lucide-users-round"
               },
               {
+                "title": "Dual Review",
+                "path": "systematic-review/dual-review",
+                "icon": "lucide-users"
+              },
+              {
                 "title": "Protocol",
                 "path": "systematic-review/protocol",
                 "icon": "lucide-list-checks"
