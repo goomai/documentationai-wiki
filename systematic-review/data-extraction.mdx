@@ -70,7 +70,7 @@ Assign the person responsible for verifying this stage before extraction starts.
 | If the stage is        | Who verifies it                                                                                       |
 | ---------------------- | ----------------------------------------------------------------------------------------------------- |
 | Assigned to a member   | That member. They receive the notification when extraction finishes.                                  |
-| Not assigned to anyone | Any Full Access or Review member. All of them are notified and can work through the results together. |
+| Not assigned to anyone | Any Full Access or Review member can work through the results together. In a personal workspace, all of them are notified. In an organization's team workspace, only the review creator is notified. |
 
 View members can never verify, assigned or not.
 
@@ -84,7 +84,7 @@ Before you begin, check that the extraction fields defined in your protocol are 
 
 Select **Start extraction**. For each paper, AI works through your fields one at a time, following each field's instructions to locate the relevant material, interpret it, and produce the output in the structure you specified. Results build into the table as papers are processed.
 
-Paperguide sends an email when the run completes: to the assigned verifier, or to every Full Access and Review member if the stage is unassigned.
+Paperguide sends an email when the run completes: to the assigned verifier, or, if the stage is unassigned, to every Full Access and Review member in a personal workspace and to the review creator only in an organization's team workspace.
 
 <Callout kind="info" collapsed="false">
   &#x20;PDF quality affects extraction accuracy. Image-only scans and PDFs without usable text layers give AI less to work with than a clean digital PDF.
