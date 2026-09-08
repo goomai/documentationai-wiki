@@ -1,0 +1,123 @@
+---
+title: 'Getting Started with AI Review'
+description: >-
+  Run a systematic review in which Paperguide AI screens, extracts and drafts,
+  and you verify each stage. The full path from research question to report,
+  with a link to the detailed page for every stage.
+---
+
+## What an AI Review is
+
+In an AI Review, Paperguide AI does the reading and a person checks it. AI evaluates your research question, drafts your protocol, searches for papers, screens abstracts and full texts against your criteria, extracts your defined data, and writes the report. At every stage, an assigned verifier reviews what AI decided alongside the evidence it cited, overrides anything that is wrong, and confirms the stage before the next one opens.
+
+It is the faster of the two review methods and the one to choose when you are working alone or with one collaborator, or when a single human verifier is acceptable to whoever will judge the review. If your protocol calls for two independent screeners, use a [Dual Review](/systematic-review/dual-review/getting-started) instead.
+
+The stages run in order. Each one unlocks when the stage before it is confirmed, so the work is a straight line:
+
+**Protocol → Papers → Title & Abstract Screening → Full Text Screening → Data Extraction → Report**
+
+## Before you begin
+
+You need three things:
+
+- **A research question.** It does not have to be perfect. Paperguide AI helps you sharpen it as you type.
+- **A Paperguide account with [AI credits](/ai-credits).** Every AI task in the review draws on your allowance.
+- **Papers, or a way to find them.** AI Search covers more than 200 million papers. If you already have a collection in your reference manager, you can use that too.
+
+If other people will verify stages with you, add them to the review once it exists. Step 3 below covers that.
+
+## Running an AI Review, start to finish
+
+<Steps>
+  <Step title="Create the review" icon="plus-circle" title-type="p">
+    From the Systematic Review dashboard, select **New review** and enter your research question as free text. For example:
+
+    > In adults with type 2 diabetes, do GLP-1 receptor agonists reduce major adverse cardiovascular events compared with standard care?
+
+    Paperguide AI evaluates the question as you enter it and suggests enhancements for whatever is missing, such as a population or a comparator. Apply the ones that fit. This step costs no credits, so refine as many times as you like.
+
+    Under **Review method**, keep **AI Review** selected. Then choose which screening stages to run. Keep both **Title & Abstract Screening** and **Full-text Screening** on unless you have a specific reason to skip one. Select **Start Review**.
+
+    <Callout kind="alert" collapsed="false">
+      The review method cannot be changed once the review exists. If you later decide you need two independent screeners, you will have to create a new review.
+    </Callout>
+
+    [Choosing the review method and screening stages](/systematic-review/overview#creating-a-systematic-review)
+  </Step>
+
+  <Step title="Settle your protocol" icon="clipboard-list" title-type="p">
+    The review opens on **Protocol**. Paperguide AI has generated screening criteria for each enabled stage and a set of extraction fields from your question. Read every criterion and field, edit what is too broad or too vague, add what is missing, and save.
+
+    Two things matter most here. Write criteria as instructions, not labels: "include only randomized controlled trials with a parallel-group design" screens better than "study design". And order your criteria deliberately, because the first criterion a paper fails becomes its exclusion reason.
+
+    Settle the protocol now. Editing it after a stage has run means running that stage, and every stage after it, again.
+
+    [Protocol](/systematic-review/protocol)
+  </Step>
+
+  <Step title="Add your team and assign verifiers" icon="users" title-type="p">
+    Skip this step if you are working alone. You will verify each stage yourself.
+
+    Otherwise, open the **Members** tab, add each person by email, and give them **Full Access** or **Review**. Then open **Settings & Roles** and assign a verifier for each stage: title & abstract screening, full text screening, and data extraction. One person can hold all three, or you can spread them across the team.
+
+    Assign verifiers before a stage starts. The assigned verifier is emailed when the AI run finishes, and verification is what moves the review forward. A stage with no one watching it will sit and wait.
+
+    [Members, Access & Roles](/systematic-review/members-roles)
+  </Step>
+
+  <Step title="Collect your papers" icon="files" title-type="p">
+    Open **Papers**. Paperguide AI proposes search queries built from your research question. Run them as they are, edit them, or write your own, and set filters such as publication year before you run a query, since every result a query returns is pooled straight into **All Papers**. Add papers from your reference manager as well if you have a collection already.
+
+    Paperguide flags duplicates across the whole pool. Work through them, remove anything clearly irrelevant, and then select **Start Screening**. This fixes the set and starts AI screening on the first stage.
+
+    [Papers](/systematic-review/papers)
+  </Step>
+
+  <Step title="Screen titles and abstracts" icon="filter" title-type="p">
+    AI reads every abstract against your abstract criteria, gives each paper an **Include**, **Maybe**, or **Exclude** decision, and cites the text it relied on for every criterion. Results appear as they are produced, so the verifier can start straight away.
+
+    The verifier opens each paper, checks the criterion verdicts against the abstract, overrides any decision that is wrong, and confirms it. **Confirm all** confirms the rest once the set has been worked through. Included and Maybe papers move forward. Excluded papers stop here.
+
+    [Title & Abstract Screening](/systematic-review/ai-review/title-abstract-screening)
+  </Step>
+
+  <Step title="Screen full texts" icon="file-text" title-type="p">
+    Every paper that passed abstract screening needs a PDF. Attach missing ones by uploading them or by fetching them with the Paperguide browser extension, which works through your institution's proxy for paywalled papers. Papers without a PDF are held as ineligible until one arrives.
+
+    A Full Access member starts AI screening. AI reads each full text, judges every criterion, and links each verdict to the exact statements in the PDF. The verifier selects a citation to see it highlighted in the built-in viewer, overrides where needed, and confirms. There is no Maybe at this stage: every paper ends up included or excluded.
+
+    [Full Text Screening](/systematic-review/ai-review/full-text-screening)
+  </Step>
+
+  <Step title="Extract data" icon="table" title-type="p">
+    A Full Access member selects **Start Extraction**. AI fills every extraction field for every included paper, and the results build into a table with one row per paper and a citation behind every value.
+
+    The verifier works through the table, opens each citation to read the supporting statement in context, corrects any value that is wrong, and confirms. Both the AI value and the correction are kept.
+
+    [Data Extraction](/systematic-review/data-extraction)
+  </Step>
+
+  <Step title="Generate the report" icon="file-check" title-type="p">
+    Once extraction is confirmed, the **Report** stage is available. Paperguide AI synthesizes the confirmed data into a report that covers the findings across all included studies, the methodology, and the PRISMA diagram built from your actual screening counts.
+
+    Treat it as a draft to work from. The interpretation and the argument you build on the evidence are still yours to write. Export the report as PDF or DOCX, paper lists as BibTeX, RIS, CSV, or Excel, and screening decisions and extracted data as CSV or Excel.
+
+    [The report and PRISMA diagram](/systematic-review/overview#the-report)
+  </Step>
+</Steps>
+
+## What to expect along the way
+
+**Stages are sequential.** You cannot start screening before confirming your papers, and you cannot extract data before full text screening is confirmed. If a stage has finished running but nothing is moving, the papers probably still need confirming.
+
+**Verification is the human step.** AI decisions are proposals. Nothing enters the report that a person has not confirmed, and both the AI decision and any override are kept, so the review records what AI decided and what a person changed.
+
+**Adding papers later is normal.** Return to Papers at any point. Only the new papers are screened, and they pass through each stage in turn with the same verification.
+
+**Everything is logged.** Every paper carries its own history, and the review's **Activity** panel records every run, confirmation, and change to members and roles. [Audit trail and logs](/systematic-review/overview#audit-trail-and-logs)
+
+## Related pages
+
+- [Systematic Review Overview](/systematic-review/overview)
+- [Members, Access & Roles](/systematic-review/members-roles)
+- [Getting Started with Dual Review](/systematic-review/dual-review/getting-started)

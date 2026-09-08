@@ -11,7 +11,7 @@ description: >-
 The first screening pass. Paperguide AI reads the title and abstract of every paper in your confirmed set, evaluates it against your criteria, and shows you the evidence behind every decision. A person then verifies that work before the review moves on.
 
 <Callout kind="info" collapsed="false">
-  **Before you start:** Your abstract screening criteria must be defined in the [Protocol](/systematic-review/protocol), and your papers must be confirmed in [Papers](/systematic-review/papers). Assign your verifier before starting, not after.&#x20;
+  **Before you start:** Your abstract screening criteria must be defined in the [Protocol](/systematic-review/protocol), and your papers must be confirmed in [Papers](/systematic-review/papers). Assign your verifier before starting, not after.
 </Callout>
 
 ## How this stage works
@@ -22,6 +22,8 @@ The first screening pass. Paperguide AI reads the title and abstract of every pa
 4. **The verifier confirms the papers.** Only then does the next stage unlock.
 
 Nothing advances on AI output alone. Verification is what moves the review forward.
+
+This page describes an AI Review. In a Dual Review, two people screen every paper and AI makes no decision. See [Title & Abstract Screening in a dual review](/systematic-review/dual-review/title-abstract-screening).
 
 ## Before you start
 
@@ -40,7 +42,7 @@ Decide who is responsible for verifying this stage and assign them before screen
 | If the stage is        | Who verifies it                                                                                       |
 | ---------------------- | ----------------------------------------------------------------------------------------------------- |
 | Assigned to a member   | That member. They receive the notification when screening finishes.                                   |
-| Not assigned to anyone | Any Full Access or Review member. All of them are notified and can work through the results together. |
+| Not assigned to anyone | Any Full Access or Review member can work through the results together. In a personal workspace, all of them are notified. In an organization's team workspace, only the review creator is notified. |
 
 View members can never verify, assigned or not.
 
@@ -48,9 +50,9 @@ View members can never verify, assigned or not.
 
 ## Running AI screening
 
-Onl&#x79;**&#x20;Full Access&#x20;**&#x6D;embers ca&#x6E;**&#x20;start AI screening.** Review members verify results but cannot trigger the run.
+**Only Full Access members can start AI screening.** Review members verify results but cannot trigger the run.
 
-Screening a large set takes time, but you do not have to wait for it. Results appear as papers are processed, and a progress banner tracks the run, so the verifier can start working through decisions while the rest are still being evaluated. Paperguide also sends an email when the run completes, to the assigned verifier or, if the stage is unassigned, to every Full Access and Review member.
+Screening a large set takes time, but you do not have to wait for it. Results appear as papers are processed, and a progress banner tracks the run, so the verifier can start working through decisions while the rest are still being evaluated. Paperguide also sends an email when the run completes: to the assigned verifier, or, if the stage is unassigned, to every Full Access and Review member in a personal workspace and to the review creator only in an organization's team workspace.
 
 ## How AI reaches a decision
 
@@ -100,7 +102,7 @@ The AI decision is a recommendation. A confirmed decision is one a person has re
 
 If the abstract genuinely does not support a clean decision, leave the paper as **Maybe**. That is the correct answer, not an avoided one.
 
-**To confirm**, either confirm papers individually as you review them, or select **Confirm All** once you have worked through the set. Confirming records the AI decision as approved, or your override as the final decision. Both are kept, so the review holds a record of what AI decided and what a person changed.
+**To confirm**, either confirm papers individually as you review them, or select **Confirm all** once you have worked through the set. Confirming records the AI decision as approved, or your override as the final decision. Both are kept, so the review holds a record of what AI decided and what a person changed.
 
 Full Access members can review and override decisions after verification is complete, including decisions made by another member. This gives a review lead a way to correct the record without reopening the stage for everyone.
 
@@ -110,7 +112,7 @@ Once every paper is confirmed, you see the final counts: **Included**, **Maybe**
 
 Included and Maybe papers both move forward. Excluded papers stop here.
 
-Confirming unlocks the next stage. Depending on how you set up the review, that is either [Full Text Screening](/systematic-review/full-text-screening) or, if you disabled full text screening, [Data Extraction](/systematic-review/data-extraction).
+Confirming unlocks the next stage. Depending on how you set up the review, that is either [Full Text Screening](/systematic-review/ai-review/full-text-screening) or, if you disabled full text screening, [Data Extraction](/systematic-review/data-extraction).
 
 <Callout kind="info" collapsed="false">
   The next stage stays locked until this one is confirmed. If screening has finished but nothing is moving, check whether the papers still need confirming.

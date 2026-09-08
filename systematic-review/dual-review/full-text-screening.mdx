@@ -1,0 +1,144 @@
+---
+title: 'Full Text Screening'
+description: >-
+  Two reviewers read the full text of every paper that passed abstract
+  screening and decide Include or Exclude independently. Papers arrive as their
+  abstract decisions become final and move to extraction as soon as they are
+  decided.
+---
+
+## What this stage is
+
+The second and final screening pass in a dual review. Both assigned reviewers read the full PDF of every paper that passed abstract screening and decide, independently, whether it is included. Paperguide AI can highlight the statements in the PDF that bear on each criterion, but the decision is the reviewers' own.
+
+There is no Maybe here. The full paper should contain everything needed to reach a final answer, so every paper ends up included or excluded. When the stage is complete, the included papers go to data extraction.
+
+<Callout kind="info" collapsed="false">
+  **Before you start:** Your full text screening criteria must be defined in the [Protocol](/systematic-review/protocol), and both reviewers for this stage must be assigned in Settings & Roles. The stage does not wait for abstract screening to finish. Papers arrive one at a time as their abstract decisions become final.
+</Callout>
+
+## How this differs from abstract screening
+
+|                        | Title & Abstract Screening                  | Full Text Screening                                          |
+| ---------------------- | ------------------------------------------- | ------------------------------------------------------------ |
+| **What reviewers read** | Title and abstract                          | The full PDF                                                 |
+| **Decision**           | Include, Maybe, or Exclude                  | Include or Exclude                                           |
+| **AI evidence**        | Sentences from the abstract                 | Statements from the full text, highlighted in the PDF        |
+| **PDF required**       | No                                          | Yes                                                          |
+
+Abstract screening is deliberately sensitive: it keeps anything it cannot rule out. Full text screening is confirmatory. This is where criteria that depend on detail get settled, such as methodology, participant characteristics, intervention specifics, and outcome measurement, which are often reported only in the body of a paper.
+
+## What gets screened
+
+Every paper whose abstract decision is a final **Include** or **Maybe** arrives here. Papers with a final Exclude stop at the previous stage. If you disabled abstract screening when you created the review, every confirmed paper arrives here directly.
+
+Because papers arrive individually, the full text reviewers can start as soon as the first abstract decisions are final. On a large review this means nobody waits weeks for abstract screening to complete.
+
+### Papers without a PDF
+
+Each paper needs a full text PDF. A paper without one is held as **not retrieved**. It cannot be voted on, it does not block the stage from completing, and it is counted as not retrieved in your PRISMA diagram rather than included or excluded.
+
+Two ways to attach a PDF:
+
+- **Use the Paperguide browser extension** to fetch it while you browse, including paywalled papers through your institution's proxy
+- **Upload the file** from your device
+
+Once a PDF is attached, the paper enters both reviewers' queues. Work through your not-retrieved papers before treating the stage as finished. A paper you could have retrieved is a paper your review should have assessed, and reviewers will ask.
+
+## Who does what
+
+The roles are the same three as at abstract screening, assigned separately for this stage in Settings. The people can differ. Reviewer 1 and Reviewer 2 each decide every paper; the Conflict Resolver decides the papers they disagree on; a Full Access member runs AI evidence and can comment, but votes or resolves only if they also hold a role on this stage.
+
+[Roles in a dual review](/systematic-review/dual-review/how-it-works#roles-in-a-dual-review)
+
+## Before reviewers start
+
+### Run AI evidence
+
+If **AI Evidence** is on for this stage, a Full Access member selects **Start AI Evidence Run** on the stage card. Paperguide indexes each attached PDF and, for every criterion, finds the statements in the paper that bear on it and records where they are. Evidence appears on each paper as it is ready. Because a full paper carries far more text than an abstract, this takes longer than the abstract run.
+
+As new papers arrive from abstract screening or gain a PDF, **Continue AI Evidence Run** covers the papers that have no evidence yet.
+
+With AI Evidence off, reviewers read the PDF and the criteria with no AI help, and no credits are spent on the stage.
+
+### Check blind review
+
+Blind review applies here as at abstract screening: the other reviewer's decision on a paper is hidden until you have decided it too. [Review settings](/systematic-review/dual-review/how-it-works#review-settings)
+
+## The screening workspace
+
+Open the stage from the review overview. The paper list sits on one side; the selected paper's full text opens beside the criteria and the decision panel, with a built-in PDF viewer.
+
+The tabs are the same as at abstract screening: **To Review** and **Awaiting Others** for reviewers, **No Vote** and **One Vote** for the conflict resolver, and **Conflicts**, **Included**, **Excluded**, and **All Papers** for everyone. [The tabs explained](/systematic-review/dual-review/title-abstract-screening#the-screening-workspace)
+
+### The PDF viewer
+
+**Select a citation and the viewer highlights the supporting statements** in the full text, in place, with the surrounding paragraph around them. You can also move to any page yourself. This is what makes the evidence useful: instead of trusting a summary, you read the sentence the criterion turns on, in context, in seconds.
+
+If a paper's full text is still being prepared, the panel says so, and voting on that paper opens once it is ready.
+
+## Making a decision
+
+Work from **To Review**.
+
+<Steps>
+  <Step title="Read the paper against the criteria" icon="search" title-type="p">
+    Work through the criteria one at a time. If AI evidence is on, select each criterion's citations to jump to the supporting statements and read them in context. Pay most attention to any criterion the evidence suggests the paper fails, since a single failed criterion decides the outcome.
+  </Step>
+
+  <Step title="Choose Include or Exclude" icon="check-circle" title-type="p">
+    Under **Make Your Decision**, choose **Include** if the paper satisfies every criterion, or **Exclude** and select the one criterion it failed as the reason.
+
+    Only the criterion you select is recorded and reported. If the paper fails several, choose the one that matters most for your review. It becomes this paper's line in your PRISMA full text exclusion breakdown.
+  </Step>
+
+  <Step title="Move to the next paper" icon="arrow-right" title-type="p">
+    The workspace moves you to the next paper in your queue. You can return to any paper and change your decision at any time. [Changing a decision later](/systematic-review/dual-review/how-it-works#changing-a-decision-later)
+  </Step>
+</Steps>
+
+Comments work as at abstract screening: visible to everyone, including under blind review, so use them for questions about the paper rather than to signal your decision.
+
+## Resolving conflicts
+
+A conflict is an Include against an Exclude, or two Excludes with different reasons. The resolver works from the **Conflicts** tab, sees both decisions, both reasons, the highlighted evidence, and the comments, and settles the paper as Include or Exclude. A resolving Exclude needs a criterion as its reason. There is no Maybe at this stage.
+
+The resolver's decision is final and is recorded on the paper's history.
+
+[Agreement and conflicts](/systematic-review/dual-review/how-it-works#agreement-and-conflicts)
+
+## Tracking progress
+
+The stage card shows each reviewer's progress, the open conflicts, the number of papers not retrieved, and **Cohen's Kappa** over the papers both reviewers have decided. Because papers keep arriving from abstract screening, the totals on this card grow while that stage is still in progress.
+
+## When the stage is complete
+
+The stage is complete when every paper with a PDF has a decision from both reviewers and every conflict is resolved. Not-retrieved papers do not hold it open. There is no confirm step.
+
+Completion is what opens [Data Extraction](/systematic-review/data-extraction). Papers with a final Include go forward to be extracted. Papers with a final Exclude stop here and stay recorded in the review flow.
+
+Completion moves backwards when needed. A paper arriving from abstract screening, a PDF added to a not-retrieved paper, a changed vote, or a reopened conflict takes the stage back to In progress.
+
+### How this feeds PRISMA
+
+- Papers with a PDF and a final decision are counted as **assessed for eligibility**
+- Papers with a final Exclude are recorded as **full text exclusions**, with the criterion each one failed
+- Papers without a PDF are counted as **not retrieved**
+
+Missing PDFs are part of your review's reported accounting, not only a workflow problem. Resolve them early if you want your totals to settle before you write up.
+
+## If the criteria change
+
+When a Full Access member saves a change to the full text criteria, Paperguide asks whether to reset every decision in the stage or only the ones the change touches. Each reset decision returns to the queue of the reviewer who made it, and anything done downstream for that paper, including extracted data, is cleared. If AI Evidence is on, the stage card then offers **Restart AI Evidence Run** so the evidence matches the new criteria.
+
+[Editing the protocol during screening](/systematic-review/dual-review/how-it-works#editing-the-protocol-during-screening)
+
+## Exporting screening data
+
+Export the stage's results at any point: the paper lists as BibTeX, RIS, CSV, or Excel, and the screening decisions with their exclusion reasons as CSV or Excel. The individual votes and resolutions live in each paper's history.
+
+## Related pages
+
+- [Title & Abstract Screening in a dual review](/systematic-review/dual-review/title-abstract-screening)
+- [How Dual Review works](/systematic-review/dual-review/how-it-works)
+- [Data Extraction](/systematic-review/data-extraction)

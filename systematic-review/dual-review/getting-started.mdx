@@ -1,0 +1,145 @@
+---
+title: 'Getting Started with Dual Review'
+description: >-
+  Run a systematic review in which two reviewers screen every paper
+  independently and a conflict resolver settles disagreements. The full path
+  from research question to report, with a link to the detailed page for every
+  stage.
+---
+
+## What a Dual Review is
+
+In a Dual Review, people make the screening decisions. Two reviewers screen every paper independently, without seeing each other's decision. When they agree, the decision is final. When they disagree, a conflict resolver decides. Paperguide AI supports the reviewers by showing its reasoning and the cited text for each criterion, but it never records an include or exclude.
+
+This is the method Cochrane and PRISMA-grade protocols expect, and the one to choose when your review will be judged by a journal, an editorial group, or a regulator that requires two independent screeners. If you are working alone or speed matters more, use an [AI Review](/systematic-review/ai-review/getting-started) instead.
+
+Dual screening applies to the two screening stages. Data extraction and the report work the same way in both methods: AI extracts, one verifier checks, and the report is generated from confirmed data.
+
+**Protocol → Papers → Title & Abstract Screening (dual) → Full Text Screening (dual) → Data Extraction → Report**
+
+Unlike an AI Review, full text screening does not wait for abstract screening to finish. A paper moves to full text the moment its abstract decision is final, so the full text reviewers can work while abstract screening is still in progress. Data extraction starts once full text screening is complete.
+
+## Before you begin
+
+You need four things:
+
+- **A research question.** Paperguide AI helps you sharpen it as you type.
+- **An Evidence plan or higher.** Dual Review is not available on lower plans.
+- **At least two people.** Reviewer 1 and Reviewer 2 must be different people. On a small team, one of them can also be the conflict resolver.
+- **Papers, or a way to find them.** AI Search covers more than 200 million papers, and you can add a collection from your reference manager.
+
+## Running a Dual Review, start to finish
+
+<Steps>
+  <Step title="Create the review" icon="plus-circle" title-type="p">
+    From the Systematic Review dashboard, select **New review** and enter your research question as free text. Paperguide AI evaluates it as you type and suggests enhancements for anything missing, such as a population or a comparator. Apply the ones that fit. Refining the question costs no credits.
+
+    Under **Review method**, select **Dual Review**. Then choose which screening stages to run. Keep both **Title & Abstract Screening** and **Full-text Screening** on unless your protocol says otherwise. Select **Start Review**.
+
+    If your plan is below Evidence, Paperguide tells you at this point and offers an upgrade.
+
+    <Callout kind="alert" collapsed="false">
+      The review method cannot be changed once the review exists. A review created as an AI Review cannot become a Dual Review later.
+    </Callout>
+
+    [Choosing the review method and screening stages](/systematic-review/overview#creating-a-systematic-review)
+  </Step>
+
+  <Step title="Add your reviewers" icon="users" title-type="p">
+    Open the **Members** tab and add each person by email. Give them **Full Access** or **Review**. Only members with one of these two access levels can hold a reviewer or resolver role. View members can watch the review but cannot screen.
+
+    Each person receives an invitation and must accept it before they can open the review. If the review sits inside an organization workspace, everyone in that workspace already has access and needs no invitation.
+
+    [Members, Access & Roles](/systematic-review/members-roles)
+  </Step>
+
+  <Step title="Assign the roles for each screening stage" icon="user-check" title-type="p">
+    Open **Settings & Roles**. For title & abstract screening and again for full text screening, assign **Reviewer 1**, **Reviewer 2**, and a **Conflict Resolver**. The people can differ between the two stages. Assign the **Extraction Verifier** as well.
+
+    A few rules apply. Every role goes to a named person. Reviewer 1 and Reviewer 2 must be different people. The resolver can be one of the reviewers. Both reviewers must be assigned before screening on a stage can start; the resolver can be added later.
+
+    While you are there, check two review settings. **Blind review** is on by default and hides each reviewer's decision from the other until both have decided a paper. **AI Evidence** is on by default per stage and lets Paperguide AI show reasoning and cited text beside each criterion. Leave both on unless your protocol says otherwise.
+
+    [Roles and settings in a dual review](/systematic-review/dual-review/how-it-works#roles-in-a-dual-review)
+  </Step>
+
+  <Step title="Settle your protocol" icon="clipboard-list" title-type="p">
+    Open **Protocol**. Paperguide AI has generated screening criteria for each enabled stage and a set of extraction fields from your question. Read every criterion and field, edit what is too broad or too vague, add what is missing, and save.
+
+    Your reviewers will judge every paper against these criteria, and each exclusion will name one of them as its reason. Write them so two people reading them independently would apply them the same way. That is what keeps your agreement score high.
+
+    Settle the protocol before screening starts. Changing criteria mid-stage resets the decisions that depended on them and sends those papers back to both reviewers.
+
+    [Protocol](/systematic-review/protocol)
+  </Step>
+
+  <Step title="Collect your papers" icon="files" title-type="p">
+    Open **Papers**. Run the search queries Paperguide AI proposes, edit them, or write your own, and set filters before you run a query, since every result is pooled straight into **All Papers**. Add papers from your reference manager as well if you have a collection already.
+
+    Work through the duplicates Paperguide flags and remove anything clearly irrelevant. There is no confirm step in a dual review: every paper in the pool is in both reviewers' title & abstract queues as soon as both reviewers are assigned, and you can keep adding papers while screening runs.
+
+    [Papers](/systematic-review/papers)
+  </Step>
+
+  <Step title="Run AI evidence" icon="sparkles" title-type="p">
+    If AI Evidence is on for the stage, a Full Access member selects **Start AI Evidence Run**, on the Papers page or on the stage card in the review overview. Paperguide AI evaluates each paper against your criteria and prepares, for every criterion, its reasoning and the passage it relied on. Reviewers can start voting while the run is still in progress; evidence appears on each paper as it is ready.
+
+    This step is optional. With AI Evidence off, no AI runs and no credits are spent, and reviewers see only the paper and the criteria. The Papers page then offers **Open Screening** instead.
+  </Step>
+
+  <Step title="Screen titles and abstracts" icon="filter" title-type="p">
+    Each reviewer opens the stage and works from the **To Review** tab, which holds every paper that does not yet have their decision. For each paper they read the abstract against the criteria, using the AI evidence to find the relevant passage quickly, and under **Make Your Decision** choose **Include**, **Maybe**, or **Exclude**. An exclusion needs one criterion as its reason.
+
+    Under blind review, neither reviewer sees the other's decision on a paper until both have made one. When both agree, the paper's decision is final and it moves on. When they differ, it goes to the **Conflicts** tab.
+
+    [Title & Abstract Screening in a dual review](/systematic-review/dual-review/title-abstract-screening)
+  </Step>
+
+  <Step title="Resolve conflicts" icon="scale" title-type="p">
+    The conflict resolver works from the **Conflicts** tab. For each paper they see both decisions, both reasons, the AI evidence, and any comments, and they settle it by siding with one reviewer or making a different decision. Their decision is final and recorded on the paper.
+
+    Two exclusions with different reasons also count as a conflict, because the reason is part of what your review reports. Watch **Cohen's Kappa** on the stage card. A low score early on usually means the reviewers are reading a criterion differently, which is cheaper to talk through after twenty papers than after two hundred.
+
+    [Agreement, conflicts and Cohen's Kappa](/systematic-review/dual-review/how-it-works#agreement-and-conflicts)
+  </Step>
+
+  <Step title="Screen full texts" icon="file-text" title-type="p">
+    A paper enters the full text stage as soon as its title & abstract decision is a final Include or Maybe. The full text reviewers can start while abstract screening is still under way.
+
+    Every paper needs a PDF. Attach missing ones by uploading them or fetching them with the Paperguide browser extension. A paper without a PDF is held as **not retrieved** and cannot be voted on until one is added. With a PDF in place, each reviewer reads the paper in the built-in viewer, checks each criterion against the highlighted evidence, and chooses **Include** or **Exclude**. There is no Maybe at this stage. Conflicts go to the stage's resolver as before.
+
+    [Full Text Screening in a dual review](/systematic-review/dual-review/full-text-screening)
+  </Step>
+
+  <Step title="Extract data" icon="table" title-type="p">
+    Extraction opens once full text screening is complete: every paper with a PDF has both reviewers' decisions and every conflict is resolved. Papers still waiting for a PDF do not hold it up. A Full Access member selects **Start Extraction**, AI fills every extraction field for the included papers, and the results build into a table with a citation behind every value.
+
+    The Extraction Verifier works through the table, opens each citation to read the supporting statement, corrects any value that is wrong, and confirms. This stage works exactly as it does in an AI Review.
+
+    [Data Extraction](/systematic-review/data-extraction)
+  </Step>
+
+  <Step title="Generate the report" icon="file-check" title-type="p">
+    Once extraction is confirmed, the **Report** stage is available. Paperguide AI synthesizes the confirmed data into a report covering the findings, the methodology, and the PRISMA diagram built from your actual screening decisions.
+
+    For a dual review, the paper histories and the review's Activity log give you everything a methods section asks for: who screened, how conflicts were resolved, and the agreement between reviewers. Export the report as PDF or DOCX, paper lists as BibTeX, RIS, CSV, or Excel, and screening decisions and extracted data as CSV or Excel.
+
+    [The report and PRISMA diagram](/systematic-review/overview#the-report)
+  </Step>
+</Steps>
+
+## What to expect along the way
+
+**Papers move one at a time.** There is no "confirm the stage" step in dual screening. A screening stage is complete when every paper has both reviewers' decisions and every conflict is resolved, and it goes back to In progress if papers are added or a decision changes. Full text screening takes papers as their abstract decisions become final; data extraction waits for full text screening to complete.
+
+**Nobody screens without a role.** A Full Access member with no role on a stage can read the papers and comment, but cannot vote or resolve there. Every decision in the record was made by one of the named people.
+
+**Decisions can change, safely.** A reviewer can change a vote at any time. If that reopens a disagreement, the paper returns to the resolver and the current final decision stays in force until they look again. Changing a final decision in a way that takes a paper out of a later stage asks for confirmation before any downstream work on that paper is deleted. [Changing a decision later](/systematic-review/dual-review/how-it-works#changing-a-decision-later)
+
+**Everything is recorded.** Every vote, change of vote, and resolver decision is kept in the paper's history, and the review's **Activity** panel records every run, setting change, and role change. [Audit trail and logs](/systematic-review/overview#audit-trail-and-logs)
+
+## Related pages
+
+- [How Dual Review works](/systematic-review/dual-review/how-it-works)
+- [Members, Access & Roles](/systematic-review/members-roles)
+- [Getting Started with AI Review](/systematic-review/ai-review/getting-started)

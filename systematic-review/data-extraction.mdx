@@ -11,7 +11,7 @@ description: >-
 The final working stage. Paperguide AI reads every included paper and pulls out the fields you defined in your protocol, assembling them into a table with a citation behind every value. A person verifies that table before it becomes the basis of your report.
 
 <Callout kind="info" collapsed="false">
-  **_Before you start:_** Your extraction fields must be defined in the [Protocol](/systematic-review/protocol), and [Full Text Screening](/systematic-review/full-text-screening) must be confirmed. Assign your verifier before starting, not after.
+  **Before you start:** Your extraction fields must be defined in the [Protocol](/systematic-review/protocol), and full text screening must be confirmed ([AI Review](/systematic-review/ai-review/full-text-screening)) or the papers' full text decisions must be final ([Dual Review](/systematic-review/dual-review/full-text-screening)). Assign your verifier before starting, not after.
 </Callout>
 
 ## How this stage works
@@ -29,6 +29,10 @@ Every paper marked **Included** in full text screening moves here. Excluded and 
 
 <Callout kind="info" collapsed="false">
   If you disabled full text screening when you created the review, papers arrive here straight from abstract screening. Any without a PDF are ineligible for extraction, since there is no full text to read.
+</Callout>
+
+<Callout kind="info" collapsed="false">
+  **In a Dual Review**, extraction works exactly as described on this page: Paperguide AI extracts and one assigned verifier checks. Extraction opens once full text screening is complete, meaning every paper with a PDF has both reviewers' decisions and every conflict is resolved. There is no confirm step for the screening stage itself. See [How Dual Review works](/systematic-review/dual-review/how-it-works#how-papers-move-between-stages).
 </Callout>
 
 ## Before you start
@@ -57,7 +61,7 @@ A clear instruction does three things:
 2. **Lists the details to capture**, including sub-components, units, and expected categories.
 3. **Says how to present the answer**, so values are comparable across every paper.
 
-[Building better extraction fields](https://helpcenter.paperguide.ai/systematic-review/protocol#building-better-extraction-fields)
+[Building better extraction fields](/systematic-review/protocol#building-better-extraction-fields)
 
 ### Assign a verifier
 
@@ -66,7 +70,7 @@ Assign the person responsible for verifying this stage before extraction starts.
 | If the stage is        | Who verifies it                                                                                       |
 | ---------------------- | ----------------------------------------------------------------------------------------------------- |
 | Assigned to a member   | That member. They receive the notification when extraction finishes.                                  |
-| Not assigned to anyone | Any Full Access or Review member. All of them are notified and can work through the results together. |
+| Not assigned to anyone | Any Full Access or Review member can work through the results together. In a personal workspace, all of them are notified. In an organization's team workspace, only the review creator is notified. |
 
 View members can never verify, assigned or not.
 
@@ -78,9 +82,9 @@ View members can never verify, assigned or not.
 
 Before you begin, check that the extraction fields defined in your protocol are the ones you want. Changing fields after a run means extracting again.
 
-Select **Start extraction**. For each paper, AI works through your fields one at a time, following each field's instructions to locate the relevant material, interpret it, and produce the output in the structure you specified. Results build into the table as papers are processed.
+Select **Start Extraction**. For each paper, AI works through your fields one at a time, following each field's instructions to locate the relevant material, interpret it, and produce the output in the structure you specified. Results build into the table as papers are processed.
 
-Paperguide sends an email when the run completes: to the assigned verifier, or to every Full Access and Review member if the stage is unassigned.
+Paperguide sends an email when the run completes: to the assigned verifier, or, if the stage is unassigned, to every Full Access and Review member in a personal workspace and to the review creator only in an organization's team workspace.
 
 <Callout kind="info" collapsed="false">
   &#x20;PDF quality affects extraction accuracy. Image-only scans and PDFs without usable text layers give AI less to work with than a clean digital PDF.
@@ -112,7 +116,7 @@ Extracted values are proposals. A confirmed value is one a person has checked.
 
 **To correct a value**, edit it directly. Your edit is saved over the AI value, and both are kept, so the review holds a record of what AI extracted and what a person changed.
 
-**To confirm**, select **Confirm** once you have verified a paper's fields. Work through papers one at a time, or select **Confirm All** to confirm the full table at once when you have reviewed it.
+**To confirm**, select **Confirm** once you have verified a paper's fields. Work through papers one at a time, or select **Confirm all** to confirm the full table at once when you have reviewed it.
 
 Full Access members can review and override extracted values after verification is complete, including values confirmed by another member.
 

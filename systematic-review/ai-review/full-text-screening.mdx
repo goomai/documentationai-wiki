@@ -11,7 +11,7 @@ description: >-
 The second and final screening pass. Paperguide AI reads the full PDF of every paper that survived abstract screening, evaluates it against your full text criteria, and links each decision to the exact statements it relied on. A person then verifies that work before the review moves on.
 
 <Callout kind="info" collapsed="false">
-  **Before you start:** Your full text screening criteria must be defined in the [Protocol](/systematic-review/protocol), and [Title & Abstract Screening](/systematic-review/title-abstract-screening) must be confirmed. Assign your verifier before starting, not after.
+  **Before you start:** Your full text screening criteria must be defined in the [Protocol](/systematic-review/protocol), and [Title & Abstract Screening](/systematic-review/ai-review/title-abstract-screening) must be confirmed. Assign your verifier before starting, not after.
 </Callout>
 
 ## How this stage works
@@ -20,6 +20,8 @@ The second and final screening pass. Paperguide AI reads the full PDF of every p
 2. **Papers without a PDF are marked ineligible.** They are held out of the run until a PDF is attached.
 3. **A verifier reviews the decisions.** They check each one against the cited statements in the PDF and override anything that is wrong.
 4. **The verifier confirms the papers.** Only then does data extraction unlock.
+
+This page describes an AI Review. In a Dual Review, two people read every full text and AI makes no decision. See [Full Text Screening in a dual review](/systematic-review/dual-review/full-text-screening).
 
 ## How this differs from abstract screening
 
@@ -70,7 +72,7 @@ Assign the person responsible for verifying this stage before screening starts. 
 | If the stage is        | Who verifies it                                                                                       |
 | ---------------------- | ----------------------------------------------------------------------------------------------------- |
 | Assigned to a member   | That member. They receive the notification when screening finishes.                                   |
-| Not assigned to anyone | Any Full Access or Review member. All of them are notified and can work through the results together. |
+| Not assigned to anyone | Any Full Access or Review member can work through the results together. In a personal workspace, all of them are notified. In an organization's team workspace, only the review creator is notified. |
 
 View members can never verify, assigned or not.
 
@@ -82,7 +84,7 @@ View members can never verify, assigned or not.
 
 When the run starts, Paperguide indexes the attached PDFs and screens each paper as its indexing completes. Full text screening therefore takes longer than abstract screening: a full paper carries far more text than an abstract, and it has to be processed before it can be read.
 
-Results appear in the screening workspace as the run progresses, so you can begin reviewing before it finishes. Paperguide also sends an email on completion: to the assigned verifier, or to every Full Access and Review member if the stage is unassigned.
+Results appear in the screening workspace as the run progresses, so you can begin reviewing before it finishes. Paperguide also sends an email on completion: to the assigned verifier, or, if the stage is unassigned, to every Full Access and Review member in a personal workspace and to the review creator only in an organization's team workspace.
 
 ## How AI reaches a decision
 
@@ -127,7 +129,7 @@ The AI decision is a recommendation. A confirmed decision is one a person has re
 
 **To verify a paper**, work through the criteria, paying most attention to any marked no, since a single failed criterion determines the outcome. Select the citations to highlight the supporting statements and read them in context. If you agree, confirm. If you disagree, override to Include or Exclude, selecting the failed criterion when you exclude.
 
-**To confirm**, either confirm papers individually as you go, or select **Confirm All** once you have worked through the set. Confirming records the AI decision as approved, or your override as the final decision. Both are kept, so the review holds a record of what AI decided and what a person changed.
+**To confirm**, either confirm papers individually as you go, or select **Confirm all** once you have worked through the set. Confirming records the AI decision as approved, or your override as the final decision. Both are kept, so the review holds a record of what AI decided and what a person changed.
 
 Full Access members can review and override decisions after verification is complete, including decisions made by another member.
 
@@ -139,7 +141,9 @@ Once a PDF is attached, **Start screening** becomes available for the newly read
 
 This means a missing PDF never has to block your review permanently. If you can obtain the paper later, it can still be assessed.
 
-&#x20;\<Callout kind="info" collapsed="false"> Work through your ineligible papers before treating the stage as finished. A paper you could have retrieved is a paper your review should have assessed, and reviewers will ask. \</Callout>&#x20;
+<Callout kind="info" collapsed="false">
+  Work through your ineligible papers before treating the stage as finished. A paper you could have retrieved is a paper your review should have assessed, and reviewers will ask.
+</Callout>
 
 ## Confirming the stage
 
