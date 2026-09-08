@@ -3,17 +3,22 @@ title: 'Getting Started with Dual Review'
 description: >-
   Run a systematic review in which two reviewers screen every paper
   independently and a conflict resolver settles disagreements. The full path
-  from research question to report, with a link to the detailed page for every
+  from research question to report, with a link to the help page for every
   stage.
 ---
 
 ## What a Dual Review is
 
-In a Dual Review, people make the screening decisions. Two reviewers screen every paper independently, without seeing each other's decision. When they agree, the decision is final. When they disagree, a conflict resolver decides. Paperguide AI supports the reviewers by showing its reasoning and the cited text for each criterion, but it never records an include or exclude.
+In a Dual Review, people make the screening decisions. Two reviewers screen every paper independently, and when they disagree a conflict resolver decides. Dual Review offers two screening options:
+
+- **Manual screening** — reviewers read each paper and the criteria themselves, with no AI input.
+- **AI-assisted screening** — Paperguide AI screens each paper first and shows its reasoning and the cited text for each criterion, so reviewers can review the AI's evidence and make their own decision based on it. The AI never records an include or exclude.
+
+By default, **Blind review** is on, which hides each reviewer's decision from the other until both have decided a paper. You can turn it off if you want reviewers to see each other's decisions as they go.
 
 This is the method Cochrane and PRISMA-grade protocols expect, and the one to choose when your review will be judged by a journal, an editorial group, or a regulator that requires two independent screeners. If you are working alone or speed matters more, use an [AI Review](/systematic-review/ai-review/getting-started) instead.
 
-Dual screening applies to the two screening stages. Data extraction and the report work the same way in both methods: AI extracts, one verifier checks, and the report is generated from confirmed data.
+Dual screening applies to the two screening stages. Data extraction and the report work the same way in both Dual screening and AI screening modes: AI extracts, one verifier checks, and the report is generated from confirmed data.
 
 **Protocol → Papers → Title & Abstract Screening (dual) → Full Text Screening (dual) → Data Extraction → Report**
 
@@ -34,15 +39,15 @@ You need four things:
   <Step title="Create the review" icon="plus-circle" title-type="p">
     From the Systematic Review dashboard, select **New review** and enter your research question as free text. Paperguide AI evaluates it as you type and suggests enhancements for anything missing, such as a population or a comparator. Apply the ones that fit. Refining the question costs no credits.
 
-    Under **Review method**, select **Dual Review**. Then choose which screening stages to run. Keep both **Title & Abstract Screening** and **Full-text Screening** on unless your protocol says otherwise. Select **Start Review**.
+    Under **Screening Method**, select **Dual Review**. Then choose which screening stages to run. Keep both **Title & Abstract Screening** and **Full-text Screening** on unless your protocol says otherwise. Select **Start Review**.
 
     If your plan is below Evidence, Paperguide tells you at this point and offers an upgrade.
 
     <Callout kind="alert" collapsed="false">
-      The review method cannot be changed once the review exists. A review created as an AI Review cannot become a Dual Review later.
+      The screening method cannot be changed once the review is created. A review created as an AI Review cannot become a Dual Review later.
     </Callout>
 
-    [Choosing the review method and screening stages](/systematic-review/overview#creating-a-systematic-review)
+    [Choosing the screening method and screening stages](/systematic-review/overview#creating-a-systematic-review)
   </Step>
 
   <Step title="Add your reviewers" icon="users" title-type="p">
