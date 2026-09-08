@@ -1,0 +1,153 @@
+---
+title: 'Title & Abstract Screening'
+description: >-
+  Two reviewers screen every abstract independently, a conflict resolver
+  settles the papers they disagree on, and each paper moves to full text
+  screening as soon as its decision is final.
+---
+
+## What this stage is
+
+The first screening pass in a dual review. Both assigned reviewers read the title and abstract of every paper in the pool and decide, independently, whether it should go forward. Paperguide AI can show the reasoning and cited text for each criterion to speed the reading, but the decisions are the reviewers' own.
+
+A paper's decision is final when both reviewers agree. When they disagree, the conflict resolver decides. Either way, a paper with a final **Include** or **Maybe** is available for full text screening straight away, while the rest of the stage is still in progress.
+
+<Callout kind="info" collapsed="false">
+  **Before you start:** Your abstract screening criteria must be defined in the [Protocol](/systematic-review/protocol), your papers must be added in [Papers](/systematic-review/papers), and both reviewers for this stage must be assigned in Settings & Roles. Screening cannot start until both reviewer roles name a person. There is no confirm step: every paper in the pool is in scope.
+</Callout>
+
+## Who does what
+
+| Role                  | On this stage                                                                                   |
+| --------------------- | ----------------------------------------------------------------------------------------------- |
+| **Reviewer 1**        | Decides every paper: Include, Maybe, or Exclude with a reason                                   |
+| **Reviewer 2**        | Decides every paper, independently of Reviewer 1                                                |
+| **Conflict Resolver** | Decides the papers the two reviewers disagreed on                                               |
+| **Full Access member** | Starts and continues the AI evidence run. Can read papers and comment, but votes or resolves only if they also hold one of the roles above |
+
+The same person can be a reviewer and the resolver. They are blinded while acting as a reviewer and see everything once a paper reaches them as a conflict. Roles are assigned per stage, so the full text stage can have different people.
+
+[Roles in a dual review](/systematic-review/dual-review/how-it-works#roles-in-a-dual-review)
+
+## Before reviewers start
+
+### Run AI evidence
+
+If **AI Evidence** is on for this stage, a Full Access member selects **Start AI Evidence Run** on the stage card. Paperguide AI evaluates each paper against the abstract criteria and prepares, for every criterion, its reasoning and the sentence from the abstract it relied on. Evidence appears on each paper as it is ready, and reviewers can start voting while the run is still in progress.
+
+If papers are added later, **Continue AI Evidence Run** covers the papers that have no evidence yet.
+
+With AI Evidence off, no AI runs for this stage, no credits are spent, and reviewers see the paper and the criteria only.
+
+### Check blind review
+
+**Blind review** is on by default. It hides the other reviewer's decision on any paper you have not yet decided, and their split between Include, Maybe, and Exclude on the overview until you have caught up with them. The paper, the criteria, the AI evidence, and the comments stay visible. A Full Access member can turn it off in Settings & Roles, though most protocols expect it on.
+
+[Review settings](/systematic-review/dual-review/how-it-works#review-settings)
+
+## The screening workspace
+
+Open the stage from the review overview. The paper list sits on one side and the selected paper on the other, with the abstract, the criteria, and any AI evidence beside it.
+
+The list is organized into tabs. Which tabs you see depends on your role.
+
+| Tab                 | What it holds                                                                     | Who sees it            |
+| ------------------- | --------------------------------------------------------------------------------- | ---------------------- |
+| **To Review**       | Papers that do not yet have your decision. This is your queue.                   | Reviewers              |
+| **Awaiting Others** | Papers you have decided that the other reviewer has not yet                       | Reviewers              |
+| **No Vote**         | Papers neither reviewer has decided                                               | Conflict resolver      |
+| **One Vote**        | Papers with only one reviewer's decision so far                                   | Conflict resolver      |
+| **Conflicts**       | Papers the reviewers disagreed on, waiting for the resolver                       | Everyone               |
+| **Included**        | Papers with a final Include or Maybe                                              | Everyone               |
+| **Excluded**        | Papers with a final Exclude                                                       | Everyone               |
+| **All Papers**      | Every paper in the stage                                                          | Everyone               |
+
+A person who is both a reviewer and the resolver sees all eight tabs. A member with no role on the stage sees All Papers, Conflicts, Included, and Excluded.
+
+Within any tab you can filter by year, citations, whether a PDF is attached, and the AI verdict on each criterion, and sort by relevance, date, or citations. Reviewers can also filter by their own vote.
+
+## Making a decision
+
+Work from **To Review**. When it is empty, you have screened everything currently in the stage.
+
+<Steps>
+  <Step title="Read the abstract against the criteria" icon="search" title-type="p">
+    Check each criterion in turn. If AI evidence is on, select a criterion to see the reasoning and the passage it relied on, and read that passage in context. The evidence is there to take you to the right sentence quickly, not to decide for you.
+  </Step>
+
+  <Step title="Choose Include, Maybe, or Exclude" icon="check-circle" title-type="p">
+    Under **Make Your Decision**, choose one:
+
+    | Decision    | Use it when                                                                                   |
+    | ----------- | --------------------------------------------------------------------------------------------- |
+    | **Include** | The abstract satisfies every criterion                                                        |
+    | **Maybe**   | The abstract does not give enough to judge one or more criteria. The paper goes forward to be settled on its full text |
+    | **Exclude** | The abstract clearly fails a criterion. Select that criterion as the reason                   |
+
+    **An exclusion needs exactly one criterion as its reason.** A paper may fail several, but only the one you select is recorded and reported in your PRISMA exclusion breakdown. Choose the one that matters most for your review. Include and Maybe need no reason.
+
+    Abstract screening is meant to be sensitive. If you cannot rule a paper out from its abstract, Maybe is the correct answer. Losing a relevant study here is a more serious error than carrying an irrelevant one to full text.
+  </Step>
+
+  <Step title="Move to the next paper" icon="arrow-right" title-type="p">
+    After you decide, the workspace moves you to the next paper in your queue. You can return to any paper and change your decision at any time. See [Changing a decision later](/systematic-review/dual-review/how-it-works#changing-a-decision-later) for what happens when you do.
+  </Step>
+</Steps>
+
+### What you see of the other reviewer
+
+Under blind review, a paper you have decided but the other reviewer has not shows their vote as **Hidden**. Once both of you have decided, both votes are visible on the paper. Papers where you agreed show **Decided by agreement**; papers where you differed appear in Conflicts.
+
+On the review overview you can always see how many papers the other reviewer has decided and how many remain. Their split between Include, Maybe, and Exclude stays hidden until you have decided every paper they have.
+
+### Comments
+
+Any member with Review or Full Access can comment on a paper. Comments are visible to everyone on the review, including under blind review, so use them for questions about the paper rather than to signal your decision.
+
+## Resolving conflicts
+
+A conflict is any pair of decisions that does not match: Include against Maybe, Maybe against Exclude, Include against Exclude, or two Excludes with different reasons. The last one counts on purpose. The exclusion reason is part of what your review reports, so a disagreement about it is settled by a person, not merged silently.
+
+The conflict resolver works from the **Conflicts** tab. For each paper they see both reviewers' decisions and reasons, the AI evidence, and the comments. They can side with Reviewer 1, side with Reviewer 2, or make a different decision. **Maybe is a valid resolution** at this stage; the paper moves to full text, where it gets a firm decision. A resolving Exclude needs a criterion as its reason.
+
+The resolver's decision is final. The paper shows **Decided by the conflict resolver** and its history records who resolved it and how.
+
+[Agreement and conflicts](/systematic-review/dual-review/how-it-works#agreement-and-conflicts)
+
+## Tracking progress
+
+The stage card on the review overview shows each reviewer's progress and the number of open conflicts. Once both reviewers have decided enough papers to measure it also shows **Cohen's Kappa**, the standard measure of agreement between two raters, over the papers both have decided.
+
+Treat it as a health check. A low score early in the stage usually means the two reviewers are reading a criterion differently, and a short conversation about that criterion is cheaper after twenty papers than after two hundred. Many journals ask for the kappa value in the methods section, and this is the number to report.
+
+## When the stage is complete
+
+The stage is complete when every paper has a decision from both reviewers and every conflict is resolved. There is no confirm step. Papers with a final Include or Maybe move to full text screening as their decisions become final; papers with a final Exclude stop here and feed the screening block of your PRISMA diagram, each with the criterion it failed.
+
+Completion is not a lock. Adding papers, a changed vote, or a reopened conflict takes the stage back to In progress, and settling the last open item completes it again.
+
+<Callout kind="info" collapsed="false">
+  If you disabled title & abstract screening when you created the review, this stage does not exist and every confirmed paper goes straight to full text screening.
+</Callout>
+
+## Adding papers later
+
+You can add papers at any point. New papers enter both reviewers' **To Review** queues and the stage returns to In progress until they are decided. If AI evidence is on, run **Continue AI Evidence Run** to prepare evidence for them.
+
+[Adding papers after screening has started](/systematic-review/papers#adding-papers-after-screening-has-started)
+
+## If the criteria change
+
+Decisions were made against the criteria as they stood. When a Full Access member saves a change to the abstract criteria, Paperguide asks whether to reset every decision in the stage or only the ones the change touches. Each reset decision returns to the queue of the reviewer who made it, blind again as normal. If AI Evidence is on, the stage card then offers **Restart AI Evidence Run** so the evidence matches the new criteria.
+
+[Editing the protocol during screening](/systematic-review/dual-review/how-it-works#editing-the-protocol-during-screening)
+
+## Exporting screening data
+
+You can export the stage's results at any point: the paper lists as BibTeX, RIS, CSV, or Excel, and the screening decisions with their exclusion reasons as CSV or Excel. Useful for sharing progress with collaborators outside Paperguide and for keeping a screening record alongside your submission. The individual votes and resolutions live in each paper's history.
+
+## Related pages
+
+- [Full Text Screening in a dual review](/systematic-review/dual-review/full-text-screening)
+- [How Dual Review works](/systematic-review/dual-review/how-it-works)
+- [Getting Started with Dual Review](/systematic-review/dual-review/getting-started)

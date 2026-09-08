@@ -48,11 +48,6 @@
                 "icon": "lucide-users-round"
               },
               {
-                "title": "Dual Review",
-                "path": "systematic-review/dual-review",
-                "icon": "lucide-users"
-              },
-              {
                 "title": "Protocol",
                 "path": "systematic-review/protocol",
                 "icon": "lucide-list-checks"
@@ -63,19 +58,58 @@
                 "icon": "lucide-files"
               },
               {
-                "title": "Title & Abstract Screening",
-                "path": "systematic-review/title-abstract-screening",
-                "icon": "lucide-filter"
-              },
-              {
-                "title": "Full Text Screening",
-                "path": "systematic-review/full-text-screening",
-                "icon": "lucide-file-search"
-              },
-              {
                 "title": "Data Extraction",
                 "path": "systematic-review/data-extraction",
                 "icon": "lucide-table"
+              },
+              {
+                "group": "AI Review",
+                "icon": "lucide-sparkles",
+                "expandable": true,
+                "pages": [
+                  {
+                    "title": "Getting Started",
+                    "path": "systematic-review/ai-review/getting-started",
+                    "icon": "lucide-rocket"
+                  },
+                  {
+                    "title": "Title & Abstract Screening",
+                    "path": "systematic-review/ai-review/title-abstract-screening",
+                    "icon": "lucide-filter"
+                  },
+                  {
+                    "title": "Full Text Screening",
+                    "path": "systematic-review/ai-review/full-text-screening",
+                    "icon": "lucide-file-search"
+                  }
+                ]
+              },
+              {
+                "group": "Dual Review",
+                "icon": "lucide-users",
+                "expandable": true,
+                "pages": [
+                  {
+                    "title": "Getting Started",
+                    "path": "systematic-review/dual-review/getting-started",
+                    "icon": "lucide-rocket"
+                  },
+                  {
+                    "title": "How Dual Review Works",
+                    "path": "systematic-review/dual-review/how-it-works",
+                    "icon": "lucide-book-open"
+                  },
+                  {
+                    "title": "Title & Abstract Screening",
+                    "path": "systematic-review/dual-review/title-abstract-screening",
+                    "icon": "lucide-filter"
+                  },
+                  {
+                    "title": "Full Text Screening",
+                    "path": "systematic-review/dual-review/full-text-screening",
+                    "icon": "lucide-file-search"
+                  }
+                ]
               }
             ],
             "path": "systematic-review"
@@ -288,6 +322,20 @@
       }
     ]
   },
+  "redirects": [
+    {
+      "source": "/systematic-review/dual-review",
+      "destination": "/systematic-review/dual-review/how-it-works"
+    },
+    {
+      "source": "/systematic-review/title-abstract-screening",
+      "destination": "/systematic-review/ai-review/title-abstract-screening"
+    },
+    {
+      "source": "/systematic-review/full-text-screening",
+      "destination": "/systematic-review/ai-review/full-text-screening"
+    }
+  ],
   "favicon": "https://blob-cdn.documentation.ai/org-32657b98-c10c-411d-8b88-f43a8010b91d/doc-f333a884-cde9-44eb-8107-3714d598a727/1763705671832-bvvgyrlwcr-Frame-48100559.png",
   "logo-dark": "https://blob-cdn.documentation.ai/org-32657b98-c10c-411d-8b88-f43a8010b91d/doc-f333a884-cde9-44eb-8107-3714d598a727/1763705652841-tkd4k6e04i-paperguide-dark-theme-logo.png",
   "logo-light": "https://blob-cdn.documentation.ai/org-32657b98-c10c-411d-8b88-f43a8010b91d/doc-f333a884-cde9-44eb-8107-3714d598a727/1763705663446-4kojnn1ps4t-paperguide-logo.png",

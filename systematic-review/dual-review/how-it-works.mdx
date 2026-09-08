@@ -1,10 +1,12 @@
 ---
-title: Dual Review
+title: How Dual Review Works
 description: >-
-  Run screening with two independent human reviewers and a conflict resolver,
-  the way Cochrane and PRISMA expect. Blind review, AI evidence, agreement
-  rules, and what happens when reviewers disagree.
+  The rules behind a dual review: roles, blind review, AI evidence, how two
+  decisions become one, Cohen's Kappa, and what happens when a decision, the
+  criteria, or a reviewer changes mid-review.
 ---
+
+This page is the reference for dual review. For the step-by-step path from creating the review to the report, see [Getting Started with Dual Review](/systematic-review/dual-review/getting-started).
 
 ## What dual review is
 
@@ -24,22 +26,15 @@ Dual review applies to the two screening stages, title & abstract and full text.
 
 ## Choosing the review method
 
-You choose the method once, when you create the review, under **Review method**.
+You choose the method once, when you create the review, under **Review method**. It cannot be changed afterwards. If you need to switch, create a new review.
 
-| Method          | How screening works                                                              | Best for                                    |
-| --------------- | -------------------------------------------------------------------------------- | ------------------------------------------- |
-| **AI Review**   | Paperguide AI screens, extracts and drafts. You verify each stage.               | Solo researchers and fast triage            |
-| **Dual Review** | Two reviewers screen independently. A resolver settles disagreements.            | Teams and formal protocols                  |
+The method applies to the whole review. A dual review is dual at title & abstract screening and at full text screening. The screening stage toggles work as usual, so you can still run a dual review with only one of the two screening stages. Dual Review needs an Evidence plan or higher.
 
-<Callout kind="alert" collapsed="false">
-  The review method cannot be changed after the review is created. If you need to switch, create a new review. Decide before you start whether your review needs two independent screeners.
-</Callout>
-
-The method applies to the whole review. A dual review is dual at title & abstract screening and at full text screening. The screening stage toggles work as usual, so you can still run a dual review with only one of the two screening stages.
+[Comparing the two methods](/systematic-review/overview#two-ways-to-run-a-review)
 
 ## Roles in a dual review
 
-Each screening stage has three roles, assigned separately in the review's **Settings** tab. The people can differ between stages.
+Each screening stage has three roles, assigned separately in the review's **Settings & Roles** tab. The people can differ between stages.
 
 | Role                  | What they do                                                        |
 | --------------------- | ------------------------------------------------------------------- |
@@ -53,13 +48,13 @@ A few rules apply:
 - Reviewer 1 and Reviewer 2 must be different people.
 - The conflict resolver can also be one of the reviewers. On a small team this is common: two people screen, and one of them settles conflicts.
 - Both reviewers must be assigned before screening on that stage can start. The resolver can be assigned later. Leaving the resolver empty only holds up conflicts, not screening.
-- Data extraction keeps its single **Data Extraction verifier**, as in an AI Review.
+- Data extraction keeps its single **Extraction Verifier**, as in an AI Review.
 
 Only members with **Full Access** or **Review** access can hold a role. See [Members, Access & Roles](/systematic-review/members-roles) for how access works.
 
 ## Review settings
 
-Two settings shape how a dual review runs. Both are in the review's **Settings** tab. Only Full Access members can change them.
+Two settings shape how a dual review runs. Both are in the review's **Settings & Roles** tab. Only Full Access members can change them.
 
 ### Blind review
 
@@ -85,40 +80,20 @@ With AI evidence on, Paperguide AI evaluates each paper against your criteria. F
 
 With AI evidence off, no AI runs for that stage and no [AI credits](/ai-credits) are spent on it. Reviewers see the paper and the criteria, nothing more.
 
-To generate evidence, a Full Access member selects **Start AI Evidence Run** on the stage card. Reviewers can start voting while the run is still in progress. If you add papers later, **Continue AI Evidence Run** covers the new ones.
+To generate evidence, a Full Access member selects **Start AI Evidence Run** on the stage card. Reviewers can start voting while the run is still in progress. If you add papers later, **Continue AI Evidence Run** covers the papers that have no evidence yet. After a criteria change, **Restart AI Evidence Run** regenerates it for the whole stage.
 
 ## How reviewers decide
 
-Each reviewer's decision on a paper is called a **vote**. Both reviewers follow the same steps.
+Each reviewer's decision on a paper is called a **vote**. Both reviewers work from the **To Review** tab of the screening workspace. They read each paper against the criteria, with the AI evidence beside it, and choose under **Make Your Decision**:
 
-<Steps>
-  <Step title="Open the stage" icon="folder-open" title-type="p">
-    Open the stage from the review overview. The screening workspace shows the paper list on one side and the selected paper on the other. At title & abstract you see the abstract. At full text you see the full text and the PDF. The criteria and any AI evidence sit beside the paper.
-  </Step>
+| Stage                | Decision options           |
+| -------------------- | -------------------------- |
+| **Title & Abstract** | Include, Maybe, or Exclude |
+| **Full Text**        | Include or Exclude         |
 
-  <Step title="Work from the To Review tab" icon="list-checks" title-type="p">
-    The **To Review** tab is your queue: every paper in the stage that does not yet have your vote. When it is empty, you have screened everything currently in the stage.
-  </Step>
+**Excluding a paper requires choosing one criterion as the reason.** You may feel a paper fails several criteria, but only the one you select is recorded and reported. This is the reason that appears in your PRISMA exclusion breakdown, so choose the one that matters most for your review. Include and Maybe need no reason.
 
-  <Step title="Read the paper against the criteria" icon="search" title-type="p">
-    Check each criterion. If AI evidence is on, select a criterion to see the reasoning and the passage it relied on, and read that passage in context.
-  </Step>
-
-  <Step title="Make your decision" icon="check-circle" title-type="p">
-    Under **Make Your Decision**, choose:
-
-    | Stage                | Decision options           |
-    | -------------------- | -------------------------- |
-    | **Title & Abstract** | Include, Maybe, or Exclude |
-    | **Full Text**        | Include or Exclude         |
-
-    **Excluding a paper requires choosing one criterion as the reason.** You may feel a paper fails several criteria, but only the one you select is recorded and reported. This is the reason that appears in your PRISMA exclusion breakdown, so choose the one that matters most for your review. Include and Maybe need no reason.
-  </Step>
-
-  <Step title="Move to the next paper" icon="arrow-right" title-type="p">
-    After you vote, the workspace moves you to the next paper that needs your decision. You can come back and change a vote at any time. See [Changing a decision later](#changing-a-decision-later) for what happens when you do.
-  </Step>
-</Steps>
+The stage pages walk through the workspace, the tabs each role sees, and the decision step by step: [Title & Abstract Screening](/systematic-review/dual-review/title-abstract-screening) and [Full Text Screening](/systematic-review/dual-review/full-text-screening).
 
 ### Comments
 
@@ -169,9 +144,9 @@ This is the biggest practical difference from an AI Review.
 In an AI Review, a stage has to be fully confirmed before the next one opens. In a dual review, **papers move individually, the moment their decision is final**:
 
 - A paper with a final Include or Maybe at title & abstract is available for full text screening straight away. Full text reviewers can work while title & abstract screening is still in progress.
-- A paper with a final Include at full text is available for data extraction straight away.
+- Data extraction opens once full text screening is complete, since the extraction table needs the final set of included papers. Papers still waiting for a PDF do not hold it up.
 
-Nothing waits for a whole stage to finish. On a large review, this means the full text reviewers are not idle for weeks while abstract screening completes.
+Screening never waits for a whole stage to finish. On a large review, this means the full text reviewers are not idle for weeks while abstract screening completes.
 
 ### When a stage is complete
 
@@ -188,7 +163,7 @@ At full text, a paper without a PDF cannot be voted on. It is held as **not retr
 
 ### Adding papers later
 
-You can add papers at any point. New papers enter both reviewers' queues at title & abstract, and the stage returns to In progress until they are decided. If AI evidence is on, run **Continue AI Evidence Run** to generate evidence for them.
+You can add papers at any point. New papers enter both reviewers' queues at title & abstract, and the stage returns to In progress until they are decided. If AI Evidence is on, run **Continue AI Evidence Run** to generate evidence for them.
 
 ## Changing a decision later
 
@@ -239,13 +214,13 @@ Which decisions count as affected:
 | Criterion **deleted**  | Excludes that used the deleted criterion as their reason                        | Includes, Maybes, and Excludes on other criteria    |
 | Criterion **edited**   | All Include and Maybe decisions, plus Excludes that used the edited criterion   | Excludes on other criteria                          |
 
-A reset decision goes back into both reviewers' queues, blind again as normal. If a reset decision fed a conflict resolution, that resolution and the final decision are cleared too, and anything done downstream for that paper is removed. A generated report is deleted as well, since it was built on decisions that no longer stand.
+A reset decision goes back into the queue of the reviewer who made it, blind again as normal. With the affected-only choice, a paper may return to one reviewer and not the other. If a reset decision fed a conflict resolution, that resolution and the final decision are cleared too, and anything done downstream for that paper is removed. A generated report is deleted as well, since it was built on decisions that no longer stand.
 
 This is why the protocol is worth settling before screening starts. See [Protocol](/systematic-review/protocol).
 
 ## Replacing a reviewer mid-review
 
-You can give a reviewer or resolver role to someone else at any time from the review's Settings tab.
+You can give a reviewer or resolver role to someone else at any time from the review's **Settings & Roles** tab.
 
 Changing the resolver asks nothing. Changing a reviewer who has already made decisions asks **how the new reviewer should start**:
 
@@ -269,7 +244,8 @@ This record, together with the review-level [Activity log](/systematic-review/ov
 
 ## Related pages
 
+- [Getting Started with Dual Review](/systematic-review/dual-review/getting-started)
+- [Title & Abstract Screening](/systematic-review/dual-review/title-abstract-screening)
+- [Full Text Screening](/systematic-review/dual-review/full-text-screening)
 - [Members, Access & Roles](/systematic-review/members-roles)
-- [Title & Abstract Screening](/systematic-review/title-abstract-screening)
-- [Full Text Screening](/systematic-review/full-text-screening)
 - [Protocol](/systematic-review/protocol)
