@@ -230,21 +230,28 @@
             "group": "MCP Server",
             "pages": [
               {
-                "title": "Overview",
-                "path": "mcp/overview",
-                "icon": "grid2-x2-plus"
-              },
-              {
-                "title": "Connecting MCP",
+                "title": "Connect",
                 "path": "mcp/connect-and-manage",
-                "icon": "circle-plus"
+                "icon": "lucide-plug"
               },
               {
-                "title": "Use Your Reference Manager",
+                "title": "Search Papers",
+                "path": "mcp/search-papers",
+                "icon": "lucide-search"
+              },
+              {
+                "title": "Reference Manager",
                 "path": "mcp/reference-manager",
                 "icon": "lucide-folder"
+              },
+              {
+                "title": "Credits",
+                "path": "mcp/credits",
+                "icon": "lucide-coins"
               }
-            ]
+            ],
+            "icon": "lucide-plug",
+            "path": "mcp"
           },
           {
             "group": "Others",
@@ -339,6 +346,10 @@
     {
       "source": "/systematic-review/full-text-screening",
       "destination": "/systematic-review/ai-review/full-text-screening"
+    },
+    {
+      "source": "/mcp/overview",
+      "destination": "/mcp"
     }
   ],
   "favicon": "https://blob-cdn.documentation.ai/org-32657b98-c10c-411d-8b88-f43a8010b91d/doc-f333a884-cde9-44eb-8107-3714d598a727/1763705671832-bvvgyrlwcr-Frame-48100559.png",

@@ -1,189 +1,186 @@
 ---
-title: Connect & Manage
+title: Connect
 description: >-
-  Set up Paperguide in your AI assistant once, then search papers and work with
-  your reference manager without leaving your chat.
+  Add Paperguide to Claude, ChatGPT, Cursor, VS Code, Windsurf, Claude Code, or
+  Codex, and manage your connected assistants.
 ---
 ## Connect your AI assistant
 
-You only need to do this once. After connecting, your assistant can search Paperguide and work with your reference manager whenever you ask.
-
-The same MCP URL works across all clients:
+You do this once per assistant. The same URL works everywhere:
 
 ```text
 https://mcp.paperguide.ai/mcp
 ```
 
-Find your assistant below and follow the steps.
-
-<Callout kind="tip" collapsed="false">
-  Not sure which assistant to use? Claude and ChatGPT are the most popular for research questions. Cursor and VS Code are great if you also write code.
-</Callout>
+Pick your assistant and follow the steps.
 
 <Tabs>
   <Tab title="Claude">
-    1. **Open connector settings** — Go to Settings → Connectors → Add custom connector.
-    2. **Add the Paperguide server** — Name it Paperguide and paste:
+    <Steps>
+      <Step title="Open connector settings" icon="settings" title-type="p">
+        Go to **Settings → Connectors → Add custom connector**.
+      </Step>
+      <Step title="Add Paperguide" icon="plus" title-type="p">
+        Name it `Paperguide` and paste the URL above. Leave the OAuth client ID and secret empty.
+      </Step>
+      <Step title="Connect and sign in" icon="log-in" title-type="p">
+        Click **Connect**. A browser window opens for you to sign in to Paperguide. If you belong to an organization, choose which account pays for this assistant.
+      </Step>
+    </Steps>
 
-    ```text
-    https://mcp.paperguide.ai/mcp
-    ```
-
-    3. **Leave OAuth fields empty** — Leave the OAuth client ID and secret fields empty. Registration is automatic.
-    4. **Connect and sign in** — Click Connect. A browser window opens for you to sign in to Paperguide.
-    5. **Choose a billing account if needed** — If you belong to an organization, choose which credit account pays for MCP usage.
+    <Callout kind="info" collapsed="false">
+      Custom connectors need a paid Claude plan.
+    </Callout>
   </Tab>
 
   <Tab title="ChatGPT">
-    1. **Open Apps and Connectors** — Go to Settings → Apps & Connectors.
-    2. **Add the Paperguide server** — Add a custom remote MCP server and paste:
+    <Steps>
+      <Step title="Open Apps & Connectors" icon="settings" title-type="p">
+        Go to **Settings → Apps & Connectors**. Turn on developer mode if ChatGPT asks for it.
+      </Step>
+      <Step title="Add Paperguide" icon="plus" title-type="p">
+        Add a custom remote MCP server and paste the URL above.
+      </Step>
+      <Step title="Sign in" icon="log-in" title-type="p">
+        Sign in to Paperguide when the browser window opens. If you belong to an organization, choose which account pays for this assistant.
+      </Step>
+    </Steps>
 
-    ```text
-    https://mcp.paperguide.ai/mcp
-    ```
-
-    3. **Enable developer mode if required** — Developer mode may be required until Paperguide is listed in the ChatGPT app directory.
+    <Callout kind="info" collapsed="false">
+      Custom connectors need a paid ChatGPT plan.
+    </Callout>
 
     <Callout kind="alert" collapsed="false">
-      In ordinary chat, sources from an unlisted connector are used by the model but not shown as visible citations. This is ChatGPT's behavior for connectors outside its directory. Citations do render in Deep Research — select Paperguide as a source before starting the run.
+      In ordinary chat, ChatGPT uses Paperguide results but does not show them as citations. Citations appear in Deep Research: select Paperguide as a source before you start.
     </Callout>
   </Tab>
 
   <Tab title="Cursor">
-    1. **Open MCP settings** — Go to Settings → Tools & MCP → New MCP Server, or edit the config file directly.
-    2. **Add the server configuration:**
-
-    ```json
-    {
-      "mcpServers": {
-        "Paperguide": {
-          "url": "https://mcp.paperguide.ai/mcp"
+    <Steps>
+      <Step title="Open MCP settings" icon="settings" title-type="p">
+        Go to **Settings → Tools & MCP → New MCP Server**, or edit the config file.
+      </Step>
+      <Step title="Add the server" icon="plus" title-type="p">
+        ```json
+        {
+          "mcpServers": {
+            "Paperguide": {
+              "url": "https://mcp.paperguide.ai/mcp"
+            }
+          }
         }
-      }
-    }
-    ```
+        ```
+      </Step>
+      <Step title="Sign in" icon="log-in" title-type="p">
+        Sign in to Paperguide when prompted.
+      </Step>
+    </Steps>
 
     <Callout kind="info" collapsed="false">
-      Older Cursor versions cannot connect to remote servers directly. Use the `mcp-remote` bridge instead: set `command` to `npx` and `args` to `["-y", "mcp-remote@latest", "https://mcp.paperguide.ai/mcp"]`.
+      Older Cursor versions cannot connect to remote servers. Set `command` to `npx` and `args` to `["-y", "mcp-remote@latest", "https://mcp.paperguide.ai/mcp"]` instead.
     </Callout>
   </Tab>
 
-  <Tab title="VS Code (GitHub Copilot)">
-    1. **Add the MCP server configuration:**
+  <Tab title="VS Code">
+    <Steps>
+      <Step title="Add the server" icon="plus" title-type="p">
+        Add this to your MCP configuration:
 
-    ```json
-    {
-      "servers": {
-        "Paperguide": {
-          "url": "https://mcp.paperguide.ai/mcp"
+        ```json
+        {
+          "servers": {
+            "Paperguide": {
+              "url": "https://mcp.paperguide.ai/mcp"
+            }
+          },
+          "inputs": []
         }
-      },
-      "inputs": []
-    }
-    ```
-
-    2. **Enable Paperguide tools in chat** — Enable the Paperguide tools from the + button → Tools in the chat panel.
+        ```
+      </Step>
+      <Step title="Enable the tools" icon="check-circle" title-type="p">
+        In the chat panel, open **+ → Tools** and enable Paperguide.
+      </Step>
+    </Steps>
   </Tab>
 
   <Tab title="Windsurf">
-    1. **Open MCP server settings** — Go to Settings → Cascade → MCP Servers, or edit the config file.
-    2. **Add the server configuration:**
-
-    ```json
-    {
-      "mcpServers": {
-        "paperguide": {
-          "serverUrl": "https://mcp.paperguide.ai/mcp"
+    <Steps>
+      <Step title="Open MCP settings" icon="settings" title-type="p">
+        Go to **Settings → Cascade → MCP Servers**, or edit the config file.
+      </Step>
+      <Step title="Add the server" icon="plus" title-type="p">
+        ```json
+        {
+          "mcpServers": {
+            "paperguide": {
+              "serverUrl": "https://mcp.paperguide.ai/mcp"
+            }
+          }
         }
-      }
-    }
-    ```
+        ```
+      </Step>
+    </Steps>
   </Tab>
 
   <Tab title="Claude Code">
-    1. **Add the MCP server** — Run this command in your terminal:
-
-    ```bash
-    claude mcp add --transport http paperguide https://mcp.paperguide.ai/mcp
-    ```
-
-    2. **Sign in on first use** — Sign in when prompted, or run `/mcp` in a session.
+    <Steps>
+      <Step title="Add the server" icon="terminal" title-type="p">
+        ```bash
+        claude mcp add --transport http paperguide https://mcp.paperguide.ai/mcp
+        ```
+      </Step>
+      <Step title="Sign in" icon="log-in" title-type="p">
+        Run `/mcp` in a session and sign in to Paperguide.
+      </Step>
+    </Steps>
   </Tab>
 
   <Tab title="Codex">
-    1. **Add and log in to Paperguide** — Run these commands:
-
-    ```bash
-    codex mcp add paperguide --url https://mcp.paperguide.ai/mcp
-    codex mcp login paperguide
-    ```
+    <Steps>
+      <Step title="Add the server and sign in" icon="terminal" title-type="p">
+        ```bash
+        codex mcp add paperguide --url https://mcp.paperguide.ai/mcp
+        codex mcp login paperguide
+        ```
+      </Step>
+    </Steps>
   </Tab>
 
-  <Tab title="Other clients">
-    Add `https://mcp.paperguide.ai/mcp` as a remote server over HTTP transport. Clients that support the MCP OAuth flow handle sign-in automatically.
+  <Tab title="Other">
+    Add `https://mcp.paperguide.ai/mcp` as a remote MCP server over HTTP. Assistants that support MCP sign-in open a browser window for you to sign in to Paperguide.
   </Tab>
 </Tabs>
 
-## Credits
-
-MCP uses the same AI credit balance as the rest of Paperguide. There is no separate allowance for it.
-
-| Action                                  | Credits     |
-| --------------------------------------- | ----------- |
-| Search all papers                       | 10          |
-| Fetch one paper's full details          | 2           |
-| Search inside your PDFs                 | 10          |
-| Read a paper's full text                | 10 per part |
-| Find, list, and browse saved references | Free        |
-| Create, rename, and organise folders    | Free        |
-| Check your usage                        | Free        |
-
-| Plan       | Monthly credits |
-| ---------- | --------------- |
-| Free       | 2,000           |
-| Plus       | 12,500          |
-| Pro        | 50,000          |
-| Max        | 150,000         |
-| Enterprise | Custom          |
-
-<Callout kind="info" collapsed="false">
-  - If a call fails, you are not charged. The same applies if your assistant tries to fetch a paper that does not exist.
-  - Credits reset at the start of each billing cycle: on your subscription anniversary for paid plans, or at the start of each calendar month on Free.
-  - You can check usage at Settings → MCP, or ask your assistant.
-  - If you run out of credits, your assistant sees a message with the reset date. The connection stays active and works again when credits reset or you upgrade.
-</Callout>
-
-## Organization credits
-
-If you are part of an organization on Paperguide, you choose whether MCP usage is billed to your personal plan or your organization's shared credits when you connect each app.
-
-- **Choose per connected app.** One assistant can use organization credits while another uses your personal credits.
-- **Your choice stays fixed.** To switch later, disconnect and reconnect the app.
-- **Leaving the organization ends that connection.** Disconnect and reconnect the app to bill your personal plan.
-
-If you are not in an organization, Paperguide skips this choice and uses your personal credits.
-
 ## Manage connections
 
-You can see and manage every AI assistant connected to your account at Settings → MCP.
+See every connected assistant at **Settings → MCP** in Paperguide.
 
-1. **Disconnect an assistant** — Revokes the app's access immediately. It stops being able to search until you reconnect it.
-2. **Reconnect an assistant** — Reconnect at any time. During reconnection, Paperguide asks for the billing account again.
+- **Disconnect** removes the assistant's access immediately. Reconnect it at any time.
+- **Reconnect** asks again which account pays, if you belong to an organization.
+- Several entries with the same name are normal. Each connection is separate and can be removed on its own.
 
-<Callout kind="info" collapsed="false">
-  Multiple entries with the same assistant name are normal. Each reconnection creates a separate authorization, and each one can be revoked independently.
-</Callout>
+## Common questions
 
-## What to do next
+<ExpandableGroup>
+  <Expandable title="I don't see Paperguide in my assistant">
+    Reconnect the assistant. New Paperguide features appear only after you reconnect. In Claude Code, run `/mcp` to reconnect.
+  </Expandable>
+  <Expandable title="My assistant asks which library to use">
+    Your organization has more than one reference manager library. Tell your assistant which one, or name it in your request, for example "in the Lab Shared library".
+  </Expandable>
+  <Expandable title="My assistant says I am out of credits">
+    The account you chose when connecting has used its AI credits for this month. See [Credits](/mcp/credits) for what costs credits and when they reset.
+  </Expandable>
+</ExpandableGroup>
 
-Your assistant is connected. Ask a research question, or ask about the papers in your library.
+## Next
 
 <Columns cols="2">
-  <Card title="Use your reference manager" href="/mcp/reference-manager" icon="folder" horizontal="false">
-    Example prompts for finding, reading, and organising your papers.
+  <Card title="Search Papers" href="/mcp/search-papers" icon="search" horizontal="false">
+    Find papers on any topic and look up a paper by DOI or PubMed ID.
   </Card>
 
-  <Card title="Understand your credits" href="/ai-credits" icon="lucide-coins" horizontal="false">
-    Learn how AI credits work across all Paperguide features including MCP.
+  <Card title="Reference Manager" href="/mcp/reference-manager" icon="folder" horizontal="false">
+    Find, read, and organise the papers in your library.
   </Card>
 </Columns>
