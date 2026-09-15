@@ -1,8 +1,8 @@
 ---
 title: Reference Manager
 description: >-
-  Find saved papers, search inside your PDFs, read papers, and organise folders
-  from your AI assistant.
+  Add papers, attach PDFs, find saved papers, search inside your PDFs, read
+  papers, and organise folders from your AI assistant.
 ---
 ## Your library, in your chat
 
@@ -38,6 +38,35 @@ Ask your assistant to read a paper and summarise it, review its methods, or writ
 
 For a specific question about a paper, searching inside your PDFs is quicker and cheaper than reading the whole paper.
 
+## Add papers and PDFs
+
+Ask your assistant to save a paper. Give it a DOI, or a direct link to a PDF file.
+
+- "Add 10.1038/s41586-020-2649-2 to my library."
+- "Save this paper: https://arxiv.org/pdf/1409.0473"
+- "Add the second paper from that search to my Methods folder."
+- "Add the NumPy paper, citation only, no PDF."
+
+What happens:
+
+- **With a DOI**, the paper's details are looked up and the reference is created straight away. Its open-access PDF is then fetched in the background and attached.
+- **With a PDF link**, the file is downloaded first. Your assistant identifies the paper from it, then creates the reference with the PDF attached. If the paper cannot be identified, your assistant asks you for the title and creates the reference from that.
+- **A paper that is already in your library** is not added twice. Your assistant tells you which reference it is.
+
+Fetching a PDF takes a few seconds to a minute. Your assistant checks on it and tells you when it is done, or why it could not be done.
+
+To add a PDF to a paper you saved earlier, ask for that:
+
+- "Attach the PDF to the Bahdanau 2014 paper."
+- "Get the PDF for this reference from https://example.org/paper.pdf"
+
+<Callout kind="info" collapsed="false">
+  - PDFs come from open-access sources. Some publishers block automated downloads; when that happens your assistant says so, and you can upload the file in Paperguide instead.
+  - PDF size limits: 5 MB and 50 pages on Free, 50 MB and 500 pages on paid plans.
+  - Up to 5 PDFs are fetched at a time per account.
+  - A paper that already has a PDF is not replaced; replace PDFs in Paperguide.
+</Callout>
+
 ## Organise your library
 
 Ask your assistant to create folders, rename them, and file papers into them. Changes appear in Paperguide straight away.
@@ -56,11 +85,11 @@ A paper can be in several folders. There are two ways to file it:
   - Folder names must be unique in a library.
   - In a shared library, your assistant can create sub-folders only inside folders you created yourself.
   - Papers in no folder sit in **Unorganised**. To take a paper out of all folders, ask to move it to Unorganised.
-  - Deleting folders and adding new papers to your library are done in Paperguide, not through your assistant.
+  - Deleting folders is done in Paperguide, not through your assistant.
 </Callout>
 
 ## Check your usage
 
 Ask "How many Paperguide credits do I have left?" Your assistant shows your plan, credits used and remaining this month, and the reset date.
 
-Finding, browsing, and organising your papers is free. Searching inside PDFs and reading papers use AI credits. See [Credits](/mcp/credits).
+Adding papers, finding, browsing, and organising them is free. Searching inside PDFs and reading papers use AI credits. See [Credits](/mcp/credits).
