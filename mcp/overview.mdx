@@ -1,20 +1,38 @@
 ---
 title: MCP Server Overview
 description: >-
-  Find and read papers from Paperguide's 200M+ database without leaving your AI
-  assistant.
+  Search 200M+ papers and work with your own reference manager from the AI
+  assistant you already use.
 ---
-## Search Paperguide inside your AI assistant
+## Paperguide inside your AI assistant
 
-Ask research questions in the AI assistant you already use, and Paperguide helps it find and retrieve relevant papers for you. You can review results, open paper details, and keep working in the same conversation without switching tabs or learning a new tool.
+Connect Paperguide to Claude, ChatGPT, Cursor, or any other assistant that supports MCP, and it can search for papers and work with your reference manager while you chat. You do not need to switch tabs or learn new commands. Ask in plain language, and your assistant uses Paperguide to answer.
 
-To connect your assistant, use the URL below:
+To connect, add this URL to your assistant:
 
 ```text
 https://mcp.paperguide.ai/mcp
 ```
 
-See the [Connect & Manage guide](/mcp/connect-and-manage) for step-by-step setup instructions for Claude, ChatGPT, Cursor, and more.
+See [Connect & Manage](/mcp/connect-and-manage) for step-by-step setup.
+
+## What you can do
+
+### Search all papers
+
+- **Find papers on any topic.** Your assistant searches Paperguide's database of 200M+ papers and returns matching papers with title, authors, journal, year, abstract, and DOI.
+- **Look up one paper.** Give your assistant a DOI or PubMed ID and it fetches the full details, including a ready-to-use BibTeX entry.
+
+### Work with your reference manager
+
+- **Find papers you have saved.** Ask for a paper by title or DOI and your assistant finds it in your library.
+- **Browse your library.** List your folders, or page through the papers in a folder.
+- **Search inside your PDFs.** Ask a question and your assistant finds the relevant passages in the PDFs attached to your references, with page numbers.
+- **Read a paper.** Your assistant can read the full text of an attached PDF to summarise it, review it, or write a report.
+- **Organise your library.** Ask your assistant to create folders, rename them, and move papers into them.
+- **Check your usage.** Ask how many AI credits you have left this month.
+
+See [Use your reference manager](/mcp/reference-manager) for example prompts.
 
 ## What you need
 
@@ -23,46 +41,37 @@ See the [Connect & Manage guide](/mcp/connect-and-manage) for step-by-step setup
 - AI credits in your Paperguide account
 
 <Callout kind="info" collapsed="false">
-  You don't need to install anything or manage API keys. Just connect your assistant and sign in to Paperguide. Claude and ChatGPT require a paid plan on their side for custom connectors.
+  There is nothing to install and no API key to manage. Connect your assistant and sign in to Paperguide. Claude and ChatGPT require a paid plan on their side for custom connectors.
 </Callout>
 
-## What "search" and "fetch" mean
+## Credits
 
-When you ask your AI assistant a research question, it does two things behind the scenes:
+MCP uses the same AI credits as the rest of Paperguide.
 
-<Steps>
-  <Step title="Search — finding papers for you" icon="search" title-type="p">
-    Your assistant looks through Paperguide's database of 200M+ papers to find ones that match your question. Think of it like asking a librarian to find papers on a topic.
-  </Step>
+| Action                                  | Credits     |
+| --------------------------------------- | ----------- |
+| Search all papers                       | 10          |
+| Fetch one paper's full details          | 2           |
+| Search inside your PDFs                 | 10          |
+| Read a paper's full text                | 10 per part |
+| Find, list, and browse saved references | Free        |
+| Create, rename, and organise folders    | Free        |
+| Check your usage                        | Free        |
 
-  <Step title="Fetch — getting the full details" icon="file-text" title-type="p">
-    When a paper looks relevant, your assistant pulls its full details — abstract, authors, journal, DOI, and citation info — so you can review it without leaving the conversation. You can also ask your assistant to look up a specific paper directly by its DOI or PubMed ID, without needing to search first.
-  </Step>
-</Steps>
-
-## How credits work
-
-Each question you ask typically costs around 15 credits, depending on how many papers your assistant opens for details.
-
-| Action | What it does                         | Credits |
-| ------ | ------------------------------------ | ------- |
-| Search | Finds papers matching your question  | 10      |
-| Fetch  | Retrieves full details for one paper | 2       |
-
-A typical exchange — one search plus two or three fetches — adds up to roughly 15 credits per question.
+Long papers are read in parts. A typical paper is 2 to 4 parts.
 
 <Callout kind="tip" collapsed="false">
-  Failed calls are not charged. If a search returns no results or a paper can't be found, you don't lose any credits.
+  Failed calls are not charged. If a search returns nothing or a paper cannot be found, you keep your credits.
 </Callout>
 
-## Ready to get started?
+## Next steps
 
 <Columns cols="2">
   <Card title="Connect your assistant" href="/mcp/connect-and-manage" icon="arrow-right" horizontal="false">
-    Step-by-step setup guides for Claude, ChatGPT, Cursor, VS Code, Windsurf, and more.
+    Setup guides for Claude, ChatGPT, Cursor, VS Code, Windsurf, and more.
   </Card>
 
-  <Card title="Understand your credits" href="/ai-credits" icon="lucide-coins" horizontal="false">
-    Learn how AI credits work across all Paperguide features.
+  <Card title="Use your reference manager" href="/mcp/reference-manager" icon="folder" horizontal="false">
+    Example prompts for finding, reading, and organising your papers.
   </Card>
 </Columns>

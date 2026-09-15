@@ -238,6 +238,11 @@
                 "title": "Connecting MCP",
                 "path": "mcp/connect-and-manage",
                 "icon": "circle-plus"
+              },
+              {
+                "title": "Use Your Reference Manager",
+                "path": "mcp/reference-manager",
+                "icon": "lucide-folder"
               }
             ]
           },
