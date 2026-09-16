@@ -8,7 +8,7 @@ description: >-
 
 Once connected, your assistant can work with the papers in your Paperguide reference manager. Ask in plain language. The prompts below are examples.
 
-<Iframe src="https://www.youtube-nocookie.com/embed/XonDS59iSOI?rel=0" title="Organise, read, and add papers from Claude" width="672" height="378" allow-full-screen="true" frame-border="0" loading="lazy" />
+<Iframe src="https://www.youtube-nocookie.com/embed/XonDS59iSOI?rel=0" title="Organise, read, and add papers from Claude" width="672" height="378" allow-full-screen="true" display-mode="fixed" />
 
 <Callout kind="info" collapsed="false">
   If you belong to an organization with more than one library, your assistant asks you which library to use. A personal account has one library, so it is used automatically.
@@ -45,28 +45,28 @@ For a specific question about a paper, searching inside your PDFs is quicker and
 Ask your assistant to save a paper. Give it a DOI, or a direct link to a PDF file.
 
 - "Add 10.1038/s41586-020-2649-2 to my library."
-- "Save this paper: https://arxiv.org/pdf/1409.0473"
+- "Save this paper: [https://arxiv.org/pdf/1409.0473](https://arxiv.org/pdf/1409.0473)"
 - "Add the second paper from that search to my Methods folder."
 - "Add the NumPy paper, citation only, no PDF."
 
 What happens:
 
-- **With a DOI**, the paper's details are looked up and the reference is created straight away. Its open-access PDF is then fetched in the background and attached.
-- **With a PDF link**, the file is downloaded first. Your assistant identifies the paper from it, then creates the reference with the PDF attached. If the paper cannot be identified, your assistant asks you for the title and creates the reference from that.
-- **A paper that is already in your library** is not added twice. Your assistant tells you which reference it is.
+- **With a DOI**, the paper's details are looked up and the reference is created straight away. The open-access PDF is fetched in the background and attached.
+- **With a PDF link**, the file is downloaded first. Your assistant identifies the paper and creates the reference with the PDF attached. If it cannot identify the paper, it asks for the title and creates the reference from that.
+- **Already in your library?** The paper is not added twice. Your assistant tells you which reference it is.
 
 Fetching a PDF takes a few seconds to a minute. Your assistant checks on it and tells you when it is done, or why it could not be done.
 
 To add a PDF to a paper you saved earlier, ask for that:
 
 - "Attach the PDF to the Bahdanau 2014 paper."
-- "Get the PDF for this reference from https://example.org/paper.pdf"
+- "Get the PDF for this reference from [https://example.org/paper.pdf](https://example.org/paper.pdf)"
 
 <Callout kind="info" collapsed="false">
-  - PDFs come from open-access sources. Some publishers block automated downloads; when that happens your assistant says so, and you can upload the file in Paperguide instead.
-  - PDF size limits: 5 MB and 50 pages on Free, 50 MB and 500 pages on paid plans.
-  - Up to 5 PDFs are fetched at a time per account.
-  - A paper that already has a PDF is not replaced; replace PDFs in Paperguide.
+  * PDF size limits: 5 MB and 50 pages on Free, 50 MB and 500 pages on paid plans.
+  * Up to 5 PDFs are fetched at a time per account.
+  * A paper that already has a PDF is not replaced; replace PDFs in Paperguide.
+  * PDFs come from open-access sources. Some publishers block automated downloads; when that happens your assistant says so, and you can upload the file in Paperguide instead.
 </Callout>
 
 ## Organise your library
@@ -84,10 +84,10 @@ A paper can be in several folders. There are two ways to file it:
 - **Add** puts the paper in one more folder and keeps it where it already is.
 
 <Callout kind="info" collapsed="false">
-  - Folder names must be unique in a library.
-  - In a shared library, your assistant can create sub-folders only inside folders you created yourself.
-  - Papers in no folder sit in **Unorganised**. To take a paper out of all folders, ask to move it to Unorganised.
-  - Deleting folders is done in Paperguide, not through your assistant.
+  * Folder names must be unique in a library.
+  * In a shared library, your assistant can create sub-folders only inside folders you created yourself.
+  * Papers in no folder sit in **Unorganised**. To take a paper out of all folders, ask to move it to Unorganised.
+  * Deleting folders is done in Paperguide, not through your assistant.
 </Callout>
 
 ## Check your usage

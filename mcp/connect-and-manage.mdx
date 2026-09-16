@@ -58,7 +58,7 @@ Pick your assistant and follow the steps.
   <Tab title="Cursor">
     <Steps>
       <Step title="Open MCP settings" icon="settings" title-type="p">
-        Go to **Settings → Tools & MCP → New MCP Server**, or edit the config file.
+        Go to **Settings → Tools & MCP → New MCP Server**.
       </Step>
       <Step title="Add the server" icon="plus" title-type="p">
         ```json
@@ -100,6 +100,9 @@ Pick your assistant and follow the steps.
       <Step title="Enable the tools" icon="check-circle" title-type="p">
         In the chat panel, open **+ → Tools** and enable Paperguide.
       </Step>
+      <Step title="Sign in" icon="log-in" title-type="p">
+        Sign in to Paperguide when prompted. If you belong to an organization, choose which account pays for this assistant.
+      </Step>
     </Steps>
   </Tab>
 
@@ -137,9 +140,13 @@ Pick your assistant and follow the steps.
 
   <Tab title="Codex">
     <Steps>
-      <Step title="Add the server and sign in" icon="terminal" title-type="p">
+      <Step title="Add the server" icon="terminal" title-type="p">
         ```bash
         codex mcp add paperguide --url https://mcp.paperguide.ai/mcp
+        ```
+      </Step>
+      <Step title="Sign in" icon="log-in" title-type="p">
+        ```bash
         codex mcp login paperguide
         ```
       </Step>
