@@ -245,6 +245,11 @@
                 "icon": "lucide-folder"
               },
               {
+                "title": "Systematic Review",
+                "path": "mcp/systematic-review",
+                "icon": "lucide-file-check"
+              },
+              {
                 "title": "Credits",
                 "path": "mcp/credits",
                 "icon": "lucide-coins"
