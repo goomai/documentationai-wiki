@@ -1,0 +1,63 @@
+---
+title: Systematic Review
+description: >-
+  See which papers in a systematic review still need a PDF, attach PDFs from
+  links or files, and check progress from your AI assistant.
+---
+## Review PDFs, from your chat
+
+A systematic review needs the full text of every paper it screens or extracts data from. Paperguide fetches open-access PDFs on its own. For the papers it could not fetch, your assistant can help: it shows you what is missing and why, attaches the PDFs you give it, and reports back as each one is processed.
+
+<Callout kind="info" collapsed="false">
+  Your assistant can see any review you can open. To attach PDFs you need Review or Full Access to the review. With View access it can only show you what is missing.
+</Callout>
+
+## See which papers need a PDF
+
+Ask about a review by name. Your assistant lists the papers that still have no usable PDF, with the DOI, title, year and first author so you can find each one, and the reason it is missing.
+
+- "Which papers in my sleep and cognition review still need a PDF?"
+- "Why is the Walker 2019 paper missing its PDF?"
+- "How many papers in the review are still waiting for full text?"
+
+Which papers are listed depends on the review:
+
+- **With full text screening**, only papers that passed title and abstract screening. Papers still waiting to be screened or verified are not listed yet, and your assistant tells you how many there are.
+- **Without full text screening**, the included papers that data extraction will read.
+
+Common reasons a PDF is missing: no open-access copy was found, the publisher blocked an automated download, the known link was a web page rather than a PDF, or the file was over the size or page limit.
+
+## Attach PDFs
+
+Give your assistant a link to the PDF file and name the paper by its title or DOI. It can attach up to 20 papers in one request, and tells you which were accepted and which were not, with the reason.
+
+- "Here is the PDF for 10.1016/j.sleep.2019.03.004: https://example.org/walker2019.pdf"
+- "Attach these PDFs to my review:" followed by a list of DOIs and links
+
+If your assistant can read files on your computer, such as Claude Code, Codex or Cursor, it can also upload a PDF you already have, for example one you downloaded through your institution's access. It asks Paperguide for an upload link, sends the file, and attaches it.
+
+- "Upload walker2019.pdf from my Downloads folder to the review."
+
+What happens next:
+
+- The PDF is read in the background. This takes a little time per paper; your assistant checks back and tells you when each one is done.
+- Once its text is ready, the paper is screened automatically, just as if you had added the PDF in Paperguide. That screening uses the review's AI credits.
+- A PDF is refused for a paper that already has one, that is already being processed, or that has not yet passed title and abstract screening.
+
+<Callout kind="info" collapsed="false">
+  - A link must be a public web address that points straight to the PDF file.
+  - PDF size limits: 5 MB and 50 pages on Free; 50 MB and 500 pages on paid plans and for organization reviews.
+  - Up to 20 papers per request.
+  - Up to 5 file uploads per review per hour. An upload link is valid for 15 minutes.
+  - To fetch paywalled papers through your institution's proxy, use the [Paperguide browser extension](/chrome-extension) instead.
+</Callout>
+
+## Check progress
+
+Ask how the PDFs are doing. Each paper is **ready**, **processing**, or **missing** with the reason. For a ready paper, your assistant can also tell you whether the file was confirmed to be that paper by the DOI printed inside it.
+
+- "How are the PDFs I just attached doing?"
+- "Which papers in the review are still missing a PDF?"
+- "Is the Walker 2019 PDF confirmed to be the right paper?"
+
+Listing, attaching and checking PDFs are free. The screening that follows uses AI credits, the same as screening started in Paperguide. See [Credits](/mcp/credits).
