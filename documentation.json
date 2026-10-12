@@ -43,48 +43,6 @@
                 "icon": "file-text"
               },
               {
-                "title": "Members & Roles",
-                "path": "systematic-review/members-roles",
-                "icon": "lucide-users-round"
-              },
-              {
-                "title": "Protocol",
-                "path": "systematic-review/protocol",
-                "icon": "lucide-list-checks"
-              },
-              {
-                "title": "Papers",
-                "path": "systematic-review/papers",
-                "icon": "lucide-files"
-              },
-              {
-                "title": "Data Extraction",
-                "path": "systematic-review/data-extraction",
-                "icon": "lucide-table"
-              },
-              {
-                "group": "AI Review",
-                "icon": "lucide-sparkles",
-                "expandable": true,
-                "pages": [
-                  {
-                    "title": "Getting Started",
-                    "path": "systematic-review/ai-review/getting-started",
-                    "icon": "lucide-rocket"
-                  },
-                  {
-                    "title": "Title & Abstract Screening",
-                    "path": "systematic-review/ai-review/title-abstract-screening",
-                    "icon": "lucide-filter"
-                  },
-                  {
-                    "title": "Full Text Screening",
-                    "path": "systematic-review/ai-review/full-text-screening",
-                    "icon": "lucide-file-search"
-                  }
-                ]
-              },
-              {
                 "group": "Dual Review",
                 "icon": "lucide-users",
                 "expandable": true,
@@ -110,6 +68,48 @@
                     "icon": "lucide-file-search"
                   }
                 ]
+              },
+              {
+                "group": "AI Review",
+                "icon": "lucide-sparkles",
+                "expandable": true,
+                "pages": [
+                  {
+                    "title": "Getting Started",
+                    "path": "systematic-review/ai-review/getting-started",
+                    "icon": "lucide-rocket"
+                  },
+                  {
+                    "title": "Title & Abstract Screening",
+                    "path": "systematic-review/ai-review/title-abstract-screening",
+                    "icon": "lucide-filter"
+                  },
+                  {
+                    "title": "Full Text Screening",
+                    "path": "systematic-review/ai-review/full-text-screening",
+                    "icon": "lucide-file-search"
+                  }
+                ]
+              },
+              {
+                "title": "Members & Roles",
+                "path": "systematic-review/members-roles",
+                "icon": "lucide-users-round"
+              },
+              {
+                "title": "Protocol",
+                "path": "systematic-review/protocol",
+                "icon": "lucide-list-checks"
+              },
+              {
+                "title": "Papers",
+                "path": "systematic-review/papers",
+                "icon": "lucide-files"
+              },
+              {
+                "title": "Data Extraction",
+                "path": "systematic-review/data-extraction",
+                "icon": "lucide-table"
               }
             ],
             "path": "systematic-review"
