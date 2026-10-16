@@ -20,9 +20,11 @@ Pick your assistant and follow the steps.
       <Step title="Open Paperguide in the Claude directory" icon="external-link" title-type="p">
         Go to [claude.ai/directory/paperguide](https://claude.ai/directory/paperguide), or search for Paperguide in Claude's connector directory.
       </Step>
+
       <Step title="Connect" icon="plug" title-type="p">
         Click **Connect**.
       </Step>
+
       <Step title="Sign in" icon="log-in" title-type="p">
         Sign in to Paperguide when the window opens. If you belong to an organization, choose which account pays for this assistant.
       </Step>
@@ -45,14 +47,24 @@ Pick your assistant and follow the steps.
 
   <Tab title="ChatGPT">
     <Steps>
-      <Step title="Open Apps & Connectors" icon="settings" title-type="p">
-        Go to **Settings → Apps & Connectors**. Turn on developer mode if ChatGPT asks for it.
+      <Step title="Open Plugins" icon="settings" title-type="p">
+        Go to **Settings → Plugins** in ChatGPT.
       </Step>
-      <Step title="Add Paperguide" icon="plus" title-type="p">
-        Add a custom remote MCP server and paste the URL above.
+
+      <Step title="Add a custom MCP server" icon="plus" title-type="p">
+        Click the **+ Add** button, then choose **Add custom MCP server** from the options.
       </Step>
-      <Step title="Sign in" icon="log-in" title-type="p">
-        Sign in to Paperguide when the browser window opens. If you belong to an organization, choose which account pays for this assistant.
+
+      <Step title="Enter the server details" icon="pencil" title-type="p">
+        Name it `Paperguide` and paste `https://mcp.paperguide.ai/mcp` into the connection (server URL) field.
+      </Step>
+
+      <Step title="Create the plugin" icon="check-circle" title-type="p">
+        Select the **I understand to continue** checkbox, then click **Create plugin**.
+      </Step>
+
+      <Step title="Connect and sign in" icon="log-in" title-type="p">
+        Click **Connect** to link your account, then sign in to Paperguide when the window opens. If you belong to an organization, choose which account pays for this assistant.
       </Step>
     </Steps>
 
@@ -70,6 +82,7 @@ Pick your assistant and follow the steps.
       <Step title="Open MCP settings" icon="settings" title-type="p">
         Go to **Settings → Tools & MCP → New MCP Server**.
       </Step>
+
       <Step title="Add the server" icon="plus" title-type="p">
         ```json
         {
@@ -81,6 +94,7 @@ Pick your assistant and follow the steps.
         }
         ```
       </Step>
+
       <Step title="Sign in" icon="log-in" title-type="p">
         Sign in to Paperguide when prompted.
       </Step>
@@ -107,9 +121,11 @@ Pick your assistant and follow the steps.
         }
         ```
       </Step>
+
       <Step title="Enable the tools" icon="check-circle" title-type="p">
         In the chat panel, open **+ → Tools** and enable Paperguide.
       </Step>
+
       <Step title="Sign in" icon="log-in" title-type="p">
         Sign in to Paperguide when prompted. If you belong to an organization, choose which account pays for this assistant.
       </Step>
@@ -121,6 +137,7 @@ Pick your assistant and follow the steps.
       <Step title="Open MCP settings" icon="settings" title-type="p">
         Go to **Settings → Cascade → MCP Servers**, or edit the config file.
       </Step>
+
       <Step title="Add the server" icon="plus" title-type="p">
         ```json
         {
@@ -142,6 +159,7 @@ Pick your assistant and follow the steps.
         claude mcp add --transport http paperguide https://mcp.paperguide.ai/mcp
         ```
       </Step>
+
       <Step title="Sign in" icon="log-in" title-type="p">
         Run `/mcp` in a session and sign in to Paperguide.
       </Step>
@@ -155,6 +173,7 @@ Pick your assistant and follow the steps.
         codex mcp add paperguide --url https://mcp.paperguide.ai/mcp
         ```
       </Step>
+
       <Step title="Sign in" icon="log-in" title-type="p">
         ```bash
         codex mcp login paperguide
@@ -179,22 +198,27 @@ See every connected assistant at **Settings → MCP** in Paperguide.
 ## Common questions
 
 <ExpandableGroup>
-  <Expandable title="I don't see Paperguide in my assistant">
+  <Expandable title="I don't see Paperguide in my assistant" default-open="false">
     Reconnect the assistant. New Paperguide features appear only after you reconnect. In Claude Code, run `/mcp` to reconnect.
   </Expandable>
-  <Expandable title="Claude does not use Paperguide in a chat">
+
+  <Expandable title="Claude does not use Paperguide in a chat" default-open="false">
     Connectors can be turned off for a single chat. Open the tools menu in the message box and make sure Paperguide is turned on. You can also ask for it by name, for example "Use Paperguide to find papers on…".
   </Expandable>
-  <Expandable title="Claude asks me to connect or sign in again">
+
+  <Expandable title="Claude asks me to connect or sign in again" default-open="false">
     Sign in with your Paperguide account when the window opens. If Claude keeps asking, disconnect Paperguide in Claude's connector settings and connect it again. Check that it was not disconnected at **Settings → MCP** in Paperguide.
   </Expandable>
-  <Expandable title="Which account pays for my credits?">
+
+  <Expandable title="Which account pays for my credits?" default-open="false">
     The account you chose when you connected: your personal plan, or your organization's shared credits. To change it, disconnect the assistant and connect again. See [Credits](/mcp/credits#organization-billing).
   </Expandable>
-  <Expandable title="My assistant asks which library to use">
+
+  <Expandable title="My assistant asks which library to use" default-open="false">
     Your organization has more than one reference manager library. Tell your assistant which one, or name it in your request, for example "in the Lab Shared library".
   </Expandable>
-  <Expandable title="My assistant says I am out of credits">
+
+  <Expandable title="My assistant says I am out of credits" default-open="false">
     The account you chose when connecting has used its AI credits for this month. See [Credits](/mcp/credits) for what costs credits and when they reset.
   </Expandable>
 </ExpandableGroup>
@@ -214,3 +238,4 @@ See every connected assistant at **Settings → MCP** in Paperguide.
     See which papers in a review need a PDF, and attach them.
   </Card>
 </Columns>
+
