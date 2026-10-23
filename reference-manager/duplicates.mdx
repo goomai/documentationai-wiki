@@ -1,0 +1,63 @@
+---
+title: Handling duplicates
+description: Find papers that are in your library more than once, merge them into one record, or keep them separate.
+---
+## Overview
+
+If you add papers from several places, such as PDFs, DOIs, Zotero and BibTeX files, the same paper can end up in your library twice. Paperguide finds these copies for you and lets you merge them, so each paper has one record with all its folders, tags and notes.
+
+## Prevent duplicates when you import
+
+Every import in **Add Papers** has a **Skip duplicates** option, and it's on by default. With it on, papers that are already in your library aren't added again. In the import results these show as "Already in your library", or "Same paper selected twice" if the same paper appeared twice in one import.
+
+See [Add References](/reference-manager/add-papers) for the import options.
+
+## Review duplicates
+
+<Steps>
+  <Step title="Open the review" icon="copy" title-type="p">
+    When Paperguide finds duplicates, a note such as **3 duplicates found** appears at the bottom of the Reference Manager sidebar. Click it to open **Review duplicates**.
+  </Step>
+
+  <Step title="Check how each group was matched" icon="search" title-type="p">
+    Each group shows the copies side by side. **Matched by** tells you why Paperguide thinks they're the same paper:
+
+    - **DOI**
+    - **PMID**
+    - **PMCID**
+    - **arXiv**
+    - **ISBN**
+    - **Semantic Scholar**
+    - **Title + author + year**
+  </Step>
+
+  <Step title="Merge the copies" icon="git-merge" title-type="p">
+    Click **Merge copies**. Paperguide keeps one copy and combines the folders, tags and notes from every copy into it, so nothing is lost.
+
+    If more than one copy has a PDF, first choose the one to keep: under **Pick a copy to keep**, click **Keep this** on that copy, then click **Merge copies**.
+  </Step>
+</Steps>
+
+## Merge many groups at once
+
+When several groups are ready to merge, click **Merge all ready** to merge them in one step. The button shows how many groups are ready, for example **Merge all ready (5)**. Groups where you still need to pick a copy are left for you to review.
+
+## Keep papers separate
+
+Sometimes two papers look alike but are really different, such as a conference paper and the later journal article. Click **Keep separate** on that group. The papers stay in your library as separate references and are hidden from the review. They only reappear if you import another paper that matches them.
+
+To keep every remaining group as it is, click **Keep all separate**.
+
+When you're done, click **Back to library**.
+
+## Next steps
+
+<Columns cols="2">
+  <Card title="Add References" href="/reference-manager/add-papers" icon="plus" horizontal="false">
+    All the ways to add papers to your library.
+  </Card>
+
+  <Card title="Organize Folders & Tags" href="/reference-manager/organize-folders-tags" icon="folder-tree" horizontal="false">
+    Keep your library tidy with folders and tags.
+  </Card>
+</Columns>

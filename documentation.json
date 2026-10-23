@@ -188,6 +188,10 @@
                 "icon": "highlighter"
               },
               {
+                "title": "AI Snapshot",
+                "path": "reference-manager/ai-snapshot"
+              },
+              {
                 "title": "Share Library & Workspace",
                 "path": "reference-manager/share-library-workspace",
                 "icon": "lucide-users"
@@ -201,6 +205,10 @@
                 "title": "Handling duplicates",
                 "path": "reference-manager/duplicates",
                 "icon": "copy"
+              },
+              {
+                "title": "Use your library in other tools",
+                "path": "reference-manager/use-library-in-other-tools"
               }
             ],
             "path": "reference-manager",
