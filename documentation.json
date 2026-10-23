@@ -168,19 +168,14 @@
             "group": "Reference Manager",
             "pages": [
               {
-                "title": "Add References",
-                "path": "reference-manager/add-references",
+                "title": "Add Papers",
+                "path": "reference-manager/add-papers",
                 "icon": "lucide-plus-circle"
               },
               {
                 "title": "Import Zotero & Mendeley",
                 "path": "reference-manager/import-zotero-mendeley",
                 "icon": "lucide-download"
-              },
-              {
-                "title": "Get PDFs with Extension",
-                "path": "reference-manager/get-pdfs-with-extension",
-                "icon": "lucide-chrome"
               },
               {
                 "title": "Organize Folders & Tags",
@@ -196,6 +191,16 @@
                 "title": "Share Library & Workspace",
                 "path": "reference-manager/share-library-workspace",
                 "icon": "lucide-users"
+              },
+              {
+                "title": "Get PDFs with Extension",
+                "path": "reference-manager/get-pdfs-with-extension",
+                "icon": "lucide-chrome"
+              },
+              {
+                "title": "Handling duplicates",
+                "path": "reference-manager/duplicates",
+                "icon": "copy"
               }
             ],
             "path": "reference-manager",
