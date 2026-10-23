@@ -261,7 +261,7 @@
                 "icon": "lucide-coins"
               }
             ],
-            "icon": "lucide-plug",
+            "icon": "tabler:category-plus",
             "path": "mcp"
           },
           {
@@ -270,7 +270,7 @@
               {
                 "title": "Chrome Extension",
                 "path": "chrome-extension",
-                "icon": "box"
+                "icon": "chrome"
               },
               {
                 "title": "AI Credits",
