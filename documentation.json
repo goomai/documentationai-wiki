@@ -188,10 +188,6 @@
                 "icon": "highlighter"
               },
               {
-                "title": "AI Snapshot",
-                "path": "reference-manager/ai-snapshot"
-              },
-              {
                 "title": "Share Library & Workspace",
                 "path": "reference-manager/share-library-workspace",
                 "icon": "lucide-users"
@@ -207,8 +203,9 @@
                 "icon": "copy"
               },
               {
-                "title": "Use your library in other tools",
-                "path": "reference-manager/use-library-in-other-tools"
+                "title": "Connecting to AI features",
+                "path": "reference-manager/connecting-library-to-ai-features",
+                "icon": "sparkles"
               }
             ],
             "path": "reference-manager",
@@ -371,6 +368,10 @@
     {
       "source": "/systematic-review/full-text-screening",
       "destination": "/systematic-review/ai-review/full-text-screening"
+    },
+    {
+      "source": "/reference-manager/use-library-in-other-tools",
+      "destination": "/reference-manager/connecting-library-to-ai-features"
     },
     {
       "source": "/mcp/overview",
