@@ -1,118 +1,105 @@
 ---
 title: Import from Zotero & Mendeley
-description: Import your Zotero and Mendeley libraries via BibTeX or RIS files.
+description: Connect your Zotero or Mendeley account and bring over your collections, references and PDFs.
 ---
+## Overview
 
-## What is bulk import?
+If you already use Zotero or Mendeley, you can connect your account and import your library directly. You don't need to export any files. Paperguide brings over:
 
-If you already use Zotero or Mendeley, you can import your entire library into Paperguide using BibTeX or RIS export files. This brings across your paper metadata — titles, authors, years, journals, DOIs, abstracts, and tags — so you do not need to re-add each reference manually.
+- **References**, with their details (title, authors, year, journal, DOI and abstract)
+- **PDFs**, when **Import PDFs** is on
+- **Structure**: each Zotero collection or Mendeley folder you select becomes a folder in Paperguide
 
-The import process works the same way for both tools: export your library from Zotero or Mendeley as a BibTeX or RIS file, then upload that file to Paperguide.
+Imports run in the background, and you can import again later to bring over only the papers you've added since.
 
-<Callout kind="info">
+## Import from Zotero
 
-Bulk import moves reference metadata, not attached files. If you rely on local PDFs in Zotero or Mendeley, plan to add those separately after the import.
+<Steps>
+  <Step title="Open Import from Zotero" icon="book-open" title-type="p">
+    In Reference Manager, click **Add Papers** and choose **Import from Zotero**.
+  </Step>
 
+  <Step title="Connect your Zotero account" icon="link" title-type="p">
+    The first time, click **Connect Zotero**. On the zotero.org permission page, click **Accept Defaults**. You don't need to change anything there. You'll return to Paperguide with your Zotero library loaded.
+  </Step>
+
+  <Step title="Choose what to import" icon="list-checks" title-type="p">
+    Your collections are listed on the left. Tick a whole collection, or open one and tick only the papers you need.
+
+    A ticked collection becomes a folder in Paperguide and its papers are filed into it. Papers you tick on their own are added to your library without a folder.
+  </Step>
+
+  <Step title="Keep Import PDFs on" icon="file-text" title-type="p">
+    With **Import PDFs** on, PDFs come over with their references.
+  </Step>
+
+  <Step title="Start the import" icon="upload" title-type="p">
+    Click **Import references**. If you have more than one workspace, choose where the references should go and click **Import here**.
+
+    The import runs in the background, so you can keep working. A progress card shows **Importing Papers** while it runs and **Import Completed** when it's done.
+  </Step>
+
+  <Step title="Find your papers" icon="folder" title-type="p">
+    Each collection you imported now appears as a folder in the sidebar, with its papers and PDFs inside.
+  </Step>
+</Steps>
+
+<Callout kind="info" collapsed="false">
+  Paperguide can import PDFs that are synced to your Zotero storage. PDFs stored only on your computer aren't imported. In the import results these are marked "PDF not synced to Zotero, only on your computer".
 </Callout>
 
-## Exporting from Zotero
+The Zotero dialog also has **Refresh**, to reload your library after changes in Zotero, and **Disconnect**, to unlink your Zotero account.
 
-Export the specific library or collection you want to bring over so you can keep the import focused and easier to review.
+## Import from Mendeley
 
 <Steps>
-  <Step title="Open Zotero" icon="folder" title-type="p">
-
-Open Zotero and select the library or collection you want to export.
-
+  <Step title="Open Import from Mendeley" icon="book-open" title-type="p">
+    In Reference Manager, click **Add Papers** and choose **Import from Mendeley**.
   </Step>
-  <Step title="Export library" icon="download" title-type="p">
 
-Go to File → Export Library. Choose `BibTeX` or `RIS` as the export format.
-
+  <Step title="Connect your Mendeley account" icon="link" title-type="p">
+    The first time, click **Connect Mendeley**. A popup opens where you sign in to Mendeley and allow access. After you approve, your Mendeley library appears in Paperguide.
   </Step>
-  <Step title="Save the file" icon="download" title-type="p">
 
-Save the exported file to your device. Zotero creates a single file containing all references in the selected collection.
+  <Step title="Choose what to import" icon="list-checks" title-type="p">
+    Tick whole folders, or open a folder and tick individual references.
 
+    A ticked folder is recreated in Paperguide and its references are filed into it. References you tick on their own are added to your library without a folder.
+  </Step>
+
+  <Step title="Import" icon="upload" title-type="p">
+    Keep **Import PDFs** on so your files come across too, then click **Import references**. If you have more than one workspace, choose where the references should go and click **Import here**.
+
+    The import runs in the background while you keep working.
+  </Step>
+
+  <Step title="Find your papers" icon="folder" title-type="p">
+    When it's finished, your folders appear in the sidebar, laid out the way you had them in Mendeley.
   </Step>
 </Steps>
 
-## Exporting from Mendeley
+## Importing again
 
-Export the references you want first, then upload the resulting file into Paperguide.
+If you keep adding papers in Zotero or Mendeley, run the import again. Papers you imported before are skipped, and existing folders are reused, so you only get what's new. Skipped Zotero papers are marked "Already imported from Zotero earlier" in the import results.
 
-<Steps>
-  <Step title="Open Mendeley" icon="folder" title-type="p">
+To see what happened to each paper, click **Show results** on the progress card.
 
-Open Mendeley and select the references you want to export.
+## Stopping an import
 
-  </Step>
-  <Step title="Export" icon="download" title-type="p">
+To stop an import that's running, click the **✕** next to it on the progress card, then click **Stop import**. References already added stay in your library. To finish later, import the same collection or folder again.
 
-Go to File → Export. Choose `BibTeX` or `RIS` as the export format.
+## Other ways to import
 
-  </Step>
-  <Step title="Save the file" icon="download" title-type="p">
-
-Save the exported file to your device.
-
-  </Step>
-</Steps>
-
-## Importing to Paperguide
-
-Once you have the export file, upload it from Reference Manager.
-
-<Steps>
-  <Step title="Open Reference Manager" icon="book-open" title-type="p">
-
-Navigate to Reference Manager in your workspace.
-
-  </Step>
-  <Step title="Click Import" icon="upload" title-type="p">
-
-Click the Import button and choose `BibTeX` or `RIS`, depending on the file you exported.
-
-  </Step>
-  <Step title="Upload the file" icon="upload" title-type="p">
-
-Upload the `.bib` or `.ris` file from your device. Paperguide starts processing it in the background.
-
-A successful upload starts the import immediately and shows a progress indicator in the interface.
-
-  </Step>
-  <Step title="Wait for processing" icon="info" title-type="p">
-
-Large imports are processed in the background. You can continue working while the import runs.
-
-When processing finishes, your imported references appear in Reference Manager.
-
-  </Step>
-</Steps>
-
-## Background processing
-
-Large library imports may take a few minutes to complete. Paperguide processes the file in the background so you can continue using other features while the import runs. A progress indicator shows how many references have been imported so far.
-
-If you imported a large library, give the process a little time before checking for missing entries. The reference list updates as processing completes.
-
-## What gets imported
-
-The import brings across the following metadata from each reference:
-
-- **Title, authors, year, journal, DOI, abstract** — the core bibliographic data
-- **Tags** — tags from Zotero are preserved and applied to the imported references
-- **Notes** — notes included in the export file are imported where available
-
-<Callout kind="alert">
-
-PDFs are not imported from BibTeX or RIS files — these formats only carry metadata, not file attachments. To retrieve PDFs for your imported references, use the [Chrome Extension](/reference-manager/get-pdfs-with-extension) or upload PDFs manually.
-
-</Callout>
+Also using EndNote or another tool? Export your library as a BibTeX (`.bib`) or RIS (`.ris`) file, then click **Add Papers** and choose **BibTeX / RIS**. BibTeX and RIS files carry reference details only, not PDFs. To add PDFs afterwards, see [Get PDFs with the Chrome Extension](/reference-manager/get-pdfs-with-extension).
 
 ## Next steps
 
-<Columns cols={2}>
-  <Card title="Add References" href="/reference-manager/add-references" icon="plus" horizontal="false" />
-  <Card title="Get PDFs with Extension" href="/reference-manager/get-pdfs-with-extension" icon="download" horizontal="false" />
+<Columns cols="2">
+  <Card title="Handling duplicates" href="/reference-manager/duplicates" icon="copy" horizontal="false">
+    Find and merge papers that are in your library more than once.
+  </Card>
+
+  <Card title="Organize Folders & Tags" href="/reference-manager/organize-folders-tags" icon="folder-tree" horizontal="false">
+    Arrange your imported papers into folders and tag them.
+  </Card>
 </Columns>

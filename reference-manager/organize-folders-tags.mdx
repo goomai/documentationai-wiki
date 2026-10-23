@@ -1,116 +1,83 @@
 ---
 title: Organize Folders & Tags
-description: Organize references with folder hierarchies, tags, and bulk operations.
+description: Group papers into folders, label them with tags, and filter and sort your library to find what you need.
 ---
+## Overview
+
+Folders and tags solve different problems:
+
+- **Folders** group papers by project, such as a thesis chapter or a review. A paper can be in more than one folder.
+- **Tags** label ideas that cut across projects, such as the type of study or whether you've read it yet.
 
 ## Folders
 
-Folders give your reference library a clear structure. Use them to group papers by project, course, research area, review, or any other structure you already use in your work.
-
-### Creating folders
+### Create a folder
 
 <Steps>
-  <Step title="Click New Folder" icon="folder-plus" title-type="p">
-
-  Click the **New Folder** button in the Reference Manager sidebar.
-
+  <Step title="Click New folder" icon="folder-plus" title-type="p">
+    In the Reference Manager sidebar, click **New folder**.
   </Step>
-  <Step title="Name the folder" icon="edit" title-type="p">
 
-  Enter a folder name such as `Machine Learning` or `Systematic Review 2024`.
-
-  </Step>
-  <Step title="Optional: select a parent folder" icon="folder-tree" title-type="p">
-
-  Choose a parent folder if you want to nest the new folder inside an existing one. Leave it blank to create a top-level folder.
-
+  <Step title="Name it" icon="edit" title-type="p">
+    Enter a name, such as `Chapter 2` or `Sleep and memory review`, and click **Create**.
   </Step>
 </Steps>
 
-### Folder hierarchy
+To create a folder inside another one, open the parent folder's **Folder options** menu and choose **Add Sub Folder**.
 
-Folders support nesting, so you can build a structure that matches how you work. A simple hierarchy usually stays easier to scan than a long flat list.
+### Nest and rearrange folders
 
-- **Move folders**: Drag a folder into another folder to nest it.
-- **Reorder folders**: Drag folders within the same level to change their order.
-- **Reuse references**: Add the same reference to multiple folders without creating duplicate records.
+Drag one folder onto another to nest it. You can also use **Move Folder** from the **Folder options** menu. The same menu has **Rename** and **Delete**.
 
-### Moving references
+### Put papers in folders
 
-Move references into folders by dragging them from the reference list into the target folder. If you prefer a more precise action, open the reference context menu and choose the move option.
+Drag papers from the list into a folder in the sidebar.
 
-A reference can belong to multiple folders. Adding a reference to another folder does not remove it from its current location unless you explicitly choose an action that moves it instead of copying it.
+A paper can be in more than one folder without being duplicated. To add it to another folder, select the paper and click **Add to Folder** in its detail panel. It then appears in both places, with the same notes and details.
 
-### Sharing folders
-
-Share folders with team members at the workspace level when you need others to access the same organized set of references. For details on permissions and access control, see [Share Library & Workspace](/reference-manager/share-library-workspace).
+To work with several papers at once, select them in the list and use the toolbar: **Add to Folders**, **Move**, **Remove** (from the current folder) or **Delete**.
 
 ## Tags
 
-Tags help you categorize references across your entire library. Use them for labels that cut across projects, such as status, methodology, access type, or priority.
+### Create a tag
 
-### Creating tags
+In the **Tags** section of the sidebar, click **+** (**Add tag**). Enter a tag name, optionally pick an emoji, and click **Create**.
 
-<Steps>
-  <Step title="Click New Tag" icon="tag" title-type="p">
+### Tag papers
 
-  Click the **New Tag** button in the Reference Manager.
+- **One paper**: select the paper and click **Add Tag** in its detail panel.
+- **Several papers**: select them in the list and click **Add Tag** in the toolbar to tag them all at once.
 
-  </Step>
-  <Step title="Name the tag" icon="edit" title-type="p">
+To remove a tag from a paper, click the **✕** on the tag in its detail panel.
 
-  Enter a tag name such as `systematic review`, `open access`, or `high priority`.
+### Find papers by tag
 
-  </Step>
-  <Step title="Assign a color" icon="palette" title-type="p">
+Click a tag in the sidebar to see every paper that has it. Click **No Tag** to see papers that haven't been tagged yet.
 
-  Choose a color so the tag is easier to spot throughout your library.
+### Rename or delete tags
 
-  </Step>
-</Steps>
+Click **Manage tags** in the **Tags** section of the sidebar. From there you can rename a tag or delete it. Deleting a tag removes it from every paper that has it.
 
-### Applying tags
+## Filter and sort
 
-Apply tags in the way that fits your workflow:
+Use the toolbar above the paper list to narrow down what you see:
 
-- **Drag tags onto references** from the tag list.
-- **Apply tags in bulk** by selecting multiple references and adding the same tag to all of them.
+- **Search Papers...** finds papers by title.
+- **Filter** narrows the list by **Year**, **Author**, **Paper Type**, and **Has PDF** or **Has No PDF**.
+- **Sort** orders the list by **Custom**, **Recently Added**, **Earliest Added**, **Title A-Z**, **Title Z-A**, **Year (newest)** or **Year (oldest)**.
 
-### Bulk operations
-
-Bulk actions save time when you need to organize a large set of references at once. Select multiple items in your library, then apply the action you need.
-
-- **Apply tags**: Add one or more tags to every selected reference.
-- **Remove tags**: Remove existing tags from every selected reference.
-- **Move to folder**: Place all selected references into a specific folder.
-
-### Tag-based filtering
-
-Filter your library by one or more tags to narrow your view to the references that matter right now. Combine tags when you need a more specific slice of your library.
-
-For example, filter by `systematic review` and `open access` to find open-access papers that belong to your review workflow.
-
-## Folders vs tags
-
-Folders and tags solve different organization problems. Use folders to decide where a reference belongs, and tags to describe what that reference is.
-
-| | **Folders** | **Tags** |
-|---|---|---|
-| **Structure** | Hierarchical and nested | Flat and non-hierarchical |
-| **Best for** | Project structure, course materials, research areas | Themes, topics, status, attributes |
-| **Example** | `Machine Learning / Transformers` | `open access`, `high priority` |
-| **A reference can have** | Multiple folders | Multiple tags |
-| **Combining** | Nest folders inside each other | Filter by multiple tags at once |
-
-<Callout kind="info">
-
-Use folders for structure and tags for cross-cutting labels. A paper on transformer architectures can sit inside a project folder and also carry tags such as `survey`, `open access`, and `to read`.
-
+<Callout kind="tip" collapsed="false">
+  To put papers in your own order by dragging them, set **Sort** to **Custom** first.
 </Callout>
 
 ## Next steps
 
-<Columns cols={2}>
-  <Card title="Reference Manager Overview" href="/reference-manager/overview" icon="book-open" horizontal="false" />
-  <Card title="Notes & Annotation" href="/reference-manager/notes-annotation" icon="highlighter" horizontal="false" />
+<Columns cols="2">
+  <Card title="Share Library & Workspace" href="/reference-manager/share-library-workspace" icon="users" horizontal="false">
+    Share a folder with your supervisor or team.
+  </Card>
+
+  <Card title="Handling duplicates" href="/reference-manager/duplicates" icon="copy" horizontal="false">
+    Merge papers that are in your library more than once.
+  </Card>
 </Columns>

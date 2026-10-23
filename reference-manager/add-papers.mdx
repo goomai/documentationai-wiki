@@ -1,139 +1,134 @@
 ---
 title: Add References
-description: Add references by DOI, URL, BibTeX, RIS, or PDF with auto-citation.
+description: Add papers to your library from PDFs, DOIs and links, online search, BibTeX or RIS files, Zotero, Mendeley, or by hand.
 ---
+## Overview
 
-## What is Add References?
+Every way of adding papers starts from the **Add Papers** button in Reference Manager. It opens a window with these options:
 
-Add References is how you build your reference library in Paperguide. You can add references in multiple ways by DOI, URL, ISBN, arXiv ID, BibTeX, RIS, or PDF upload. The AI automatically extracts metadata and generates a formatted citation for each reference you add.
+| Option | Use it when you have |
+|---|---|
+| **Upload PDF** | PDF files on your computer |
+| **URL / DOI Import** | DOIs or links to papers |
+| **Search Online** | A title, author, journal, publisher or topic, but no link |
+| **BibTeX / RIS** | A `.bib` or `.ris` file, or citation text, from EndNote or another tool |
+| **Import from Zotero** | A Zotero library |
+| **Import from Mendeley** | A Mendeley library |
+| **Add Manually** | A source with no online record |
 
-## Auto-cite
+Paperguide fills in each paper's details (title, authors, journal and so on) for you, so there's usually nothing to type.
 
-Auto-cite is the fastest way to add a reference. Paste an identifier and Paperguide fetches the metadata automatically.
+## Choose where papers go
 
-<Steps>
-  <Step title="Choose the identifier type" icon="list" title-type="p">
+Before you import, pick the destination under **Save to workspace / folder**. Papers are added to that workspace and filed into the folder you choose.
 
-  Select from DOI, URL, ISBN, or arXiv ID depending on what you have.
+Keep **Skip duplicates** on (it's on by default) so papers already in your library aren't added again. See [Handling duplicates](/reference-manager/duplicates).
 
-  </Step>
-  <Step title="Paste the identifier" icon="clipboard" title-type="p">
-
-  Enter the DOI, URL, ISBN, or arXiv ID. For example, use `10.1234/example` for a DOI or `2301.00001` for an arXiv ID.
-
-  </Step>
-  <Step title="AI fetches metadata" icon="zap" title-type="p">
-
-  Paperguide retrieves the title, authors, year, journal, abstract, and other available metadata from external sources.
-
-  </Step>
-  <Step title="Reference created" icon="check-circle" title-type="p">
-
-  The reference appears in your library with a formatted citation. Review the metadata and correct any fields that need adjustment.
-
-  </Step>
-</Steps>
-
-<Callout kind="info">
-
-Auto-cite works best with DOIs and direct publisher URLs. These usually return the most complete and reliable metadata.
-
+<Callout kind="info" collapsed="false">
+  Zotero and Mendeley imports work a little differently: each collection or folder you tick becomes a folder in Paperguide. See [Import from Zotero & Mendeley](/reference-manager/import-zotero-mendeley).
 </Callout>
 
-## PDF upload
-
-Upload PDF files directly from your device when you already have the paper file. Paperguide reads the PDF and creates a reference from the metadata it can identify.
+## Upload PDF
 
 <Steps>
-  <Step title="Click Upload PDF" icon="upload" title-type="p">
-
-  Drag and drop one or more PDF files, or browse your device to select them.
-
+  <Step title="Choose Upload PDF" icon="upload" title-type="p">
+    Click **Add Papers** and choose **Upload PDF**.
   </Step>
-  <Step title="AI extracts metadata" icon="zap" title-type="p">
 
-  Paperguide scans the PDF to identify the title, authors, year, DOI, and other available metadata.
-
+  <Step title="Add your files" icon="file-text" title-type="p">
+    Drag your PDFs into the window, or click **browse files** to pick them. You can upload up to 30 PDFs at once.
   </Step>
-  <Step title="Reference created with PDF" icon="check-circle" title-type="p">
 
-  Each uploaded PDF becomes a reference in your library with the PDF attached. The file is also available for search and AI-assisted workflows inside your workspace.
-
+  <Step title="Upload" icon="check-circle" title-type="p">
+    Click the upload button, which shows how many files you've added (for example **Upload 3 PDFs**). Paperguide reads each file and fills in the title, authors and journal. Each PDF becomes a reference with the file attached.
   </Step>
 </Steps>
 
-## BibTeX import
-
-Import BibTeX when you are moving references from a LaTeX workflow or another reference manager. Each BibTeX entry becomes a separate reference in your library.
+## URL / DOI Import
 
 <Steps>
-  <Step title="Select BibTeX import" icon="upload" title-type="p">
-
-  Open the import options and choose BibTeX.
-
+  <Step title="Choose URL / DOI Import" icon="link" title-type="p">
+    Click **Add Papers** and choose **URL / DOI Import**.
   </Step>
-  <Step title="Paste or upload" icon="edit" title-type="p">
 
-  Paste BibTeX entries into the text field or upload a `.bib` file from your device.
-
+  <Step title="Paste your DOIs or links" icon="clipboard" title-type="p">
+    Paste a DOI (for example `10.1038/s41586-020-2649-2`) or a link to a paper. To add several papers, paste one DOI or link per line.
   </Step>
-  <Step title="Entries are parsed" icon="check-circle" title-type="p">
 
-  Paperguide parses each entry and creates a separate reference with its metadata fields.
-
+  <Step title="Import" icon="check-circle" title-type="p">
+    Click **Import Reference** (or **Import 3 References** for a list). Paperguide looks up each paper's details. When an open-access PDF is available, it's attached too.
   </Step>
 </Steps>
 
-## RIS import
-
-Import RIS when you export references from tools that support RIS format. This is a common way to bring in references from citation databases and reference managers.
-
-<Steps>
-  <Step title="Select RIS import" icon="upload" title-type="p">
-
-  Open the import options and choose RIS.
-
-  </Step>
-  <Step title="Paste or upload" icon="edit" title-type="p">
-
-  Paste RIS entries directly or upload a `.ris` file from your device.
-
-  </Step>
-  <Step title="Entries are parsed" icon="check-circle" title-type="p">
-
-  Paperguide parses each RIS entry and creates a separate reference in your library.
-
-  </Step>
-</Steps>
-
-## Batch URL import
-
-Paste multiple URLs at once when you need to add several papers in one pass. Paperguide processes each URL, extracts the available metadata, and creates a reference for each source it can identify.
-
-<Callout kind="info">
-
-Batch URL import helps when you are collecting papers from publisher sites, preprint servers, or reading lists. If a URL does not return enough metadata, review the created reference and fill in any missing details.
-
+<Callout kind="tip" collapsed="false">
+  DOIs and direct links to publisher pages give the most complete details. If Paperguide can't find details for a link, try uploading the PDF instead.
 </Callout>
 
-## Manual entry
+## Search Online
 
-Enter reference details yourself when auto-cite cannot find a match or when the source does not have a usable online record. Add the title, authors, year, journal, DOI, and any other fields you need, then save the reference to your library.
+<Steps>
+  <Step title="Choose Search Online" icon="search" title-type="p">
+    Click **Add Papers** and choose **Search Online**.
+  </Step>
 
-<Expandable title="When to use manual entry" default-open="false">
+  <Step title="Search" icon="search" title-type="p">
+    Pick what to search by (**Title**, **Author**, **Journal**, **Publisher** or **Keyword**), type your search, and click **Search**.
 
-Manual entry is most useful for:
+    To narrow the results, use the filters: **Source**, **Year**, **Journal**, **SJR Quartile** and **Access** (Open Access or Subscription).
+  </Step>
 
-- Offline documents
-- Incomplete web sources
-- Older papers with inconsistent metadata
-- Internal reports, white papers, or unpublished material
+  <Step title="Add papers" icon="plus" title-type="p">
+    Click **Add Paper** on a result to add it. To add several at once, select them and click **Add Selected**.
+  </Step>
+</Steps>
 
-</Expandable>
+## BibTeX / RIS
+
+Use this to bring in references from EndNote, a LaTeX project or any other tool that exports BibTeX or RIS.
+
+<Steps>
+  <Step title="Choose BibTeX / RIS" icon="file-code" title-type="p">
+    Click **Add Papers** and choose **BibTeX / RIS**.
+  </Step>
+
+  <Step title="Upload or paste" icon="upload" title-type="p">
+    Drop your `.bib` or `.ris` files into the window, or paste the citation text into the box below it. Paste either BibTeX or RIS, not both at once.
+  </Step>
+
+  <Step title="Import" icon="check-circle" title-type="p">
+    Click the import button (for example **Import 1 File** or **Import 12 References**). Every reference is added at once.
+  </Step>
+</Steps>
+
+<Callout kind="info" collapsed="false">
+  BibTeX and RIS files hold reference details only, not PDFs. To add the PDFs afterwards, see [Get PDFs with the Chrome Extension](/reference-manager/get-pdfs-with-extension).
+</Callout>
+
+## Import from Zotero or Mendeley
+
+Connect your account once, then pick the collections, folders or papers you want. References come across with their PDFs, and your collections or folders become folders in Paperguide.
+
+For step-by-step instructions, see [Import from Zotero & Mendeley](/reference-manager/import-zotero-mendeley).
+
+## Add Manually
+
+Use **Add Manually** for sources that have no online record, such as internal reports or unpublished work. Choose the type of source, enter its details (a title is required), and click **Save**.
+
+## Track your imports
+
+Imports run in the background, so you can keep working. A progress card in the corner shows **Importing Papers** while the import runs and **Import Completed** when it's done.
+
+- Click **Show results** to see what happened to each paper, for example "Already in your library" for a skipped duplicate.
+- To stop an import, click the **✕** next to it, then click **Stop import**. Papers already added stay in your library.
 
 ## Next steps
 
-<Columns cols={2}>
-  <Card title="Reference Manager Overview" href="/reference-manager/overview" icon="book-open" />
-  <Card title="Organize Folders and Tags" href="/reference-manager/organize-folders-tags" icon="folder" />
+<Columns cols="2">
+  <Card title="Organize Folders & Tags" href="/reference-manager/organize-folders-tags" icon="folder-tree" horizontal="false">
+    Arrange your papers into folders and tag them.
+  </Card>
+
+  <Card title="Notes & Annotation" href="/reference-manager/notes-annotation" icon="highlighter" horizontal="false">
+    Read, highlight and take notes on your papers.
+  </Card>
 </Columns>

@@ -201,6 +201,11 @@
                 "title": "Handling duplicates",
                 "path": "reference-manager/duplicates",
                 "icon": "copy"
+              },
+              {
+                "title": "Connecting to AI features",
+                "path": "reference-manager/connecting-library-to-ai-features",
+                "icon": "sparkles"
               }
             ],
             "path": "reference-manager",
@@ -363,6 +368,10 @@
     {
       "source": "/systematic-review/full-text-screening",
       "destination": "/systematic-review/ai-review/full-text-screening"
+    },
+    {
+      "source": "/reference-manager/use-library-in-other-tools",
+      "destination": "/reference-manager/connecting-library-to-ai-features"
     },
     {
       "source": "/mcp/overview",
