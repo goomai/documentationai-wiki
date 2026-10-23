@@ -32,7 +32,8 @@
                 "path": "organizations-workspaces",
                 "icon": "lucide-building-2"
               }
-            ]
+            ],
+            "icon": "rocket"
           },
           {
             "group": "Systematic Review",
@@ -112,7 +113,8 @@
                 "icon": "lucide-table"
               }
             ],
-            "path": "systematic-review"
+            "path": "systematic-review",
+            "icon": "microscope"
           },
           {
             "group": "AI Writer",
@@ -132,7 +134,8 @@
                 "path": "ai-writer/ai-features",
                 "icon": "lucide-sparkles"
               }
-            ]
+            ],
+            "icon": "pencil-line"
           },
           {
             "group": "Extract Data",
@@ -158,7 +161,8 @@
                 "icon": "lucide-library"
               }
             ],
-            "path": "extract-data"
+            "path": "extract-data",
+            "icon": "sheet"
           },
           {
             "group": "Reference Manager",
@@ -194,7 +198,8 @@
                 "icon": "lucide-users"
               }
             ],
-            "path": "reference-manager"
+            "path": "reference-manager",
+            "icon": "folder-open"
           },
           {
             "group": "AI Agents",
@@ -224,7 +229,8 @@
                 "path": "deep-research-report",
                 "icon": "file-search"
               }
-            ]
+            ],
+            "icon": "sparkles"
           },
           {
             "group": "MCP Server",
@@ -291,7 +297,8 @@
                 "path": "refer-and-earn",
                 "icon": "gift"
               }
-            ]
+            ],
+            "icon": "list"
           }
         ],
         "tab": "Help Guide"
