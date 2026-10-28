@@ -266,6 +266,11 @@
                 "icon": "lucide-file-check"
               },
               {
+                "title": "AI Writer",
+                "path": "mcp/ai-writer",
+                "icon": "lucide-pen-line"
+              },
+              {
                 "title": "Credits",
                 "path": "mcp/credits",
                 "icon": "lucide-coins"
