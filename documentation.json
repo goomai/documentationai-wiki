@@ -145,14 +145,14 @@
                 "icon": "lucide-users"
               },
               {
-                "title": "Get PDFs with Extension",
-                "path": "reference-manager/get-pdfs-with-extension",
-                "icon": "lucide-chrome"
-              },
-              {
                 "title": "Handling duplicates",
                 "path": "reference-manager/duplicates",
                 "icon": "copy"
+              },
+              {
+                "title": "Get PDFs with extension",
+                "path": "chrome-extension/reference-manager",
+                "icon": "chrome"
               },
               {
                 "title": "Connecting to AI features",
@@ -283,9 +283,14 @@
             "group": "Chrome Extension",
             "pages": [
               {
-                "title": "For Reference Manager",
-                "path": "for-reference-manager",
+                "title": "Get PDFs for Reference Manager",
+                "path": "chrome-extension/reference-manager",
                 "icon": "folder-open"
+              },
+              {
+                "title": "Get PDFs for Systematic Review",
+                "path": "chrome-extension/systematic-review",
+                "icon": "microscope"
               }
             ],
             "icon": "chrome",
