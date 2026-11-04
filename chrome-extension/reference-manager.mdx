@@ -8,19 +8,10 @@ description: |-
 
 Papers added from a DOI, an online search or a BibTeX/RIS file sometimes arrive without a PDF. Paperguide can find the full text for you, and the Paperguide Chrome extension does the searching in your browser. You can also attach PDFs you already have, or ask an AI assistant to find them through MCP.
 
-## Install the extension
+## Before you start
 
-<Steps>
-  <Step title="Install from the Chrome Web Store" icon="download" title-type="p">
-    Search for the Paperguide extension in the Chrome Web Store and click **Add to Chrome**. If you try to find a PDF online without it, Paperguide prompts you with **Install extension**.
-  </Step>
-
-  <Step title="Pin and log in" icon="users" title-type="p">
-    Pin the extension to your toolbar, click its icon and log in with your Paperguide account.
-  </Step>
-</Steps>
-
-For more about the extension, see [Chrome Extension](/chrome-extension).
+- [Install the Chrome extension](/chrome-extension) and log in with your Paperguide account. If you try to find a PDF online without it, Paperguide prompts you with **Install extension**.
+- If your university or library gives you access to paywalled journals, [set up library access](/chrome-extension/library-access) first. The extension then tries your library for every paper in the search.
 
 ## Get PDFs for many papers at once
 
@@ -31,84 +22,26 @@ The **Get PDFs** button in the toolbar above your paper list gets the missing PD
     Open a folder. To get PDFs for every paper in it, leave all papers unticked. To get them for only some papers, tick those papers.
 
     The number on **Get PDFs** shows how many of those papers have no PDF yet. When every paper already has one, the button is greyed out. In a narrow window, **Get PDFs** is in the toolbar's **More** menu.
-
-    \[image:get-pdfs-toolbar-button]
   </Step>
 
   <Step title="Click Get PDFs and choose an option" icon="download" title-type="p">
     - **Find PDF online**: opens the **Find PDFs** dialog, where the Chrome extension finds and attaches the PDFs. See [Use the Find PDFs dialog](#use-the-find-pdfs-dialog) below.
     - **Add with MCP**: opens a ready-made prompt in Claude or ChatGPT, or copies it for Gemini. Your AI assistant finds the missing PDFs and attaches them.
     - **Attach PDF**: drop the PDFs you already have. Each file is matched to its paper by the DOI printed in it. Check the matches, then attach.
-
-    \[image:get-pdfs-menu]
   </Step>
 </Steps>
 
 ### Use the Find PDFs dialog
 
-<Steps>
-  <Step title="Click Fetch all" icon="play" title-type="p">
-    The dialog opens on the **Pending** tab, which lists the papers without a PDF. The search doesn't start until you click **Fetch all**. To fetch just one paper, click **Fetch PDF** on its row.
+PDFs found here are attached to your references, and indexing starts on its own. If indexing fails for a paper in the **Retrieved** tab, click **Retry** on its row.
 
-    \[image:find-pdfs-dialog-pending]
-  </Step>
-
-  <Step title="Let it run" icon="loader" title-type="p">
-    Paperguide looks in open sources first, such as PubMed Central, arXiv and open repositories, then on publisher sites. The top of the dialog shows how many papers have been checked.
-
-    You can close the dialog and keep working, but keep your browser open until the search finishes. A card in the corner of the screen shows progress. Click **Open Find PDFs** on it to reopen the dialog.
-
-    To stop, click **Stop**. PDFs that were already added stay attached, and **Fetch all** picks up where you left off.
-
-    \[image:find-pdfs-corner-card]
-  </Step>
-
-  <Step title="Check the results in each tab" icon="list" title-type="p">
-    Each paper moves to the tab that matches what happened to it.
-
-    | Tab                 | What it means                                                                                    | What to do                                                                                                                                                                                                                                                                                       |
-    | ------------------- | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-    | **Pending**         | Not searched yet.                                                                                | Click **Fetch all**, or **Fetch PDF** on a row.                                                                                                                                                                                                                                                  |
-    | **Retrieved**       | The PDF was found and attached. Indexing starts on its own.                                      | Nothing. If a row says **Check this file**, the PDF may be a supplement rather than the paper, so open the paper and check it. If indexing fails, click **Retry**.                                                                                                                               |
-    | **Action required** | A site wants a quick check, such as a CAPTCHA, or a library sign-in before it gives you the PDF. | Under **Sites to unlock**, click **Open page** or **Sign in through library** and complete the check. Paperguide collects that site's PDFs and closes the tab. Click **Not now** to skip a site. Its papers move to **Open these yourself**, where you open each paper's page and click its PDF. |
-    | **Behind paywall**  | The paper isn't open access.                                                                     | [Set up your library proxy](#get-pdfs-behind-a-paywall) and fetch again. If you already have access, click **Open publisher page** and open the PDF there, and Paperguide picks it up. You can also **Attach PDF** or **Search Google** for another copy.                                        |
-    | **Unavailable**     | No full text can be found, for example a conference abstract or a paper with no DOI.             | Attach a copy yourself if you have one.                                                                                                                                                                                                                                                          |
-
-    \[image:find-pdfs-action-required-tab]
-
-    \[image:find-pdfs-behind-paywall-tab]
-  </Step>
-</Steps>
-
-## Get PDFs behind a paywall
-
-Paperguide can't get papers behind a publisher's paywall from open sources. If your university or library gives you access, add its proxy server to Paperguide once. The extension then uses your library access for every paper, both in the **Find PDFs** dialog and for single papers.
-
-<Steps>
-  <Step title="Open Proxy Settings" icon="settings" title-type="p">
-    Go to **Settings → Proxy Settings** and click **Add Proxy**.
-  </Step>
-
-  <Step title="Add your institution" icon="building" title-type="p">
-    Choose your institution from the list. This fills in the name and proxy URL for you. If your institution isn't listed, enter a name and your library's EZProxy URL, which your library's website or help desk can give you. Click **Add Proxy**.
-
-    \[image:proxy-settings-add-proxy]
-  </Step>
-
-  <Step title="Sign in and test" icon="log-in" title-type="p">
-    Click **Sign in** to log in to your library, then click **Test proxy** to check that it works.
-  </Step>
-</Steps>
-
-Now get the paywalled papers again: select them, click **Get PDFs → Find PDF online** and click **Fetch all**. If a site asks you to log in to your library, it appears in the **Action required** tab with **Sign in through library**.
+Each **Get PDFs → Find PDF online** starts a new search for the papers you chose. To try papers that were behind a paywall again after you [set up library access](/chrome-extension/library-access), select them and run it again.
 
 ## Get the PDF for one paper
 
 <Steps>
   <Step title="Click + PDF on the paper's row" icon="paperclip" title-type="p">
     Every paper without a PDF has a **+ PDF** button on its row. In table view it's in the **PDF** column. In list view it's next to **+ Tag**. You can also click **Add PDF** in the paper's detail panel.
-
-    \[image:row-add-pdf-button]
   </Step>
 
   <Step title="Choose an option" icon="mouse-pointer-click" title-type="p">
@@ -119,18 +52,14 @@ Now get the paywalled papers again: select them, click **Get PDFs → Find PDF o
     - **Add with MCP**: your AI assistant finds the PDF and attaches it.
 
     The first three options use the Chrome extension.
-
-    \[image:row-add-pdf-menu]
   </Step>
 </Steps>
 
 While Paperguide searches, the row shows **Finding PDF…**. If it can't attach the PDF, the row shows one of these labels instead. Click the label to see your options.
 
 - **Verify**: the source wants a quick check, such as a CAPTCHA. Click **Open**, complete the check, and the PDF is fetched automatically.
-- **Restricted**: the PDF is behind a paywall. [Set up your library proxy](#get-pdfs-behind-a-paywall) and click **Retry**, or add the PDF manually.
+- **Restricted**: the PDF is behind a paywall. [Set up library access](/chrome-extension/library-access) and click **Retry**, or add the PDF manually.
 - **Failed**: something went wrong. Click **Retry**, or add the PDF manually.
-
-\[image:row-restricted-popover]
 
 ## Check that a PDF is ready for AI features
 
@@ -139,8 +68,8 @@ After a PDF is attached, Paperguide indexes it so you can chat with it and use i
 ## Next steps
 
 <Columns cols="2">
-  <Card title="Chrome Extension" href="/chrome-extension" icon="chrome" horizontal="false">
-    Everything the Paperguide extension can do.
+  <Card title="Library Access" href="/chrome-extension/library-access" icon="lock" horizontal="false">
+    Get paywalled PDFs through your university or library.
   </Card>
 
   <Card title="Add References" href="/reference-manager/add-papers" icon="plus" horizontal="false">

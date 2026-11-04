@@ -1,0 +1,65 @@
+---
+title: Library Access for Paywalled PDFs
+description: >-
+  Add your university or library proxy once, and the Chrome extension uses it to
+  get PDFs behind publisher paywalls.
+---
+## Overview
+
+Paperguide can't get papers behind a publisher's paywall from open sources. If your university or library gives you access to those journals, add its proxy server to Paperguide once. The Chrome extension then uses your library access whenever it looks for a PDF, in the [Reference Manager](/chrome-extension/reference-manager) and in a [Systematic Review](/chrome-extension/systematic-review).
+
+Most universities use an EZProxy server. If you're not sure whether yours has one, check your library's website or ask its help desk for the proxy URL.
+
+<Callout kind="tip" collapsed="false">
+  Set up library access before your first PDF search. The extension then tries your library for every paper in that search, and fewer papers end up behind a paywall.
+</Callout>
+
+## Add your library proxy
+
+<Steps>
+  <Step title="Open Proxy Settings" icon="settings" title-type="p">
+    Go to **Settings → Proxy Settings** and click **Add Proxy**.
+
+
+  </Step>
+
+  <Step title="Choose your institution" icon="building" title-type="p">
+    Choose your institution from the list. This fills in the name and proxy URL for you. If your institution isn't listed, enter a name and your library's EZProxy URL. Click **Add Proxy**.
+
+
+  </Step>
+
+  <Step title="Sign in and test" icon="log-in" title-type="p">
+    Click **Sign in** to log in to your library, then click **Test proxy** to check that it works.
+  </Step>
+</Steps>
+
+## Get the paywalled PDFs
+
+Once your proxy is set up, fetch the paywalled papers again:
+
+- **Reference Manager**: select the papers, click **Get PDFs → Find PDF online**, then **Fetch all**. Each **Get PDFs** starts a new search, so papers that were behind a paywall are tried again. For a single paper, click **Retry** on its **Restricted** label.
+- **Systematic Review**: click **Add PDF → Find PDF online** on each paper that was behind a paywall.
+
+If a site asks you to log in to your library during a search, it appears in the dialog's **Action required** tab with **Sign in through library**. Click it, log in, and Paperguide collects the PDFs from that site.
+
+## Manage your proxies
+
+All your proxy connections are listed in **Settings → Proxy Settings**. From there you can sign in again, test a proxy, or delete one you no longer use.
+
+<Callout kind="info" collapsed="false">
+  Library access only works for journals your institution subscribes to. For a paper it doesn't cover, attach a PDF you already have, or search Google for another copy.
+</Callout>
+
+## Next steps
+
+<Columns cols="2">
+  <Card title="Get PDFs in Reference Manager" href="/chrome-extension/reference-manager" icon="folder-open" horizontal="false">
+    Fill in missing PDFs for your library.
+  </Card>
+
+  <Card title="Get PDFs in Systematic Review" href="/chrome-extension/systematic-review" icon="microscope" horizontal="false">
+    Fill in missing PDFs for full text screening.
+  </Card>
+</Columns>
+

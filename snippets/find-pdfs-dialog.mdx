@@ -1,0 +1,33 @@
+<Steps>
+  <Step title="Click Fetch all" icon="play" title-type="p">
+    The **Find PDFs with Chrome extension** dialog opens on the **Pending** tab, which lists the papers without a PDF. The search doesn't start until you click **Fetch all**. To fetch just one paper, click **Fetch PDF** on its row.
+
+    [image:find-pdfs-dialog-pending]
+  </Step>
+
+  <Step title="Let it run" icon="loader" title-type="p">
+    Paperguide looks in open sources first, such as PubMed Central, arXiv and open repositories, then on publisher sites. The top of the dialog shows how many papers have been checked.
+
+    You can close the dialog and keep working, but keep your browser open until the search finishes. A card in the corner of the screen shows progress. Click **Open Find PDFs** on it to reopen the dialog.
+
+    To stop, click **Stop**. PDFs that were already added stay attached, and **Fetch all** picks up where you left off.
+
+    [image:find-pdfs-corner-card]
+  </Step>
+
+  <Step title="Check the results in each tab" icon="list" title-type="p">
+    Each paper moves to the tab that matches what happened to it.
+
+    | Tab                 | What it means                                                                                    | What to do                                                                                                                                                                                                                                                                                     |
+    | ------------------- | ------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+    | **Pending**         | Not searched yet.                                                                                | Click **Fetch all**, or **Fetch PDF** on a row.                                                                                                                                                                                                                                                |
+    | **Retrieved**       | The PDF was found and attached.                                                                  | Nothing. If a row says **Check this file**, the PDF may be a supplement rather than the paper, so open the paper and check it.                                                                                                                                                                 |
+    | **Action required** | A site wants a quick check, such as a CAPTCHA, or a library sign-in before it gives you the PDF. | Under **Sites to unlock**, click **Open page** or **Sign in through library** and complete the check. Paperguide collects that site's PDFs and closes the tab. Click **Not now** to skip a site. Its papers move to **Open these yourself**, where you open each paper's page and click its PDF. |
+    | **Behind paywall**  | The paper isn't open access.                                                                     | [Set up library access](/chrome-extension/library-access) and fetch again. If you already have access, click **Open publisher page** and open the PDF there, and Paperguide picks it up. You can also **Attach PDF** or **Search Google** for another copy.                                    |
+    | **Unavailable**     | No full text can be found, for example a conference abstract or a paper with no DOI.             | Attach a copy yourself if you have one.                                                                                                                                                                                                                                                        |
+
+    [image:find-pdfs-action-required-tab]
+
+    [image:find-pdfs-behind-paywall-tab]
+  </Step>
+</Steps>

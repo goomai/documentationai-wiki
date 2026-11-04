@@ -291,6 +291,21 @@
                 "title": "Get PDFs for Systematic Review",
                 "path": "chrome-extension/systematic-review",
                 "icon": "microscope"
+              },
+              {
+                "title": "Library Access",
+                "path": "chrome-extension/library-access",
+                "icon": "lock"
+              },
+              {
+                "title": "Save Papers from the Web",
+                "path": "chrome-extension/save-papers",
+                "icon": "plus"
+              },
+              {
+                "title": "Cite and Chat",
+                "path": "chrome-extension/cite-and-chat",
+                "icon": "message-square"
               }
             ],
             "icon": "chrome",
@@ -398,6 +413,10 @@
     {
       "source": "/mcp/overview",
       "destination": "/mcp"
+    },
+    {
+      "source": "/reference-manager/get-pdfs-with-extension",
+      "destination": "/chrome-extension/reference-manager"
     }
   ],
   "favicon": "https://blob-cdn.documentation.ai/org-32657b98-c10c-411d-8b88-f43a8010b91d/doc-f333a884-cde9-44eb-8107-3714d598a727/1763705671832-bvvgyrlwcr-Frame-48100559.png",
