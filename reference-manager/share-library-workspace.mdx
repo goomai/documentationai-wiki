@@ -1,15 +1,21 @@
 ---
-title: Share Library & Workspace
-description: Share a folder with a supervisor, lab group or co-authors, choose what they can do, and manage access.
+title: Share Papers
+description: >-
+  Share folders with a supervisor, lab group or co-authors, or share a team
+  workspace, and choose what people can do.
 ---
 ## Overview
 
-Instead of emailing PDFs back and forth, share a folder so everyone works from the same papers. There are two ways to share:
+Instead of emailing PDFs back and forth, share your papers so everyone works from the same library. There are two ways to share:
 
-- **Share a folder** with specific people by email. Use this for a supervisor, co-authors or anyone outside your team.
-- **Use a team workspace** to give everyone in your organization a shared library, with no invites needed.
+- [**Share folders**](#share-folders) with specific people by email. Use this for a supervisor, co-authors or anyone outside your team.
+- [**Share a workspace**](#share-workspace) in your organization. Everyone added to the workspace works from the same library, with no folder invites needed.
 
-## Share a folder
+## Share folders
+
+### Share a folder
+
+You can share a folder you created. In a team workspace, workspace owners and editors can share its folders too.
 
 <Steps>
   <Step title="Open the folder's options" icon="folder" title-type="p">
@@ -17,7 +23,9 @@ Instead of emailing PDFs back and forth, share a folder so everyone works from t
   </Step>
 
   <Step title="Enter an email address" icon="mail" title-type="p">
-    Type your colleague's email address.
+    Type your colleague's email address in **Enter email to invite**.
+
+    <Image src="https://blob-cdn.documentation.ai/org-32657b98-c10c-411d-8b88-f43a8010b91d/doc-f333a884-cde9-44eb-8107-3714d598a727/1793813235279-xhgxp87ldvm-share-folder-dialog.png?fm=auto&auto=compress%2Cformat" width="1200" height="640" alt="The Share Folder dialog" caption="Enter an email, choose a permission, and click Invite." />
   </Step>
 
   <Step title="Choose a permission" icon="shield" title-type="p">
@@ -25,46 +33,50 @@ Instead of emailing PDFs back and forth, share a folder so everyone works from t
   </Step>
 
   <Step title="Send the invite" icon="send" title-type="p">
-    Click **Invite**. Your colleague gets an email invitation.
+    Click **Invite**. Your colleague gets an email invitation and a notification in Paperguide.
   </Step>
 </Steps>
 
 ### Permissions
 
-| Permission | What they can do |
-|---|---|
-| **Can View** | Read the folder's papers |
-| **Can Add Notes** | Read the papers, plus highlight and write notes on them |
-| **Can Edit** | Full control of the folder |
+| Permission        | What they can do                                                                                                   |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------ |
+| **Can View**      | Read the folder's papers                                                                                           |
+| **Can Add Notes** | Read the papers, plus highlight and write notes on them                                                            |
+| **Can Edit**      | Add and change papers and notes, and create subfolders. They can't share the folder, or rename, move or delete it. |
 
 <Callout kind="tip" collapsed="false">
   For a supervisor, **Can Add Notes** is often just right: they can comment on your papers without changing the folder.
 </Callout>
 
-## Accept an invitation
+### Accept an invitation
 
-The invitation email opens a page where your colleague clicks **Accept** or **Reject**. Until they accept, they show as **Pending** in the share dialog.
+The invitation opens a page where your colleague clicks **Accept** or **Decline**. Until they accept, they show as **Pending** in the share dialog. If they decline, they show as **Rejected**.
 
-Once they accept, the folder appears in their own library under **Shared With Me**.
+Once they accept, the folder appears under **Shared With Me** in their Reference Manager.
 
-## Work together
+<Callout kind="info" collapsed="false">
+  When a folder is shared from an organization, the person who accepts is added to that organization as a guest. The folder appears under **Shared With Me** in that organization's Reference Manager, not in their personal library. To find it, they switch to that organization.
+</Callout>
+
+### Work together
 
 When you share a folder, you both work from the same papers. Collaborators with **Can Add Notes** or **Can Edit** access can highlight passages and leave notes, and you'll see their notes next to yours. See [Notes & Annotation](/reference-manager/notes-annotation).
 
-## Change or remove access
+### Change or remove access
 
 Open the folder's **Folder options** menu and choose **Manage Access**. Under **People with access** you can:
 
-- Change someone's permission using the menu next to their name.
-- Click **Remove access** to stop sharing the folder with them.
+- Change someone's permission using the menu next to their name. This menu appears once they've accepted the invitation.
+- Click **Remove access** (the trash icon) to stop sharing the folder with them, or to cancel a pending invitation.
 
 If someone has shared a folder with you and you no longer need it, open its **Folder options** menu and choose **Leave Folder**.
 
-## Team workspaces
+## Share workspace
 
-If your whole team uses Paperguide, a team workspace is simpler. Everyone in your organization gets a shared library without any invites. What each member can do depends on their workspace role.
+If your whole team uses Paperguide, sharing a team workspace is simpler than sharing folders one by one. Members see the team workspaces they've been added to. Organization owners and admins can access every workspace. What each member can do in a workspace depends on their workspace role.
 
-You can still share a folder from a team workspace with people outside your organization, using **Share Folder** as described above.
+You can also share a folder from a team workspace with people outside your organization, using **Share Folder** as described above. Whether you can depends on your organization's **External sharing** setting: **Anyone**, **Same domain only**, or **No external sharing**. People who already have access through the team workspace don't need an invite.
 
 To set up a team workspace and manage roles, see [Organizations & Workspaces](/organizations-workspaces).
 

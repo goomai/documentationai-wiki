@@ -1,8 +1,8 @@
 ---
-title: Connecting your reference manager to AI features
+title: Connecting to AI Features
 description: >-
   Use the papers you've saved in Research Agent, Literature Review, Systematic
-  Review, Extract Data and AI Writer.
+  Review, Extract Data, AI Writer and your AI assistant.
 ---
 ## Overview
 
@@ -10,21 +10,25 @@ Your library doesn't just store papers. Save a paper once, and you can use it ev
 
 ## Research Agent and Literature Review
 
-Ask questions or generate a literature review from the papers you've saved, instead of searching public papers.
+By default, your questions and literature reviews use **all sources**: research papers, PubMed, arXiv and your Reference Manager. You can narrow this down to just the papers you've saved.
 
 <Steps>
-  <Step title="Choose your library as the source" icon="book-open" title-type="p">
-    Below the question box, click the source button (it shows **Public Research Papers** by default) and choose **Reference Manager**.
+  <Step title="Open Sources" icon="book-open" title-type="p">
+    Below the question box, click the source button. It shows **All sources** by default. The **Sources** panel lists **Research papers**, **PubMed**, **arXiv** and **Reference manager**, each with a switch.
+
+    <Image src="https://blob-cdn.documentation.ai/org-32657b98-c10c-411d-8b88-f43a8010b91d/doc-f333a884-cde9-44eb-8107-3714d598a727/1793813227130-1no3rxkc85d-research-agent-sources.png?fm=auto&auto=compress%2Cformat" width="1600" height="1008" alt="The Sources panel in Research Agent with all four sources on" caption="All four sources are on by default. Use Choose papers or folders to narrow your library." />
   </Step>
 
-  <Step title="Pick the papers" icon="folder" title-type="p">
-    Choose the folder or papers to use.
+  <Step title="Choose papers or folders" icon="folder" title-type="p">
+    With **Reference manager** on, click **Choose papers or folders** and pick the papers or folders to use. To answer only from your library, switch the other sources off.
   </Step>
 
   <Step title="Ask your question" icon="message-square" title-type="p">
-    Type your question and send it. The answer, or the literature report, is based on your chosen papers.
+    Type your question and send it. The answer, or the literature report, uses the sources you chose.
   </Step>
 </Steps>
+
+You can also add papers to a question with **+ → Add from reference manager**.
 
 See [Research Agent](/research-agent) and [Literature Review Agent](/literature-review-agent).
 
@@ -38,13 +42,24 @@ See [Systematic Review](/systematic-review/overview).
 
 Pull the key data from your papers into a table. Click **Select References**, choose the folder or papers from your library, and Paperguide extracts the data into columns you can add to, such as sample size.
 
+You can select up to 10 papers on the free plan and up to 100 on paid plans. Papers whose PDFs aren't indexed yet are indexed first.
+
 See [Extract Data](/extract-data/overview).
 
 ## AI Writer
 
-Write with citations that come straight from your library. In a document, click **Cite**, search for the paper and add the citation.
+Write with citations that come straight from your library.
+
+- **Cite from your library**: in a document, click **Cite**, or type **@**. Search on the **My References** tab and add the citation. The **Research Database** tab searches public papers instead.
+- **Let the AI use your library**: in the document's settings, turn on **Your Reference Manager** and click **Choose folders** to pick which folders it draws from.
 
 See [AI Writer](/ai-writer/overview).
+
+## Your AI assistant (MCP)
+
+Connect Paperguide to an AI assistant such as Claude or ChatGPT through MCP. Your assistant can then find papers in your library, search inside your PDFs, add papers, attach PDFs and organise folders, all from your chat.
+
+See [MCP: Reference Manager](/mcp/reference-manager) and [Connect](/mcp/connect-and-manage).
 
 ## Inside Reference Manager
 
@@ -56,18 +71,21 @@ You can also work with papers without leaving your library:
 - **Export** downloads papers as **BibTeX (.bib)** or **RIS (.ris)** to use in other tools.
 
 <Callout kind="info" collapsed="false">
-  Some tools can only use papers that have a PDF attached, or in some cases an abstract. When you pick papers, a tip tells you if one can't be selected and why. See [Get PDFs with the Chrome Extension](/reference-manager/get-pdfs-with-extension).
+  Some tools can only use papers that have a PDF attached, or in some cases an abstract. When you pick papers, a tip tells you if one can't be selected and why. See [Get PDFs with Extension](/chrome-extension/reference-manager).
+</Callout>
+
+<Callout kind="tip" collapsed="false">
+  On Pro and higher plans, AI features also read the tables, figures and scanned pages in your PDFs, and extract data from them.
 </Callout>
 
 ## Next steps
 
 <Columns cols="2">
-  <Card title="AI Snapshot" href="/reference-manager/ai-snapshot" icon="sparkles" horizontal="false">
-    Get a structured summary of any paper.
-  </Card>
-
-  <Card title="Add References" href="/reference-manager/add-papers" icon="plus" horizontal="false">
+  <Card title="Add Papers" href="/reference-manager/add-papers" icon="plus" horizontal="false">
     All the ways to add papers to your library.
   </Card>
-</Columns>
 
+  <Card title="Get PDFs with Extension" href="/chrome-extension/reference-manager" icon="chrome" horizontal="false">
+    Fill in missing PDFs so AI features can read your papers.
+  </Card>
+</Columns>

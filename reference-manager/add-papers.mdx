@@ -1,31 +1,39 @@
 ---
-title: Add References
-description: Add papers to your library from PDFs, DOIs and links, online search, BibTeX or RIS files, Zotero, Mendeley, or by hand.
+title: Add Papers
+description: >-
+  Add papers to your library from PDFs, DOIs and links, online search, BibTeX or
+  RIS files, Zotero, Mendeley, or by hand.
 ---
 ## Overview
 
 Every way of adding papers starts from the **Add Papers** button in Reference Manager. It opens a window with these options:
 
-| Option | Use it when you have |
-|---|---|
-| **Upload PDF** | PDF files on your computer |
-| **URL / DOI Import** | DOIs or links to papers |
-| **Search Online** | A title, author, journal, publisher or topic, but no link |
-| **BibTeX / RIS** | A `.bib` or `.ris` file, or citation text, from EndNote or another tool |
-| **Import from Zotero** | A Zotero library |
-| **Import from Mendeley** | A Mendeley library |
-| **Add Manually** | A source with no online record |
+| Option                   | Use it when you have                                                    |
+| ------------------------ | ----------------------------------------------------------------------- |
+| **Upload PDF**           | PDF files on your computer                                              |
+| **URL / DOI Import**     | DOIs or links to papers                                                 |
+| **Search Online**        | A title, author, journal, publisher or topic, but no link               |
+| **BibTeX / RIS**         | A `.bib` or `.ris` file, or citation text, from EndNote or another tool |
+| **Import from Zotero**   | A Zotero library                                                        |
+| **Import from Mendeley** | A Mendeley library                                                      |
+| **Add Manually**         | A source with no online record                                          |
+
+<Image src="https://blob-cdn.documentation.ai/org-32657b98-c10c-411d-8b88-f43a8010b91d/doc-f333a884-cde9-44eb-8107-3714d598a727/1793813223042-2rzd0bkm1wp-add-papers-window.png?fm=auto&auto=compress%2Cformat" width="2080" height="1160" alt="The Add Papers window with its import options" caption="Choose how to add papers from the list on the left." />
 
 Paperguide fills in each paper's details (title, authors, journal and so on) for you, so there's usually nothing to type.
+
+<Callout kind="tip" collapsed="false">
+  On Pro and higher plans, Paperguide also reads the tables, figures and scanned pages in your PDFs, so AI features can use and extract data from them.
+</Callout>
 
 ## Choose where papers go
 
 Before you import, pick the destination under **Save to workspace / folder**. Papers are added to that workspace and filed into the folder you choose.
 
-Keep **Skip duplicates** on (it's on by default) so papers already in your library aren't added again. See [Handling duplicates](/reference-manager/duplicates).
+Keep **Skip duplicates** on (it's on by default) so papers already in your library aren't added again. It isn't shown for **Add Manually**. See [Handling Duplicates](/reference-manager/duplicates).
 
 <Callout kind="info" collapsed="false">
-  Zotero and Mendeley imports work a little differently: each collection or folder you tick becomes a folder in Paperguide. See [Import from Zotero & Mendeley](/reference-manager/import-zotero-mendeley).
+  Zotero and Mendeley imports work a little differently. Instead of a folder, you choose the workspace under **Import into workspace**, and each collection or folder you tick becomes a folder in Paperguide. See [Import from Zotero & Mendeley](/reference-manager/import-zotero-mendeley).
 </Callout>
 
 ## Upload PDF
@@ -36,7 +44,7 @@ Keep **Skip duplicates** on (it's on by default) so papers already in your libra
   </Step>
 
   <Step title="Add your files" icon="file-text" title-type="p">
-    Drag your PDFs into the window, or click **browse files** to pick them. You can upload up to 30 PDFs at once.
+    Drag your PDFs into the window, or click **browse files** to pick them. You can upload up to 100 PDFs at once. Each PDF can be up to 100 MB and 500 pages.
   </Step>
 
   <Step title="Upload" icon="check-circle" title-type="p">
@@ -72,13 +80,11 @@ Keep **Skip duplicates** on (it's on by default) so papers already in your libra
   </Step>
 
   <Step title="Search" icon="search" title-type="p">
-    Pick what to search by (**Title**, **Author**, **Journal**, **Publisher** or **Keyword**), type your search, and click **Search**.
-
-    To narrow the results, use the filters: **Source**, **Year**, **Journal**, **SJR Quartile** and **Access** (Open Access or Subscription).
+    Type a title, author, journal or topic, and click **Search**. You can also paste a DOI to find that exact paper.
   </Step>
 
-  <Step title="Add papers" icon="plus" title-type="p">
-    Click **Add Paper** on a result to add it. To add several at once, select them and click **Add Selected**.
+  <Step title="Select and add papers" icon="plus" title-type="p">
+    Click the results you want to select them. Then click **Add Selected** at the bottom of the window. It shows how many papers you've picked, for example **Add 3 Selected**.
   </Step>
 </Steps>
 
@@ -92,16 +98,16 @@ Use this to bring in references from EndNote, a LaTeX project or any other tool 
   </Step>
 
   <Step title="Upload or paste" icon="upload" title-type="p">
-    Drop your `.bib` or `.ris` files into the window, or paste the citation text into the box below it. Paste either BibTeX or RIS, not both at once.
+    Drop your `.bib` or `.ris` files into the window, or paste the citation text into the box below it. You can add up to 10 files, each up to 20 MB. Paste either BibTeX or RIS, not both at once.
   </Step>
 
   <Step title="Import" icon="check-circle" title-type="p">
-    Click the import button (for example **Import 1 File** or **Import 12 References**). Every reference is added at once.
+    Click the import button (for example **Import 1 File** or **Import 12 References**). The import runs in the background, and a progress card shows how it's going.
   </Step>
 </Steps>
 
 <Callout kind="info" collapsed="false">
-  BibTeX and RIS files hold reference details only, not PDFs. To add the PDFs afterwards, see [Get PDFs with the Chrome Extension](/reference-manager/get-pdfs-with-extension).
+  BibTeX and RIS files hold reference details only, not PDFs. To add the PDFs afterwards, see [Get PDFs with Extension](/chrome-extension/reference-manager).
 </Callout>
 
 ## Import from Zotero or Mendeley
@@ -119,7 +125,7 @@ Use **Add Manually** for sources that have no online record, such as internal re
 Imports run in the background, so you can keep working. A progress card in the corner shows **Importing Papers** while the import runs and **Import Completed** when it's done.
 
 - Click **Show results** to see what happened to each paper, for example "Already in your library" for a skipped duplicate.
-- To stop an import, click the **✕** next to it, then click **Stop import**. Papers already added stay in your library.
+- To stop an import, click the **✕** next to it. For BibTeX/RIS, Zotero and Mendeley imports, confirm with **Stop import**. Papers already added stay in your library.
 
 ## Next steps
 

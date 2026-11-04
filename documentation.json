@@ -125,7 +125,7 @@
                 "icon": "lucide-plus-circle"
               },
               {
-                "title": "Import Zotero & Mendeley",
+                "title": "Import from Zotero & Mendeley",
                 "path": "reference-manager/import-zotero-mendeley",
                 "icon": "lucide-download"
               },
@@ -140,22 +140,22 @@
                 "icon": "highlighter"
               },
               {
-                "title": "Share Library & Workspace",
+                "title": "Share Papers",
                 "path": "reference-manager/share-library-workspace",
                 "icon": "lucide-users"
               },
               {
-                "title": "Handling duplicates",
+                "title": "Handling Duplicates",
                 "path": "reference-manager/duplicates",
                 "icon": "copy"
               },
               {
-                "title": "Get PDFs with extension",
+                "title": "Get PDFs with Extension",
                 "path": "chrome-extension/reference-manager",
                 "icon": "chrome"
               },
               {
-                "title": "Connecting to AI features",
+                "title": "Connecting to AI Features",
                 "path": "reference-manager/connecting-library-to-ai-features",
                 "icon": "sparkles"
               }

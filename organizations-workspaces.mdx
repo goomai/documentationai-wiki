@@ -1,8 +1,7 @@
 ---
 title: Organizations & Workspaces
-description: Manage organizations, workspaces, team members, and permissions.
+description: 'Manage organizations, workspaces, team members, and permissions.'
 ---
-
 ## Manage research across your team
 
 Manage your team's research workspace with Paperguide's organization model. An organization contains multiple workspaces, each with its own Reference Manager, AI Writer, Systematic Review, Extract Data, and Notebooks. Invite team members, assign roles, and control access at both the organization and workspace level.
@@ -19,10 +18,8 @@ A **Workspace** is where research work happens. Each workspace has its own Refer
 - **Private** — your personal space inside an organization. Only you can see it, and even organization admins cannot access it. Paperguide creates it automatically when you join an organization.
 - **Team** — a shared collaborative space inside an organization. Add multiple team members with different roles, and create as many team workspaces as your team needs.
 
-<Callout kind="info">
-
-Personal and Private workspaces serve different purposes. Your Personal workspace exists outside any organization, while your Private workspace exists inside an organization but remains visible only to you.
-
+<Callout kind="info" collapsed="false">
+  Personal and Private workspaces serve different purposes. Your Personal workspace exists outside any organization, while your Private workspace exists inside an organization but remains visible only to you.
 </Callout>
 
 ## The org sidebar
@@ -40,38 +37,33 @@ The selected workspace controls the scope for workspace-based tools. If you swit
 
 Paperguide uses two navigation modes so you can keep individual work separate from team collaboration.
 
-| Feature | Personal Mode | Organization Mode |
-| --- | --- | --- |
-| Sidebar type | DashboardSidebar | OrgAppSidebar |
-| Navigation items | Home, Reference Manager, AI Writer, History | Workspace switcher, Agents group, Workspace group |
-| Workspace scope | Single personal library | Multiple workspaces, including Private and Team |
-| Team collaboration | Not available | Available with roles and permissions |
-| Billing | Individual subscription | Seat-based organization subscription |
+| Feature            | Personal Mode                               | Organization Mode                                 |
+| ------------------ | ------------------------------------------- | ------------------------------------------------- |
+| Sidebar type       | DashboardSidebar                            | OrgAppSidebar                                     |
+| Navigation items   | Home, Reference Manager, AI Writer, History | Workspace switcher, Agents group, Workspace group |
+| Workspace scope    | Single personal library                     | Multiple workspaces, including Private and Team   |
+| Team collaboration | Not available                               | Available with roles and permissions              |
+| Billing            | Individual subscription                     | Seat-based organization subscription              |
 
 ## Creating an organization
 
 <Steps>
-  <Step title="Check eligibility" icon="check-circle">
-
-  You need at least 2 active subscription seats to create an organization. Free plans and single-seat subscriptions cannot create organizations.
-
+  <Step title="Check eligibility" icon="check-circle" title-type="p">
+    You need at least 2 active subscription seats to create an organization. Free plans and single-seat subscriptions cannot create organizations.
   </Step>
-  <Step title="Create the org" icon="plus">
 
-  Go to your account settings and create a new organization. Enter a name for the organization, then confirm the setup.
-
+  <Step title="Create the org" icon="plus" title-type="p">
+    Go to your account settings and create a new organization. Enter a name for the organization, then confirm the setup.
   </Step>
-  <Step title="Auto-provisioning" icon="settings">
 
-  When you create an organization, Paperguide converts your current Personal workspace into your Private workspace inside the organization. Paperguide also creates a shared team workspace named `Teamspace` automatically.
+  <Step title="Auto-provisioning" icon="settings" title-type="p">
+    When you create an organization, Paperguide converts your current Personal workspace into your Private workspace inside the organization. Paperguide also creates a shared team workspace named `Teamspace` automatically.
 
-  Your existing content moves with the conversion, so your references, documents, and other workspace content stay intact.
-
+    Your existing content moves with the conversion, so your references, documents, and other workspace content stay intact.
   </Step>
-  <Step title="Invite members" icon="users">
 
-  Invite team members by email and assign them to the right team workspaces with the right roles. After they accept, Paperguide creates their Private workspace and activates their workspace access.
-
+  <Step title="Invite members" icon="users" title-type="p">
+    Invite team members by email and assign them to the right team workspaces with the right roles. After they accept, Paperguide creates their Private workspace and activates their workspace access.
   </Step>
 </Steps>
 
@@ -99,42 +91,38 @@ Team workspaces can be deleted by the workspace owner or an organization admin. 
 
 Folders and documents can move between workspaces, including across different team workspaces. This makes it easier to reorganize research when a project changes hands or when work that started privately needs to move into a shared team space.
 
-<Callout kind="tip">
-
-Use separate team workspaces when access rules differ across projects. That keeps permissions simpler than managing one large workspace with many exceptions.
-
+<Callout kind="tip" collapsed="false">
+  Use separate team workspaces when access rules differ across projects. That keeps permissions simpler than managing one large workspace with many exceptions.
 </Callout>
 
 ## Organization roles
 
 Organization roles control who can administer the team account and who can manage workspaces at a broad level.
 
-| Capability | Owner | Admin | Member |
-| --- | --- | --- | --- |
-| Manage billing and seats | ✅ | ❌ | ❌ |
-| Create and delete workspaces | ✅ | ✅ | ❌ |
-| Invite and remove members | ✅ | ✅ | ❌ |
-| Access all team workspaces | ✅ | ✅ | ❌ |
-| Access assigned workspaces | ✅ | ✅ | ✅ |
-| Delete organization | ✅ | ❌ | ❌ |
+| Capability                   | Owner | Admin | Member |
+| ---------------------------- | ----- | ----- | ------ |
+| Manage billing and seats     | ✅     | ❌     | ❌      |
+| Create and delete workspaces | ✅     | ✅     | ❌      |
+| Invite and remove members    | ✅     | ✅     | ❌      |
+| Access all team workspaces   | ✅     | ✅     | ❌      |
+| Access assigned workspaces   | ✅     | ✅     | ✅      |
+| Delete organization          | ✅     | ❌     | ❌      |
 
-<Callout kind="info">
-
-Organization owners and admins automatically get owner-level access to all team workspaces in the organization. Regular members only see workspaces they have been explicitly added to.
-
+<Callout kind="info" collapsed="false">
+  Organization owners and admins automatically get owner-level access to all team workspaces in the organization. Regular members only see workspaces they have been explicitly added to.
 </Callout>
 
 ## Workspace roles
 
 Workspace roles control what someone can do inside a specific team workspace. These roles are separate from organization roles.
 
-| Capability | Owner | Editor | Viewer |
-| --- | --- | --- | --- |
-| View content | ✅ | ✅ | ✅ |
-| Add and edit references | ✅ | ✅ | ❌ |
-| Share folders | ✅ | ✅ | ❌ |
-| Manage workspace members | ✅ | ❌ | ❌ |
-| Rename or delete workspace | ✅ | ❌ | ❌ |
+| Capability                 | Owner | Editor | Viewer |
+| -------------------------- | ----- | ------ | ------ |
+| View content               | ✅     | ✅      | ✅      |
+| Add and edit references    | ✅     | ✅      | ❌      |
+| Share folders              | ✅     | ✅      | ❌      |
+| Manage workspace members   | ✅     | ❌      | ❌      |
+| Rename or delete workspace | ✅     | ❌      | ❌      |
 
 Viewers have read-only access. They can open content but cannot create, edit, or delete workspace data.
 
@@ -187,17 +175,20 @@ You can review notifications from the sidebar, track unread counts, and mark ite
 
 ## Next steps
 
-<Columns cols={2}>
+<Columns cols="2">
   <Card title="Reference Manager" href="/reference-manager" icon="book-open" horizontal="false" target="_self">
-  Manage references in your workspace library.
+    Manage references in your workspace library.
   </Card>
-  <Card title="Share Library & Workspace" href="/reference-manager/share-library-workspace" icon="users" horizontal="false" target="_self">
-  Invite team members and share folders.
+
+  <Card title="Share Papers" href="/reference-manager/share-library-workspace" icon="users" horizontal="false" target="_self">
+    Invite team members and share folders.
   </Card>
+
   <Card title="AI Writer Overview" href="/ai-writer/overview" icon="edit" horizontal="false" target="_self">
-  Write documents collaboratively in your workspace.
+    Write documents collaboratively in your workspace.
   </Card>
+
   <Card title="Systematic Review Overview" href="/systematic-review/overview" icon="folder" horizontal="false" target="_self">
-  Run systematic reviews with your team.
+    Run systematic reviews with your team.
   </Card>
 </Columns>
