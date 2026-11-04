@@ -280,13 +280,20 @@
             "path": "mcp"
           },
           {
-            "group": "Others",
+            "group": "Chrome Extension",
             "pages": [
               {
-                "title": "Chrome Extension",
-                "path": "chrome-extension",
-                "icon": "chrome"
-              },
+                "title": "For Reference Manager",
+                "path": "for-reference-manager",
+                "icon": "folder-open"
+              }
+            ],
+            "icon": "chrome",
+            "path": "chrome-extension"
+          },
+          {
+            "group": "Others",
+            "pages": [
               {
                 "title": "AI Credits",
                 "path": "ai-credits",
