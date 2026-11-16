@@ -1,5 +1,5 @@
 {
-  "name": "Paperguide Documentation",
+  "name": "Paperguide Help Center",
   "initialRoute": "introduction",
   "colors": {
     "light": {
@@ -430,5 +430,6 @@
       }
     }
   },
-  "template": "atlas"
+  "template": "atlas",
+  "title": "Paperguide Help Center"
 }
