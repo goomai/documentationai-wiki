@@ -5,44 +5,44 @@ description: >-
   with weak-vs-strong examples, reusable instruction patterns, and a
   pre-extraction checklist.
 ---
-## Write fields the way you want the table to read
+## The five rules
 
-Extract Data turns a pile of papers into a table you can read down a column instead of reading front to back. How good that table is depends almost entirely on one thing: how you write your fields.
+How good your table is depends on how you write your columns. If you only read one thing, read this:
 
-This page shows you how to write fields that come back precise, comparable, and citable — with weak-vs-strong examples from clinical research, pharma, computer science, social science, HEOR, education, and engineering.
+1. **One column, one fact.** Split "methods and results" into two columns.
+2. **Say exactly which value you want.** "Participants in the primary analysis", not "sample size".
+3. **Give a format.** End the instructions with an example, such as Format: "294 (148/146)".
+4. **Pick the strictest answer type.** Use Yes / Maybe / No or Pick from a list for anything you will filter or count.
+5. **Say what to answer when the paper doesn't say.** For example: If not stated, answer "Not reported".
 
-## What an extraction field actually is
+The tips below explain each rule with weak-vs-strong examples from many fields. Open the collapsed sections only when you need the detail.
 
-Every column in your table is one extraction field: one question, asked of every paper, answered independently for each row.
+## What an extraction field is
 
-A field has three parts:
+Every column in your table is one extraction field: one question, asked of every paper, answered separately for each row. A field has three parts:
 
-| Part             | What it is                                                                                                | Example                                                                                                                                           |
-| ---------------- | --------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Name             | The table header. 1–4 words, scannable.                                                                   | Sample size                                                                                                                                       |
-| Instructions     | The brief the AI follows literally: what to extract, what to include, and the exact format you want back. | Total number of participants analysed in the final results. Give the overall n, then per-arm in parentheses if reported. Format: "351 (176/175)". |
-| Output structure | How the answer is shaped: Answer, Yes/Maybe/No, or Specified.                                             | Answer                                                                                                                                            |
+| Part         | What it is                                                                                                | Example                                                                                                                                           |
+| ------------ | --------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Name         | The table header. 1–4 words, scannable.                                                                   | Sample size                                                                                                                                       |
+| Instructions | The brief the AI follows literally: what to extract, what to include, and the exact format you want back. | Total number of participants analysed in the final results. Give the overall n, then per-arm in parentheses if reported. Format: "351 (176/175)". |
+| Answer type  | How the answer is shaped: Free text, Yes / Maybe / No, or Pick from a list.                               | Free text                                                                                                                                         |
 
 The Instructions box does the heavy lifting. The name is just a label — the AI reads the instructions.
 
-## Start from your research question, not from a blank column
+## Start from your research question
 
-When you create a table, the setup dialog asks for your research question. Fill it in. Extract Data reads it together with your paper titles and proposes a full set of typed columns — usually 5–8, tuned to the vocabulary your specific papers actually use.
+When you create a table, type your research question and click **Suggest columns**. Paperguide reads it with your paper titles and suggests up to 4 columns in the vocabulary your papers use. You can:
 
-Two ways to use it:
+- **Describe the goal**: I'm comparing digital CBT trials for adolescent anxiety and need enough to build an evidence table.
+- **Name the columns you want**: Extract: study design, sample size, app used, number of sessions, primary outcome, effect size, attrition.
 
-- **Describe the goal and let it design the columns**: I'm comparing digital CBT trials for adolescent anxiety and need enough to build an evidence table and check whether pooling is sensible.
-- **Name the columns yourself and let it sharpen them**: Extract: study design, sample size, app or platform used, number of sessions, primary outcome measure, effect size, attrition. If you name specific fields, you get exactly those — refined and typed.
-
-Then edit what comes back. Suggested columns are a starting draft, not a verdict — the tips below are how you improve them.
-
-Every new table also starts with a Summary column so you have something to read immediately. Delete it if you do not need it.
+Suggestions are a first draft. Nothing is extracted until you click Extract, so edit them, remove the Summary column if you don't need it, and add your own.
 
 ## Twelve tips for fields that come back right
 
 ### Tip 1 — One field, one fact
 
-A column that asks two things gets a half-answer to each, and it cannot be sorted or filtered by either.
+A column that asks two things gets a half-answer to each, and it can't be sorted or filtered by either.
 
 |   | Field name             | Instructions                                        |
 | - | ---------------------- | --------------------------------------------------- |
@@ -50,7 +50,7 @@ A column that asks two things gets a half-answer to each, and it cannot be sorte
 | ✅ | Study design           | The design as the authors label it...               |
 | ✅ | Primary outcome result | The effect on the primary outcome...                |
 
-The same rule splits subgroups, timepoints, and arms. If you need the 12-week and 52-week results, that is two columns, not one.
+The same rule splits subgroups, timepoints and arms. If you need the 12-week and 52-week results, that's two columns.
 
 ### Tip 2 — Put the work in Instructions, not the Name
 
@@ -61,25 +61,25 @@ The name is a header you scan; the instructions are the brief the AI follows. A 
 | ❌ | Effect size | The effect size.                                                                                                                                                                         |
 | ✅ | Effect size | The effect estimate for the primary outcome, with its 95% CI and p-value exactly as printed. Name the metric (SMD, OR, HR, RR, β). Format: "SMD −0.42 (95% CI −0.68 to −0.16), p=0.002". |
 
-### Tip 3 — Disambiguate when several numbers compete
+### Tip 3 — Say which number, when several compete
 
-This is the single most common cause of a confidently wrong column. Papers contain many numbers that all look like sample size: screened, eligible, randomised, analysed, per-protocol, and the number the power calculation targeted. Say which one you want.
+This is the most common cause of a confidently wrong column. Papers contain many numbers that look like sample size: screened, eligible, randomised, analysed, per-protocol, and the power-calculation target. Say which one you want.
 
 |   | Field name      | Instructions                                                                                                                                                                  |
 | - | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | ❌ | N               | The sample size.                                                                                                                                                              |
 | ✅ | Analysed sample | The number of participants included in the primary analysis (not screened, not randomised). Give the total, then per-arm in parentheses if reported. Format: "294 (148/146)". |
 
-Non-clinical versions of the same trap:
+The same trap in other fields:
 
-- CS/ML: training set size vs test set size vs total dataset size.
-- Social science: respondents invited vs completed vs retained in the final regression sample.
-- Materials: specimens fabricated vs specimens tested to failure.
+- CS/ML: training set vs test set vs total dataset size.
+- Social science: respondents invited vs completed vs retained in the final sample.
+- Materials: specimens made vs specimens tested to failure.
 - Economics: observations vs clusters vs individuals in a panel.
 
-### Tip 4 — Specify the output format, and give an example
+### Tip 4 — Give the output format, with an example
 
-The AI follows format instructions literally. A one-line format example is the cheapest quality improvement you can make, and it is what makes a column comparable down the page instead of a paragraph pile.
+The AI follows format instructions literally. A one-line format example is the cheapest quality improvement you can make, and it makes a column comparable down the page.
 
 |   | Field name         | Instructions                                                                                                                                                     |
 | - | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -88,77 +88,73 @@ The AI follows format instructions literally. A one-line format example is the c
 | ✅ | Model accuracy     | Best reported accuracy on the primary benchmark, with the dataset name. Copy the number exactly, including decimal places. Format: "92.4% (SQuAD v2)".           |
 | ✅ | ICER               | The incremental cost-effectiveness ratio for the base-case analysis, with currency, price year, and unit. Format: "£24,300 per QALY (2022 GBP)".                 |
 
-#### What Format: means, and which kind to write
+<Expandable title="More detail: what Format: means, and which kind to write" default-open="false">
+  Format: describes the shape of the value, never a value to output. Paperguide's own suggested columns end the same way. Two kinds, depending on what the column returns:
 
-This is the convention Paperguide itself uses — accept the suggested columns and you will see instructions ending the same way. It describes the shape of the value, never a value to output. Two kinds, and the right one depends on what the column returns:
+  - **An example value**, for numbers and structured values: Format: "294 (148/146)". Safe here, because numbers are always copied exactly as the paper prints them — the example can only teach shape.
+  - **A shape description**, for categories or free text: Format: "mean ± SD, original units" or Format: "design as the authors name it". Prefer this over a sample phrase like Format: "Randomized controlled trial", which can nudge the wording for a paper that says something slightly different. In a Pick from a list column you don't need a format — the possible answers are the format.
 
-- **An instance**, for numbers and structured values: Format: "294 (148/146)". Safe here, because the extractor is separately bound to copy numbers exactly as the paper prints them — the example can only teach shape.
-- **A shape description**, for categorical or free-text values: Format: "mean ± SD, original units" or Format: "design as the authors name it". Prefer this over a sample phrase like Format: "Randomized controlled trial", which can nudge the wording of a paper that says something slightly different. On a Specified column the question disappears — your choice list is the format.
+  Either way, keep the "if reported" clause before it, so a thinner paper isn't forced into the shape of your example.
+</Expandable>
 
-Either way, keep the "if reported" clause in the sentence before it, so a thinner paper is not forced into the shape of your example.
+### Tip 5 — Pick the strictest answer type that fits
 
-### Tip 5 — Pick the strictest output type that fits
+This decides whether the column is something you read or something you use.
 
-This is the decision users get wrong most, and it decides whether the column is something you read or something you use.
+| Answer type      | Use it when                                                                                                    | You get                                                 |
+| ---------------- | -------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------- |
+| Free text        | The value varies too much for a fixed list: findings, methods detail, numbers with units, limitations, themes. | A short value with quote links.                         |
+| Yes / Maybe / No | You are screening or filtering: a genuinely binary question about the paper.                                   | yes / maybe / no plus a one-line justification.         |
+| Pick from a list | You want a clean, groupable category: design, setting, funding, region, risk level.                            | Exactly one of your own labels — never an invented one. |
 
-| Output type  | Use it when                                                                                                    | You get                                                 |
-| ------------ | -------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------- |
-| Answer       | The value varies too much for a fixed list: findings, methods detail, numbers with units, limitations, themes. | A short free-form value with inline citations.          |
-| Yes/Maybe/No | You are screening or filtering: a genuinely binary question about the paper.                                   | yes / maybe / no plus a one-line justification.         |
-| Specified    | You want a clean, groupable category: design, setting, funding, region, risk level.                            | Exactly one of your own labels — never an invented one. |
+Rule of thumb: if you will filter, sort or count by the column, use Yes / Maybe / No or Pick from a list. If you will read it, use Free text.
 
-Rule of thumb: if you will filter, sort, or count by the column, use Yes/Maybe/No or Specified. If you will read the column, use Answer.
+- Was the study randomised? → Yes / Maybe / No.
+- What was the randomisation method? → Free text.
+- Study design → Pick from a list: RCT, Cohort, Case-control, Cross-sectional, Qualitative, Review.
+- Sample size → Free text. Counts vary too much for a list.
 
-Concretely:
+<Expandable title="Before you screen: how Yes / Maybe / No decides" default-open="false">
+  The three verdicts follow your instructions literally:
 
-- Was the study randomised? → Yes/Maybe/No, for screening.
-- What was the randomisation method? → Answer, for description.
-- Study design → Specified, with labels such as RCT, Cohort, Case-control, Cross-sectional, Qualitative, Review.
-- Sample size → Answer, not Specified. Counts vary infinitely; a choice list cannot hold them.
+  | Verdict | Given when                                                                                                                         |
+  | ------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+  | yes     | The evidence meets the condition your instructions define for yes.                                                                 |
+  | no      | The evidence meets the condition your instructions define for no — including, if you say so, the absence of something.             |
+  | maybe   | Support is partial, indirect or ambiguous — or the information isn't found and your instructions don't say what its absence means. |
 
-#### How Yes/Maybe/No actually decides — read this before you screen
+  The default worth knowing: if your instructions are silent about absence, a paper that says nothing comes back **maybe**, never no. A paper not mentioning ethics approval is not evidence that approval wasn't obtained.
 
-The three verdicts are not probably yes, probably no, and unsure. Your instructions define them, and the extractor follows those definitions literally:
+  Decide by asking: **would a paper that meets this criterion necessarily say so?**
 
-| Verdict | Fires when                                                                                                                            |
-| ------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| yes     | The evidence meets the condition your instructions define for yes.                                                                    |
-| no      | The evidence meets the condition your instructions define for no — including, if you say so, the absence of something.                |
-| maybe   | Support is partial, indirect, or ambiguous — or the information is not found and your instructions do not say what its absence means. |
+  - **Yes, it would** — randomisation, adverse-event reporting, code availability, trial registration. Define absence as no ("no if no random allocation is described anywhere in the Methods"). Otherwise every failing paper lands on maybe and the screen separates nothing.
+  - **No, it could meet it silently** — ethics approval, independence from industry funding. Leave absence as maybe. A no would claim something the paper never said.
 
-The last clause is the default worth knowing: if your instructions are silent about absence, a paper that says nothing comes back maybe, never no. That default is deliberate — the paper does not mention ethics approval is not evidence that approval was not obtained.
+  |   | Instructions                                                                                                                                                                                                                                                                                                                                                |
+  | - | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+  | ❌ | no if the methods do not involve human participants. — yes and maybe undefined, nothing said about absence.                                                                                                                                                                                                                                                 |
+  | ✅ | yes if the Methods describe recruiting, enrolling, or analysing data or samples from humans. no if the Methods describe only a non-human study population — animal model, cell line, in vitro, in silico, simulation — or if the paper reports no empirical study at all (review, editorial, protocol). maybe if both human and non-human work is reported. |
 
-But for many screening questions, absence is the answer. An RCT always announces its randomisation; a paper with no adverse-event data anywhere genuinely reports none. For those, say so in the instructions — no if no random allocation is described anywhere in the Methods — and the extractor follows it, recording in the justification that the verdict rests on the information being absent.
+  If your criterion has a genuine "doesn't apply" case, such as blinded outcome assessors in a single-arm study, use Pick from a list with your own Yes / No / Not applicable labels instead.
 
-One question decides which way to write it: would a paper meeting this criterion necessarily say so?
+  Every Yes / Maybe / No cell includes a one-line justification with its quote, even with Explanations off, so a screen leaves a record of why each paper was kept or dropped.
+</Expandable>
 
-- It would, such as randomisation, adverse-event reporting, code availability, or trial registration → define absence as no. Leaving it out sends every failing paper to maybe and your screen stops separating anything.
-- It could meet it silently, such as ethics approval obtained but not stated, or independence from industry funding → leave absence as maybe. A no here would assert something the paper never said — no funding statement is not evidence of independence.
+### Tip 6 — Write lists that can't overlap
 
-|   | Instructions                                                                                                                                                                                                                                                                                                                                                |
-| - | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ❌ | no if the methods do not involve human participants. — one negated condition, yes and maybe undefined, nothing said about what absence means.                                                                                                                                                                                                               |
-| ✅ | yes if the Methods describe recruiting, enrolling, or analysing data or samples from humans. no if the Methods describe only a non-human study population — animal model, cell line, in vitro, in silico, simulation — or if the paper reports no empirical study at all (review, editorial, protocol). maybe if both human and non-human work is reported. |
+For Pick from a list columns you give 2–10 possible answers, up to 60 characters each. Good lists don't overlap, cover your papers, and use your papers' words.
 
-A complete screening instruction names all three verdicts, including what absence means. If you have not said what belongs in maybe, it collects whatever is left over, differently on different papers. And if your criterion has a genuine not applicable state, such as were outcome assessors blinded? on a single-arm study, consider Specified instead — your own Yes / No / Not applicable labels — because Yes/Maybe/No has nowhere honest to put does not apply.
-
-Every Yes/Maybe/No cell also generates a one-line justification with its citation, whether or not Explanations are on for the table — so a screen leaves you an audit trail of why each paper was kept or dropped. A verdict resting on absence says so in the justification with not found in the paper instead of citing a sentence.
-
-### Tip 6 — Write choice lists that cannot overlap
-
-For Specified columns you supply 2–10 labels, up to 60 characters each. Good lists are mutually exclusive, exhaustive for your corpus, and use the words your papers use.
-
-|   | Choice list                                                                                                     |
+|   | Possible answers                                                                                                |
 | - | --------------------------------------------------------------------------------------------------------------- |
-| ❌ | RCT, Trial, Randomised study, Experimental — four labels for one thing. The classification becomes arbitrary.   |
+| ❌ | RCT, Trial, Randomised study, Experimental — four labels for one thing.                                         |
 | ✅ | RCT, Non-randomised trial, Prospective cohort, Retrospective cohort, Case-control, Cross-sectional, Qualitative |
 
-Two things you do not need to add:
+Two things you don't need to add:
 
-- No catch-all Other. It becomes a dumping ground and tells you nothing.
-- No Not reported, Not applicable, or Unclear. These are always available automatically — a paper that fits none of your labels gets an honest marker instead of being forced into the closest wrong one.
+- **Other.** It becomes a dumping ground and tells you nothing.
+- **Not reported, Not applicable or Unclear.** These are added automatically, so a paper that fits none of your labels gets an honest marker instead of the closest wrong label.
 
-More examples that work well as Specified:
+More lists that work well:
 
 - Funding: Industry, Public/government, Charity/foundation, Mixed, None stated
 - Setting: Primary care, Hospital inpatient, Outpatient clinic, Community, Online/remote
@@ -168,18 +164,18 @@ More examples that work well as Specified:
 
 ### Tip 7 — Use the vocabulary your papers use
 
-The AI searches the full text by matching both wording and meaning. Field instructions written in the corpus's own terminology find the right sentences; generic textbook phrasing drifts.
+The AI searches the full text by wording and meaning. Instructions in your papers' own terms find the right sentences; textbook phrasing drifts.
 
 |   | Field name           | Instructions                                                                                                                                                                 |
 | - | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | ❌ | Teaching method      | The pedagogical intervention delivered to learners.                                                                                                                          |
 | ✅ | Instructional format | How the course was delivered: flipped classroom, blended, fully online, or traditional lecture, as the authors describe it. Include class size and session length if stated. |
 
-If your set spans two vocabularies, such as randomised and randomized, or machine learning and statistical learning, mention both in the instructions — it costs a few words and prevents empty cells.
+If your papers use two spellings or terms, such as randomised and randomized, mention both.
 
-### Tip 8 — Say what to do when there is more than one answer
+### Tip 8 — Say what to do when there's more than one answer
 
-Papers with Study 1 / Study 2, several cohorts, several arms, several timepoints, or several models have more than one correct value. Without a rule, you get whichever one the AI saw first.
+Papers with several studies, cohorts, arms, timepoints or models have more than one correct value. Without a rule, you get whichever the AI saw first.
 
 |   | Field name          | Instructions                                                                                                                                                                       |
 | - | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -187,42 +183,40 @@ Papers with Study 1 / Study 2, several cohorts, several arms, several timepoints
 | ✅ | Effect by timepoint | Effect on the primary outcome at each reported timepoint, one short bullet per timepoint, with the estimate and CI as printed. If only one timepoint is reported, give one bullet. |
 | ✅ | Best model result   | The highest-scoring configuration the authors report on the main benchmark. If several models are compared, give only the best, and name it. Format: "DeBERTa-v3-large, 91.2 F1".  |
 
-Multi-item fields work well as short bullets. Completeness comes from more bullets, never from longer prose.
+For lists, ask for short bullets. Completeness comes from more bullets, not longer prose.
 
-### Tip 9 — Scope the field to this paper
+### Tip 9 — Keep the column to this paper
 
-Reviews, background sections, and secondary analyses are full of other studies' methods and numbers. Without a boundary, those get extracted as if they belonged to the paper in front of you.
+Background sections and reviews are full of other studies' numbers. Without a boundary, those get extracted as if they belonged to this paper.
 
 |   | Field name  | Instructions                                                                                                                                                                                                                                        |
 | - | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | ❌ | Sample size | The number of participants.                                                                                                                                                                                                                         |
 | ✅ | Sample size | The number of participants in the study this paper reports. Ignore sample sizes of previous studies described in the introduction, discussion, or reference list. If this paper is a review and reports no primary sample, answer "Not applicable". |
 
-The same guard is worth adding to any field where a mixed corpus, such as primary studies plus reviews plus protocols, is likely.
-
 ### Tip 10 — Separate what was planned from what happened
 
-Protocols, registrations, and design sections state intentions, such as we will enrol 350; results state outcomes, such as 312 completed. Both are in the same PDF.
+Protocols and design sections state intentions ("we will enrol 350"); results state outcomes ("312 completed"). Both are in the same PDF.
 
 |   | Field name         | Instructions                                                                                                                                                                                                                       |
 | - | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | ❌ | Enrolment          | How many people were enrolled.                                                                                                                                                                                                     |
 | ✅ | Achieved enrolment | The number actually enrolled as reported in Results or the participant flow, not the target from the sample-size calculation. If only the planned target is given, answer "Not reported: only the planned target (n=…) is stated". |
 
-### Tip 11 — Design for absence
+### Tip 11 — Plan for missing information
 
-Absence is a legitimate, informative answer. Blinding does not exist in observational work; registration does not exist for most preprints; effect sizes do not exist in qualitative studies. When a field can legitimately not apply, say so — you will get Not applicable instead of a forced answer.
+A missing value is a real answer. Blinding doesn't exist in observational studies; effect sizes don't exist in qualitative ones. When a field may not apply, say so, and you'll get Not applicable instead of a forced answer.
 
 |   | Field name         | Instructions                                                                                                                                               |
 | - | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | ✅ | Blinding           | Who was blinded: participants, providers, outcome assessors, analysts. If the study is observational and blinding does not apply, answer "Not applicable". |
 | ✅ | Trial registration | The registration ID and registry (for example, NCT number, ISRCTN, PROSPERO), exactly as printed. If the paper does not state one, answer "Not reported".  |
 
-And read the empty cells as data. A column that comes back mostly Not reported is your finding — it is how you show that a field does not report adverse events, or does not release code, or never measures the outcome you care about. See the gap-analysis use case on the examples page.
+Read empty cells as data. A column that comes back mostly Not reported is itself a finding — see the gap-analysis use case on the [use cases page](use-cases).
 
-### Tip 12 — Nail units and denominators
+### Tip 12 — Get units and denominators right
 
-Numbers travel badly. Say the unit you want, the denominator you want, and whether you want it per arm.
+Say the unit you want, the denominator you want, and whether you want values per arm.
 
 |   | Field name             | Instructions                                                                                                                                                                     |
 | - | ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -231,93 +225,68 @@ Numbers travel badly. Say the unit you want, the denominator you want, and wheth
 | ✅ | Cost                   | Total cost per patient in the base case, with currency and price year exactly as reported. Do not convert currencies. Format: "€4,820 (2021 EUR)".                               |
 | ✅ | Tensile strength       | Tensile strength at break for the primary composition, in the unit reported, with the test standard. Format: "48.2 MPa (ASTM D638)".                                             |
 
-#### Do not ask a field to do arithmetic
+<Expandable title="Don't ask a column to do arithmetic" default-open="false">
+  Extract Data copies what the paper prints and never calculates — for example, it won't work out an SD from an IQR, even if the instructions ask. A calculated number has no sentence behind it, so it would be the one value in the table you couldn't check.
 
-A common request is to find the IQR, then calculate the SD from it. Extract Data will not do this, and the instruction cannot override it — extraction copies what the paper prints and nothing else. Ask for a computed value and you get the printed value, or a marker.
+  Extract the ingredients instead, then calculate after exporting:
 
-That is deliberate, and it protects something you need. Every value in the table is bound to the sentence it came from — that is what the citation markers are. A derived number has no sentence behind it, so it would be the one unverifiable figure in a column of verifiable ones, exactly where a reviewer will look hardest.
+  | Field            | Type                                                                                | Instructions                                                                                                   |
+  | ---------------- | ----------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+  | Spread statistic | Pick from a list: Mean (SD), Mean (SE), Mean (95% CI), Median (IQR), Median (range) | Classify which summary statistic the paper reports for the primary continuous outcome.                         |
+  | Median           | Free text                                                                           | Median for the primary outcome, per arm, exactly as printed. Format: "14.2 vs 17.9".                           |
+  | IQR / quartiles  | Free text                                                                           | Q1 and Q3, or the IQR, per arm, exactly as printed, in the paper's own form. Format: "10.1-19.4 vs 12.6-24.1". |
+  | N per arm        | Free text                                                                           | Number analysed in each arm. Format: "148/146".                                                                |
 
-Extract the ingredients, convert downstream:
+  Export to CSV or Excel and apply the conversion (for example Wan et al. 2014 or Luo et al. 2018) in R or a spreadsheet, where a reviewer can check the formula. The same goes for percentages from counts, risk differences, currency or unit conversions.
+</Expandable>
 
-| Field            | Type                                                                          | Instructions                                                                                                   |
-| ---------------- | ----------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| Spread statistic | Specified — Mean (SD), Mean (SE), Mean (95% CI), Median (IQR), Median (range) | Classify which summary statistic the paper reports for the primary continuous outcome.                         |
-| Median           | Answer                                                                        | Median for the primary outcome, per arm, exactly as printed. Format: "14.2 vs 17.9".                           |
-| IQR / quartiles  | Answer                                                                        | Q1 and Q3, or the IQR, per arm, exactly as printed, in the paper's own form. Format: "10.1-19.4 vs 12.6-24.1". |
-| N per arm        | Answer                                                                        | Number analysed in each arm. Format: "148/146".                                                                |
+<Expandable title="Instruction patterns you can reuse" default-open="false" title-type="h2">
+  Swap the subject; keep the shape.
 
-Then export to CSV or Excel and apply the conversion, such as Wan et al. 2014 or Luo et al. 2018, in R or your sheet. You gain two things over a computed cell: the Spread statistic column tells you at a glance how many studies need converting before you commit to pooling, and the formula lives in your analysis where a reviewer can check it — which is where Cochrane expects it anyway.
+  **The disambiguated number.** \[Quantity] as reported for \[which group / which analysis], with unit and denominator exactly as printed. Not \[the value it's often confused with]. Format: "…".
 
-The same pattern covers every derived quantity: percentages from counts, absolute risk differences, currency conversions, unit changes, effect sizes you want recomputed on a common metric. Extract the inputs, do the maths where the maths is visible.
+  **The clean category** (Pick from a list). Classify \[what] using the authors' own description. Pick the single option that fits best.
 
-## Instruction patterns you can reuse
+  **The screening question** (Yes / Maybe / No). Does the paper \[condition]? yes if \[what the paper states]. no if \[what the paper states instead] — or, if a qualifying paper would necessarily say so, if no mention appears anywhere. maybe if \[the ambiguous middle].
 
-Swap the subject; keep the shape.
+  **The multi-item list.** List all \[items] reported, one short bullet each, in the paper's own wording. Include \[what qualifies]; exclude \[what doesn't].
 
-### The disambiguated number
+  **The graded judgement** (Pick from a list: Low, Some concerns, High). Judge \[domain] based only on what the paper reports about \[method detail]. Choose the level the reported methods support.
 
-\[Quantity] as reported for \[which group / which analysis], with unit and denominator exactly as printed. Not \[the value it's often confused with]. Format: "…".
-
-### The clean category
-
-Classify \[what] using the authors' own description. Pick the single option that fits best.
-
-Use this with a Specified choice list.
-
-### The screening question
-
-Does the paper \[condition]? yes if \[what the paper states]. no if \[what the paper states instead] — or, if a qualifying paper would necessarily say so, if no mention appears anywhere. maybe if \[the ambiguous middle].
-
-Use this with Yes/Maybe/No.
-
-### The multi-item list
-
-List all \[items] reported, one short bullet each, in the paper's own wording. Include \[what qualifies]; exclude \[what doesn't].
-
-### The graded judgement
-
-Judge \[domain] based only on what the paper reports about \[method detail]. Choose the level the reported methods support.
-
-Use this with a Specified list such as Low, Some concerns, High.
-
-### The provenance field
-
-\[Identifier / statement] exactly as printed, including \[format detail]. If the paper does not state one, answer "Not reported".
+  **The provenance field.** \[Identifier / statement] exactly as printed, including \[format detail]. If the paper does not state one, answer "Not reported".
+</Expandable>
 
 ## Common problems, and the fix
 
-| What you see                                          | Why                                                             | Fix                                                                                                                                  |
-| ----------------------------------------------------- | --------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| The whole column is confidently wrong in the same way | The field name is ambiguous (N, Results, Type, Effect)          | Rename to the precise concept and spell out the boundary in Instructions, as in Tips 1 and 3                                         |
-| Right kind of number, wrong number                    | Several competing values in the paper                           | Name which one, and name the ones to ignore, as in Tip 3                                                                             |
-| Values from other studies                             | The paper describes prior work                                  | Add the study this paper reports; ignore other studies described, as in Tip 9                                                        |
-| Numbers that do not exist in the PDF                  | You asked for a value the paper reports differently             | The AI will not convert — you will get a marker naming what is reported. Change the field to ask for the reported form, as in Tip 12 |
-| Lists that look complete but are not                  | Items are split across prose, a table, and an appendix          | Ask explicitly for all … reported anywhere in the paper, one bullet each, as in Tip 8                                                |
-| A column you cannot filter                            | You used Answer for something categorical                       | Switch to Specified or Yes/Maybe/No, as in Tip 5                                                                                     |
-| Everything forced into the nearest label              | Your choice list does not cover this corpus                     | Widen the list, or leave it — the markers exist for exactly this, as in Tip 6                                                        |
-| Long, unreadable cells                                | Instructions asked for description, such as Describe in detail… | Ask for a value, not prose, and add a format example, as in Tip 4                                                                    |
-| Cells that read like the paper                        | Instruction asked for a quote                                   | Cells are condensed by design; the exact quoted sentence is one click away on the citation                                           |
+| What you see                              | Why                                                    | Fix                                                                                   |
+| ----------------------------------------- | ------------------------------------------------------ | ------------------------------------------------------------------------------------- |
+| The whole column is wrong in the same way | The field name is ambiguous (N, Results, Type, Effect) | Use the precise concept and spell out the boundary in Instructions (Tips 1 and 3)     |
+| Right kind of number, wrong number        | Several competing values in the paper                  | Name which one, and the ones to ignore (Tip 3)                                        |
+| Values from other studies                 | The paper describes prior work                         | Add "the study this paper reports; ignore other studies described" (Tip 9)            |
+| A marker instead of the number you wanted | The paper reports the value in a different form        | Ask for the form the paper reports (Tip 12)                                           |
+| Lists that look complete but aren't       | Items are split across text, tables and appendix       | Ask for all … reported anywhere in the paper, one bullet each (Tip 8)                 |
+| A column you can't filter                 | You used Free text for a category                      | Switch to Pick from a list or Yes / Maybe / No (Tip 5)                                |
+| Everything forced into the nearest label  | Your list doesn't cover your papers                    | Widen the list — the markers exist for the rest (Tip 6)                               |
+| Long, unreadable cells                    | Instructions asked for a description                   | Ask for a value, not prose, and add a format (Tip 4)                                  |
+| Cells that read like the paper            | Instructions asked for a quote                         | Cells are condensed by design; the exact sentence is one click away on the quote icon |
 
 ## Working smarter with the table
 
-- Prototype on a handful of papers. Create the table with 5–10 papers, get the fields right, then add the rest. Adding papers extracts only the new rows; nothing already correct is redone.
-- Check three cells against the PDF before trusting a column. Click a citation marker — it opens the exact sentence, with its page. If the column is right on three deliberately different papers, it is usually right.
-- Edit, do not start over. Editing a field's name, instructions, output type, or choice list re-runs only that column. Iterating is cheap.
-- Turn on Explanations while you are tuning. Each cell then shows how the value was determined, which tells you whether a wrong answer is a bad instruction or a hard paper. Turn it off for the final read if you want a tighter table. It is a table-level setting with a per-column override.
-- Save fields you will use again. A good field is reusable across projects — save it to your column library and add it to the next table in one click. Your saved fields sit alongside Paperguide's default catalogue in Manage Columns.
-- Disable rather than delete. Turning a column off keeps its definition and its extracted values; deleting throws them away.
-- Retry failures. If some cells error, the Retry action re-runs just those cells.
-- Sort and filter before exporting. Sort by title or date, filter by source, such as Reference Manager, public papers, or uploaded files, select the rows you want, and export only the selection to CSV or Excel.
-- Limits worth knowing: up to 100 papers and 20 columns per table. For bigger reviews, split by question or by subset and export each table.
+- **Plan all your columns, then extract once.** Columns wait until you click Extract, and up to 10 columns of a paper are filled in one pass.
+- **Run a pilot** on 10 papers in tables of 20 or more. Sort first if you want a different sample.
+- **Check three cells against the paper** before trusting a column. Click the quote icon to see the exact sentence. If a column is right on three quite different papers, it's usually right.
+- **Edit, don't start over.** When you edit a column and click Extract, only that column re-runs. Use Undo changes to drop an edit you haven't extracted.
+- **Keep Explanations on while tuning.** They show whether a wrong answer comes from a bad instruction or a hard paper.
+- **Save columns you'll reuse** with + Save. They appear under Your saved columns in every table.
+- **Stay within limits.** Paid plans: 100 papers and 50 columns per table. Free: 10 papers and 5 columns. Only papers with a PDF can be extracted. For bigger reviews, split papers across tables.
 
-## A quick checklist before you hit extract
+## Checklist before you extract
 
 - Does each field ask for exactly one fact?
-- Would two careful researchers reading my instruction extract the same value?
+- Would two careful researchers extract the same value from my instructions?
 - Have I named which value, when several similar ones exist?
-- Did I give the output format, with an example?
-- Is the output type the strictest one that fits?
-- Do my Specified labels cover this corpus without overlapping?
-- Have I said what to do when the field does not apply?
+- Did I give a format, with an example?
+- Is the answer type the strictest one that fits?
+- Do my possible answers cover my papers without overlapping?
+- Have I said what to answer when the field doesn't apply?
 - Am I using the words my papers use?
-
