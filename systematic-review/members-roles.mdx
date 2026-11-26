@@ -42,7 +42,7 @@ You can also generate a **view-only share link** for people who only need to wat
 | An organization workspace member | Remove them from the workspace to end access entirely.                                                      |
 
 <Callout kind="info" collapsed="false">
-  Removing a member also removes any stage assignments they held. Reassign those stages to someone else so verification is not left unowned.
+  If the person you remove was named on a stage, open **Settings & Roles** and give that stage to someone else, or set an AI Review verifier back to **Anyone**, so the stage is not left waiting on someone who has left.
 </Callout>
 
 ### Organization workspace members
@@ -60,6 +60,8 @@ Their access is set automatically from their workspace role:
 
 This is the fastest way to bring in internal team members, because access follows the workspace they already belong to.
 
+**Change a workspace member's access for one review.** In the **Members** tab, pick a different access level next to their name. It applies to this review only, and a **Custom** label shows next to their name. To undo it, open the menu next to their access and select **Reset to workspace default**. Workspace owners and admins always keep Full Access.
+
 ---
 
 ## Access
@@ -69,30 +71,31 @@ Access determines what a member can do across the systematic review. There are t
 |                            | Full Access | Review          | View |
 | -------------------------- | ----------- | --------------- | ---- |
 | View all stages            | Yes         | Yes             | Yes  |
-| Add papers                 | Yes         | Yes             | No   |
+| Add papers and PDFs        | Yes         | Yes             | No   |
+| Remove papers and resolve duplicates | Yes | No            | No   |
 | Initiate AI tasks and runs | Yes         | No              | No   |
 | Change screening decisions | Yes         | With assignment | No   |
-| Confirm AI decisions       | Yes         | With assignment | No   |
+| Confirm AI decisions       | With assignment | With assignment | No |
 | Vote or resolve conflicts in a Dual Review | With assignment | With assignment | No |
 | Edit protocol              | Yes         | No              | No   |
 | Edit settings              | Yes         | No              | No   |
-| Manage access              | Yes         | No              | No   |
+| Manage access              | No          | No              | No   |
 | Manage members             | No          | No              | No   |
 | Export                     | Yes         | Yes             | No   |
 
-"With assignment" means the member holds a role on that stage. In an AI Review, that is the verifier role, and it applies to Review members only. In a Dual Review, it is a Reviewer or Conflict Resolver role, and it applies to Full Access members too: nobody votes or resolves on a stage without being assigned to it.
+"With assignment" means the member holds a role on that stage. In an AI Review, that is the verifier role: the stage's verifier is either that member or **Anyone**, the default. In a Dual Review, it is a Reviewer or Conflict Resolver role, and it applies to Full Access members too: nobody votes or resolves on a stage without being assigned to it.
 
 ### Full Access
 
-Full Access runs the systematic review end to end. These members add papers, start AI runs at every stage, edit the protocol and settings, change and confirm decisions at any stage, and export.
+Full Access runs the systematic review end to end. These members add and remove papers, resolve duplicates, start AI runs at every stage, edit the protocol and settings, change decisions at any stage, and export.
 
-In an AI Review, Full Access members can confirm and override decisions **without being assigned to a stage**. Assignment is not a requirement for them.
+In an AI Review, Full Access members can override decisions **without being assigned to a stage**. Confirming a stage is different: it needs the assignment. If a stage's verifier is **Anyone**, any Full Access member can confirm it. If it is assigned to someone else, only that person can confirm it.
 
 In a Dual Review, screening decisions belong to the assigned reviewers and resolver only. A Full Access member who holds no role on a stage can read the papers and comment, but cannot vote or resolve conflicts there. This keeps the two-reviewer record clean: every decision was made by one of the named people.
 
 ### Review
 
-Review access is for people who take part in the review work without administrative control. They can view every stage, add papers, and export. They cannot start AI runs, edit the protocol, or change settings.
+Review access is for people who take part in the review work without administrative control. They can view every stage, add papers and PDFs, and export. They cannot remove papers, resolve duplicates, start AI runs, edit the protocol, or change settings.
 
 Members with Review access can change and confirm screening and extraction decisions **only on the stages they are assigned to**. That is what "with assignment" means in the table. Without an assignment, they can see the decisions but cannot act on them.
 
@@ -154,24 +157,24 @@ Rules for the screening roles:
 
 ### Who can verify a stage in an AI Review
 
-Assigning a stage narrows who is responsible for it. Leaving it unassigned keeps it open.
+Every verifier starts as **Anyone** in a new review. Assigning a stage to a member narrows who is responsible for it.
 
-| The stage is               | Who verifies it                                             |
+| The verifier is            | Who verifies it                                             |
 | -------------------------- | ----------------------------------------------------------- |
-| **Assigned to a member**   | That member. Verification is their responsibility.          |
-| **Not assigned to anyone** | Any member with Full Access or Review access can verify it. |
+| **A named member**         | That member. Verification is their responsibility.          |
+| **Anyone** (the default)   | Any member with Full Access or Review access can verify it. |
 
-Assign a stage when you want one named person accountable for it, which is what most reviews need. Leave it unassigned when anyone on the team should be able to pick up the work, which is useful for smaller reviews or when you want to share the load.
+Assign a stage when you want one named person accountable for it, which is what most reviews need. Leave it on Anyone when anyone on the team should be able to pick up the work, which is useful for smaller reviews or when you want to share the load.
 
 Either way, a View member can never verify a stage.
 
 ### Assigning a verifier
 
-1. Set the member's access first. Only members with Review or Full Access can be assigned. A View member is not eligible.&#x20;
-2. Open the systematic **review settings.&#x20;**&#x53;tage assignments are managed in the review's settings, not in the Members tab.
-3. Choose the verifier for each stage. They receive an email notification letting them know.
+1. Set the member's access first. Only members with Review or Full Access can be assigned. A View member is not eligible.
+2. Open **Settings & Roles**. Stage assignments are managed there, not in the Members tab.
+3. Choose the verifier for each stage: **Title & Abstract Screening Verifier**, **Full-text Screening Verifier**, and **Extraction Verifier**. The member you choose receives an email letting them know.
 
-Assign the verifier for a stage before that stage starts. Verification is what advances the systematic review, so an unassigned stage will stall once the AI run completes.
+Set the verifier for a stage before that stage starts. Verification is what advances the systematic review.
 
 <Callout kind="info" collapsed="false">
   The assigned verifier receives an email to verify once the AI screening or extraction is complete.
@@ -191,10 +194,8 @@ Their decision is saved over the AI decision, and both are kept so the systemati
 
 Reassign a stage at any time from the review's settings. Two things to watch:
 
-- Moving a member to **View** clears all their assignments automatically.
-- Removing a member from the systematic review clears their assignments too.
-
-In both cases, the stage is left without a verifier until you assign someone new.
+- Moving a member to **View** returns the stages they verified to **Anyone**. In a Dual Review, their reviewer and resolver roles become unassigned.
+- Removing a member does not reassign their stages. Choose a new verifier, or set the stage back to **Anyone**.
 
 ### Replacing a reviewer in a Dual Review
 

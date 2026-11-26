@@ -3,19 +3,16 @@ info:
   title: Paperguide API
   version: 1.0.0
   description: |
-    The Paperguide API lets developers search academic papers and check current API usage.
+    The Paperguide API lets you search academic papers, look up a single paper, and check your API usage.
 
     Authentication:
-    - Send your API key in the `x-api-key` request header for all endpoints.
+    - Send your API key in the `x-api-key` header on every request.
+    - Create keys in Paperguide under Settings > API Keys.
 
-    Getting started:
-    - Use `GET /search` to find academic papers with keyword and semantic matching.
-    - Use `GET /usage` to view your current billing-period usage, monthly quota, and per-minute rate limit.
-
-    Notes:
-    - Enterprise plans support up to 50 papers per request for search.
-    - Enterprise usage-based pricing requires contacting the Paperguide team.
-    - A `monthly_quota` value of `-1` means there is no monthly quota limit.
+    Limits:
+    - 30 requests per minute on every plan, shared across all your keys.
+    - Monthly calls: Free 10, Plus 100, Pro 500, Evidence 1,500. Enterprise is unlimited; contact us for access.
+    - Only successful calls to `/search` and `/papers/{id}` count toward your monthly quota.
   contact:
     name: Paperguide Support
     url: https://paperguide.ai
@@ -28,7 +25,9 @@ servers:
     description: Production
 tags:
   - name: API
-    description: Core Paperguide API operations for search and usage.
+    description: Search papers, look up a paper, and check usage.
+security:
+  - ApiKeyAuth: []
 paths:
   /search:
     get:
@@ -36,11 +35,9 @@ paths:
         - API
       summary: Search academic papers
       description: |
-        Search academic papers using keyword and semantic matching.
+        Search academic papers with keyword and semantic matching. Add filters to narrow results by year, citations, access, source, field, publication type, language, and journal quality.
 
-        Use this endpoint to find papers across supported sources and optionally filter by field of study, publication year, and output format.
-
-        Enterprise plans support up to 50 papers per request. For enterprise usage-based pricing, contact the Paperguide team.
+        Each result includes a ready-made BibTeX entry in the `bibtex` field.
       operationId: searchPapers
       security:
         - ApiKeyAuth: []
@@ -48,112 +45,239 @@ paths:
         - name: query
           in: query
           required: true
-          description: Search query used to find relevant academic papers.
+          description: Search text, 1 to 500 characters.
           schema:
             type: string
-            example: large language models for scientific literature review
-        - name: source
+            minLength: 1
+            maxLength: 500
+            example: retrieval augmented generation
+        - name: year_min
           in: query
           required: false
-          description: Filter results by source.
+          description: Earliest publication year to include.
           schema:
-            type: string
-            enum:
-              - arxiv
-              - pubmed
-              - semantic_scholar
-            example: arxiv
-        - name: field_of_study
+            type: integer
+            example: 2020
+        - name: year_max
           in: query
           required: false
-          description: Filter results by field of study.
-          schema:
-            type: string
-            enum:
-              - computer_science
-              - medicine
-              - biology
-              - physics
-              - chemistry
-              - mathematics
-              - engineering
-              - economics
-              - psychology
-              - environmental_science
-            example: computer_science
-        - name: year
-          in: query
-          required: false
-          description: Filter results by publication year.
+          description: Latest publication year to include.
           schema:
             type: integer
             example: 2024
+        - name: min_citations
+          in: query
+          required: false
+          description: Minimum citation count.
+          schema:
+            type: integer
+            minimum: 0
+            example: 50
+        - name: open_access
+          in: query
+          required: false
+          description: Set `true` for open-access papers only, or `false` to exclude them.
+          schema:
+            type: boolean
+        - name: has_pdf
+          in: query
+          required: false
+          description: Set `true` for papers with a PDF only, or `false` for papers without one.
+          schema:
+            type: boolean
+        - name: language
+          in: query
+          required: false
+          description: Two-letter ISO 639-1 language code, such as `en`.
+          schema:
+            type: string
+            example: en
+        - name: sources
+          in: query
+          required: false
+          description: |
+            Comma-separated list of sources: `openalex`, `semantic_scholar`, `pubmed`, `arxiv`. Omit it, or use `all`, to search every source.
+          schema:
+            type: string
+            example: pubmed,arxiv
+        - name: fields
+          in: query
+          required: false
+          description: |
+            Comma-separated field-of-study IDs. 11 Agricultural and Biological Sciences, 12 Arts and Humanities, 13 Biochemistry, Genetics and Molecular Biology, 14 Business, Management and Accounting, 15 Chemical Engineering, 16 Chemistry, 17 Computer Science, 18 Decision Sciences, 19 Earth and Planetary Sciences, 20 Economics, Econometrics and Finance, 21 Energy, 22 Engineering, 23 Environmental Science, 24 Immunology and Microbiology, 25 Materials Science, 26 Mathematics, 27 Medicine, 28 Neuroscience, 29 Nursing, 30 Pharmacology, Toxicology and Pharmaceutics, 31 Physics and Astronomy, 32 Psychology, 33 Social Sciences, 35 Dentistry, 36 Health Professions.
+          schema:
+            type: string
+            example: 17,27
+        - name: types
+          in: query
+          required: false
+          description: |
+            Comma-separated publication types: `article`, `preprint`, `book`, `review`, `report`, `dissertation`, `conference-paper`, `other`.
+          schema:
+            type: string
+            example: article,review
+        - name: journal_quartile
+          in: query
+          required: false
+          description: Lowest SJR journal quartile to include. `1` returns Q1 only; `2` returns Q1 and Q2; and so on.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 4
+            example: 1
+        - name: min_snip
+          in: query
+          required: false
+          description: Minimum journal SNIP score. Papers without a SNIP score are left out.
+          schema:
+            type: number
+            minimum: 0
+            example: 1
+        - name: min_sjr
+          in: query
+          required: false
+          description: Minimum journal SJR score. Papers without an SJR score are left out.
+          schema:
+            type: number
+            minimum: 0
+            example: 0.5
+        - name: issn
+          in: query
+          required: false
+          description: Linking ISSN (ISSN-L) of a journal, to return papers from that journal only.
+          schema:
+            type: string
+            example: 0028-0836
+        - name: page
+          in: query
+          required: false
+          description: Page number, 1 to 20.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 20
+            default: 1
         - name: limit
           in: query
           required: false
-          description: Maximum number of papers to return.
+          description: Results per page, 1 to 50.
           schema:
             type: integer
-            example: 10
-        - name: format
-          in: query
-          required: false
-          description: Response format. Use `bibtex` to receive BibTeX text output.
-          schema:
-            type: string
-            example: bibtex
+            minimum: 1
+            maximum: 50
+            default: 10
       responses:
         '200':
-          description: Search results returned successfully.
+          description: Search results.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/SearchResponse'
               example:
                 results:
-                  - id: arxiv:2401.12345
-                    title: Large Language Models for Scientific Literature Review
+                  - paper_id: 8b0f3c2e-5a1d-4f7b-9c6e-2d4a1b3c5e7f
+                    title: Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks
+                    abstract: Large pre-trained language models store factual knowledge in their parameters. We explore models that combine this with retrieval from an external index.
+                    tldr: null
                     authors:
-                      - Jane Doe
-                      - John Smith
-                    year: 2024
-                    source: arxiv
-                    field_of_study: computer_science
-                    abstract: This paper explores how large language models can assist with scientific literature review through semantic retrieval and synthesis workflows.
-                    url: https://arxiv.org/abs/2401.12345
-                  - id: s2:987654321
-                    title: Semantic Search Methods for Scholarly Discovery
-                    authors:
-                      - Alice Brown
-                      - David Lee
-                    year: 2023
-                    source: semantic_scholar
-                    field_of_study: computer_science
-                    abstract: We present semantic search techniques for discovering and ranking relevant scholarly papers across large academic corpora.
-                    url: https://www.semanticscholar.org/paper/987654321
-            text/plain:
-              schema:
-                type: string
-                example: |
-                  @article{doe2024llmreview,
-                    title={Large Language Models for Scientific Literature Review},
-                    author={Doe, Jane and Smith, John},
-                    year={2024},
-                    journal={arXiv},
-                    url={https://arxiv.org/abs/2401.12345}
-                  }
-              example: |
-                @article{doe2024llmreview,
-                  title={Large Language Models for Scientific Literature Review},
-                  author={Doe, Jane and Smith, John},
-                  year={2024},
-                  journal={arXiv},
-                  url={https://arxiv.org/abs/2401.12345}
-                }
+                      - Patrick Lewis
+                      - Ethan Perez
+                      - Aleksandra Piktus
+                    citation_count: 4200
+                    reference_count: 70
+                    doi: 10.48550/arxiv.2005.11401
+                    journal_name: arXiv (Cornell University)
+                    journal_id: S4306400194
+                    pages: null
+                    volume: null
+                    publication_year: 2020
+                    publication_date: '2020-05-22'
+                    publication_type: preprint
+                    url: https://arxiv.org/abs/2005.11401
+                    is_open_access: true
+                    open_access_url: https://arxiv.org/abs/2005.11401
+                    pdf_url: https://arxiv.org/pdf/2005.11401
+                    fields_of_study:
+                      - Computer Science
+                    institution_names:
+                      - University College London
+                    journal_metrics:
+                      snip: null
+                      sjr: null
+                      sjr_quartile: null
+                    external_ids:
+                      openalex: W3027879771
+                      semantic_scholar: '218869575'
+                      pubmed: null
+                      arxiv: '2005.11401'
+                      pmcid: null
+                    bibtex: |-
+                      @unpublished{lewis2020retrieval,
+                        author = {Lewis, Patrick and Perez, Ethan and Piktus, Aleksandra},
+                        title = {{Retrieval-Augmented Generation for Knowledge-Intensive {NLP} Tasks}},
+                        year = {2020},
+                        month = may,
+                        doi = {10.48550/arxiv.2005.11401},
+                        url = {https://arxiv.org/abs/2005.11401},
+                      }
+                total: 10
+                page: 1
+                limit: 10
         '400':
           $ref: '#/components/responses/BadRequestError'
         '401':
           $ref: '#/components/responses/UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/ForbiddenError'
+        '429':
+          $ref: '#/components/responses/TooManyRequestsError'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  /papers/{id}:
+    get:
+      tags:
+        - API
+      summary: Look up a paper
+      description: |
+        Get full details for one paper. Pass its Paperguide `paper_id`, its DOI, or its PubMed ID.
+
+        - DOI: `10.1038/s41586-020-2649-2` or `https://doi.org/10.1038/s41586-020-2649-2`
+        - PubMed ID: `32015507`, `pmid:32015507`, or `pubmed:32015507`
+
+        URL-encode the value when it contains slashes, such as a DOI.
+      operationId: getPaper
+      security:
+        - ApiKeyAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Paperguide `paper_id`, DOI, or PubMed ID.
+          schema:
+            type: string
+            example: 10.48550/arxiv.2005.11401
+      responses:
+        '200':
+          description: The paper.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Paper'
+        '400':
+          $ref: '#/components/responses/BadRequestError'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/ForbiddenError'
+        '404':
+          description: No paper matches the given id.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                error: Paper not found
+                message: No paper exists with the given id.
         '429':
           $ref: '#/components/responses/TooManyRequestsError'
         '500':
@@ -162,31 +286,31 @@ paths:
     get:
       tags:
         - API
-      summary: Get current API usage
+      summary: Get API usage
       description: |
-        Return your current billing-period usage, monthly quota, and per-minute rate limit.
+        Get the plan, monthly quota, calls used this month, and per-minute rate for the quota this key draws from: your personal quota, or your organization's shared quota.
 
-        A `monthly_quota` value of `-1` means there is no monthly quota limit.
-
-        For enterprise usage-based pricing, contact the Paperguide team.
+        A `monthly_quota` of `-1` means unlimited. Calls to `/usage` don't count toward your monthly quota.
       operationId: getUsage
       security:
         - ApiKeyAuth: []
       responses:
         '200':
-          description: Usage details returned successfully.
+          description: Usage for the key's quota.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/UsageResponse'
               example:
-                monthly_used: 124
-                monthly_quota: 1000
-                rate_limit_per_minute: 30
-        '400':
-          $ref: '#/components/responses/BadRequestError'
+                tier: pro
+                organization_id: null
+                monthly_quota: 500
+                monthly_used: 42
+                rate_per_minute: 30
         '401':
           $ref: '#/components/responses/UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/ForbiddenError'
         '429':
           $ref: '#/components/responses/TooManyRequestsError'
         '500':
@@ -200,149 +324,276 @@ components:
   schemas:
     Paper:
       type: object
-      description: An academic paper returned by search.
-      required:
-        - id
-        - title
-        - authors
-        - year
-        - source
-        - field_of_study
-        - abstract
-        - url
+      description: An academic paper.
       properties:
-        id:
+        paper_id:
           type: string
-          description: Unique identifier for the paper in the source system.
-          example: arxiv:2401.12345
+          description: Paperguide ID for the paper. Use it with `GET /papers/{id}`.
         title:
           type: string
           description: Paper title.
-          example: Large Language Models for Scientific Literature Review
-        authors:
-          type: array
-          description: List of author names.
-          items:
-            type: string
-          example:
-            - Jane Doe
-            - John Smith
-        year:
-          type: integer
-          description: Publication year.
-          example: 2024
-        source:
-          type: string
-          description: Source where the paper was found.
-          enum:
-            - arxiv
-            - pubmed
-            - semantic_scholar
-          example: arxiv
-        field_of_study:
-          type: string
-          description: Field of study associated with the paper.
-          enum:
-            - computer_science
-            - medicine
-            - biology
-            - physics
-            - chemistry
-            - mathematics
-            - engineering
-            - economics
-            - psychology
-            - environmental_science
-          example: computer_science
         abstract:
           type: string
-          description: Paper abstract.
-          example: This paper explores how large language models can assist with scientific literature review through semantic retrieval and synthesis workflows.
+          nullable: true
+          description: Abstract, when available.
+        tldr:
+          type: string
+          nullable: true
+          description: One-sentence summary, when available.
+        authors:
+          type: array
+          description: Author names.
+          items:
+            type: string
+        citation_count:
+          type: integer
+          description: Number of times the paper has been cited.
+        reference_count:
+          type: integer
+          description: Number of references the paper cites.
+        doi:
+          type: string
+          nullable: true
+          description: DOI, in lowercase.
+        journal_name:
+          type: string
+          nullable: true
+          description: Journal or venue name.
+        journal_id:
+          type: string
+          nullable: true
+          description: OpenAlex ID of the journal or venue.
+        pages:
+          type: string
+          nullable: true
+          description: Page range.
+        volume:
+          type: string
+          nullable: true
+          description: Volume.
+        publication_year:
+          type: integer
+          nullable: true
+          description: Publication year.
+        publication_date:
+          type: string
+          nullable: true
+          description: Publication date, when known.
+        publication_type:
+          type: string
+          nullable: true
+          description: Publication type, such as `article` or `preprint`.
         url:
           type: string
-          format: uri
-          description: Canonical URL for the paper.
-          example: https://arxiv.org/abs/2401.12345
+          nullable: true
+          description: Landing page URL, or the DOI link when there is no landing page.
+        is_open_access:
+          type: boolean
+          description: Whether the paper is open access.
+        open_access_url:
+          type: string
+          nullable: true
+          description: Open-access URL, when available.
+        pdf_url:
+          type: string
+          nullable: true
+          description: PDF URL, when available.
+        fields_of_study:
+          type: array
+          description: Field-of-study names.
+          items:
+            type: string
+        institution_names:
+          type: array
+          description: Author institutions.
+          items:
+            type: string
+        journal_metrics:
+          $ref: '#/components/schemas/JournalMetrics'
+        external_ids:
+          $ref: '#/components/schemas/ExternalIds'
+        bibtex:
+          type: string
+          description: BibTeX entry for the paper.
+    JournalMetrics:
+      type: object
+      description: Journal quality scores, when available.
+      properties:
+        snip:
+          type: number
+          nullable: true
+          description: Journal SNIP score.
+        sjr:
+          type: number
+          nullable: true
+          description: Journal SJR score.
+        sjr_quartile:
+          type: string
+          nullable: true
+          description: Best SJR quartile, such as `Q1`.
+    ExternalIds:
+      type: object
+      description: The paper's IDs in other databases.
+      properties:
+        openalex:
+          type: string
+          nullable: true
+          description: OpenAlex work ID.
+        semantic_scholar:
+          type: string
+          nullable: true
+          description: Semantic Scholar corpus ID.
+        pubmed:
+          type: string
+          nullable: true
+          description: PubMed ID.
+        arxiv:
+          type: string
+          nullable: true
+          description: arXiv ID.
+        pmcid:
+          type: string
+          nullable: true
+          description: PubMed Central ID.
     SearchResponse:
       type: object
-      description: Search results for academic papers.
-      required:
-        - results
+      description: One page of search results.
       properties:
         results:
           type: array
-          description: List of matching papers.
+          description: Matching papers for this page.
           items:
             $ref: '#/components/schemas/Paper'
+        total:
+          type: integer
+          description: Results found up to and including this page. This isn't the overall number of matches; if it equals `page` times `limit`, the next page may have more.
+        page:
+          type: integer
+          description: Page number returned.
+        limit:
+          type: integer
+          description: Results per page.
     UsageResponse:
       type: object
-      description: Current API usage and limits for the billing period.
-      required:
-        - monthly_used
-        - monthly_quota
-        - rate_limit_per_minute
+      description: Usage for the quota this key draws from.
       properties:
-        monthly_used:
-          type: integer
-          description: Number of requests or units used in the current billing period.
-          example: 124
+        tier:
+          type: string
+          description: Plan that sets the quota. `free`, `plus`, `pro`, `max` (Evidence), or `enterprise`.
+          example: pro
+        organization_id:
+          type: string
+          nullable: true
+          description: Organization whose shared quota this key uses, or `null` for a personal key.
         monthly_quota:
           type: integer
-          description: Monthly quota for the account. A value of `-1` means there is no monthly quota limit.
-          example: 1000
-        rate_limit_per_minute:
+          description: Calls allowed this calendar month. `-1` means unlimited.
+          example: 500
+        monthly_used:
           type: integer
-          description: Allowed request rate per minute.
+          description: Successful calls made this calendar month.
+          example: 42
+        rate_per_minute:
+          type: integer
+          description: Requests allowed per minute, shared across all your keys.
           example: 30
     ErrorResponse:
       type: object
-      description: Standard error response.
-      required:
-        - error
-        - message
+      description: Error details.
       properties:
         error:
           type: string
-          description: Short machine-readable error code.
-          example: invalid_request
+          description: Short error title.
         message:
           type: string
-          description: Human-readable error message.
-          example: The request could not be processed.
+          description: What went wrong and how to fix it.
   responses:
     BadRequestError:
-      description: Bad Request. The request was invalid or missing required parameters.
+      description: Bad Request. A parameter is missing or invalid, such as `limit` above 50.
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
           example:
-            error: invalid_request
-            message: The request was invalid or missing required parameters.
+            error: Bad Request
+            message: querystring/limit must be <= 50
     UnauthorizedError:
-      description: Unauthorized. The API key is missing or invalid.
+      description: Unauthorized. The API key is missing, invalid, or revoked.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          examples:
+            missing:
+              summary: Missing key
+              value:
+                error: Missing API key
+                message: Provide your API key via the x-api-key header.
+            invalid:
+              summary: Invalid or revoked key
+              value:
+                error: Invalid API key
+                message: The provided API key is invalid or has been revoked.
+    ForbiddenError:
+      description: Forbidden. The key bills an organization you are no longer a member of. Revoke it and create a new key.
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
           example:
-            error: unauthorized
-            message: Missing or invalid API key.
+            error: Organization membership required
+            message: This key bills an organization you are no longer a member of. Revoke it and create a new key.
     TooManyRequestsError:
-      description: Too Many Requests. The rate limit has been exceeded.
+      description: Too Many Requests. You hit the per-minute rate limit or used up your monthly quota.
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/ErrorResponse'
-          example:
-            error: rate_limited
-            message: Rate limit exceeded. Please try again later.
+            type: object
+            properties:
+              error:
+                type: string
+              message:
+                type: string
+              retry_after_seconds:
+                type: integer
+                description: Seconds to wait before retrying. Rate limit errors only.
+              used:
+                type: integer
+                description: Calls used this month. Quota errors only.
+              quota:
+                type: integer
+                description: Monthly quota. Quota errors only.
+              tier:
+                type: string
+                description: Plan that sets the quota. Quota errors only.
+          examples:
+            rateLimit:
+              summary: Rate limit exceeded
+              value:
+                error: Rate limit exceeded
+                message: Max 30 requests per minute. Retry after 12s.
+                retry_after_seconds: 12
+            monthlyQuota:
+              summary: Monthly quota exceeded
+              value:
+                error: Monthly quota exceeded
+                message: Your free plan allows 10 API calls per month. Upgrade your plan for more.
+                used: 10
+                quota: 10
+                tier: free
+            noQuota:
+              summary: Organization has no quota
+              value:
+                error: No API quota
+                message: This organization has no active subscription funding its API quota.
+                quota: 0
+                tier: free
     InternalServerError:
-      description: Internal Server Error. An unexpected error occurred.
+      description: Internal Server Error. Something went wrong on our side. Try again later.
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
           example:
-            error: internal_error
-            message: An unexpected server error occurred.
+            error: Internal server error
+            message: Failed to validate API key.

@@ -9,13 +9,13 @@ description: >-
 The second and final screening pass. Paperguide AI reads the full PDF of every paper that survived abstract screening, evaluates it against your full text criteria, and links each decision to the exact statements it relied on. A person then verifies that work before the review moves on.
 
 <Callout kind="info" collapsed="false">
-  **Before you start:** Your full text screening criteria must be defined in the [Protocol](/systematic-review/protocol), and [Title & Abstract Screening](/systematic-review/ai-review/title-abstract-screening) must be confirmed. Assign your verifier before starting, not after.
+  **Before you start:** Your full text screening criteria must be defined in the [Protocol](/systematic-review/protocol), and [Title & Abstract Screening](/systematic-review/ai-review/title-abstract-screening) must be confirmed. Set your verifier before starting, not after.
 </Callout>
 
 ## How this stage works
 
-1. **A Full Access member starts AI screening.** AI reads the full text of every paper with a PDF and evaluates it against your full text criteria.
-2. **Papers without a PDF are marked ineligible.** They are held out of the run until a PDF is attached.
+1. **A Full Access member starts AI screening.** Paperguide fetches open-access PDFs automatically. AI reads the full text of every paper with a PDF and evaluates it against your full text criteria.
+2. **Papers without a PDF wait under PDF Missing.** Attach a PDF and the paper is screened automatically once its text is ready.
 3. **A verifier reviews the decisions.** They check each one against the cited statements in the PDF and override anything that is wrong.
 4. **The verifier confirms the papers.** Only then does data extraction unlock.
 
@@ -40,7 +40,7 @@ This is also where criteria that depend on detail get settled: methodology, part
 
 Every paper marked **Included** or **Maybe** in abstract screening carries forward. Excluded papers stop at the previous stage.
 
-Each paper needs a full text PDF. Papers without one are marked **ineligible** and held out of screening until a PDF is attached. They are not excluded on their merits, only set aside because there was nothing to read.
+Each paper needs a full text PDF. Paperguide fetches open-access PDFs for you. Papers it cannot get a PDF for go to the **PDF Missing** tab and wait there until a PDF is attached. They are not excluded on their merits, only set aside because there was nothing to read.
 
 ## Before you start
 
@@ -56,23 +56,24 @@ Criterion order determines exclusion reasons. When a paper fails, the **first** 
 
 Papers usually lack a PDF for one reason: the full text sits behind a paywall or requires institutional authentication.
 
-Two ways to attach one:
+Select **Get missing PDFs** to attach them in bulk:
 
-- **Use the Paperguide browser extension** to fetch the PDF while you browse, including paywalled papers through your organization's proxy
-- **Upload the file manually** from your device
+- **Attach PDFs** uploads the PDFs you have. Paperguide matches each file to its paper using the DOI printed in the PDF, and you confirm the matches.
+- **Find PDFs online** uses the Paperguide browser extension to fetch them, including paywalled papers through your organization's proxy.
+- **Add with MCP** lets your AI assistant attach them. See [Systematic Review in MCP](/mcp/systematic-review).
 
-For step-by-step instructions, see [Get PDFs in Systematic Review](/chrome-extension/systematic-review).
+To attach one PDF, open the paper and select **Add PDF**. For step-by-step instructions, see [Get PDFs in Systematic Review](/chrome-extension/systematic-review).
 
-You do not have to resolve every missing PDF before starting. Papers can be screened later as their PDFs arrive. But every gap you leave is a second pass you will have to make.
+You do not have to resolve every missing PDF before starting. Papers are screened as their PDFs arrive. But every gap you leave is a paper you will have to come back to.
 
 ### Assign a verifier
 
-Assign the person responsible for verifying this stage before screening starts. Assignment determines who can act on the results and who gets notified when the run finishes.
+The verifier is set in **Settings & Roles**. It starts as **Anyone**. Decide who is responsible for verifying this stage before screening starts. The verifier setting determines who can confirm the results and who gets notified when the run finishes.
 
-| If the stage is        | Who verifies it                                                                                                                                                                                      |
+| If the verifier is     | Who verifies it                                                                                                                                                                                      |
 | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Assigned to a member   | That member. They receive the notification when screening finishes.                                                                                                                                  |
-| Not assigned to anyone | Any Full Access or Review member can work through the results together. In a personal workspace, all of them are notified. In an organization's team workspace, only the review creator is notified. |
+| A named member         | That member. They receive the notification when screening finishes.                                                                                                                                  |
+| **Anyone** (the default) | Any Full Access or Review member can work through the results together. In a personal workspace, all of them are notified. In an organization's team workspace, only the review creator is notified. |
 
 View members can never verify, assigned or not.
 
@@ -82,9 +83,9 @@ View members can never verify, assigned or not.
 
 **Only Full Access members can start AI screening.** Review members verify results but cannot trigger the run.
 
-When the run starts, Paperguide indexes the attached PDFs and screens each paper as its indexing completes. Full text screening therefore takes longer than abstract screening: a full paper carries far more text than an abstract, and it has to be processed before it can be read.
+When the run starts, Paperguide fetches open-access PDFs, prepares the text of every PDF, and screens each paper as its text is ready. Full text screening therefore takes longer than abstract screening: a full paper carries far more text than an abstract, and it has to be processed before it can be read.
 
-Results appear in the screening workspace as the run progresses, so you can begin reviewing before it finishes. Paperguide also sends an email on completion: to the assigned verifier, or, if the stage is unassigned, to every Full Access and Review member in a personal workspace and to the review creator only in an organization's team workspace.
+Results appear in the screening workspace as the run progresses, so you can begin reviewing before it finishes. Paperguide also sends an email on completion: to the assigned verifier, or, if the verifier is **Anyone**, to every Full Access and Review member in a personal workspace and to the review creator only in an organization's team workspace.
 
 ## How AI reaches a decision
 
@@ -121,7 +122,7 @@ This is what makes verification real. A verdict on its own asks you to trust a s
 
 ### Managing the queue
 
-Papers are grouped into decision tabs, and you can filter by decision or verification status and sort your queue to work through a large set without losing your place.
+Papers are grouped into tabs: **All Papers**, **To Confirm** (screened but not yet confirmed), **Not Screened**, **Included**, **PDF Missing**, and **Excluded**. To Confirm and Not Screened appear only when they hold papers. You can also filter by decision or verification status and sort your queue to work through a large set without losing your place.
 
 ## Verifying and overriding
 
@@ -129,29 +130,31 @@ The AI decision is a recommendation. A confirmed decision is one a person has re
 
 **To verify a paper**, work through the criteria, paying most attention to any marked no, since a single failed criterion determines the outcome. Select the citations to highlight the supporting statements and read them in context. If you agree, confirm. If you disagree, override to Include or Exclude, selecting the failed criterion when you exclude.
 
+**To decide several papers at once**, tick them in the list, choose **Include** or **Exclude** in the bar that appears, pick an exclusion reason if you chose Exclude, and select **Apply decision**.
+
 **To confirm**, either confirm papers individually as you go, or select **Confirm all** once you have worked through the set. Confirming records the AI decision as approved, or your override as the final decision. Both are kept, so the review holds a record of what AI decided and what a person changed.
 
 Full Access members can review and override decisions after verification is complete, including decisions made by another member.
 
 ## Screening papers whose PDFs arrive later
 
-You can add a PDF to an ineligible paper at any point, including after AI screening has run and after verification is complete.
+You can add a PDF to a paper in **PDF Missing** at any point, including after AI screening has run and after verification is complete.
 
-Once a PDF is attached, **Start screening** becomes available for the newly ready papers. Selecting it screens only those papers, leaving completed work untouched. A verifier then reviews and confirms them the same way as the rest.
+There is nothing to start. Once the PDF's text is ready, the paper leaves PDF Missing and is screened automatically, leaving completed work untouched. A verifier then reviews and confirms it the same way as the rest.
 
 This means a missing PDF never has to block your review permanently. If you can obtain the paper later, it can still be assessed.
 
 <Callout kind="info" collapsed="false">
-  Work through your ineligible papers before treating the stage as finished. A paper you could have retrieved is a paper your review should have assessed, and reviewers will ask.
+  Work through your PDF Missing papers before treating the stage as finished. A paper you could have retrieved is a paper your review should have assessed, and reviewers will ask.
 </Callout>
 
 ## Confirming the stage
 
 Once every screened paper has been verified, confirm the stage.
 
-You then see the final counts: **Included**, **Excluded**, and **Ineligible** because no PDF was available.
+You then see the final counts: **Included**, **Excluded**, and papers still missing a PDF.
 
-Included papers move forward to data extraction. Excluded papers stop here and stay recorded in the review flow. Ineligible papers remain held until a PDF is added.
+Included papers move forward to data extraction. Excluded papers stop here and stay recorded in the review flow. Papers in PDF Missing stay there until a PDF is added.
 
 Confirming unlocks [Data Extraction](/systematic-review/data-extraction).
 
@@ -161,7 +164,7 @@ This stage populates the eligibility section of your PRISMA diagram:
 
 - Papers with a PDF are counted as **assessed for eligibility**
 - Papers excluded here are recorded as **full text exclusions**, with the criterion each one failed
-- Ineligible papers are counted as **not retrieved**
+- Papers still missing a PDF are counted as **not retrieved**
 
 Missing PDFs are therefore not only a workflow problem but part of your review's reported accounting. Resolve them early if you want your totals to settle before you write up.
 

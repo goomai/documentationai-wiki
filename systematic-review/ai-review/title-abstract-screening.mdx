@@ -11,7 +11,7 @@ description: >-
 The first screening pass. Paperguide AI reads the title and abstract of every paper in your confirmed set, evaluates it against your criteria, and shows you the evidence behind every decision. A person then verifies that work before the review moves on.
 
 <Callout kind="info" collapsed="false">
-  **Before you start:** Your abstract screening criteria must be defined in the [Protocol](/systematic-review/protocol), and your papers must be confirmed in [Papers](/systematic-review/papers). Assign your verifier before starting, not after.
+  **Before you start:** Your abstract screening criteria must be defined in the [Protocol](/systematic-review/protocol), and your papers must be added in [Papers](/systematic-review/papers). Set your verifier before starting, not after.
 </Callout>
 
 ## How this stage works
@@ -37,12 +37,12 @@ Criterion order matters. When a paper fails, the **first** criterion it fails, i
 
 ### Assign a verifier
 
-Decide who is responsible for verifying this stage and assign them before screening starts. Assignment determines who can act on the results and who gets notified when the run completes.
+The verifier is set in **Settings & Roles**. It starts as **Anyone**. Decide who is responsible for verifying this stage before screening starts. The verifier setting determines who can confirm the results and who gets notified when the run completes.
 
-| If the stage is        | Who verifies it                                                                                                                                                                                      |
+| If the verifier is     | Who verifies it                                                                                                                                                                                      |
 | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Assigned to a member   | That member. They receive the notification when screening finishes.                                                                                                                                  |
-| Not assigned to anyone | Any Full Access or Review member can work through the results together. In a personal workspace, all of them are notified. In an organization's team workspace, only the review creator is notified. |
+| A named member         | That member. They receive the notification when screening finishes.                                                                                                                                  |
+| **Anyone** (the default) | Any Full Access or Review member can work through the results together. In a personal workspace, all of them are notified. In an organization's team workspace, only the review creator is notified. |
 
 View members can never verify, assigned or not.
 
@@ -52,7 +52,7 @@ View members can never verify, assigned or not.
 
 **Only Full Access members can start AI screening.** Review members verify results but cannot trigger the run.
 
-Screening a large set takes time, but you do not have to wait for it. Results appear as papers are processed, and a progress banner tracks the run, so the verifier can start working through decisions while the rest are still being evaluated. Paperguide also sends an email when the run completes: to the assigned verifier, or, if the stage is unassigned, to every Full Access and Review member in a personal workspace and to the review creator only in an organization's team workspace.
+Screening a large set takes time, but you do not have to wait for it. Results appear as papers are processed, and a progress banner tracks the run, so the verifier can start working through decisions while the rest are still being evaluated. Paperguide also sends an email when the run completes: to the assigned verifier, or, if the verifier is **Anyone**, to every Full Access and Review member in a personal workspace and to the review creator only in an organization's team workspace.
 
 ## How AI reaches a decision
 
@@ -84,7 +84,18 @@ This logic keeps borderline papers in the review rather than dropping them early
 
 Screening opens in a table view: papers on the left, abstract details on the right. Select a paper to open its detailed view, with the full abstract, the current decision, every criterion verdict, and the cited evidence.
 
-Papers are grouped into four tabs so you can review by outcome: **All**, **Included**, **Excluded**, and **Maybe**. The Maybe tab is the one worth your attention first, since it holds the papers where AI could not reach a clean judgment and human reading matters most.
+Papers are grouped into tabs so you can review by outcome:
+
+| Tab              | What it holds                                                                     |
+| ---------------- | --------------------------------------------------------------------------------- |
+| **All Papers**   | Every paper in the stage                                                          |
+| **To Confirm**   | Screened papers no one has confirmed yet. Shown once some papers are confirmed.   |
+| **Not Screened** | Papers AI has not screened yet, such as papers added since the last run           |
+| **Included**     | Papers with an Include decision                                                   |
+| **Excluded**     | Papers with an Exclude decision                                                   |
+| **Maybe**        | Papers with a Maybe decision                                                      |
+
+The Maybe tab is the one worth your attention first, since it holds the papers where AI could not reach a clean judgment and human reading matters most.
 
 To manage a large queue:
 
@@ -101,6 +112,8 @@ The AI decision is a recommendation. A confirmed decision is one a person has re
 **To verify a paper**, open it and check the criterion verdicts against the abstract, paying most attention to anything marked fails or unclear, since those drive the outcome. If you agree, confirm it. If you disagree, override the decision to Include, Maybe, or Exclude. When you override to Exclude, select which criterion the paper failed.
 
 If the abstract genuinely does not support a clean decision, leave the paper as **Maybe**. That is the correct answer, not an avoided one.
+
+**To decide several papers at once**, tick them in the list. In the bar that appears, choose **Include**, **Maybe**, or **Exclude**, pick an exclusion reason if you chose Exclude, and select **Apply decision**. The bar shows how many papers you can select at a time.
 
 **To confirm**, either confirm papers individually as you review them, or select **Confirm all** once you have worked through the set. Confirming records the AI decision as approved, or your override as the final decision. Both are kept, so the review holds a record of what AI decided and what a person changed.
 
@@ -124,7 +137,7 @@ Screening can run again when the review changes underneath it.
 
 **If you change your abstract criteria** in the protocol, screening may need to run again so decisions stay consistent with the criteria you are now using. How much needs rescreening depends on what changed. This is why the protocol is worth settling before you start.
 
-**If you add papers** to the collection, only the new papers need screening. Work already confirmed is not affected, and a verifier reviews the new results the same way.
+**If you add papers** to the collection, only the new papers need screening. A banner on the screening page tells you how many are waiting. Select **Screen new papers** to screen them. Work already confirmed is not affected, and a verifier reviews the new results the same way.
 
 [Adding papers after screening has started](/systematic-review/papers#adding-papers-after-screening-has-started)
 

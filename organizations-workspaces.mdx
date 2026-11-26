@@ -22,38 +22,38 @@ A **Workspace** is where research work happens. Each workspace has its own Refer
   Personal and Private workspaces serve different purposes. Your Personal workspace exists outside any organization, while your Private workspace exists inside an organization but remains visible only to you.
 </Callout>
 
-## The org sidebar
+## Switching between Personal and an organization
 
-When you switch to organization mode, the sidebar changes from the personal layout to the org sidebar. The navigation shifts from a single-user workspace to a multi-workspace team setup.
+Paperguide has one sidebar everywhere. The same **Workspace** and **AI Agents** items appear whether you're in your personal account or an organization; only the content changes.
 
-- **Workspace switcher** at the top — switch between your Personal workspace, your Private workspace, and any Team workspaces you belong to
-- **Agents group** — Research Agent, Literature Review, Deep Research, AI Search, Chat with PDF, and History
-- **Workspace group** — Reference Manager, AI Writer, Systematic Review, Extract Data, and Notebooks for the currently selected workspace
-- **Footer items** — Notifications, Chrome Extension, and Account Menu
+To switch:
 
-The selected workspace controls the scope for workspace-based tools. If you switch from one team workspace to another, you also switch the library, documents, reviews, and extracted data tied to that workspace.
+1. Click your name at the bottom of the sidebar.
+2. Pick an organization, or your own name (marked **Personal**).
+3. A message confirms the switch, for example "Switched to Acme Lab".
 
-## Personal vs org mode
+Each row shows the plan and member count. Organizations that only shared items with you show a **Guest** badge.
 
-Paperguide uses two navigation modes so you can keep individual work separate from team collaboration.
+Your workspaces are listed in the **Reference Manager** sidebar. In an organization you see each team workspace by name, your **Private** workspace, and **Shared With Me**. In your personal account you see **My References** and **Shared With Me**.
 
-| Feature            | Personal Mode                               | Organization Mode                                 |
-| ------------------ | ------------------------------------------- | ------------------------------------------------- |
-| Sidebar type       | DashboardSidebar                            | OrgAppSidebar                                     |
-| Navigation items   | Home, Reference Manager, AI Writer, History | Workspace switcher, Agents group, Workspace group |
-| Workspace scope    | Single personal library                     | Multiple workspaces, including Private and Team   |
-| Team collaboration | Not available                               | Available with roles and permissions              |
-| Billing            | Individual subscription                     | Seat-based organization subscription              |
+## Personal account vs organization
+
+| Feature | Personal account | Organization |
+| --- | --- | --- |
+| Workspaces | Your personal library | Your Private workspace plus Team workspaces |
+| Team collaboration | Share folders with others | Members, roles, and shared Team workspaces |
+| Billing | Individual subscription | Seat-based organization subscription |
+| Settings | **Personal account** section | **Organization** section (**Organization settings**, **People**, **Workspaces**, and more) |
 
 ## Creating an organization
 
 <Steps>
   <Step title="Check eligibility" icon="check-circle" title-type="p">
-    You need at least 2 active subscription seats to create an organization. Free plans and single-seat subscriptions cannot create organizations.
+    An organization comes with a team plan of 2 or more seats. Free plans and single-seat subscriptions don't include one.
   </Step>
 
-  <Step title="Create the org" icon="plus" title-type="p">
-    Go to your account settings and create a new organization. Enter a name for the organization, then confirm the setup.
+  <Step title="Buy a team plan" icon="plus" title-type="p">
+    Choose a plan with 2 or more seats on the pricing page. After checkout, Paperguide shows **Setting up your organization** and creates it for you, then lets you add workspaces and invite your team.
   </Step>
 
   <Step title="Auto-provisioning" icon="settings" title-type="p">
@@ -73,7 +73,7 @@ Team workspaces let you organize research by project, department, lab, client, o
 
 ### Creating team workspaces
 
-Organization owners and admins can create team workspaces inside the organization. Use separate workspaces when you want different member lists, different research libraries, or clearer boundaries between projects.
+Organization owners and admins can create team workspaces inside the organization from **Settings → Workspaces**. Use separate workspaces when you want different member lists, different research libraries, or clearer boundaries between projects.
 
 ### Renaming team workspaces
 
@@ -81,7 +81,7 @@ Workspace owners can rename team workspaces at any time. Renaming does not affec
 
 ### Switching workspaces
 
-Use the workspace switcher at the top of the sidebar to move between your Private workspace and any Team workspaces you can access. The switch takes you into that workspace's own library and collaborative tools.
+In **Reference Manager**, every workspace you can access has its own section in the left panel. Click a folder or **All Papers** under a workspace to work in that library. To move to a different organization, use the account menu at the bottom of the sidebar.
 
 ### Deleting team workspaces
 
@@ -134,7 +134,7 @@ Paperguide separates organization membership from workspace membership. That let
 
 Organization owners and admins invite members by email. During the invitation flow, you can pre-assign the invitee to specific team workspaces with either the **Editor** or **Viewer** role.
 
-The invitee receives an email invitation. If they already have an account, Paperguide can also notify them in the app.
+To invite people, open **Settings → People** while you're in the organization and click **Invite people**. The invitee receives an email invitation with a link to accept.
 
 ### What happens when they accept
 
@@ -154,24 +154,58 @@ Workspace owners can remove members from a specific workspace. Organization owne
 
 Organization owners can control how members share resources with people outside the organization. This policy applies at the organization level.
 
-- **Anyone** — share with any email address
-- **Domain only** — share only with email addresses that match the organization owner's domain
-- **None** — block all external sharing
+Set it under **Settings → Organization settings → External sharing**:
+
+- **Anyone** — members can share files and projects with any external email
+- **Same domain only** — sharing is limited to addresses on your verified domain
+- **No external sharing** — files and projects stay within the organization
 
 This setting helps teams balance collaboration with governance. Research groups that work with outside collaborators can stay flexible, while internal-only teams can lock sharing down completely.
 
-## Notifications
+## Invitations and shared items
 
-The notification system keeps you informed about workspace and sharing activity. Check the notification bell in the sidebar footer for updates that need your attention.
+Paperguide sends organization invitations by email. Folders other people share with you appear under **Shared With Me** in the Reference Manager sidebar.
 
-Notifications may include:
+## AppSumo deals
 
-- New share invitations
-- Accepted invitations
-- Member changes
-- Workspace activity
+If you bought Paperguide on AppSumo, activate the deal from AppSumo.
 
-You can review notifications from the sidebar, track unread counts, and mark items as read individually or all at once.
+<Steps>
+  <Step title="Open your AppSumo products" icon="external-link" title-type="p">
+    Go to [appsumo.com/account/products](https://appsumo.com/account/products/), find Paperguide, and click **Activate now**.
+  </Step>
+
+  <Step title="Sign up or log in" icon="log-in" title-type="p">
+    On the Paperguide x AppSumo page, create an account or log in to the account that should get the deal.
+
+    If you're already logged in, Paperguide asks which account to use:
+
+    - **Activate to this account** — activate the deal on the account shown
+    - **Use a different account** — log out, then log in or sign up with another account
+  </Step>
+
+  <Step title="Start using Paperguide" icon="check-circle" title-type="p">
+    When you see **Paperguide lifetime access is now active**, click **Go to Dashboard**.
+  </Step>
+</Steps>
+
+<Callout kind="info" collapsed="false">
+  If the activation link has expired or was already used, go back to AppSumo and click **Activate now** again. Each account can hold one AppSumo deal.
+</Callout>
+
+### Team tiers
+
+Tier 3 and higher are organizations: they include seats for a team, and your own seat counts as one. After activation, Paperguide sets up your organization. To add teammates, switch to the organization, open **Settings → People**, and click **Invite people**.
+
+### Changing or upgrading your deal
+
+Change or upgrade your tier on AppSumo, not in Paperguide:
+
+1. Open your [AppSumo products page](https://appsumo.com/account/products/).
+2. Find Paperguide and choose **Change Plan**.
+3. Pick the new tier and pay the difference.
+
+See AppSumo's guide to [upgrading or downgrading a license](https://help.appsumo.com/article/106-upgrading-downgrading-my-license) for details.
 
 ## Next steps
 

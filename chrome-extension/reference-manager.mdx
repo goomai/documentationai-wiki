@@ -67,9 +67,18 @@ While Paperguide searches, the row shows **Finding PDF…**. If it can't attach 
 - **Restricted**: the PDF is behind a paywall. [Set up library access](/chrome-extension/library-access) and click **Retry**, or add the PDF manually.
 - **Failed**: something went wrong. Click **Retry**, or add the PDF manually.
 
+If the popup says **PDF not attached**, Paperguide found a file but couldn't add it, for example because it's for a different paper or your storage is full. Retrying won't change this, so attach the right PDF yourself.
+
 ## Check that a PDF is ready for AI features
 
-After a PDF is attached, Paperguide indexes it so you can chat with it and use it in other tools. A paper's **Index Status** in its detail panel shows **Indexed** when it's ready. In table view, the **Indexed** column shows **Yes**, **No**, **Indexing…** or **Failed**. If indexing fails, click **Retry indexing**.
+After a PDF is attached, Paperguide indexes it so you can chat with it and use it in other tools. A paper's **Index Status** in its detail panel shows **Indexed** when it's ready. In table view, the **Indexed** column shows **Yes**, **No**, **Indexing…** or **Failed**. You may also see:
+
+- **Reading figures…**: the text is ready, and Paperguide is still reading the figures.
+- **Scan not read**: the PDF is a scan and was added without reading scanned pages. Click retry to read it.
+- **Pro or Evidence**: the PDF is a scan, and reading scans needs one of those plans.
+- **Over 100 MB** or **Over 500 pages**: the file is too big to index.
+
+To index a paper again, click the retry icon next to its status.
 
 ## Next steps
 

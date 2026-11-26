@@ -1,83 +1,96 @@
 ---
 title: Chat with PDF
-description: Chat with your PDFs using AI with page-level citations and a built-in PDF viewer.
+description: Ask questions about your PDFs and papers and get answers with citations that open the exact page.
 ---
 
 ## What is Chat with PDF?
 
-Chat with PDF lets you ask questions about any PDF and get answers grounded in the document's full text. The AI reads the entire paper, not just snippets, so follow-up questions stay precise and citations point to exact pages and sentences. A built-in PDF viewer sits alongside the chat so you can read the source while you ask questions.
+Chat with PDF answers your questions from the full text of your PDFs, with citations that open the exact page. A PDF viewer sits beside the chat, so you can check the source while you ask.
 
-Use it when you want to:
+Use it to:
 
-- Get structured summaries of long or dense papers
-- Pull key claims with supporting evidence and exact quotes
-- Compare methods or results across multiple PDFs in one conversation
-- Find gaps, open questions, and limitations
+- Get a summary of a long or dense paper
+- Find the key claims, with supporting quotes
+- Compare methods or results across several papers
+- Find limitations, gaps, and open questions
 
-## Getting started
-
-You can start a Chat with PDF session in three ways: upload a PDF from your device, pick a paper from your [Reference Manager](/reference-manager), or paste a URL, DOI, or arXiv link.
+## Start a chat
 
 <Steps>
-  <Step title="Add your PDFs" icon="upload" title-type="p">
+  <Step title="Open Chat with PDF" icon="message-square" title-type="p">
 
-  Choose one of three options:
-
-  - **Upload**: drag and drop or browse for PDF files on your device.
-  - **Reference Manager**: select papers already in your [Reference Manager](/reference-manager) library.
-  - **URL/DOI/arXiv**: paste a direct PDF link, DOI, or arXiv ID. Paperguide retrieves and indexes the file.
+  In the sidebar, open **More tools** → **Chat with PDF**.
 
   </Step>
 
-  <Step title="Wait for indexing" icon="loader" title-type="p">
+  <Step title="Add your papers" icon="upload" title-type="p">
 
-  Each PDF is processed asynchronously. You will see a progress indicator per file, and the chat becomes available once indexing completes. Indexing includes full-text extraction and vectorization so the AI can search and cite specific passages.
+  - **Upload File**: choose PDFs from your device, or drag and drop them into the box.
+  - **Select References**: pick papers from your [Reference Manager](/reference-manager). Only references with an attached PDF can be used.
+
+  Then click the arrow to start the chat.
 
   </Step>
 
-  <Step title="Ask your first question" icon="message-square" title-type="p">
+  <Step title="Wait for your files to be read" icon="loader" title-type="p">
 
-  Start with a concrete task, such as `Give me a structured summary of this paper` or `What are the main claims and where are they supported?` Use follow-ups like `Where does it say that?` to get direct quotes.
+  Each file shows its progress while Paperguide reads it. With one PDF, a summary is written for you as soon as the file is ready. With several, you get suggested questions to start from.
+
+  </Step>
+
+  <Step title="Ask your questions" icon="message-circle" title-type="p">
+
+  Type a question, or pick a suggested one. Ask follow-ups such as "Where does it say that?" to get direct quotes.
 
   </Step>
 </Steps>
 
 <Callout kind="info">
 
-You can upload up to **5 PDFs** on the Free plan. Paid plans support unlimited uploads.
+If you reach the upload limit, the **Upload File** button tells you. To chat with more papers, add them to your Reference Manager and choose them with **Select References**.
 
 </Callout>
 
-## Citations and sources
+## Citations
 
-Every answer includes inline citations that link directly to the source passage in the PDF.
+Every answer includes in-text citations that point to the source passage.
 
-- **Page and sentence references**: each citation shows the paper title and page number. Hover over a citation to preview the cited sentence without leaving the chat.
-- **Click to navigate**: click any citation to jump to that page in the built-in PDF viewer.
-- **Confidence indicators**: citations include a confidence score so you can quickly assess how strongly the source supports the claim.
+- **Hover** a citation to see the cited sentences.
+- **Click** a citation to open that page in the PDF viewer, with the sentence highlighted.
 
-The PDF viewer opens alongside the chat panel. Read the paper, check the context around a citation, and return to the conversation without switching tabs.
+## Work with your files
 
-## Multi-PDF chat
+Your files are listed in the **Sources** pane beside the chat. For each file, you can:
 
-When you have multiple PDFs in a session, you can reference specific papers using the **@paper** mention. Type `@` and select a paper from the list — the AI will focus its answer on that document.
+- **Mention**: point your next question at that file. You can also type **@** in the question box and pick a file.
+- **My References**: save an uploaded file to your Reference Manager. It goes to the Unorganized folder.
+- **Cite**: get a ready-to-copy citation for a reference.
 
-This is useful when you want to:
+To add more files to the same chat, click **Add File**.
 
-- Compare methods or results across specific papers
-- Ask `How does @Paper A differ from @Paper B in their experimental setup?`
-- Direct the AI to a particular source for a follow-up question
+When you chat with several papers, mention them by name to compare them, for example: "How does @Paper A differ from @Paper B in their experimental setup?"
 
-## Sharing
+## Chat with papers in your Reference Manager
 
-Share a Chat with PDF session with a colleague by copying the shareable link. The recipient can view the full conversation, including questions, answers, and citations, without needing a Paperguide account.
+You can also chat with papers straight from your library, without uploading them.
+
+1. Open **Reference Manager**.
+2. Select the papers you want, or open the folder that holds them.
+3. Click **AI Chat** in the toolbar.
+
+With papers selected, the chat covers those papers. With none selected, it covers the papers in the current view. If you select more than 100 papers, Paperguide asks you to confirm and includes the first 100.
+
+## Share a chat
+
+Click **Share** at the top of the chat, then **Create share link**. Anyone with the link can view a live, read-only copy of the chat, with no account needed. Click **Disable link** to stop access at any time.
 
 ## Tips for better results
 
-- **Keep synthesis sets focused**: for deep comparison or synthesis, results are usually better with around 10 papers in a single chat rather than the maximum.
-- **Ask specific, grounded questions**: prefer prompts like `What are the main findings in section 4, and how do they relate to figure 2?` over `Explain this paper.`
-- **Use follow-ups for precision**: after a broad summary, narrow down with follow-ups like `Show me only the limitations that relate to sample size` or `Where exactly in the results does the paper make this claim?`
-- **Request evidence explicitly**: when you need quotes, ask for them directly. The AI will return exact passages with page references.
+- **Keep comparison sets focused.** For deep comparison or synthesis, results are usually better with around 10 papers in one chat.
+- **Ask specific questions.** "What was the sample size and demographic breakdown?" works better than "Explain this paper."
+- **Narrow down with follow-ups.** After a broad summary, ask "Show me only the limitations that relate to sample size."
+- **Ask for evidence.** When you need quotes, ask for them directly, for example "What evidence supports the main conclusion?"
+- **Start with the basics on hard papers.** Try "What are the most important concepts I need to understand before reading this paper?"
 
 ## Related features
 

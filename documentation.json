@@ -231,7 +231,7 @@
                 "icon": "lucide-search"
               },
               {
-                "title": "Literature Review Agent",
+                "title": "Literature Review",
                 "path": "literature-review-agent",
                 "icon": "lucide-text-search"
               },
@@ -475,6 +475,110 @@
     {
       "source": "/ai-writer/overview",
       "destination": "/ai-writer"
+    },
+    {
+      "source": "/adding-references",
+      "destination": "/reference-manager/add-papers"
+    },
+    {
+      "source": "/create-first-workbook",
+      "destination": "/literature-review-agent"
+    },
+    {
+      "source": "/literature-review",
+      "destination": "/literature-review-agent"
+    },
+    {
+      "source": "/chat-with-papers",
+      "destination": "/chat-with-pdf"
+    },
+    {
+      "source": "/research-backed-answers",
+      "destination": "/ai-search"
+    },
+    {
+      "source": "/faq/access-previous-workbooks-history",
+      "destination": "/dashboard-and-navigation"
+    },
+    {
+      "source": "/faq/access-shared-folder-reference-manager",
+      "destination": "/reference-manager/share-library-workspace"
+    },
+    {
+      "source": "/faq/add-papers-reference-manager",
+      "destination": "/reference-manager/add-papers"
+    },
+    {
+      "source": "/faq/ai-summaries-in-references",
+      "destination": "/reference-manager/notes-annotation"
+    },
+    {
+      "source": "/faq/appsumo-activate-deal",
+      "destination": "/organizations-workspaces"
+    },
+    {
+      "source": "/faq/appsumo-activate-tier-3-seats",
+      "destination": "/organizations-workspaces"
+    },
+    {
+      "source": "/faq/appsumo-change-plan",
+      "destination": "/organizations-workspaces"
+    },
+    {
+      "source": "/faq/appsumo-upgrade-lifetime-deal",
+      "destination": "/organizations-workspaces"
+    },
+    {
+      "source": "/faq/ask-questions-public-database",
+      "destination": "/ai-search"
+    },
+    {
+      "source": "/faq/chat-with-multiple-papers",
+      "destination": "/chat-with-pdf"
+    },
+    {
+      "source": "/faq/chat-with-papers-from-references",
+      "destination": "/chat-with-pdf"
+    },
+    {
+      "source": "/faq/create-extract-data-workbook",
+      "destination": "/extract-data/overview"
+    },
+    {
+      "source": "/faq/create-literature-review-workbook",
+      "destination": "/literature-review-agent"
+    },
+    {
+      "source": "/faq/fair-usage-storage",
+      "destination": "/ai-credits"
+    },
+    {
+      "source": "/faq/import-large-collection-zotero",
+      "destination": "/reference-manager/import-zotero-mendeley"
+    },
+    {
+      "source": "/faq/manage-members-shared-folder",
+      "destination": "/reference-manager/share-library-workspace"
+    },
+    {
+      "source": "/faq/rate-limiting-fair-usage",
+      "destination": "/ai-credits"
+    },
+    {
+      "source": "/faq/search-papers-public-database",
+      "destination": "/ai-search"
+    },
+    {
+      "source": "/faq/share-folders-reference-manager",
+      "destination": "/reference-manager/share-library-workspace"
+    },
+    {
+      "source": "/faq/upload-and-summarise-pdf",
+      "destination": "/chat-with-pdf"
+    },
+    {
+      "source": "/faq/write-notes-annotate-paper",
+      "destination": "/reference-manager/notes-annotation"
     }
   ],
   "favicon": "https://blob-cdn.documentation.ai/org-32657b98-c10c-411d-8b88-f43a8010b91d/doc-f333a884-cde9-44eb-8107-3714d598a727/1763705671832-bvvgyrlwcr-Frame-48100559.png",
