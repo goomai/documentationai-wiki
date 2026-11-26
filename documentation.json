@@ -221,9 +221,21 @@
             "group": "AI Agents",
             "pages": [
               {
-                "title": "Research Agent",
-                "path": "research-agent",
-                "icon": "atom"
+                "group": "Research Agent",
+                "icon": "atom",
+                "expandable": true,
+                "pages": [
+                  {
+                    "title": "Overview",
+                    "path": "research-agent",
+                    "icon": "lucide-book-open"
+                  },
+                  {
+                    "title": "Use Cases & Prompts",
+                    "path": "research-agent/use-cases",
+                    "icon": "lucide-lightbulb"
+                  }
+                ]
               },
               {
                 "title": "AI Search",

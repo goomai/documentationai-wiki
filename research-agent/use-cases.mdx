@@ -1,0 +1,272 @@
+---
+title: Research Agent use cases and example prompts
+description: >-
+  Everything the Research Agent can do, from finding papers to critical
+  synthesis, literature reviews, gap analysis, writing and citations, with
+  prompts you can copy.
+---
+The Research Agent handles your whole research workflow in one chat: finding papers, answering questions, comparing and appraising evidence, running reviews, writing, citing and visualizing. This page lists what it can do, with prompts you can copy. Replace the parts in \[brackets] with your own details.
+
+<Callout kind="tip" collapsed="false">
+  Keep related work in one chat. The agent remembers the papers, tables and documents it made earlier, so you can say "that table" or "the second paper" in a follow-up.
+</Callout>
+
+## At a glance
+
+| Stage | What you can ask for |
+| --- | --- |
+| [Discover](#discover-papers) | Find papers, find related work around a paper, search your library |
+| [Understand](#answer-and-explain) | Cited answers, explanations, summaries of your PDFs |
+| [Synthesize](#critical-synthesis-and-appraisal) | Comparisons, agreement and disagreement, strength of evidence, limitations |
+| [Review](#literature-reviews-screening-and-extraction) | Literature reviews, screening, data extraction tables, gap analysis |
+| [Write](#write-and-edit) | Cited drafts of thesis chapters, proposals, articles and more; edits to them |
+| [Cite](#citations-and-references) | Add citations, check references, fix citation styles |
+| [Visualize](#diagrams-and-charts) | Diagrams, timelines, charts, PRISMA diagrams, illustrations |
+
+## Discover papers
+
+### Search the literature
+
+Ask for papers on a topic and say what matters: years, study type, journal quality or population. The agent searches your chosen sources, ranks the results and gives a short cited answer.
+
+> Find randomized controlled trials from the last 10 years on mindfulness-based interventions for burnout in nurses.
+
+> Find recent systematic reviews and meta-analyses on microplastics in freshwater fish.
+
+> Find papers on federated learning for medical imaging published in Q1 journals since 2021.
+
+Use **Filters** below the box for year, citations, journal quality and more.
+
+### Find work related to a paper
+
+Name one to five papers and the agent maps the papers connected to them: what they build on, what came after, and the closest related work.
+
+> Find papers related to "Attention Is All You Need" and show what it builds on and what came after.
+
+> Map the literature around these two papers: \[title 1] and \[title 2].
+
+### Search your own library
+
+Turn on **Reference manager** in the sources, or click **Choose papers or folders** to limit the agent to specific papers. Type **@** to mention a paper.
+
+> Which papers in my library use structural equation modelling? List their constructs and sample sizes.
+
+> From my Thesis folder, which papers measure academic self-efficacy, and with which scale?
+
+## Answer and explain
+
+### Get a cited answer
+
+Ask a research question directly. The answer cites every claim, says how strong the evidence is, and ends with what it means for your question.
+
+> Does intermittent fasting improve insulin sensitivity in adults with type 2 diabetes?
+
+> Is remote work associated with lower employee productivity?
+
+> What is the evidence that green roofs reduce urban heat island effects?
+
+### Explain a concept, mechanism or method
+
+> Explain how chronic stress leads to insulin resistance, step by step.
+
+> Explain difference-in-differences in plain language, with an example from education research.
+
+> What are the main theories of technology acceptance, and how do they differ?
+
+### Work with your PDFs
+
+Attach PDFs with **+** → **Add or upload files**, or mention library papers with **@**. The agent reads the full text and cites the exact passage.
+
+> Summarize the aim, methods, sample and main findings of each attached paper.
+
+> What did each study find about the primary outcome? Compare their methods and sample sizes.
+
+> What limitations do the authors of this paper report, and which ones did they not mention?
+
+> Find every statistic in this report about vaccine uptake, with the page it's on.
+
+## Critical synthesis and appraisal
+
+Use these prompts when you need more than a summary: how studies fit together, where they disagree and how much to trust them. When an answer draws on several papers, the agent adds a table of the evidence.
+
+### Compare studies
+
+> Compare the RCTs on GLP-1 receptor agonists for weight loss: population, dose, duration, outcome and effect size.
+
+> Compare these three papers' methods, samples, findings and limitations in a table.
+
+> Which is more effective for reducing anxiety in adolescents, CBT or mindfulness? Compare the evidence for each.
+
+### Find agreement, disagreement and why
+
+> Where do studies on social media use and adolescent depression disagree, and what explains the differences: sample, design or measures?
+
+> Synthesize what the literature says about the effect of class size on student achievement. Group the studies by finding.
+
+> Which findings on minimum wage and employment have been replicated, and which are contested?
+
+### Weigh the strength of evidence
+
+The agent says what kind of evidence each finding rests on, such as meta-analysis, RCT, cohort or single study, and how consistent it is.
+
+> How strong is the evidence that vitamin D supplementation prevents respiratory infections? Break it down by study design.
+
+> Is it established that blue light exposure before bed affects sleep quality? Show how many studies support each side.
+
+> Appraise the methods of this study: design, sampling, measures, risk of bias and how far its results generalize.
+
+### Find limitations and open questions
+
+> What are the common limitations across studies on AI-assisted diagnosis in dermatology?
+
+> What questions about long COVID in children are still unanswered?
+
+For a structured, graded map of gaps, use [gap analysis](#research-gap-analysis).
+
+## Literature reviews, screening and extraction
+
+### Literature review
+
+The agent finds papers, screens them against your question, extracts key data into a table and writes a cited review. Before it starts, you choose the review's scope.
+
+> Conduct a literature review on digital mental health interventions for university students.
+
+> Review the literature on the use of drones for precision agriculture, using only my references.
+
+> Do a literature review on teacher burnout after 2020, focusing on qualitative studies.
+
+Follow up in the same chat to change the review:
+
+> Add a column for country to the table.
+
+> Rewrite the review's discussion to focus on low-income settings.
+
+> Add 10 more papers on hybrid teaching to the table.
+
+See [Literature Review](/literature-review-agent) for scopes, the table and saving your results.
+
+### Screen studies
+
+Give your question and criteria. The agent decides for each paper whether it's in or out, with its reasons.
+
+> Screen papers for the research question "Does exercise reduce depressive symptoms in older adults?" Include: RCTs, adults aged 60 and over. Exclude: animal studies, protocols.
+
+> Screen these papers in my library against my criteria and tell me which to read in full.
+
+### Extract data into a table
+
+Name the columns you want. Every cell links to the sentence it came from.
+
+> Extract data from papers on school-based obesity prevention into a table with columns: study design, country, sample size, intervention, duration, outcome, key findings.
+
+> Put the papers from my last answer in a table with their methods, datasets and accuracy.
+
+> Extract the reported effect sizes and confidence intervals from these trials.
+
+Save a table to **My Notebooks** to keep working on it in [Extract Data](/extract-data/overview).
+
+### Research gap analysis
+
+The agent maps the evidence on a topic and reports research gaps, graded by how well supported they are, so you can pick a question worth studying.
+
+> Run a research gap analysis on telehealth for chronic disease management in rural populations.
+
+> Map the research gaps in the literature on climate anxiety among young people.
+
+> Find gaps in research on recycled aggregates in structural concrete.
+
+You can also open **Research Gap Finder** for a deeper gap analysis.
+
+## Write and edit
+
+### Write a cited draft
+
+Ask for any kind of academic writing. The agent searches for papers if it needs them, then writes section by section with citations. The document opens beside the chat, and you can continue it in [AI Writer](/ai-writer).
+
+It writes thesis introductions, literature review chapters and methods chapters, research proposals, research and review articles, abstracts, essays, course papers, talks, popular articles, annotated bibliographies and summaries.
+
+> Write a 1,500-word thesis introduction on the impact of mobile learning on rural secondary students, with background, problem statement, objectives and significance.
+
+> Write a research proposal on using wastewater surveillance to predict disease outbreaks, with aims, methods, timeline and expected outcomes.
+
+> Write the literature review chapter of my thesis on employee engagement and leadership style, organized by variable.
+
+> Write a 250-word structured abstract from the attached paper.
+
+> Write an annotated bibliography of 10 key papers on algorithmic bias in hiring.
+
+> Turn the review above into a 10-minute conference talk.
+
+### Use your own material
+
+> Write the discussion section using only my attached results and the papers in my Thesis folder.
+
+> Rewrite my attached draft in formal academic English and add citations.
+
+> Translate the attached summary into Spanish.
+
+### Edit a document
+
+Tell the agent what to change in a document it wrote. It changes only that part and keeps the rest.
+
+> Make the introduction shorter.
+
+> Add a paragraph on cost-effectiveness after the results.
+
+> Change the tone throughout to suit a policy audience.
+
+> Restructure this as a review article with themes instead of studies.
+
+## Citations and references
+
+### Add citations to your text
+
+> Add citations to my draft using papers from the last 5 years in Q1 journals: \[paste text]
+
+> Find sources that support each claim in this paragraph: \[paste text]
+
+### Check your references
+
+The agent checks each reference against scholarly databases and flags references that don't exist, retracted papers, wrong DOIs, and titles, authors or years that don't match.
+
+> Are these citations real? \[paste reference list]
+
+> Check the reference list in my attached manuscript for errors and retracted papers.
+
+> Which papers cited in my draft are missing from my reference list?
+
+### Format citations
+
+> Give me these papers as APA 7 references.
+
+> Use Vancouver style for the citations.
+
+## Diagrams and charts
+
+The agent draws diagrams and charts in the chat, using only what the papers report.
+
+| To show | Ask for | Example |
+| --- | --- | --- |
+| A process or mechanism | A flowchart | "Show how antibiotic resistance spreads in hospitals as a step-by-step diagram." |
+| How ideas in a field relate | A mind map | "Map the main concepts in self-determination theory." |
+| How something developed | A timeline | "Show how large language models developed, as a timeline." |
+| Numbers from several studies | A chart | "Chart the HbA1c reduction reported for semaglutide, tirzepatide and liraglutide across studies." |
+| How settled a question is | An evidence snapshot | "Is it established that screen time harms toddler language development? Show how many studies support each side." |
+| Your review's screening flow | A PRISMA 2020 diagram | "Make a PRISMA diagram: 1,240 records found, 310 duplicates removed, 850 excluded at screening, 45 included." |
+| A concept, for slides or teaching | An illustration | "Create an illustration of a coral reef under heat stress." |
+
+## Tips for better results
+
+- **Be specific.** Name the population, setting, timeframe and study type: "RCTs in adults with type 2 diabetes since 2015" works better than "diabetes studies".
+- **Say what you want back.** A table, a 300-word summary, a diagram or a draft with given sections.
+- **Choose your sources.** Turn sources on or off and use **Filters** before you send. You can change them for each follow-up.
+- **Build step by step.** Search, then compare, then screen, then write, all in the same chat.
+- **Check the evidence.** Hover or click a citation to see the paper and the passage behind it. The agent supports your judgment; it doesn't replace it.
+
+## Related
+
+- [Research Agent overview](/research-agent)
+- [Literature Review](/literature-review-agent)
+- [AI Search](/ai-search)
+- [Chat with PDF](/chat-with-pdf)
+- [AI Writer](/ai-writer)
