@@ -194,22 +194,28 @@
             "group": "AI Writer",
             "pages": [
               {
-                "title": "Overview",
-                "path": "ai-writer/overview",
-                "icon": "file-text"
+                "title": "Create a Document",
+                "path": "ai-writer/create-document",
+                "icon": "lucide-file-plus"
               },
               {
-                "title": "Generate Document",
-                "path": "ai-writer/generate-document",
-                "icon": "atom"
-              },
-              {
-                "title": "AI Features",
-                "path": "ai-writer/ai-features",
+                "title": "AI Chat & Writing Tools",
+                "path": "ai-writer/ai-chat-and-writing-tools",
                 "icon": "lucide-sparkles"
+              },
+              {
+                "title": "Grammar & Plagiarism Check",
+                "path": "ai-writer/grammar-and-plagiarism-check",
+                "icon": "lucide-shield-check"
+              },
+              {
+                "title": "Share, Versions & Export",
+                "path": "ai-writer/share-versions-export",
+                "icon": "lucide-share-2"
               }
             ],
-            "icon": "pencil-line"
+            "icon": "pencil-line",
+            "path": "ai-writer"
           },
           {
             "group": "AI Agents",
@@ -417,6 +423,58 @@
     {
       "source": "/reference-manager/get-pdfs-with-extension",
       "destination": "/chrome-extension/reference-manager"
+    },
+    {
+      "source": "/ai-writer/generate-document",
+      "destination": "/ai-writer/create-document"
+    },
+    {
+      "source": "/ai-writer/ai-features",
+      "destination": "/ai-writer/ai-chat-and-writing-tools"
+    },
+    {
+      "source": "/write-first-document",
+      "destination": "/ai-writer"
+    },
+    {
+      "source": "/faq/create-document-generate-outline",
+      "destination": "/ai-writer/create-document"
+    },
+    {
+      "source": "/faq/ai-knowledge-source-writer",
+      "destination": "/ai-writer/create-document"
+    },
+    {
+      "source": "/faq/edit-document-prompt-citation-style",
+      "destination": "/ai-writer/create-document"
+    },
+    {
+      "source": "/faq/write-content-ask-ai-commands",
+      "destination": "/ai-writer/ai-chat-and-writing-tools"
+    },
+    {
+      "source": "/faq/edit-content-ask-ai-commands",
+      "destination": "/ai-writer/ai-chat-and-writing-tools"
+    },
+    {
+      "source": "/faq/ai-humanizer-works",
+      "destination": "/ai-writer/ai-chat-and-writing-tools"
+    },
+    {
+      "source": "/faq/ai-suggestions-from-references",
+      "destination": "/ai-writer/ai-chat-and-writing-tools"
+    },
+    {
+      "source": "/faq/generate-citations-while-writing",
+      "destination": "/ai-writer"
+    },
+    {
+      "source": "/faq/access-references-while-writing",
+      "destination": "/ai-writer"
+    },
+    {
+      "source": "/ai-writer/overview",
+      "destination": "/ai-writer"
     }
   ],
   "favicon": "https://blob-cdn.documentation.ai/org-32657b98-c10c-411d-8b88-f43a8010b91d/doc-f333a884-cde9-44eb-8107-3714d598a727/1763705671832-bvvgyrlwcr-Frame-48100559.png",
