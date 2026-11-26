@@ -1,25 +1,20 @@
 ---
 title: AI Search
 description: >-
-  Ask a research question in plain language. Get an evidence-backed answer, the
-  20 most relevant papers behind it, and a reference list you can verify and
-  reuse.
+  Ask a research question in plain language and get a cited answer with the
+  papers behind it, or run a Boolean keyword search.
 ---
-<Image src="https://blob-cdn.documentation.ai/org-32657b98-c10c-411d-8b88-f43a8010b91d/doc-f333a884-cde9-44eb-8107-3714d598a727/1784288107104-76j6adl2nxm-pasted-image-1784288105244.png?fm=auto&auto=compress%2Cformat" width="2172" height="1008" alt="AI Search bar on the Paperguide dashboard" />
-
 ## What AI Search is
 
-AI Search is Paperguide's literature discovery tool. It is built for research questions, not keyword lookup.
+AI Search is built for research questions, not only keywords. Ask a question and you get:
 
-Traditional academic search returns a ranked list and leaves the work to you: skim titles, open abstracts, discard most of them, and assemble an understanding of what the literature actually says. AI Search does that middle step for you. You ask a question, and it returns:
+1. A **synthesized answer** with in-text citations
+2. The **papers** the answer draws on, so you can check every claim
+3. **Related questions** to keep exploring
 
-1. A **synthesized answer** to your question
-2. The **top 20 papers** the answer is drawn from
-3. A **reference list**, with every claim traceable to a source paper
+AI Search looks in research papers (200M+ public papers), PubMed, arXiv, and your Reference manager. It doesn't search the web, blogs, or general internet content.
 
-By default it searches Paperguide's research corpus of 200M+ peer-reviewed papers drawn from PubMed, arXiv, OpenAlex, and Semantic Scholar. You can narrow that to PubMed, arXiv, or your own Reference Manager library, and apply filters to constrain what counts. It does not search the web, blogs, or general internet content.
-
-<Image src="https://blob-cdn.documentation.ai/org-32657b98-c10c-411d-8b88-f43a8010b91d/doc-f333a884-cde9-44eb-8107-3714d598a727/1784288076264-epx6s00nxeh-pasted-image-1784288074295.png?fm=auto&auto=compress%2Cformat" width="2940" height="1668" alt="AI Search results view showing synthesized answer alongside the Top 20 reference list" />
+If you'd rather write an exact search string, switch to **Keyword** search. See [Keyword search](#keyword-search) below.
 
 ## When to use it
 
@@ -27,27 +22,111 @@ Use AI Search when you want:
 
 - A grounded overview of what the literature says on a question
 - A strong starting set of papers without manual filtering
-- Related work anchored on a paper you already trust
-- A quick evidence check before committing to a fuller review
+- A quick evidence check before a fuller review
 
 Use a different tool when:
 
-| You want to                                                       | Use                                                 |
-| ----------------------------------------------------------------- | --------------------------------------------------- |
-| Search, then screen, extract, and draft in one continuous session | [Research Agent](/research-agent)                   |
-| Produce a formally written literature review document             | [Literature Review Agent](/literature-review-agent) |
-| Control every stage of a review yourself                          | [Deep Research Report](/deep-research-report)       |
-| Interrogate PDFs you already have                                 | [Chat with PDF](/chat-with-pdf)                     |
+| You want to | Use |
+| --- | --- |
+| Search, screen, extract, and draft in one session | [Research Agent](/research-agent) |
+| Get a cited literature review with a comparison table | [Literature Review](/literature-review-agent) |
+| Get a long, detailed report on a topic | [Deep Research Report](/deep-research-report) |
+| Ask questions about PDFs you already have | [Chat with PDF](/chat-with-pdf) |
 
-## Run your first search
+## Run a search
 
-**Before you start:** AI Search is available on every plan. The Free plan includes 20 searches per month. Plus and Pro include unlimited searches.
+<Steps>
+  <Step title="Open AI Search" icon="search" title-type="p">
 
-1. Open AI Search from your dashboard.
-2. Enter a research question, topic, paper title, or plain-language description of what you are trying to find out.
-3. Optionally, choose a source and apply filters. The full 200M+ database is selected by default.
-4. Review the synthesized answer, the top 20 papers, and the attached references.
-5. Open any reference to read the source paper, select a suggested related question, or ask your own follow-up in the same chat.
+  On your Dashboard or in **New Chat**, select the **Search** tab. You can also open **More tools** → **AI Search** in the sidebar.
 
-**Result:** You have a cited answer and a focused reading set of 20 papers, each traceable to its source.
+  </Step>
 
+  <Step title="Ask your question" icon="edit" title-type="p">
+
+  Make sure **AI Search** is selected in the **AI Search | Keyword** switch. Then type a question, topic, paper title, or plain-language description of what you want to find out.
+
+  </Step>
+
+  <Step title="Choose sources and filters (optional)" icon="sliders-horizontal" title-type="p">
+
+  All sources are on by default. Click the sources button to turn **Research papers**, **PubMed**, **arXiv**, or **Reference manager** on or off. At least one source must stay on.
+
+  When you search research papers, click **Filters** to narrow the results. See [Filters](#filters).
+
+  </Step>
+
+  <Step title="Read the answer" icon="file-text" title-type="p">
+
+  Send your question. The answer opens in a chat, with the papers behind it. Ask follow-up questions in the same chat, or pick a related question.
+
+  </Step>
+</Steps>
+
+### Ask good questions
+
+AI Search works best with clear, focused questions, such as:
+
+- Does regular physical exercise reduce the risk of chronic diseases?
+- Does gut microbiome diversity affect immune system function?
+- What are the pros and cons of immunotherapy in treating autoimmune diseases?
+
+## Work with the results
+
+- **Hover a citation** to see the paper's details. Click **Click to see supporting quotes** to see the sentences behind the claim.
+- **Open the papers list** to see every paper the answer cites, with its journal, year, and citation count.
+- **Save papers**: click **My References** under a paper to add it to your Reference Manager. To save several, select them and click **Add to My References**, or use **Save References** to save all of them to a folder.
+
+## Filters
+
+Filters narrow the papers searched. You can filter by:
+
+- **Open Access**: free to read, no paywall
+- **Has PDF**: full text available
+- **Publication year**: all, last 2 years, last 5 years, or a custom range
+- **Min citations**
+- **Journal quality**: journal quartile (Q1 to Q4), SNIP score, and SJR score
+- **Publication details**: language and paper type, such as article, review, or preprint
+- **Fields of study**
+
+Click **Apply filters** to use them, or **Reset filters** to clear them.
+
+<Callout kind="info">
+
+Once you set a SNIP or SJR score range, papers without a journal score are left out.
+
+</Callout>
+
+## Keyword search
+
+Keyword search finds papers that match an exact Boolean search string, like a PubMed search. Use it when you need a precise, repeatable search.
+
+1. On the **Search** tab, switch to **Keyword**.
+2. Type your search string. Type **/** to insert operators and fields, or click **Guide** for the full syntax.
+3. Optionally, choose sources (**Research papers**, **PubMed**, **arXiv**) and click **Filters**.
+4. Click **Search**.
+
+Example: `(adolescent* OR teenager*) AND "sleep deprivation"[ti] AND 2015:2024[dp]`
+
+| Write it as | Matches |
+| --- | --- |
+| `sleep AND memory` | Papers with both words |
+| `teenager OR adolescent` | Papers with either word |
+| `diabetes NOT gestational` | Papers with the first word and without the second |
+| `(teenager OR adolescent) AND sleep` | Groups terms |
+| `"sleep deprivation"` | The exact phrase |
+| `random*` | Word endings, such as randomized or randomly |
+| `sleep[ti]`, `sleep[ab]` | The word in the title or abstract |
+| `2015:2024[dp]` | A year or range of years |
+| `english[la]` | Papers in that language |
+
+Write AND, OR, and NOT in capitals. Operators are read left to right, so use brackets to group terms.
+
+In the results, sort by **Relevance**, **Newest**, or **Most cited**. Select papers to **Add to My References**, or click **Export** to download them as BibTeX, CSV, or Excel.
+
+## Related features
+
+<Columns cols={2}>
+  <Card title="Research Agent" href="/research-agent" icon="rocket" horizontal="false" />
+  <Card title="Reference Manager" href="/reference-manager" icon="folder" horizontal="false" />
+</Columns>

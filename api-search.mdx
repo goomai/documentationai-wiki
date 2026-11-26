@@ -5,160 +5,216 @@ description: "Paperguide Search API for finding research papers and filtering re
 
 ## Endpoint overview
 
-Search academic papers with keyword and semantic matching by sending a `GET` request to the search endpoint. Use query parameters to narrow results by source, field of study, year, and output format.
+Search academic papers with keyword and semantic matching. Add query parameters to filter by year, citations, open access, source, field of study, publication type, language, and journal quality.
 
 <Callout kind="info">
 
 Add your API key to the `x-api-key` header on every request.
 
 ```bash
-x-api-key: pg_api_example_9xmk7q2r
+x-api-key: pg_api_your_key_here
 ```
 
-Create API keys in **Settings > API Keys** in the Paperguide dashboard.
+Create API keys in **Settings > API Keys** in Paperguide.
 
 </Callout>
 
 ## Method and path
 
-Send requests to the Paperguide API base URL with the `/search` path.
-
 ```bash
 GET https://api.paperguide.ai/v1/search
 ```
 
-The endpoint returns JSON search results unless you request BibTeX output.
-
 ## Query parameters
-
-Use these query parameters to control the search request.
 
 <ParamField query="query" param-type="string" required="true">
 
-Search text used for keyword and semantic matching.
+Search text, 1 to 500 characters.
 
 </ParamField>
 
-<ParamField query="source" param-type="string" required="false">
+<ParamField query="year_min" param-type="integer" required="false">
 
-Filters results to a supported content source.
-
-</ParamField>
-
-<ParamField query="field_of_study" param-type="string" required="false">
-
-Filters results to a supported field of study.
+Earliest publication year to include.
 
 </ParamField>
 
-<ParamField query="year" param-type="integer" required="false">
+<ParamField query="year_max" param-type="integer" required="false">
 
-Filters results to a publication year.
+Latest publication year to include.
+
+</ParamField>
+
+<ParamField query="min_citations" param-type="integer" required="false">
+
+Minimum citation count.
+
+</ParamField>
+
+<ParamField query="open_access" param-type="boolean" required="false">
+
+Set `true` for open-access papers only, or `false` to exclude them.
+
+</ParamField>
+
+<ParamField query="has_pdf" param-type="boolean" required="false">
+
+Set `true` for papers with a PDF only, or `false` for papers without one.
+
+</ParamField>
+
+<ParamField query="language" param-type="string" required="false">
+
+Two-letter ISO 639-1 language code, such as `en` or `de`.
+
+</ParamField>
+
+<ParamField query="sources" param-type="string" required="false">
+
+Comma-separated list of sources: `openalex`, `semantic_scholar`, `pubmed`, `arxiv`. Omit it, or use `all`, to search every source.
+
+</ParamField>
+
+<ParamField query="fields" param-type="string" required="false">
+
+Comma-separated field-of-study IDs, such as `17,27`. See [Field-of-study IDs](#field-of-study-ids).
+
+</ParamField>
+
+<ParamField query="types" param-type="string" required="false">
+
+Comma-separated publication types: `article`, `preprint`, `book`, `review`, `report`, `dissertation`, `conference-paper`, `other`.
+
+</ParamField>
+
+<ParamField query="journal_quartile" param-type="integer" required="false" enum="1,2,3,4">
+
+Lowest SJR journal quartile to include. `1` returns Q1 journals only, `2` returns Q1 and Q2, and so on.
+
+</ParamField>
+
+<ParamField query="min_snip" param-type="number" required="false">
+
+Minimum journal SNIP score. Papers without a SNIP score are left out.
+
+</ParamField>
+
+<ParamField query="min_sjr" param-type="number" required="false">
+
+Minimum journal SJR score. Papers without an SJR score are left out.
+
+</ParamField>
+
+<ParamField query="issn" param-type="string" required="false">
+
+Linking ISSN (ISSN-L) of a journal, to return papers from that journal only.
+
+</ParamField>
+
+<ParamField query="page" param-type="integer" required="false">
+
+Page number, 1 to 20. Default is `1`.
 
 </ParamField>
 
 <ParamField query="limit" param-type="integer" required="false">
 
-Limits the number of results returned.
+Results per page, 1 to 50. Default is `10`.
 
 </ParamField>
 
-Enterprise plans support up to 50 papers per request. Contact us for Enterprise access and usage-based pricing.
+## Field-of-study IDs
 
-<ParamField query="format" param-type="string" required="false">
+Use these IDs in the `fields` parameter. Results show the matching names in `fields_of_study`.
 
-Controls the response format. Use `bibtex` to return BibTeX output.
-
-</ParamField>
-
-## Allowed source values
-
-Use one of these values for the `source` parameter.
-
-| Value | Description |
-| ----- | ----------- |
-| `arxiv` | Search papers from arXiv |
-| `pubmed` | Search papers from PubMed |
-| `semantic_scholar` | Search papers indexed through Semantic Scholar |
-
-## Allowed field-of-study values
-
-Use one of these values for the `field_of_study` parameter.
-
-| Value | Description |
-| ----- | ----------- |
-| `computer_science` | Computer science papers |
-| `medicine` | Medicine and clinical research |
-| `biology` | Biology and life sciences |
-| `physics` | Physics papers |
-| `chemistry` | Chemistry papers |
-| `mathematics` | Mathematics papers |
-| `engineering` | Engineering papers |
-| `economics` | Economics papers |
-| `psychology` | Psychology papers |
-| `environmental_science` | Environmental science papers |
+| ID | Field |
+| -- | ----- |
+| `11` | Agricultural and Biological Sciences |
+| `12` | Arts and Humanities |
+| `13` | Biochemistry, Genetics and Molecular Biology |
+| `14` | Business, Management and Accounting |
+| `15` | Chemical Engineering |
+| `16` | Chemistry |
+| `17` | Computer Science |
+| `18` | Decision Sciences |
+| `19` | Earth and Planetary Sciences |
+| `20` | Economics, Econometrics and Finance |
+| `21` | Energy |
+| `22` | Engineering |
+| `23` | Environmental Science |
+| `24` | Immunology and Microbiology |
+| `25` | Materials Science |
+| `26` | Mathematics |
+| `27` | Medicine |
+| `28` | Neuroscience |
+| `29` | Nursing |
+| `30` | Pharmacology, Toxicology and Pharmaceutics |
+| `31` | Physics and Astronomy |
+| `32` | Psychology |
+| `33` | Social Sciences |
+| `35` | Dentistry |
+| `36` | Health Professions |
 
 ## Request example
 
-This example searches for recent papers about retrieval-augmented generation in computer science.
+This example searches for computer science papers about retrieval-augmented generation published from 2020 to 2024, with at least 50 citations.
 
 <Request>
 ```bash
 curl --request GET \
-  --url "https://api.paperguide.ai/v1/search?query=retrieval%20augmented%20generation&field_of_study=computer_science&year=2024&limit=3" \
-  --header "x-api-key: pg_api_example_9xmk7q2r"
+  --url "https://api.paperguide.ai/v1/search?query=retrieval%20augmented%20generation&fields=17&year_min=2020&year_max=2024&min_citations=50&limit=10" \
+  --header "x-api-key: pg_api_your_key_here"
 ```
 </Request>
 
-The API returns matching papers as JSON. Each item includes core metadata such as title, authors, source, and abstract when available.
-
 ## Response example
+
+The example shows one result. A real response has up to `limit` results.
 
 <Response>
 ```json
 {
   "results": [
     {
-      "id": "649f2b7c1a2d4e8f9c0a1234",
+      "paper_id": "8b0f3c2e-5a1d-4f7b-9c6e-2d4a1b3c5e7f",
       "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
-      "authors": [
-        "Patrick Lewis",
-        "Ethan Perez",
-        "Aleksandara Piktus"
-      ],
-      "year": 2024,
-      "source": "semantic_scholar",
-      "field_of_study": "computer_science",
-      "abstract": "This paper studies retrieval-augmented generation methods for knowledge-intensive natural language processing tasks.",
-      "url": "https://api.paperguide.ai/papers/649f2b7c1a2d4e8f9c0a1234"
-    },
-    {
-      "id": "649f2b7c1a2d4e8f9c0a5678",
-      "title": "Efficient Indexing Strategies for Retrieval-Augmented Systems",
-      "authors": [
-        "Jane Chen",
-        "Marcus Hill"
-      ],
-      "year": 2024,
-      "source": "arxiv",
-      "field_of_study": "computer_science",
-      "abstract": "The paper evaluates indexing strategies that improve retrieval quality and latency in large-scale retrieval-augmented systems.",
-      "url": "https://api.paperguide.ai/papers/649f2b7c1a2d4e8f9c0a5678"
-    },
-    {
-      "id": "649f2b7c1a2d4e8f9c0a9012",
-      "title": "Grounding Language Models with External Research Corpora",
-      "authors": [
-        "Sara Ahmed",
-        "David Park"
-      ],
-      "year": 2024,
-      "source": "pubmed",
-      "field_of_study": "computer_science",
-      "abstract": "This work explores retrieval pipelines that ground language model outputs in external research corpora.",
-      "url": "https://api.paperguide.ai/papers/649f2b7c1a2d4e8f9c0a9012"
+      "abstract": "Large pre-trained language models store factual knowledge in their parameters. We explore models that combine this with retrieval from an external index.",
+      "tldr": null,
+      "authors": ["Patrick Lewis", "Ethan Perez", "Aleksandra Piktus"],
+      "citation_count": 4200,
+      "reference_count": 70,
+      "doi": "10.48550/arxiv.2005.11401",
+      "journal_name": "arXiv (Cornell University)",
+      "journal_id": "S4306400194",
+      "pages": null,
+      "volume": null,
+      "publication_year": 2020,
+      "publication_date": "2020-05-22",
+      "publication_type": "preprint",
+      "url": "https://arxiv.org/abs/2005.11401",
+      "is_open_access": true,
+      "open_access_url": "https://arxiv.org/abs/2005.11401",
+      "pdf_url": "https://arxiv.org/pdf/2005.11401",
+      "fields_of_study": ["Computer Science"],
+      "institution_names": ["University College London"],
+      "journal_metrics": {
+        "snip": null,
+        "sjr": null,
+        "sjr_quartile": null
+      },
+      "external_ids": {
+        "openalex": "W3027879771",
+        "semantic_scholar": "218869575",
+        "pubmed": null,
+        "arxiv": "2005.11401",
+        "pmcid": null
+      },
+      "bibtex": "@unpublished{lewis2020retrieval,\n  author = {Lewis, Patrick and Perez, Ethan and Piktus, Aleksandra},\n  title = {{Retrieval-Augmented Generation for Knowledge-Intensive {NLP} Tasks}},\n  year = {2020},\n  month = may,\n  doi = {10.48550/arxiv.2005.11401},\n  url = {https://arxiv.org/abs/2005.11401},\n}"
     }
-  ]
+  ],
+  "total": 10,
+  "page": 1,
+  "limit": 10
 }
 ```
 </Response>
@@ -167,13 +223,35 @@ The API returns matching papers as JSON. Each item includes core metadata such a
 
 <ResponseField name="results" field-type="array" required="true">
 
-List of matching papers.
+Matching papers for this page.
 
 </ResponseField>
 
-<ResponseField name="id" field-type="string" required="true">
+<ResponseField name="total" field-type="integer" required="true">
 
-Unique identifier for the paper.
+Results found up to and including this page. This isn't the overall number of matches. If `total` equals `page` times `limit`, the next page may have more.
+
+</ResponseField>
+
+<ResponseField name="page" field-type="integer" required="true">
+
+Page number returned.
+
+</ResponseField>
+
+<ResponseField name="limit" field-type="integer" required="true">
+
+Results per page.
+
+</ResponseField>
+
+### Paper fields
+
+Each item in `results` has these fields. `GET /papers/{id}` returns the same fields for one paper.
+
+<ResponseField name="paper_id" field-type="string" required="true">
+
+Paperguide ID for the paper. Use it with `GET /papers/{id}`.
 
 </ResponseField>
 
@@ -183,61 +261,154 @@ Paper title.
 
 </ResponseField>
 
-<ResponseField name="authors" field-type="array" required="true">
+<ResponseField name="abstract" field-type="string" required="false">
 
-List of author names.
+Abstract, or `null` when not available.
 
 </ResponseField>
 
-<ResponseField name="year" field-type="integer" required="false">
+<ResponseField name="tldr" field-type="string" required="false">
+
+One-sentence summary, or `null` when not available.
+
+</ResponseField>
+
+<ResponseField name="authors" field-type="array" required="true">
+
+Author names.
+
+</ResponseField>
+
+<ResponseField name="citation_count" field-type="integer" required="true">
+
+Number of times the paper has been cited.
+
+</ResponseField>
+
+<ResponseField name="reference_count" field-type="integer" required="true">
+
+Number of references the paper cites.
+
+</ResponseField>
+
+<ResponseField name="doi" field-type="string" required="false">
+
+DOI in lowercase, or `null`.
+
+</ResponseField>
+
+<ResponseField name="journal_name" field-type="string" required="false">
+
+Journal or venue name.
+
+</ResponseField>
+
+<ResponseField name="journal_id" field-type="string" required="false">
+
+OpenAlex ID of the journal or venue.
+
+</ResponseField>
+
+<ResponseField name="pages" field-type="string" required="false">
+
+Page range.
+
+</ResponseField>
+
+<ResponseField name="volume" field-type="string" required="false">
+
+Volume.
+
+</ResponseField>
+
+<ResponseField name="publication_year" field-type="integer" required="false">
 
 Publication year.
 
 </ResponseField>
 
-<ResponseField name="source" field-type="string" required="false">
+<ResponseField name="publication_date" field-type="string" required="false">
 
-Source where Paperguide found the paper.
-
-</ResponseField>
-
-<ResponseField name="field_of_study" field-type="string" required="false">
-
-Field of study assigned to the paper.
+Publication date, when known.
 
 </ResponseField>
 
-<ResponseField name="abstract" field-type="string" required="false">
+<ResponseField name="publication_type" field-type="string" required="false">
 
-Paper abstract when available.
+Publication type, such as `article` or `preprint`.
 
 </ResponseField>
 
 <ResponseField name="url" field-type="string" required="false">
 
-Paper URL.
+Landing page URL, or the DOI link when there is no landing page.
 
 </ResponseField>
 
-## BibTeX output notes
+<ResponseField name="is_open_access" field-type="boolean" required="true">
 
-Set `format=bibtex` to return BibTeX instead of JSON. Use this when you want to import citations directly into a reference manager or manuscript workflow.
+Whether the paper is open access.
 
-If you request BibTeX output, the response body is plain BibTeX text rather than a JSON object. Response fields described above do not apply to BibTeX responses.
+</ResponseField>
 
-## Search quality explanation
+<ResponseField name="open_access_url" field-type="string" required="false">
 
-The search endpoint uses keyword and semantic matching together. Keyword matching helps when you know exact terms, while semantic matching helps when relevant papers use different wording.
+Open-access URL, when available.
 
-Results depend on the quality and specificity of your `query` value. Short or broad queries usually return more varied results, while focused queries with a field of study or year filter usually return more precise matches.
+</ResponseField>
 
-## Documented error responses
+<ResponseField name="pdf_url" field-type="string" required="false">
 
-The API returns JSON errors when a request fails. These are the documented error responses for the search endpoint.
+PDF URL, when available.
+
+</ResponseField>
+
+<ResponseField name="fields_of_study" field-type="array" required="true">
+
+Field-of-study names, such as `Computer Science`.
+
+</ResponseField>
+
+<ResponseField name="institution_names" field-type="array" required="true">
+
+Author institutions.
+
+</ResponseField>
+
+<ResponseField name="journal_metrics" field-type="object" required="true">
+
+Journal quality scores: `snip`, `sjr`, and `sjr_quartile` (such as `Q1`). Each is `null` when not available.
+
+</ResponseField>
+
+<ResponseField name="external_ids" field-type="object" required="true">
+
+The paper's IDs in other databases: `openalex`, `semantic_scholar`, `pubmed`, `arxiv`, and `pmcid`. Each is `null` when not available.
+
+</ResponseField>
+
+<ResponseField name="bibtex" field-type="string" required="true">
+
+Ready-to-use BibTeX entry for the paper. It includes the abstract when one is available.
+
+</ResponseField>
+
+## Get BibTeX
+
+There is no separate BibTeX mode. Every result includes its BibTeX entry in the `bibtex` field. Join the `bibtex` values from your results to build a `.bib` file for a reference manager or manuscript.
+
+## Tips for better results
+
+- Search combines keyword and semantic matching. Exact terms help keyword matching, and relevant papers that use different wording still show up through semantic matching.
+- Focused queries return more precise results. Add filters such as `fields`, `year_min`, or `min_citations` to narrow a broad query.
+- To get more results, increase `limit` (up to 50) or request the next `page` (up to 20).
+
+## Error responses
 
 | Status | Meaning |
 | ------ | ------- |
-| `400` | Invalid request parameters |
-| `401` | Missing or invalid API key |
-| `429` | Rate limit or monthly quota exceeded |
-| `500` | Internal server error |
+| `400` | A parameter is missing or invalid, such as `limit` above 50. |
+| `401` | The API key is missing, invalid, or revoked. |
+| `403` | The key bills an organization you are no longer a member of. |
+| `429` | You hit the rate limit or used up your monthly quota. |
+| `500` | Something went wrong on our side. Try again later. |

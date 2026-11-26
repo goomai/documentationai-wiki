@@ -53,7 +53,7 @@ Every review moves through the same six stages. Each has its own page.
   </Step>
 
   <Step title="Papers" icon="files" title-type="p">
-    Collect the papers to review, using AI Search queries or your reference manager. Papers pool into a single set, duplicates are flagged, and you confirm the final collection. [Papers](/systematic-review/papers)
+    Collect the papers to review, using AI Search, keyword search, or your reference manager. Papers pool into a single set, duplicates are flagged, and you start screening when the set is ready. [Papers](/systematic-review/papers)
   </Step>
 
   <Step title="Title & Abstract Screening" icon="filter" title-type="p">
@@ -74,12 +74,12 @@ Every review moves through the same six stages. Each has its own page.
 </Steps>
 
 <Callout kind="info" collapsed="false" color="#3b82f6">
-  In an AI Review the stages are sequential. You cannot start screening before confirming your papers, and you cannot extract data before full text screening is confirmed. In a Dual Review, a paper moves to full text screening as soon as its abstract decision is final, so the two screening stages can run at the same time. Data extraction opens once full text screening is complete.
+  In an AI Review the stages are sequential. Screening starts when you select **Start AI Screening** on Papers, and you cannot extract data before full text screening is confirmed. In a Dual Review, a paper moves to full text screening as soon as its abstract decision is final, so the two screening stages can run at the same time. Data extraction opens once full text screening is complete.
 </Callout>
 
 ## Creating a systematic review
 
-Creating a review takes three steps, and the same form is used for both methods.
+Creating a review takes four steps, and the same form is used for both methods.
 
 <Video uid="39086ebb-df31-4e16-a02b-9d5cc642e895" src="https://www.youtube.com/embed/8rcnjKNyuk0" render-type="iframe" width="560" height="315" controls="true" allow-full-screen="true" />
 
@@ -95,13 +95,28 @@ Enter it as free text. For example:
 
 Apply the ones that fit and ignore the ones that do not. You know your field better than the model does.
 
-### Step 2: Choose your screening method
+**Add context if you have it.** Under **Additional Context**, which is optional, add anything the question does not say: PICO details, screening preferences, extraction fields you need, or instructions for the final report. Paperguide AI uses it at each stage.
+
+### Step 2: Choose the review type
+
+Under **Review type**, choose the kind of review you are running. This is required. It sets the report format and how the protocol is drafted.
+
+| Review type                        | What it produces                                                                            |
+| ---------------------------------- | ------------------------------------------------------------------------------------------- |
+| **Systematic review**              | A narrative synthesis of the included studies, organised by outcome                         |
+| **Rapid review**                   | A shorter report on a focused question, with fewer screening criteria                       |
+| **Scoping review**                 | A map of what evidence exists on a topic, charting sources by category instead of judging effects |
+| **Qualitative evidence synthesis** | Findings from qualitative studies, brought together into themes                             |
+
+You can change the review type later in **Settings & Roles**. The change applies to anything generated from then on. Existing criteria, fields and reports stay as they are.
+
+### Step 3: Choose your screening method
 
 Under **Screening Method**, choose **AI Review** or **Dual Review**. [Two ways to run a review](#two-ways-to-run-a-review) above explains the difference. If you choose Dual Review on a plan below Evidence, Paperguide tells you when you select Start Review and offers an upgrade.
 
-### Step 3: Choose which screening stages to run
+### Step 4: Choose which screening stages to run
 
-Two customization options decide the shape of your review. Each one turns a screening stage on or off. They apply to both screening methods.
+Two customization options decide the shape of your review. Each one turns a screening stage on or off. They apply to both screening methods. At least one screening stage must stay on.
 
 | Option                         | What happens when you disable it                                                                                                                   |
 | ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -131,6 +146,8 @@ The report contains:
 - **The methodology.** A record of how the review was conducted: your research question, eligibility criteria, extraction fields, and the counts at every stage.
 - **The PRISMA diagram.** Explained below.
 
+Reports cover up to 200 included papers.
+
 Synthesis draws only on data that survived screening and was confirmed during extraction. Nothing enters the report that a person has not verified.
 
 Read the report as a draft to work from, not a finished manuscript. It documents what your review found and how it got there. Interpretation, discussion, and the argument you build on top of the evidence are still yours to write.
@@ -143,7 +160,7 @@ Paperguide builds the diagram automatically from your review. Every number in it
 
 | Stage in the diagram | Where the number comes from                                                                    |
 | -------------------- | ---------------------------------------------------------------------------------------------- |
-| **Identification**   | Papers collected from AI Search queries and your reference manager, plus duplicates removed    |
+| **Identification**   | Papers collected from AI Search, keyword search, and your reference manager, plus duplicates removed |
 | **Screening**        | Abstracts screened, and the number excluded with the criterion each one failed                 |
 | **Eligibility**      | Full texts assessed, and the number excluded, including papers not retrieved for lack of a PDF |
 | **Included**         | Papers that reached data extraction                                                            |
@@ -180,15 +197,15 @@ Exporting at each stage is useful for two things: sharing progress with collabor
 
 A few things worth knowing before you commit to a review.
 
-**Set up your protocol first.** Criteria and extraction fields should be settled before screening begins. Editing the protocol mid-review overrides existing data and forces you to restart each stage in order. It is possible, but it is not something you want to discover halfway through.
+**Set up your protocol first.** Criteria and extraction fields should be settled before screening begins. Criteria are locked while screening runs. Editing them after a stage has run clears that stage's results, and the stage and every stage after it have to run again. It is possible, but it is not something you want to discover halfway through.
 
-**Papers need PDFs for full text screening.** Any paper without an attached PDF is held out of that stage. You can add PDFs later, or use the Paperguide browser extension to fetch them, including through your institution's proxy.
+**Papers need PDFs for full text screening.** Paperguide fetches open-access PDFs automatically. Any paper it cannot get a PDF for waits under **PDF Missing**. You can upload PDFs, or use the Paperguide browser extension to fetch them, including through your institution's proxy.
 
 **Order your criteria deliberately.** In an AI Review, when a paper fails screening, the **first** criterion it fails, in the order you listed them, becomes its exclusion reason. Put your broadest, most decisive criteria first. In a Dual Review the reviewer picks the reason, so write criteria two people would apply the same way.
 
 **Write instructions, not labels.** AI screens and extracts based on what your criteria and fields tell it to look for. "Study design" is a label. "Identify the study design and include only randomized controlled trials with a parallel-group design" is an instruction.
 
-**Assign your people before each stage starts.** In an AI Review, verification is what advances the review, and a stage with no assigned verifier will sit and wait once the AI run finishes. In a Dual Review, screening cannot start until both reviewers for the stage are assigned.
+**Assign your people before each stage starts.** In an AI Review, verification is what advances the review. Each verifier is set to **Anyone** by default, so any Full Access or Review member can verify. Assign a named verifier when you want one person accountable for a stage. In a Dual Review, screening cannot start until both reviewers for the stage are assigned.
 
 ---
 

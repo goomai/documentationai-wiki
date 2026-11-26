@@ -1,8 +1,6 @@
 <Steps>
   <Step title="Click Fetch all" icon="play" title-type="p">
-    The **Find PDFs with Chrome extension** dialog opens on the **Pending** tab, which lists the papers without a PDF. The search doesn't start until you click **Fetch all**. To fetch just one paper, click **Fetch PDF** on its row.
-
-    [image:find-pdfs-dialog-pending]
+    The **Find missing PDFs** dialog opens on the **Pending** tab, which lists the papers without a PDF. The search doesn't start until you click **Fetch all**. To fetch just one paper, click **Fetch PDF** on its row.
   </Step>
 
   <Step title="Let it run" icon="loader" title-type="p">
@@ -20,7 +18,7 @@
     | ------------------- | ------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
     | **Pending**         | Not searched yet.                                                                                | Click **Fetch all**, or **Fetch PDF** on a row.                                                                                                                                                                                                                                                |
     | **Retrieved**       | The PDF was found and attached.                                                                  | Nothing. If a row says **Check this file**, the PDF may be a supplement rather than the paper, so open the paper and check it.                                                                                                                                                                 |
-    | **Action required** | A site wants a quick check, such as a CAPTCHA, or a library sign-in before it gives you the PDF. | Under **Sites to unlock**, click **Open page** or **Sign in through library** and complete the check. Paperguide collects that site's PDFs and closes the tab. Click **Not now** to skip a site. Its papers move to **Open these yourself**, where you open each paper's page and click its PDF. |
+    | **Needs a quick visit** | A site wants a quick check, such as a CAPTCHA, or a library sign-in before it gives you the PDF. | Under **Sites to unlock**, click **Verify once** (or **Go to tab** if the site's tab is already open) or **Sign in through library**, and complete the check. Paperguide collects that site's PDFs and closes the tab. Click **Not now** to skip a site. Its papers move to **Open these yourself**, where you open each paper's page and click its PDF. |
     | **Behind paywall**  | The paper isn't open access.                                                                     | [Set up library access](/chrome-extension/library-access) and fetch again. If you already have access, click **Open publisher page** and open the PDF there, and Paperguide picks it up. You can also **Attach PDF** or **Search Google** for another copy.                                    |
     | **Unavailable**     | No full text can be found, for example a conference abstract or a paper with no DOI.             | Attach a copy yourself if you have one.                                                                                                                                                                                                                                                        |
   </Step>

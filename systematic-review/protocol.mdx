@@ -32,7 +32,7 @@ Set up the protocol before you start screening, ideally while you create the sys
 
 ## AI-generated protocol
 
-When you open the Protocol stage for the first time, the system generates the protocol from your research question and additional context. It creates separate outputs for each enabled stage, so you only see **Title & Abstract Screeing** or **Full-text Screening** criteria if those stages are part of your review.
+When you open the Protocol stage for the first time, the system generates the protocol from your research question and additional context. It creates separate outputs for each enabled stage, so you only see **Title & Abstract Screening** or **Full-text Screening** criteria if those stages are part of your review.
 
 The generated protocol includes:
 
@@ -123,27 +123,27 @@ Every extraction field contains the following parts:
 - **Title:** A short field name such as Study design, Sample size, or Setting.
 - **Instructions:** Guidance on what to extract, which details to capture, and how to present the answer.
 - **Output type:** Controls the response format the AI must return for the field.&#x20;
-  - Allowed values: **Answer,** **Yes/Maybe/No**, or **Specified options**
+  - Allowed values: **Answer**, **Yes/Maybe/No**, or **Specified**
 
 ### Output types
 
 Use the output type that best matches the data you need. More structure usually improves consistency, but only if the options map cleanly to the evidence in the paper.
 
 <Tabs>
-  <Tab title="answer" icon="edit">
-    Use `answer` for open-ended values such as sample size, country, or intervention description.
+  <Tab title="Answer" icon="edit">
+    Use **Answer** for open-ended values such as sample size, country, or intervention description.
 
     This type works best when the paper may phrase the answer in many valid ways or when you need a direct extracted value.
   </Tab>
 
-  <Tab title="yes_maybe_no" icon="help-circle">
-    Use `yes_maybe_no` when the field represents a categorical judgment rather than a free-text fact.
+  <Tab title="Yes/Maybe/No" icon="help-circle">
+    Use **Yes/Maybe/No** when the field represents a categorical judgment rather than a free-text fact.
 
     This type is useful when the paper may support a clear yes, a clear no, or an uncertain answer.
   </Tab>
 
-  <Tab title="specified" icon="check-circle">
-    Use `specified` when the answer should come from a fixed list you define.
+  <Tab title="Specified" icon="check-circle">
+    Use **Specified** when the answer should come from a fixed list you define.
 
     Add option definitions if two labels could be confused. Better option definitions usually produce cleaner extraction results.
   </Tab>
@@ -173,11 +173,13 @@ Add these where they apply:
 
 If a field asks for a judgment, define what counts as evidence. If a field asks for a value, specify the format you want returned.
 
-For **specified** fields, keep the option list complete and mutually distinct. Overlapping options make extraction less reliable and harder to interpret later.
+For **Specified** fields, keep the option list complete and mutually distinct. Overlapping options make extraction less reliable and harder to interpret later.
 
 ## Editing the protocol
 
-You can edit the protocol at any time, but the impact depends on whether the affected stage has already been completed.
+You can edit the protocol at any time, except while a run is in progress. Screening criteria are locked while screening runs, and extraction fields are locked while extraction runs. The criteria show **Locked** until the run finishes.
+
+The impact of an edit depends on whether the affected stage has already been completed.
 
 Editing protocol data **before** a stage starts has no effect on that stage — the stage simply uses the updated protocol when it runs.
 
@@ -191,9 +193,13 @@ Editing protocol data **after** a stage is completed requires that stage to be r
 
 ### Editing criteria in a Dual Review
 
-In a dual review the screening decisions were made by people, against the criteria as they stood at the time. When you save a change to the criteria of a stage that is underway, Paperguide asks how to treat those decisions:
+In a dual review the screening decisions were made by people, against the criteria as they stood at the time. When you save a change to the criteria of a stage where reviewers have already decided papers, Paperguide asks **Update the criteria?** and shows what changed and how many decisions and papers are affected. Choose one:
 
-- **Apply changes and reset the screening decisions.** Every decision in the stage is cleared and both reviewers screen everything again.
-- **Apply changes and reset only affected decisions.** Only the decisions the change actually touches are cleared. Adding a criterion resets Include and Maybe decisions, since they never checked the new rule. Deleting or editing a criterion resets the decisions that depended on it.
+- **Reset only the decisions these changes affect.** The default. Only the decisions the change actually touches are cleared.
+- **Reset every decision in this stage.** Every decision in the stage is cleared and both reviewers screen everything again.
+
+Then select **Reset and save**.
+
+With the first choice, adding a criterion resets Include and Maybe decisions, since they never checked the new rule. Deleting or editing a criterion resets the decisions that depended on it.
 
 Reset papers return to both reviewers' queues. Anything that followed from a reset decision, a conflict resolution, later-stage work on that paper, or a generated report, is cleared with it. [How Dual Review works](/systematic-review/dual-review/how-it-works#editing-the-protocol-during-screening) has the full table.

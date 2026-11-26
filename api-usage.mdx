@@ -5,14 +5,14 @@ description: "Paperguide Usage API for checking current API usage, remaining quo
 
 ## Endpoint overview
 
-Check your current API usage for the billing period, including your quota and per-minute rate.
+Check the plan, monthly quota, calls used this month, and per-minute rate for the quota your key draws from. For a personal key, that's your personal quota. For an organization key, it's the organization's shared quota.
 
 <Callout kind="info">
 
-Add your API key to the `x-api-key` header on every request. Create API keys in **Settings > API Keys** in the Paperguide dashboard.
+Add your API key to the `x-api-key` header on every request. Create API keys in **Settings > API Keys** in Paperguide.
 
 ```bash
-x-api-key: pg_api_example_9xmk7q2r
+x-api-key: pg_api_your_key_here
 ```
 
 </Callout>
@@ -20,21 +20,16 @@ x-api-key: pg_api_example_9xmk7q2r
 ## Method and path
 
 ```bash
-GET /v1/usage
-```
-
-Send requests to the Paperguide API base URL:
-
-```bash
-https://api.paperguide.ai/v1
+GET https://api.paperguide.ai/v1/usage
 ```
 
 ## Request example
 
 <Request>
 ```bash
-curl -X GET "https://api.paperguide.ai/v1/usage" \
-  -H "x-api-key: pg_api_example_9xmk7q2r"
+curl --request GET \
+  --url "https://api.paperguide.ai/v1/usage" \
+  --header "x-api-key: pg_api_your_key_here"
 ```
 </Request>
 
@@ -43,46 +38,71 @@ curl -X GET "https://api.paperguide.ai/v1/usage" \
 <Response>
 ```json
 {
-  "monthly_used": 4,
-  "monthly_quota": 10,
-  "rate_limit_per_minute": 5
+  "tier": "pro",
+  "organization_id": null,
+  "monthly_quota": 500,
+  "monthly_used": 42,
+  "rate_per_minute": 30
 }
 ```
 </Response>
 
 ## Response fields
 
-<ResponseField name="monthly_used" field-type="integer" required="true">
-Number of API calls your account has used in the current billing period.
+<ResponseField name="tier" field-type="string" required="true" enum="free,plus,pro,max,enterprise">
+
+Plan that sets the quota. `max` is the Evidence plan.
+
+</ResponseField>
+
+<ResponseField name="organization_id" field-type="string" required="false">
+
+Organization whose shared quota this key uses, or `null` for a personal key.
+
 </ResponseField>
 
 <ResponseField name="monthly_quota" field-type="integer" required="true">
-Monthly API call quota for your plan.
+
+Calls allowed this calendar month. `-1` means unlimited.
+
 </ResponseField>
 
-<ResponseField name="rate_limit_per_minute" field-type="integer" required="true">
-Maximum number of requests your plan allows per minute.
+<ResponseField name="monthly_used" field-type="integer" required="true">
+
+Successful calls made this calendar month, across every key that shares this quota.
+
 </ResponseField>
 
-## What `monthly_quota = -1` means
+<ResponseField name="rate_per_minute" field-type="integer" required="true">
 
-A `monthly_quota` value of `-1` means your plan does not have a monthly quota limit.
+Requests allowed per minute, shared across all your keys. This is `30` on every plan.
 
-For Enterprise, usage is billed based on how many API calls you make instead of a fixed monthly quota. Contact us for Enterprise access. Enterprise billing is `$0.01` per API call.
+</ResponseField>
 
-## How usage relates to rate limits and quotas
+## Monthly quotas by plan
 
-Your plan sets two limits: a monthly quota and a per-minute request limit. If you go over either limit, the API returns `429 Too Many Requests`.
+| Plan | `tier` | `monthly_quota` |
+| ---- | ------ | --------------- |
+| Free | `free` | `10` |
+| Plus | `plus` | `100` |
+| Pro | `pro` | `500` |
+| Evidence | `max` | `1500` |
+| Enterprise | `enterprise` | `-1` (unlimited). Contact us for access. |
 
-For Enterprise, usage reflects pay-per-call billing instead of a fixed monthly quota. Enterprise also supports up to 50 papers per request.
+For an organization key, `monthly_quota` is the plan's per-seat quota multiplied by the number of seats, shared by all members.
+
+## How usage is counted
+
+- Only successful calls to `/search` and `/papers/{id}` count toward `monthly_used`. Errors and calls to `/usage` don't.
+- Usage resets at the start of each calendar month.
+- Every request with a valid key counts toward the 30-per-minute rate limit, including calls to `/usage`.
+- Once your monthly quota is used up, every endpoint returns `429 Monthly quota exceeded`, including `/usage`. The error includes `used`, `quota`, and `tier`, so you can still see where you stand.
 
 ## Error responses
 
-The API returns JSON errors when a request fails.
-
 | Status | Meaning |
 | ------ | ------- |
-| `400`  | Invalid request parameters |
-| `401`  | Missing or invalid API key |
-| `429`  | Rate limit or monthly quota exceeded |
-| `500`  | Internal server error |
+| `401` | The API key is missing, invalid, or revoked. |
+| `403` | The key bills an organization you are no longer a member of. Revoke it and create a new key. |
+| `429` | You hit the rate limit, used up your monthly quota, or your organization has no active subscription funding API calls. |
+| `500` | Something went wrong on our side. Try again later. |

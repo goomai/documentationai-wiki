@@ -8,9 +8,9 @@ description: >-
 
 ## What is the Papers page?
 
-Papers is where you build the set of studies your systematic review will run on. Everything that reaches screening, extraction, and your final report starts here. You collect papers from as many searches and sources as you need, review what you have gathered, remove duplicates and anything irrelevant, then confirm the final set.
+Papers is where you build the set of studies your systematic review will run on. Everything that reaches screening, extraction, and your final report starts here. You collect papers from as many searches and sources as you need, review what you have gathered, remove duplicates and anything irrelevant, then start screening.
 
-Confirming is what starts screening. Until you confirm, nothing is locked and you can keep collecting.
+In an AI Review, **Start AI Screening** is what starts screening. Until then, you can keep collecting and nothing has run.
 
 <Callout kind="info" collapsed="false">
   Papers is the initial stage in the systematic review workflow. Decisions you make here affect the papers available for later screening and reporting stages.
@@ -18,7 +18,7 @@ Confirming is what starts screening. Until you confirm, nothing is locked and yo
 
 ## Importing papers
 
-There are two ways to add papers, available from the import tabs at the top of the page. Most reviews use both.
+There are three ways to add papers: **AI Search**, **Keyword search**, and **Reference manager**. Select **Add Papers** to choose one. Most reviews use more than one. Full Access and Review members can add papers.
 
 ### AI Search
 
@@ -36,6 +36,17 @@ Apply filters to narrow what a query returns, including publication year, citati
 
 This makes your filters worth setting before you run a query rather than after. A broad, unfiltered query pools everything it finds, and cleaning that up afterwards means removing papers or deleting the whole tab.
 
+### Keyword search
+
+Search with exact words and Boolean operators, as in PubMed. Use this when your protocol specifies a search string.
+
+- **AND**, **OR**, and **NOT** combine terms. Words with no operator between them are treated as AND.
+- **Brackets** group terms, for example `(teenager OR adolescent) AND sleep`.
+- **Quotes** match an exact phrase, and `*` matches word endings, for example `adolescent*`.
+- **Field tags** limit a term to the title `[ti]`, abstract `[ab]`, title or abstract `[tiab]`, year `[dp]`, or language `[la]`.
+
+Type `/` in the search box for a menu of operators and fields, or open **Guide** for the full syntax. The best matches by relevance are added to the review, and each keyword search gets its own tab in the paper list.
+
 ### Reference manager
 
 Add papers you have already collected. Your Paperguide reference manager imports from PubMed, Mendeley, PDF uploads, and BibTeX or RIS files, and you can select from that library directly into the review.
@@ -48,8 +59,8 @@ The paper list shows every paper currently in your pool, organized into tabs by 
 
 | Tab                       | What it holds                                                                                                                                                                    |
 | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **All Papers**            | Every paper in your review. AI Search results arrive here automatically. Papers from your reference manager arrive when you select them. This is the set that goes to screening. |
-| **Per-search query tabs** | One tab per AI Search query, showing what that specific search returned.                                                                                                         |
+| **All Papers**            | Every paper in your review. Search results arrive here automatically. Papers from your reference manager arrive when you select them. This is the set that goes to screening.     |
+| **Per-search tabs**       | One tab per AI Search query or keyword search, showing what that specific search returned.                                                                                       |
 | **Reference manager tab** | The papers you selected from your library.                                                                                                                                       |
 
 Within any tab you can:
@@ -65,6 +76,8 @@ The same study often appears in more than one database, so a pooled set almost a
 
 Paperguide detects them automatically across the **entire pooled set**, not just within each import, using DOI matching, title similarity, and metadata comparison.
 
+Select **Review duplicates** to work through them. Only Full Access members can resolve duplicates.
+
 - **Review and resolve.** Browse the flagged duplicates and decide which to merge.
 - **Mark as not duplicate.** If two records are genuinely different papers, keep them separate.
 
@@ -74,21 +87,21 @@ Work through duplicates before you confirm. Removing them afterwards means rescr
 
 ## Removing papers
 
-Remove papers that are clearly irrelevant or were added by mistake.
+Remove papers that are clearly irrelevant or were added by mistake. Only Full Access members can remove papers.
 
 **Individual papers.** Remove them from any tab.
 
-**A whole search tab.** Deleting an AI Search tab removes every paper that query contributed, including from All Papers. Useful when a query turned out to be off-target and you want its results gone in one action.
+**A whole search tab.** Deleting a search tab removes every paper that search contributed, including from All Papers. Useful when a query turned out to be off-target and you want its results gone in one action.
 
 Removing is safest before screening starts. If you remove papers after screening has begun, their screening results are discarded and your review counts update to reflect the current pool.
 
 ## Confirming your papers
 
-When your collection is complete, select **Start Screening**.
+When your collection is complete, a Full Access member selects **Start AI Screening** at the top of the page. A summary shows how many papers will be screened and how many criteria are set. Select **Start Screening** to start AI screening on the first stage. Criteria are locked while screening is in progress.
 
-This sets the pooled papers in All Papers as the papers for your systematic review and starts AI screening on the first stage.
+Once screening has started, the button at the top of Papers takes you to the screening stage instead.
 
-In a Dual Review there is no confirm step. Every paper in the pool is in both reviewers' queues as soon as the reviewers are assigned. The button here is **Start AI Evidence Run**, or **Open Screening** if AI Evidence is off for the stage.
+In a Dual Review there is no confirm step. Every paper in the pool is in both reviewers' queues as soon as the reviewers are assigned. If AI Evidence is on for the first stage, **Start AI Screening** opens a summary where you select **Run AI Evidence** to add reasoning and citations to each paper. Reviewers still make every decision. If AI Evidence is off, the button is named after the stage, such as **Title & Abstract Screening**, and opens it.
 
 Before you confirm, check that:
 
@@ -97,14 +110,14 @@ Before you confirm, check that:
 - Obviously irrelevant papers have been removed.
 
 <Callout kind="info" collapsed="false" color="#3b82f6">
-  Confirming starts screening, which means your screening criteria need to be defined in the [Protocol](/systematic-review/protocol)
+  Screening needs your screening criteria to be defined in the [Protocol](/systematic-review/protocol) first.
 </Callout>
 
 ## Adding papers after screening has started
 
 You can return to Papers at any point in the review and add more. Papers already screened are not affected.
 
-Once new papers are added, **Start screening for new papers** becomes available. Only the new papers are screened. A verifier then reviews those results the same way as the original set, at each stage the new papers pass through.
+Once new papers are added, a banner on the screening page shows how many are waiting. Select **Screen new papers**, then **Screen N new papers** to confirm. Only the new papers are screened. A verifier then reviews those results the same way as the original set, at each stage the new papers pass through.
 
 Adding papers late is normal in a systematic review. A peer reviewer suggests a study your search missed, or a new trial publishes while you are still screening. What it costs you is another verification pass at every stage those papers travel through, which is why it is worth getting your searches right before you confirm.
 

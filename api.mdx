@@ -1,10 +1,10 @@
 ---
 title: API Overview
-description: Paperguide API overview for searching research papers and checking usage limits in your app or workflow.
+description: Paperguide API overview for searching research papers, looking up a paper, and checking usage limits in your app or workflow.
 ---
 ## Overview
 
-Use the Paperguide API to search academic papers and check how many API calls your account has used.
+Use the Paperguide API to search academic papers, get the details of one paper, and check how many API calls you have left this month.
 
 ## Base URL
 
@@ -16,52 +16,96 @@ https://api.paperguide.ai/v1
 
 ## Authentication
 
-Add your API key to the `x-api-key` header on every request. Create API keys in **Settings > API Keys** in the Paperguide dashboard.
-
-<Callout kind="info" collapsed="false">
-
-Keep API keys on your server and out of client-side code.
+Add your API key to the `x-api-key` header on every request.
 
 ```bash
 x-api-key: pg_api_your_key_here
 ```
 
+<Callout kind="info" collapsed="false">
+
+Keep API keys on your server and out of client-side code.
+
 </Callout>
+
+### Create an API key
+
+1. In Paperguide, open **Settings** and select **API Keys**.
+2. Click **Create Key**, enter a key name (for example, My App), and click **Create**.
+3. Copy the key right away. You won't be able to see it again.
+
+To stop a key from working, click **Revoke** next to it. Any app using that key stops working, and this can't be undone.
+
+### Personal and organization keys
+
+Keys you create under your personal account use your personal monthly quota.
+
+If you belong to an organization, switch **Settings** to that organization and open **API Keys** there. Keys created there draw from the organization's shared quota, which all members use together. The shared quota is the plan's monthly calls per seat, multiplied by the number of seats.
+
+If you leave the organization, the organization keys you created stop working and return `403 Organization membership required`. Revoke them and create a new key.
 
 ## Available endpoints
 
-The API currently includes two endpoints:
+| Endpoint | What it does |
+| -------- | ------------ |
+| `GET /search` | Search academic papers with keyword and semantic matching, plus filters. |
+| `GET /papers/{id}` | Get one paper by its Paperguide `paper_id`, DOI, or PubMed ID. |
+| `GET /usage` | Check your plan, monthly quota, calls used this month, and per-minute rate. |
 
-- **`GET /search`** — Search across academic papers using keyword and semantic matching.
-- **`GET /usage`** — Check your current usage for the billing period, including quota and per-minute rate.
+## Look up a paper
+
+Send a `GET` request to `/papers/{id}`. The `id` can be:
+
+- A Paperguide `paper_id`, from search results
+- A DOI, such as `10.1038/s41586-020-2649-2` or `https://doi.org/10.1038/s41586-020-2649-2`
+- A PubMed ID, such as `32015507`, `pmid:32015507`, or `pubmed:32015507`
+
+URL-encode the value when it contains slashes, such as a DOI.
+
+<Request>
+```bash
+curl --request GET \
+  --url "https://api.paperguide.ai/v1/papers/10.48550%2Farxiv.2005.11401" \
+  --header "x-api-key: pg_api_your_key_here"
+```
+</Request>
+
+The response is a single paper with the same fields as a search result, including `bibtex`. See [Search Papers](/api-search) for the full field list. If no paper matches, the API returns `404 Paper not found`.
 
 ## Rate limits and quotas
 
-Your plan sets both your monthly API quota and your per-minute request limit. If you go over either limit, the API returns `429 Too Many Requests`.
+Every plan can send up to **30 requests per minute**. All your keys share this limit, so adding keys doesn't raise it.
 
-| Plan | Monthly calls | Rate limit |
-| ---- | ------------- | ---------- |
-| Free | 10            | 5 req/min  |
-| Plus | 100           | 15 req/min |
-| Pro  | 500           | 30 req/min |
-| Enterprise | Usage-based | Contact us |
+Your plan sets your monthly quota:
 
-Enterprise pricing is usage-based. Contact us for Enterprise access. Enterprise usage is billed at `$0.01` per API call and supports up to 50 papers per request.
+| Plan | Monthly calls |
+| ---- | ------------- |
+| Free | 10 |
+| Plus | 100 |
+| Pro | 500 |
+| Evidence | 1,500 |
+| Enterprise | Unlimited. Contact us for access. |
+
+- Only successful calls to `/search` and `/papers/{id}` count toward your quota. Errors and calls to `/usage` don't.
+- The quota resets at the start of each calendar month.
+- If you go over either limit, the API returns `429`. Rate limit errors include `retry_after_seconds`, so you know when to try again.
 
 ## Common errors
 
-The API returns JSON errors when a request fails.
+The API returns JSON errors with an `error` title and a `message`.
 
 | Status | Meaning |
 | ------ | ------- |
-| `400`  | Invalid request parameters |
-| `401`  | Missing or invalid API key |
-| `429`  | Rate limit or monthly quota exceeded |
-| `500`  | Internal server error |
+| `400` | A parameter is missing or invalid, such as `limit` above 50. |
+| `401` | The API key is missing, invalid, or revoked. |
+| `403` | The key bills an organization you are no longer a member of. |
+| `404` | No paper matches the id (paper lookup only). |
+| `429` | You hit the rate limit, used up your monthly quota, or your organization has no active subscription funding API calls. |
+| `500` | Something went wrong on our side. Try again later. |
 
 ## Next steps
 
-Open the endpoint pages for request details, parameters, and example responses.
+Open the endpoint pages for parameters, example responses, and response fields.
 
 <Columns cols={2}>
   <Card
